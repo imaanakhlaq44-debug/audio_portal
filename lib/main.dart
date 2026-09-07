@@ -6,6 +6,7 @@ import 'theme/app_theme.dart';
 import 'screens/home_screen.dart';
 import 'screens/library_screen.dart';
 import 'screens/parents_lock_screen.dart';
+import 'screens/splash_screen.dart';
 import 'widgets/mini_player.dart';
 
 void main() async {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         title: 'Imaan & Akhlaq',
         debugShowCheckedModeBanner: false,
         theme: AppTheme.lightTheme,
-        home: const MainScreen(),
+        home: const SplashScreen(),
       ),
     );
   }
