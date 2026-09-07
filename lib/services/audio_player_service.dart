@@ -9,6 +9,23 @@ import 'storage_service.dart';
 class AudioPlayerService extends ChangeNotifier {
   AudioPlayerService._internal() {
     _player.onPositionChanged.listen((pos) {
+      // Guard against the web audio backend momentarily reporting a stale
+      // position (often 0 or near-0) right after a seek() call, which was
+      // causing skip-forward/backward and the progress slider to visually
+      // "snap back to 00:00" before catching up. While a seek is pending,
+      // ignore any incoming position that is clearly behind our target —
+      // once the real position catches up (or the grace window expires)
+      // we resume trusting the stream normally.
+      if (_pendingSeekTarget != null) {
+        final target = _pendingSeekTarget!;
+        final elapsed = DateTime.now().difference(_pendingSeekAt!);
+        final caughtUp = (pos - target).abs() < const Duration(milliseconds: 400);
+        if (!caughtUp && elapsed < const Duration(milliseconds: 900)) {
+          return; // ignore stale pre-seek position update
+        }
+        _pendingSeekTarget = null;
+        _pendingSeekAt = null;
+      }
       _position = pos;
       notifyListeners();
     });
@@ -36,6 +53,8 @@ class AudioPlayerService extends ChangeNotifier {
   Duration _position = Duration.zero;
   Duration _duration = Duration.zero;
   Duration? _sleepTimerDuration;
+  Duration? _pendingSeekTarget;
+  DateTime? _pendingSeekAt;
 
   Story? get currentStory => _currentStory;
   bool get isPlaying => _isPlaying;
@@ -74,9 +93,15 @@ class AudioPlayerService extends ChangeNotifier {
   }
 
   Future<void> seek(Duration position) async {
-    await _player.seek(position);
+    // Optimistically update immediately so the UI (slider/time label)
+    // reflects the new position without waiting for the platform stream,
+    // and mark a pending-seek window so we can ignore any stale,
+    // momentarily-reset position events the web audio backend may emit.
+    _pendingSeekTarget = position;
+    _pendingSeekAt = DateTime.now();
     _position = position;
     notifyListeners();
+    await _player.seek(position);
   }
 
   Future<void> skipForward([Duration by = const Duration(seconds: 10)]) async {
