@@ -1,4 +1,4 @@
-package com.choretracker.chore_tracker
+package com.imaanakhlaq.stories
 
 import io.flutter.embedding.android.FlutterActivity
 

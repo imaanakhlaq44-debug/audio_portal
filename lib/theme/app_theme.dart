@@ -1,183 +1,130 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
+/// Imaan & Akhlaq brand design system
+/// Colors sourced directly from the official Brand Guidelines.
 class AppTheme {
-  // Primary Colors
-  static const Color primaryOrange = Color(0xFFFF9B7D);
-  static const Color mintGreen = Color(0xFF7FE7CC);
-  static const Color skyBlue = Color(0xFF88C9F2);
-  
-  // Background Colors
-  static const Color backgroundCream = Color(0xFFFFF8F3);
-  static const Color backgroundGray = Color(0xFFF5F5F7);
-  
-  // Text Colors
-  static const Color textDark = Color(0xFF333333);
-  static const Color textMedium = Color(0xFF666666);
-  static const Color textLight = Color(0xFF999999);
-  
-  // Functional Colors
-  static const Color successGreen = Color(0xFF52C41A);
-  static const Color warningOrange = Color(0xFFFFAD14);
-  static const Color errorRed = Color(0xFFFF4D4F);
+  // ---- Brand Colors (from Brand Guidelines PDF) ----
+  static const Color primaryPink = Color(0xFFCA2962); // primary-container
+  static const Color primaryPinkDeep = Color(0xFFA8014A); // primary
+  static const Color secondaryOrange = Color(0xFFDD7A10); // secondary-container
+  static const Color secondaryOrangeDeep = Color(0xFF914D00); // secondary
+  static const Color navy = Color(0xFF192F52); // tertiary / text
+  static const Color tertiaryBlue = Color(0xFF40547A);
 
-  static ThemeData get lightTheme {
-    return ThemeData(
-      useMaterial3: true,
-      colorScheme: ColorScheme.light(
-        primary: primaryOrange,
-        secondary: mintGreen,
-        tertiary: skyBlue,
-        surface: backgroundCream,
-        onPrimary: Colors.white,
-        onSecondary: textDark,
-        onSurface: textDark,
-        error: errorRed,
-      ),
-      scaffoldBackgroundColor: backgroundCream,
-      appBarTheme: AppBarTheme(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        centerTitle: true,
-        iconTheme: const IconThemeData(color: textDark),
-        titleTextStyle: const TextStyle(
-          color: textDark,
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      cardTheme: CardThemeData(
-        elevation: 2,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
-        color: Colors.white,
-      ),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: primaryOrange,
-          foregroundColor: Colors.white,
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-          elevation: 2,
-        ),
-      ),
-      floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: primaryOrange,
-        foregroundColor: Colors.white,
-        elevation: 4,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
-      ),
-      inputDecorationTheme: InputDecorationTheme(
-        filled: true,
-        fillColor: backgroundGray,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide.none,
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: primaryOrange, width: 2),
-        ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      ),
-      chipTheme: ChipThemeData(
-        backgroundColor: backgroundGray,
-        labelStyle: const TextStyle(color: textDark),
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-      ),
-      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        backgroundColor: Colors.white,
-        selectedItemColor: primaryOrange,
-        unselectedItemColor: textMedium,
-        elevation: 8,
-        type: BottomNavigationBarType.fixed,
-      ),
+  // ---- Surfaces ----
+  static const Color background = Color(0xFFFFF8F7);
+  static const Color surfaceContainerLowest = Color(0xFFFFFFFF);
+  static const Color surfaceContainerLow = Color(0xFFFFF0F1);
+  static const Color surfaceContainer = Color(0xFFFFE9EB);
+  static const Color surfaceContainerHigh = Color(0xFFFCE2E5);
+  static const Color surfaceContainerHighest = Color(0xFFF6DCE0);
+  static const Color surfaceVariant = Color(0xFFF6DCE0);
+  static const Color surfaceDim = Color(0xFFEED4D7);
+
+  // Fixed tone containers (used for category tiles)
+  static const Color primaryFixed = Color(0xFFFFD9DF);
+  static const Color secondaryFixed = Color(0xFFFFDCC3);
+  static const Color tertiaryFixed = Color(0xFFD7E3FF);
+
+  // ---- Text ----
+  static const Color onSurface = Color(0xFF26181B);
+  static const Color onSurfaceVariant = Color(0xFF594045);
+  static const Color outline = Color(0xFF8D7075);
+  static const Color outlineVariant = Color(0xFFE0BEC4);
+
+  // ---- Functional ----
+  static const Color error = Color(0xFFBA1A1A);
+  static const Color success = Color(0xFF3E8E5A);
+
+  static TextStyle headline({
+    double size = 24,
+    FontWeight weight = FontWeight.w700,
+    Color? color,
+  }) {
+    return GoogleFonts.bricolageGrotesque(
+      fontSize: size,
+      fontWeight: weight,
+      color: color ?? navy,
     );
   }
 
-  static ThemeData get darkTheme {
-    return ThemeData(
-      useMaterial3: true,
-      colorScheme: ColorScheme.dark(
-        primary: primaryOrange,
-        secondary: mintGreen,
-        tertiary: skyBlue,
-        surface: const Color(0xFF1E1E1E),
+  static TextStyle body({
+    double size = 16,
+    FontWeight weight = FontWeight.w400,
+    Color? color,
+  }) {
+    return GoogleFonts.plusJakartaSans(
+      fontSize: size,
+      fontWeight: weight,
+      color: color ?? onSurfaceVariant,
+    );
+  }
+
+  static ThemeData get lightTheme {
+    final base = ThemeData.light(useMaterial3: true);
+    return base.copyWith(
+      scaffoldBackgroundColor: background,
+      colorScheme: ColorScheme.light(
+        primary: primaryPinkDeep,
+        secondary: secondaryOrangeDeep,
+        tertiary: navy,
+        surface: background,
+        error: error,
         onPrimary: Colors.white,
         onSecondary: Colors.white,
-        onSurface: Colors.white,
-        error: errorRed,
+        onSurface: onSurface,
       ),
-      scaffoldBackgroundColor: const Color(0xFF121212),
+      textTheme: base.textTheme.apply(bodyColor: onSurface, displayColor: navy),
       appBarTheme: AppBarTheme(
-        backgroundColor: const Color(0xFF1E1E1E),
+        backgroundColor: surfaceContainerLowest,
         elevation: 0,
-        centerTitle: true,
-        iconTheme: const IconThemeData(color: Colors.white),
-        titleTextStyle: const TextStyle(
-          color: Colors.white,
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        ),
+        centerTitle: false,
+        iconTheme: const IconThemeData(color: navy),
+        titleTextStyle: headline(size: 22, color: primaryPinkDeep),
       ),
       cardTheme: CardThemeData(
+        color: surfaceContainerLowest,
         elevation: 2,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
-        color: const Color(0xFF1E1E1E),
+        shadowColor: navy.withValues(alpha: 0.08),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: primaryOrange,
+          backgroundColor: primaryPinkDeep,
           foregroundColor: Colors.white,
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(100),
           ),
           elevation: 2,
         ),
       ),
-      floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor: primaryOrange,
-        foregroundColor: Colors.white,
-        elevation: 4,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-        ),
-      ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: const Color(0xFF2C2C2C),
+        fillColor: surfaceContainerLowest,
+        hintStyle: body(color: onSurfaceVariant),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.circular(100),
+          borderSide: BorderSide(color: outlineVariant.withValues(alpha: 0.4)),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(100),
+          borderSide: BorderSide(color: outlineVariant.withValues(alpha: 0.3)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: primaryOrange, width: 2),
+          borderRadius: BorderRadius.circular(100),
+          borderSide: const BorderSide(color: primaryPinkDeep, width: 2),
         ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      ),
-      chipTheme: ChipThemeData(
-        backgroundColor: const Color(0xFF2C2C2C),
-        labelStyle: const TextStyle(color: Colors.white),
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 14,
         ),
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        backgroundColor: Color(0xFF1E1E1E),
-        selectedItemColor: primaryOrange,
-        unselectedItemColor: Color(0xFF888888),
+        backgroundColor: surfaceContainerLowest,
+        selectedItemColor: secondaryOrange,
+        unselectedItemColor: onSurfaceVariant,
         elevation: 8,
         type: BottomNavigationBarType.fixed,
       ),
