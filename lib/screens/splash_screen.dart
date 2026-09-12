@@ -13,6 +13,7 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final c = context.colors;
     return Scaffold(
       backgroundColor: const Color(0xFF0E2A55),
       body: SafeArea(
@@ -58,16 +59,14 @@ class SplashScreen extends StatelessWidget {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppTheme.primaryPink,
+                    backgroundColor: c.primary,
                     foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(vertical: 16),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(100),
                     ),
                     elevation: 6,
-                    shadowColor: AppTheme.primaryPinkDeep.withValues(
-                      alpha: 0.5,
-                    ),
+                    shadowColor: c.primaryDeep.withValues(alpha: 0.5),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

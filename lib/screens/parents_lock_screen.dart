@@ -51,8 +51,9 @@ class _ParentsLockScreenState extends State<ParentsLockScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final c = context.colors;
     return Scaffold(
-      backgroundColor: AppTheme.background,
+      backgroundColor: c.background,
       body: SafeArea(
         // Scrollable + min-height so the number pad never overflows on short
         // screens (e.g. when the mini-player is showing above the tab bar).
@@ -70,23 +71,26 @@ class _ParentsLockScreenState extends State<ParentsLockScreen> {
                         width: 72,
                         height: 72,
                         decoration: BoxDecoration(
-                          color: AppTheme.surfaceContainer,
+                          color: c.primaryFixed,
                           shape: BoxShape.circle,
                         ),
-                        child: const Icon(
+                        child: Icon(
                           Icons.lock_outline,
-                          color: AppTheme.primaryPink,
+                          color: c.primaryDeep,
                           size: 34,
                         ),
                       ),
                       const SizedBox(height: 20),
-                      Text('Parents Area', style: AppTheme.headline(size: 24)),
+                      Text(
+                        'Parents Area',
+                        style: AppTheme.headline(size: 24, color: c.headline),
+                      ),
                       const SizedBox(height: 8),
                       Text(
                         'Enter your 4-digit PIN to continue',
                         style: AppTheme.body(
                           size: 14,
-                          color: AppTheme.onSurfaceVariant,
+                          color: c.onSurfaceVariant,
                         ),
                       ),
                       const SizedBox(height: 32),
@@ -102,9 +106,7 @@ class _ParentsLockScreenState extends State<ParentsLockScreen> {
                             height: 18,
                             decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: filled
-                                  ? AppTheme.primaryPink
-                                  : AppTheme.surfaceVariant,
+                              color: filled ? c.primary : c.surfaceVariant,
                             ),
                           );
                         }),
@@ -113,7 +115,7 @@ class _ParentsLockScreenState extends State<ParentsLockScreen> {
                       if (_error != null)
                         Text(
                           _error!,
-                          style: AppTheme.body(size: 13, color: AppTheme.error),
+                          style: AppTheme.body(size: 13, color: c.error),
                         ),
 
                       const Spacer(),
@@ -124,7 +126,7 @@ class _ParentsLockScreenState extends State<ParentsLockScreen> {
                       Text(
                         'Default PIN is 1234 unless changed by a parent.',
                         textAlign: TextAlign.center,
-                        style: AppTheme.body(size: 12, color: AppTheme.outline),
+                        style: AppTheme.body(size: 12, color: c.outline),
                       ),
                       const SizedBox(height: 8),
                     ],
@@ -147,6 +149,7 @@ class _NumberPad extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final c = context.colors;
     const rows = [
       ['1', '2', '3'],
       ['4', '5', '6'],
@@ -167,9 +170,9 @@ class _NumberPad extends StatelessWidget {
               if (key == 'back') {
                 return _PadButton(
                   onTap: onBackspace,
-                  child: const Icon(
+                  child: Icon(
                     Icons.backspace_outlined,
-                    color: AppTheme.onSurfaceVariant,
+                    color: c.onSurfaceVariant,
                   ),
                 );
               }
@@ -177,7 +180,7 @@ class _NumberPad extends StatelessWidget {
                 onTap: () => onDigit(key),
                 child: Text(
                   key,
-                  style: AppTheme.headline(size: 24, color: AppTheme.onSurface),
+                  style: AppTheme.headline(size: 24, color: c.onSurface),
                 ),
               );
             }).toList(),
@@ -195,6 +198,7 @@ class _PadButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final c = context.colors;
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(34),
@@ -203,11 +207,11 @@ class _PadButton extends StatelessWidget {
         height: 68,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: AppTheme.surfaceContainerLowest,
+          color: c.surfaceLowest,
           shape: BoxShape.circle,
           boxShadow: [
             BoxShadow(
-              color: AppTheme.navy.withValues(alpha: 0.05),
+              color: c.shadow.withValues(alpha: c.isDark ? 0.3 : 0.05),
               blurRadius: 6,
             ),
           ],

@@ -222,7 +222,10 @@ class _SectionTitle extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: Text(text, style: AppTheme.headline(size: 20, color: c.headline)),
+          child: Text(
+            text,
+            style: AppTheme.headline(size: 20, color: c.headline),
+          ),
         ),
         if (trailing != null) trailing!,
       ],

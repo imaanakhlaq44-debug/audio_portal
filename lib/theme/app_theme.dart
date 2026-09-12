@@ -280,9 +280,8 @@ class AppTheme {
           (s) => s.contains(WidgetState.selected) ? Colors.white : c.outline,
         ),
         trackColor: WidgetStateProperty.resolveWith(
-          (s) => s.contains(WidgetState.selected)
-              ? c.secondary
-              : c.surfaceVariant,
+          (s) =>
+              s.contains(WidgetState.selected) ? c.secondary : c.surfaceVariant,
         ),
         trackOutlineColor: const WidgetStatePropertyAll(Colors.transparent),
       ),
