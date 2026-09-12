@@ -2,8 +2,17 @@ import 'package:flutter/material.dart';
 import '../models/story_category.dart';
 import '../models/story_data.dart';
 import '../services/audio_player_service.dart';
+import '../models/story.dart';
 import '../theme/app_theme.dart';
+import '../widgets/mini_player.dart';
 import '../widgets/story_tile.dart';
+
+/// Start the story (if not already loaded) and open the Now Playing screen.
+Future<void> _openStory(BuildContext context, Story story) async {
+  final player = AudioPlayerService.instance;
+  if (player.currentStory?.id != story.id) await player.playStory(story);
+  if (context.mounted) openNowPlaying(context);
+}
 
 class CategoryStoriesScreen extends StatelessWidget {
   final StoryCategory category;
@@ -32,8 +41,7 @@ class CategoryStoriesScreen extends StatelessWidget {
                     .map(
                       (story) => StoryTile(
                         story: story,
-                        onTap: () =>
-                            AudioPlayerService.instance.playStory(story),
+                        onTap: () => _openStory(context, story),
                         onPlay: () =>
                             AudioPlayerService.instance.playStory(story),
                       ),

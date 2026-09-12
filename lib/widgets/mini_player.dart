@@ -4,6 +4,25 @@ import '../services/audio_player_service.dart';
 import '../theme/app_theme.dart';
 import '../screens/now_playing_screen.dart';
 
+/// Opens the full-screen Now Playing view with a slide-up transition.
+/// Shared by the mini-player and every story tile in the app.
+void openNowPlaying(BuildContext context) {
+  Navigator.of(context).push(
+    PageRouteBuilder(
+      pageBuilder: (_, __, ___) => const NowPlayingScreen(),
+      transitionsBuilder: (_, animation, __, child) {
+        return SlideTransition(
+          position: Tween<Offset>(begin: const Offset(0, 1), end: Offset.zero)
+              .animate(
+                CurvedAnimation(parent: animation, curve: Curves.easeOutCubic),
+              ),
+          child: child,
+        );
+      },
+    ),
+  );
+}
+
 /// Persistent mini-player bar shown above the bottom navigation bar
 /// whenever a story is loaded (playing or paused).
 class MiniPlayer extends StatelessWidget {
@@ -17,22 +36,7 @@ class MiniPlayer extends StatelessWidget {
         if (story == null) return const SizedBox.shrink();
 
         return GestureDetector(
-          onTap: () {
-            Navigator.of(context).push(
-              PageRouteBuilder(
-                pageBuilder: (_, __, ___) => const NowPlayingScreen(),
-                transitionsBuilder: (_, animation, __, child) {
-                  return SlideTransition(
-                    position: Tween<Offset>(
-                      begin: const Offset(0, 1),
-                      end: Offset.zero,
-                    ).animate(animation),
-                    child: child,
-                  );
-                },
-              ),
-            );
-          },
+          onTap: () => openNowPlaying(context),
           child: Container(
             margin: const EdgeInsets.fromLTRB(12, 0, 12, 8),
             padding: const EdgeInsets.all(8),
@@ -87,6 +91,7 @@ class MiniPlayer extends StatelessWidget {
                   ),
                 ),
                 IconButton(
+                  tooltip: player.isPlaying ? 'Pause' : 'Play',
                   onPressed: () => player.togglePlayPause(),
                   icon: Icon(
                     player.isPlaying ? Icons.pause : Icons.play_arrow,
@@ -94,6 +99,7 @@ class MiniPlayer extends StatelessWidget {
                   ),
                 ),
                 IconButton(
+                  tooltip: 'Close',
                   onPressed: () => player.stopAndClose(),
                   icon: const Icon(Icons.close, color: Colors.white, size: 20),
                 ),

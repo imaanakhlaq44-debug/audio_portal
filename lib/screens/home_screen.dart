@@ -6,6 +6,7 @@ import '../models/story_data.dart';
 import '../services/audio_player_service.dart';
 import '../services/storage_service.dart';
 import '../theme/app_theme.dart';
+import '../widgets/mini_player.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -32,46 +33,82 @@ class _HomeScreenState extends State<HomeScreen> {
     AudioPlayerService.instance.playStory(story);
   }
 
+  static String _fmt(Duration d) {
+    final m = d.inMinutes.remainder(60).toString().padLeft(2, '0');
+    final s = d.inSeconds.remainder(60).toString().padLeft(2, '0');
+    return '$m:$s';
+  }
+
+  /// If the tapped story is the one currently loaded, toggle play/pause
+  /// (the row shows a pause icon in that state); otherwise start it.
+  void _togglePlay(Story story) {
+    final player = AudioPlayerService.instance;
+    if (player.currentStory?.id == story.id) {
+      player.togglePlayPause();
+    } else {
+      player.playStory(story);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    final childName = StorageService.getChildName();
-
     return SafeArea(
       bottom: false,
       child: Column(
         children: [
+          // Rebuilds when the child's name is changed from Parents Dashboard.
           // ---- Top App Bar ----
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-            color: AppTheme.surfaceContainerLowest,
-            child: Row(
-              children: [
-                Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(color: AppTheme.primaryPink, width: 2),
-                  ),
-                  child: ClipOval(
-                    child: Image.asset(
-                      'assets/images/child_avatar.png',
-                      fit: BoxFit.cover,
+          ValueListenableBuilder(
+            valueListenable: StorageService.listenable(),
+            builder: (context, _, __) {
+              final childName = StorageService.getChildName();
+              return Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 12,
+                ),
+                color: AppTheme.surfaceContainerLowest,
+                child: Row(
+                  children: [
+                    Container(
+                      width: 40,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: AppTheme.primaryPink,
+                          width: 2,
+                        ),
+                      ),
+                      child: ClipOval(
+                        child: Image.asset(
+                          'assets/images/child_avatar.png',
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
-                  ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Text(
+                        'Salam, $childName!',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppTheme.headline(
+                          size: 20,
+                          color: AppTheme.primaryPinkDeep,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    const Icon(
+                      Icons.verified,
+                      color: AppTheme.tertiaryBlue,
+                      size: 26,
+                    ),
+                  ],
                 ),
-                const SizedBox(width: 12),
-                Text(
-                  'Salam, $childName!',
-                  style: AppTheme.headline(
-                    size: 20,
-                    color: AppTheme.primaryPinkDeep,
-                  ),
-                ),
-                const Spacer(),
-                Icon(Icons.verified, color: AppTheme.tertiaryBlue, size: 26),
-              ],
-            ),
+              );
+            },
           ),
           Expanded(
             child: SingleChildScrollView(
@@ -190,6 +227,41 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   const SizedBox(height: 28),
 
+                  // ---- Continue Listening (saved position from last close) ----
+                  ValueListenableBuilder(
+                    valueListenable: StorageService.listenable(),
+                    builder: (context, _, __) {
+                      final lastId = StorageService.getLastStoryId();
+                      final last = lastId == null
+                          ? null
+                          : StoryData.byId(lastId);
+                      final pos = StorageService.getLastPosition();
+                      if (last == null || pos.inSeconds < 5) {
+                        return const SizedBox.shrink();
+                      }
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 28),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Continue Listening',
+                              style: AppTheme.headline(size: 20),
+                            ),
+                            const SizedBox(height: 14),
+                            _QuickStoryRow(
+                              story: last,
+                              subtitle:
+                                  'Resume from ${_fmt(pos)} • ${last.category.label}',
+                              onPlay: () => AudioPlayerService.instance
+                                  .playStory(last, startAt: pos),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+
                   // ---- Calm Bedtime Audio carousel ----
                   Text(
                     'Calm Bedtime Audio',
@@ -259,7 +331,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: const EdgeInsets.only(bottom: 10),
                       child: _QuickStoryRow(
                         story: story,
-                        onPlay: () => _playStory(story),
+                        onPlay: () => _togglePlay(story),
                       ),
                     ),
                   ),
@@ -276,80 +348,97 @@ class _HomeScreenState extends State<HomeScreen> {
 class _QuickStoryRow extends StatelessWidget {
   final Story story;
   final VoidCallback onPlay;
-  const _QuickStoryRow({required this.story, required this.onPlay});
+  final String? subtitle;
+  const _QuickStoryRow({
+    required this.story,
+    required this.onPlay,
+    this.subtitle,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Consumer<AudioPlayerService>(
       builder: (context, player, _) {
         final isCurrent = player.currentStory?.id == story.id;
-        return Container(
-          padding: const EdgeInsets.all(8),
-          decoration: BoxDecoration(
-            color: isCurrent
-                ? AppTheme.surfaceContainerHigh
-                : AppTheme.surfaceContainerLowest,
-            borderRadius: BorderRadius.circular(18),
-            border: Border.all(
-              color: AppTheme.outlineVariant.withValues(alpha: 0.15),
+        return InkWell(
+          // Tapping the row: start the story (if not loaded) and open the
+          // full Now Playing screen; the round button only toggles playback.
+          onTap: () async {
+            if (!isCurrent) await player.playStory(story);
+            if (context.mounted) openNowPlaying(context);
+          },
+          borderRadius: BorderRadius.circular(18),
+          child: Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: isCurrent
+                  ? AppTheme.surfaceContainerHigh
+                  : AppTheme.surfaceContainerLowest,
+              borderRadius: BorderRadius.circular(18),
+              border: Border.all(
+                color: AppTheme.outlineVariant.withValues(alpha: 0.15),
+              ),
             ),
-          ),
-          child: Row(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset(
-                  story.coverAsset,
-                  width: 48,
-                  height: 48,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      story.title,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: AppTheme.body(
-                        size: 14,
-                        weight: FontWeight.w600,
-                        color: AppTheme.onSurface,
-                      ),
-                    ),
-                    Text(
-                      '${story.category.label} • ${story.durationLabel}',
-                      style: AppTheme.body(
-                        size: 12,
-                        color: AppTheme.onSurfaceVariant,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              InkWell(
-                onTap: onPlay,
-                borderRadius: BorderRadius.circular(20),
-                child: Container(
-                  width: 38,
-                  height: 38,
-                  decoration: const BoxDecoration(
-                    color: AppTheme.secondaryOrange,
-                    shape: BoxShape.circle,
-                  ),
-                  child: Icon(
-                    isCurrent && player.isPlaying
-                        ? Icons.pause
-                        : Icons.play_arrow,
-                    color: Colors.white,
-                    size: 20,
+            child: Row(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(
+                    story.coverAsset,
+                    width: 48,
+                    height: 48,
+                    fit: BoxFit.cover,
                   ),
                 ),
-              ),
-            ],
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        story.title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppTheme.body(
+                          size: 14,
+                          weight: FontWeight.w600,
+                          color: AppTheme.onSurface,
+                        ),
+                      ),
+                      Text(
+                        subtitle ??
+                            '${story.category.label} • ${story.durationLabel}',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppTheme.body(
+                          size: 12,
+                          color: AppTheme.onSurfaceVariant,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                InkWell(
+                  onTap: onPlay,
+                  borderRadius: BorderRadius.circular(20),
+                  child: Container(
+                    width: 38,
+                    height: 38,
+                    decoration: const BoxDecoration(
+                      color: AppTheme.secondaryOrange,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(
+                      isCurrent && player.isPlaying
+                          ? Icons.pause
+                          : Icons.play_arrow,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },

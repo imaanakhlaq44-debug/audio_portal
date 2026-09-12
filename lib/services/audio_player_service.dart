@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/foundation.dart';
 import '../models/story.dart';
@@ -8,6 +10,10 @@ import 'storage_service.dart';
 /// the whole app can listen for state changes via Provider.
 class AudioPlayerService extends ChangeNotifier {
   AudioPlayerService._internal() {
+    // Keep the source loaded after playback completes so the user can
+    // replay / seek without the backend releasing the audio resource.
+    _player.setReleaseMode(ReleaseMode.stop);
+
     _player.onPositionChanged.listen((pos) {
       // Guard against the web audio backend momentarily reporting a stale
       // position (often 0 or near-0) right after a seek() call, which was
@@ -19,7 +25,8 @@ class AudioPlayerService extends ChangeNotifier {
       if (_pendingSeekTarget != null) {
         final target = _pendingSeekTarget!;
         final elapsed = DateTime.now().difference(_pendingSeekAt!);
-        final caughtUp = (pos - target).abs() < const Duration(milliseconds: 400);
+        final caughtUp =
+            (pos - target).abs() < const Duration(milliseconds: 400);
         if (!caughtUp && elapsed < const Duration(milliseconds: 900)) {
           return; // ignore stale pre-seek position update
         }
@@ -39,6 +46,7 @@ class AudioPlayerService extends ChangeNotifier {
     });
     _player.onPlayerComplete.listen((_) {
       _isPlaying = false;
+      _hasCompleted = true;
       _position = _duration;
       notifyListeners();
     });
@@ -53,8 +61,10 @@ class AudioPlayerService extends ChangeNotifier {
   Duration _position = Duration.zero;
   Duration _duration = Duration.zero;
   Duration? _sleepTimerDuration;
+  Timer? _sleepTimer;
   Duration? _pendingSeekTarget;
   DateTime? _pendingSeekAt;
+  bool _hasCompleted = false;
 
   Story? get currentStory => _currentStory;
   bool get isPlaying => _isPlaying;
@@ -66,9 +76,17 @@ class AudioPlayerService extends ChangeNotifier {
   Future<void> playStory(Story story, {Duration? startAt}) async {
     final isSameStory = _currentStory?.id == story.id;
     _currentStory = story;
-    notifyListeners();
 
     if (!isSameStory) {
+      // Reset transport state immediately so the UI doesn't briefly show the
+      // previous story's position/duration on the new story.
+      _position = startAt ?? Duration.zero;
+      _duration = Duration.zero;
+      _hasCompleted = false;
+      _pendingSeekTarget = null;
+      _pendingSeekAt = null;
+      notifyListeners();
+
       await _player.stop();
       await _player.play(
         AssetSource(story.audioAsset.replaceFirst('assets/', '')),
@@ -77,10 +95,22 @@ class AudioPlayerService extends ChangeNotifier {
         await _player.seek(startAt);
       }
     } else {
-      await _player.resume();
+      notifyListeners();
+      await _resumeOrRestart();
     }
     _isPlaying = true;
     notifyListeners();
+  }
+
+  /// Resume playback; if the story already finished, restart from the top.
+  Future<void> _resumeOrRestart() async {
+    if (_hasCompleted) {
+      _hasCompleted = false;
+      _position = Duration.zero;
+      notifyListeners();
+      await _player.seek(Duration.zero);
+    }
+    await _player.resume();
   }
 
   Future<void> togglePlayPause() async {
@@ -88,7 +118,7 @@ class AudioPlayerService extends ChangeNotifier {
     if (_isPlaying) {
       await _player.pause();
     } else {
-      await _player.resume();
+      await _resumeOrRestart();
     }
   }
 
@@ -100,6 +130,7 @@ class AudioPlayerService extends ChangeNotifier {
     _pendingSeekTarget = position;
     _pendingSeekAt = DateTime.now();
     _position = position;
+    if (position < _duration) _hasCompleted = false;
     notifyListeners();
     await _player.seek(position);
   }
@@ -115,15 +146,18 @@ class AudioPlayerService extends ChangeNotifier {
   }
 
   void setSleepTimer(Duration? duration) {
+    // Always cancel any previously scheduled timer so an old one can't fire
+    // early after the user re-arms the same duration.
+    _sleepTimer?.cancel();
+    _sleepTimer = null;
     _sleepTimerDuration = duration;
     notifyListeners();
     if (duration != null) {
-      Future.delayed(duration, () {
-        if (_sleepTimerDuration == duration) {
-          _player.pause();
-          _sleepTimerDuration = null;
-          notifyListeners();
-        }
+      _sleepTimer = Timer(duration, () {
+        _player.pause();
+        _sleepTimer = null;
+        _sleepTimerDuration = null;
+        notifyListeners();
       });
     }
   }
@@ -132,9 +166,15 @@ class AudioPlayerService extends ChangeNotifier {
     if (_currentStory != null) {
       await StorageService.saveLastPlayed(_currentStory!.id, _position);
     }
+    _sleepTimer?.cancel();
+    _sleepTimer = null;
+    _sleepTimerDuration = null;
     await _player.stop();
     _currentStory = null;
     _isPlaying = false;
+    _hasCompleted = false;
+    _pendingSeekTarget = null;
+    _pendingSeekAt = null;
     _position = Duration.zero;
     _duration = Duration.zero;
     notifyListeners();

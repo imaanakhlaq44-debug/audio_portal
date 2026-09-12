@@ -15,6 +15,7 @@ class NowPlayingScreen extends StatefulWidget {
 
 class _NowPlayingScreenState extends State<NowPlayingScreen> {
   bool _showFullStory = false;
+  bool _popScheduled = false;
 
   String _formatDuration(Duration d) {
     final minutes = d.inMinutes.remainder(60).toString().padLeft(2, '0');
@@ -88,11 +89,15 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
       builder: (context, player, _) {
         final story = player.currentStory;
         if (story == null) {
-          // Nothing playing — just close this screen.
-          WidgetsBinding.instance.addPostFrameCallback((_) {
-            if (Navigator.canPop(context)) Navigator.pop(context);
-          });
-          return const SizedBox.shrink();
+          // Nothing playing (e.g. closed from mini-player) — close this screen
+          // exactly once. Guarded so a rebuild can't trigger a second pop.
+          if (!_popScheduled) {
+            _popScheduled = true;
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              if (mounted && Navigator.canPop(context)) Navigator.pop(context);
+            });
+          }
+          return const Scaffold(backgroundColor: AppTheme.background);
         }
 
         return Scaffold(
@@ -124,9 +129,14 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                           const Spacer(),
                           _RoundIconButton(
                             icon: Icons.close,
-                            onTap: () async {
-                              await player.stopAndClose();
-                              if (context.mounted) Navigator.of(context).pop();
+                            onTap: () {
+                              // Pop first, then stop. Doing it the other way
+                              // round made the Consumer above auto-pop AND
+                              // this handler pop -> popped the MainScreen too
+                              // and left a blank screen.
+                              _popScheduled = true;
+                              Navigator.of(context).pop();
+                              player.stopAndClose();
                             },
                           ),
                         ],
@@ -370,7 +380,7 @@ class _SecondaryAction extends StatelessWidget {
   }
 }
 
-class _ProgressSection extends StatelessWidget {
+class _ProgressSection extends StatefulWidget {
   final Story story;
   final AudioPlayerService player;
   final String Function(Duration) formatDuration;
@@ -382,8 +392,27 @@ class _ProgressSection extends StatelessWidget {
   });
 
   @override
+  State<_ProgressSection> createState() => _ProgressSectionState();
+}
+
+class _ProgressSectionState extends State<_ProgressSection> {
+  /// While the user is dragging we show the drag value instead of the live
+  /// playback position, and only issue ONE seek on release (instead of one
+  /// seek per pixel, which stuttered the web audio backend).
+  double? _dragValue;
+
+  @override
   Widget build(BuildContext context) {
-    final progress = player.progress().clamp(0.0, 1.0);
+    final player = widget.player;
+    final hasDuration = player.duration.inMilliseconds > 0;
+    final progress = _dragValue ?? player.progress().clamp(0.0, 1.0);
+    final shownPosition = _dragValue == null
+        ? player.position
+        : Duration(
+            milliseconds: (player.duration.inMilliseconds * _dragValue!)
+                .round(),
+          );
+
     return Column(
       children: [
         SliderTheme(
@@ -397,12 +426,22 @@ class _ProgressSection extends StatelessWidget {
           ),
           child: Slider(
             value: progress,
-            onChanged: (v) {
-              final newPos = Duration(
-                milliseconds: (player.duration.inMilliseconds * v).round(),
-              );
-              player.seek(newPos);
-            },
+            onChangeStart: hasDuration
+                ? (v) => setState(() => _dragValue = v)
+                : null,
+            onChanged: hasDuration
+                ? (v) => setState(() => _dragValue = v)
+                : null,
+            onChangeEnd: hasDuration
+                ? (v) {
+                    final newPos = Duration(
+                      milliseconds: (player.duration.inMilliseconds * v)
+                          .round(),
+                    );
+                    setState(() => _dragValue = null);
+                    player.seek(newPos);
+                  }
+                : null,
           ),
         ),
         Padding(
@@ -411,14 +450,14 @@ class _ProgressSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                formatDuration(player.position),
+                widget.formatDuration(shownPosition),
                 style: AppTheme.body(
                   size: 12,
                   color: AppTheme.onSurfaceVariant,
                 ),
               ),
               Text(
-                formatDuration(player.duration),
+                widget.formatDuration(player.duration),
                 style: AppTheme.body(
                   size: 12,
                   color: AppTheme.onSurfaceVariant,

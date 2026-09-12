@@ -6,8 +6,16 @@ import '../services/audio_player_service.dart';
 import '../services/storage_service.dart';
 import '../theme/app_theme.dart';
 import '../widgets/category_card.dart';
+import '../widgets/mini_player.dart';
 import '../widgets/story_tile.dart';
 import 'category_stories_screen.dart';
+
+/// Start the story (if not already loaded) and open the Now Playing screen.
+Future<void> _openStory(BuildContext context, Story story) async {
+  final player = AudioPlayerService.instance;
+  if (player.currentStory?.id != story.id) await player.playStory(story);
+  if (context.mounted) openNowPlaying(context);
+}
 
 class LibraryScreen extends StatefulWidget {
   const LibraryScreen({super.key});
@@ -42,11 +50,19 @@ class _LibraryScreenState extends State<LibraryScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Rebuild whenever favorites / saved stories change (e.g. from the
+    // Now Playing screen) so "My Library" is never stale.
+    return ValueListenableBuilder(
+      valueListenable: StorageService.listenable(),
+      builder: (context, _, __) => _buildBody(context),
+    );
+  }
+
+  Widget _buildBody(BuildContext context) {
     final favIds = StorageService.getFavorites();
+    final downloadIds = StorageService.getDownloads();
     final libraryStories = StoryData.allStories
-        .where(
-          (s) => favIds.contains(s.id) || StorageService.isDownloaded(s.id),
-        )
+        .where((s) => favIds.contains(s.id) || downloadIds.contains(s.id))
         .toList();
     final showingSearch = _searchController.text.trim().isNotEmpty;
 
@@ -135,7 +151,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
       ..._searchResults.map(
         (story) => StoryTile(
           story: story,
-          onTap: () => AudioPlayerService.instance.playStory(story),
+          onTap: () => _openStory(context, story),
           onPlay: () => AudioPlayerService.instance.playStory(story),
         ),
       ),
@@ -190,7 +206,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
         ...libraryStories.map(
           (story) => StoryTile(
             story: story,
-            onTap: () => AudioPlayerService.instance.playStory(story),
+            onTap: () => _openStory(context, story),
             onPlay: () => AudioPlayerService.instance.playStory(story),
           ),
         ),

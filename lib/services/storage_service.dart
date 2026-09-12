@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 /// Lightweight Hive-backed local storage for:
@@ -31,8 +32,14 @@ class StorageService {
   }
 
   static Box get _b {
+    assert(_box != null, 'StorageService.init() must be called before use');
     return _box!;
   }
+
+  /// Listenable that fires whenever anything in the settings box changes,
+  /// so screens (Home greeting, Library list, Parents dashboard counters)
+  /// can rebuild instead of showing stale data.
+  static ValueListenable<Box> listenable() => _b.listenable();
 
   // ---------------- Favorites ----------------
   static List<String> getFavorites() {
@@ -52,6 +59,8 @@ class StorageService {
     await _b.put(_keyFavorites, favs);
   }
 
+  static Future<void> clearFavorites() => _b.put(_keyFavorites, <String>[]);
+
   // ---------------- Downloads / Saved ----------------
   static List<String> getDownloads() {
     final raw = _b.get(_keyDownloads, defaultValue: <String>[]);
@@ -70,6 +79,8 @@ class StorageService {
     await _b.put(_keyDownloads, list);
   }
 
+  static Future<void> clearDownloads() => _b.put(_keyDownloads, <String>[]);
+
   // ---------------- Parents Lock ----------------
   static String getParentPin() =>
       _b.get(_keyParentPin, defaultValue: '1234') as String;
@@ -84,8 +95,8 @@ class StorageService {
   static String? getLastStoryId() => _b.get(_keyLastStoryId) as String?;
 
   static Duration getLastPosition() {
-    final ms = _b.get(_keyLastPositionMs, defaultValue: 0) as int;
-    return Duration(milliseconds: ms);
+    final ms = _b.get(_keyLastPositionMs, defaultValue: 0);
+    return Duration(milliseconds: ms is int ? ms : 0);
   }
 
   static Future<void> saveLastPlayed(String storyId, Duration position) async {
