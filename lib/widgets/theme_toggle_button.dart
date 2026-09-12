@@ -26,8 +26,10 @@ class ThemeToggleButton extends StatelessWidget {
             height: 40,
             child: AnimatedSwitcher(
               duration: const Duration(milliseconds: 250),
-              transitionBuilder: (child, anim) =>
-                  RotationTransition(turns: anim, child: FadeTransition(opacity: anim, child: child)),
+              transitionBuilder: (child, anim) => RotationTransition(
+                turns: anim,
+                child: FadeTransition(opacity: anim, child: child),
+              ),
               child: Icon(
                 isDark ? Icons.light_mode_rounded : Icons.dark_mode_rounded,
                 key: ValueKey(isDark),

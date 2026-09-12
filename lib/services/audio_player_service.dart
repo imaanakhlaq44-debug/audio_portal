@@ -132,10 +132,12 @@ class AudioPlayerService extends ChangeNotifier {
     _subs.add(
       player.playerStateStream.listen((state) {
         final wasPlaying = _isPlaying;
-        _isPlaying = state.playing &&
+        _isPlaying =
+            state.playing &&
             state.processingState != ProcessingState.completed &&
             state.processingState != ProcessingState.idle;
-        _isLoading = state.processingState == ProcessingState.loading ||
+        _isLoading =
+            state.processingState == ProcessingState.loading ||
             state.processingState == ProcessingState.buffering;
 
         if (_isPlaying && !wasPlaying) {

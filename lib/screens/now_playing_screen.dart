@@ -85,9 +85,7 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                         Navigator.pop(ctx);
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
-                            content: Text(
-                              'Sleep timer set for $m minutes',
-                            ),
+                            content: Text('Sleep timer set for $m minutes'),
                           ),
                         );
                       },

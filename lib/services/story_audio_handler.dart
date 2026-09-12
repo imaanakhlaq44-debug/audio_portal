@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:just_audio/just_audio.dart';
 
 import '../models/story.dart';
+import '../models/story_category.dart';
 
 /// Bridges [just_audio] with [audio_service] so playback:
 /// - continues when the screen is locked / app is backgrounded,
