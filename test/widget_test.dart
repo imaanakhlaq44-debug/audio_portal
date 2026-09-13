@@ -35,7 +35,9 @@ void main() {
   });
 
   testWidgets('the saved theme drives MaterialApp.themeMode', (tester) async {
-    await StorageService.setThemeMode(ThemeMode.dark);
+    // Hive writes to a real file, so it has to run outside the fake-async
+    // zone testWidgets installs -- awaiting real IO in there deadlocks.
+    await tester.runAsync(() => StorageService.setThemeMode(ThemeMode.dark));
 
     await tester.pumpWidget(const MyApp());
     await tester.pump();
