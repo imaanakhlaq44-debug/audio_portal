@@ -1,3 +1,13 @@
+"""Local dev helper: serves ./build/web (or the repo root) on :5060 with CORS
+and framing headers relaxed, so a `flutter build web` output can be previewed
+inside an iframe.
+
+DEVELOPMENT ONLY -- these headers disable clickjacking protection and the
+server binds 0.0.0.0. Do not use it to host anything publicly.
+
+    python tools/dev_server.py
+"""
+
 import http.server, socketserver
 class H(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):

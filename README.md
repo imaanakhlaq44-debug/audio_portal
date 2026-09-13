@@ -1,16 +1,132 @@
-# chore_tracker
+# Imaan & Akhlaq — Kids Islamic Audio Story Portal
 
-A new Flutter project.
+A Flutter audio-story app for children. Stories ship inside the app, so
+everything (playback, covers, read-along captions, progress) works fully
+offline. Playback continues in the background with lock-screen and
+notification controls.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- **6 narrated stories** across Prophets, Animals, Nature, Bedtime and Moral
+  categories, with a rotating "Story of the Day".
+- **Background audio** — keeps playing when the screen is locked or the app is
+  backgrounded; media notification, headphone and Bluetooth controls, pauses
+  on calls and when headphones are unplugged.
+- **Continue listening** — position is flushed to disk every 5 seconds and on
+  every pause/seek, so a story resumes exactly where the child left off even
+  after the app is killed.
+- **Sleep timer** with a gentle 30-second volume fade-out.
+- **Read-along captions** synced to the audio, plus a full-story view.
+- **Favorites & saved list**, search, light/dark themes.
+- **Parents area** behind a PIN: change PIN, set the child's name, listening
+  stats, and reset history.
 
-A few resources to get you started if this is your first Flutter project:
+## Getting started
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Requires the Flutter SDK matching `environment.sdk` in
+[`pubspec.yaml`](pubspec.yaml) (Dart ^3.9.2).
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+flutter pub get
+flutter run
+```
+
+Checks:
+
+```bash
+flutter analyze
+flutter test
+```
+
+## Project layout
+
+```
+lib/
+  main.dart                  app entry, providers, bottom-nav shell
+  models/                    Story, StoryCategory, the story catalogue
+  screens/                   splash, home, library, category, now playing,
+                             parents lock + dashboard
+  services/
+    audio_player_service.dart  app-facing playback controller (ChangeNotifier)
+    story_audio_handler.dart   just_audio <-> audio_service bridge
+    storage_service.dart       Hive-backed local storage
+    theme_controller.dart      light/dark/system theme
+  theme/app_theme.dart       colour tokens + typography
+  widgets/                   mini player, story tile, category card, ...
+assets/
+  audio/ covers/ images/ icon/   bundled story media
+  google_fonts/                  bundled Plus Jakarta Sans + Bricolage
+                                 Grotesque (see "Fonts" below)
+```
+
+## Adding a story
+
+1. Drop the MP3 in `assets/audio/` and the cover PNG in `assets/covers/`.
+2. Add a `Story(...)` entry to `lib/models/story_data.dart`, including its
+   caption lines (`_caps([[start, end, 'text'], ...])`, seconds as doubles).
+3. `flutter test` — `test/story_data_test.dart` verifies that every referenced
+   asset exists and that captions are ordered and non-overlapping.
+
+## Fonts
+
+Typography uses Plus Jakarta Sans and Bricolage Grotesque. The static faces
+are **bundled** in `assets/google_fonts/` and runtime fetching is switched off
+in `main()` (`GoogleFonts.config.allowRuntimeFetching = false`).
+
+This is deliberate: release builds hold no `INTERNET` permission, so a
+network-fetched font would silently fall back to Roboto. Both families are
+licensed under the SIL Open Font License — see
+[`assets/google_fonts/OFL.txt`](assets/google_fonts/OFL.txt), which is also
+registered with Flutter's `LicenseRegistry` and shown in the app's licence
+page.
+
+## Android release build
+
+Release signing reads `android/key.properties`, which is git-ignored and
+therefore not in this repo. Without it the build falls back to the debug key,
+so a fresh clone still builds.
+
+Create `android/key.properties`:
+
+```properties
+storePassword=<password>
+keyPassword=<password>
+keyAlias=upload
+storeFile=<path to the .jks, relative to android/app/>
+```
+
+Then:
+
+```bash
+flutter build appbundle --release
+```
+
+Release builds run R8 with `android/app/proguard-rules.pro` (keeps
+`audio_service` / `just_audio` classes).
+
+> **Never commit** `key.properties`, `*.jks` or `*.keystore`. They are listed
+> in `.gitignore`; if one is ever committed, rotate the key.
+
+## Platform notes
+
+- **Android** — `MainActivity` extends `AudioServiceActivity`; the foreground
+  media service, media-button receiver and `FOREGROUND_SERVICE_MEDIA_PLAYBACK`
+  / `POST_NOTIFICATIONS` permissions are declared in the manifest. The
+  notification small icon is `res/drawable-*/ic_stat_notification.png`.
+- **iOS** — `UIBackgroundModes: audio` in `Info.plist` is what keeps playback
+  alive once the app leaves the foreground. Removing it breaks the core
+  feature.
+- **Web / desktop** — the targets build, but the UI is designed for portrait
+  phones and `audio_service` background features are limited there.
+
+## Known gaps
+
+Tracked, not yet done:
+
+- The "Save" action is a bookmark, not an actual download (all audio is
+  already bundled).
+- Parent PIN is stored in plain text and there is no lockout after repeated
+  wrong attempts.
+- English only — no Urdu/Arabic localisation or RTL layout yet.
+- Progress and favourites are device-local; there is no backup or sync.
+- No crash reporting / analytics.
