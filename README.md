@@ -177,6 +177,12 @@ Keep new artwork to the same recipe. Two things to watch for:
   Families answers, each with the reason behind it, plus the list of changes
   that would invalidate them.
 
+## Releasing
+
+`pubspec.yaml` holds the version the build uses; `lib/app_info.dart` holds
+the one the parents dashboard shows. Bump both — `test/app_info_test.dart`
+fails if they drift — and add a [`CHANGELOG.md`](CHANGELOG.md) entry.
+
 ## Known gaps
 
 Tracked, not yet done:
