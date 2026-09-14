@@ -91,9 +91,9 @@ class _LibraryScreenState extends State<LibraryScreen> {
   Widget _buildBody(BuildContext context) {
     final c = context.colors;
     final favIds = StorageService.getFavorites();
-    final downloadIds = StorageService.getDownloads();
+    final savedIds = StorageService.getSavedStories();
     final libraryStories = StoryData.allStories
-        .where((s) => favIds.contains(s.id) || downloadIds.contains(s.id))
+        .where((s) => favIds.contains(s.id) || savedIds.contains(s.id))
         .toList();
     final showingSearch = _searchController.text.trim().isNotEmpty;
 

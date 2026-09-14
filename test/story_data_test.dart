@@ -19,10 +19,16 @@ void main() {
       // Catches the classic "renamed the mp3, forgot the reference" bug, which
       // otherwise only shows up as a failed load on a child's device.
       for (final s in stories) {
-        expect(File(s.audioAsset).existsSync(), isTrue,
-            reason: 'missing audio for ${s.id}: ${s.audioAsset}');
-        expect(File(s.coverAsset).existsSync(), isTrue,
-            reason: 'missing cover for ${s.id}: ${s.coverAsset}');
+        expect(
+          File(s.audioAsset).existsSync(),
+          isTrue,
+          reason: 'missing audio for ${s.id}: ${s.audioAsset}',
+        );
+        expect(
+          File(s.coverAsset).existsSync(),
+          isTrue,
+          reason: 'missing cover for ${s.id}: ${s.coverAsset}',
+        );
       }
     });
 
@@ -53,11 +59,17 @@ void main() {
         Duration? prevEnd;
         for (final c in s.captions) {
           expect(c.text.trim(), isNotEmpty, reason: s.id);
-          expect(c.end, greaterThan(c.start),
-              reason: '${s.id}: "${c.text}" ends before it starts');
+          expect(
+            c.end,
+            greaterThan(c.start),
+            reason: '${s.id}: "${c.text}" ends before it starts',
+          );
           if (prevEnd != null) {
-            expect(c.start, greaterThanOrEqualTo(prevEnd),
-                reason: '${s.id}: caption overlaps the previous line');
+            expect(
+              c.start,
+              greaterThanOrEqualTo(prevEnd),
+              reason: '${s.id}: caption overlaps the previous line',
+            );
           }
           prevEnd = c.end;
         }

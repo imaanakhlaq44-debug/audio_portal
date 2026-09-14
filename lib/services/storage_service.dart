@@ -71,7 +71,11 @@ class StorageService {
   static const String _progressBox = 'progress_box';
 
   static const String _keyFavorites = 'favorites';
-  static const String _keyDownloads = 'downloads';
+
+  /// Bookmarked story ids. The key still reads 'downloads' because that is
+  /// what shipped; renaming it would mean migrating existing installs for
+  /// no user-visible gain.
+  static const String _keySaved = 'downloads';
 
   /// Plain-text PIN written by versions <= 1.1.0. Read once at startup so it
   /// can be hashed, then deleted.
@@ -146,7 +150,7 @@ class StorageService {
       _s.listenable(keys: keys);
 
   static ValueListenable<Box> favoritesListenable() =>
-      _s.listenable(keys: [_keyFavorites, _keyDownloads]);
+      _s.listenable(keys: [_keyFavorites, _keySaved]);
 
   static ValueListenable<Box> childNameListenable() =>
       _s.listenable(keys: [_keyChildName]);
@@ -170,18 +174,23 @@ class StorageService {
 
   static Future<void> clearFavorites() => _s.put(_keyFavorites, <String>[]);
 
-  // ---------------- Downloads / Saved ----------------
-  static List<String> getDownloads() => _stringList(_s.get(_keyDownloads));
+  // ---------------- Saved stories ----------------
+  //
+  // A bookmark, not a download: every story's audio already ships inside the
+  // app, so there is nothing to fetch. The UI used to call this "Download",
+  // which promised offline access it was not providing.
 
-  static bool isDownloaded(String storyId) => getDownloads().contains(storyId);
+  static List<String> getSavedStories() => _stringList(_s.get(_keySaved));
 
-  static Future<void> toggleDownload(String storyId) async {
-    final list = getDownloads();
+  static bool isSaved(String storyId) => getSavedStories().contains(storyId);
+
+  static Future<void> toggleSaved(String storyId) async {
+    final list = getSavedStories();
     list.contains(storyId) ? list.remove(storyId) : list.add(storyId);
-    await _s.put(_keyDownloads, list);
+    await _s.put(_keySaved, list);
   }
 
-  static Future<void> clearDownloads() => _s.put(_keyDownloads, <String>[]);
+  static Future<void> clearSavedStories() => _s.put(_keySaved, <String>[]);
 
   // ---------------- Parents Lock ----------------
 
@@ -301,10 +310,8 @@ class StorageService {
     if (attempts <= freePinAttempts) return Duration.zero;
 
     final step = attempts - freePinAttempts - 1;
-    final lockout = pinLockoutLadder[step.clamp(
-      0,
-      pinLockoutLadder.length - 1,
-    )];
+    final lockout =
+        pinLockoutLadder[step.clamp(0, pinLockoutLadder.length - 1)];
     await _s.put(
       _keyPinLockedUntil,
       DateTime.now().add(lockout).millisecondsSinceEpoch,

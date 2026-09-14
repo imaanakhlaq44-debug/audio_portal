@@ -31,12 +31,20 @@ flutter pub get
 flutter run
 ```
 
-Checks:
+Checks — CI runs exactly these, and rejects a diff after `dart format`:
 
 ```bash
+dart format lib test
 flutter analyze
 flutter test
 ```
+
+CI pins **Flutter 3.44.3** (`.github/workflows/ci.yml`). `dart format` changes
+its output between SDK releases, so an unpinned runner rejects trees that a
+developer's own formatter considers clean. Use the same version locally, and
+bump the pin as a deliberate change when adopting a newer Flutter — the
+trade-off is that CI no longer warns you when a new stable release breaks the
+build, so check that when you bump.
 
 ## Project layout
 

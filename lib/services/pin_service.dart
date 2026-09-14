@@ -98,12 +98,8 @@ class PinService {
     return compute(_deriveEntry, <Object>[pin, salt, iterations]);
   }
 
-  static Uint8List _deriveEntry(List<Object> args) => pbkdf2(
-    args[0] as String,
-    args[1] as Uint8List,
-    args[2] as int,
-    keyBytes,
-  );
+  static Uint8List _deriveEntry(List<Object> args) =>
+      pbkdf2(args[0] as String, args[1] as Uint8List, args[2] as int, keyBytes);
 
   /// PBKDF2-HMAC-SHA256. Synchronous core, kept public so tests can run it
   /// against known vectors without an isolate hop.
@@ -128,9 +124,7 @@ class PinService {
     while (written < keyLength) {
       // U1 = PRF(password, salt || INT_32_BE(blockIndex))
       final seed = Uint8List(salt.length + 4)..setRange(0, salt.length, salt);
-      ByteData.view(
-        seed.buffer,
-      ).setUint32(salt.length, blockIndex, Endian.big);
+      ByteData.view(seed.buffer).setUint32(salt.length, blockIndex, Endian.big);
 
       var u = Uint8List.fromList(hmac.convert(seed).bytes);
       final block = Uint8List.fromList(u);
