@@ -2,46 +2,25 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:imaan_akhlaq/models/story_data.dart';
 import 'package:imaan_akhlaq/screens/library_screen.dart';
-import 'package:imaan_akhlaq/services/audio_player_service.dart';
 import 'package:imaan_akhlaq/services/storage_service.dart';
-import 'package:imaan_akhlaq/services/theme_controller.dart';
-import 'package:imaan_akhlaq/theme/app_theme.dart';
-import 'package:provider/provider.dart';
 
 import 'test_helpers.dart';
-
-/// The context LibraryScreen expects: it reads the player and the theme
-/// controller through Provider, takes its colours from a [ThemeExtension] on
-/// the theme, and is not a [Scaffold] itself — in the app it sits inside the
-/// one MainScreen owns, which is what its TextField needs a Material from.
-Widget _host() => MultiProvider(
-  providers: [
-    ChangeNotifierProvider<AudioPlayerService>.value(
-      value: AudioPlayerService.instance,
-    ),
-    ChangeNotifierProvider<ThemeController>(create: (_) => ThemeController()),
-  ],
-  child: MaterialApp(
-    theme: AppTheme.lightTheme,
-    home: const Scaffold(body: LibraryScreen()),
-  ),
-);
 
 void main() {
   late Directory dir;
 
   setUp(() async {
-    GoogleFonts.config.allowRuntimeFetching = false;
     dir = await setUpStorage();
   });
 
   tearDown(() async => tearDownStorage(dir));
 
   testWidgets('an empty library shows no story tiles', (tester) async {
-    await tester.pumpWidget(_host());
+    await tester.pumpWidget(
+      hostScreen(const LibraryScreen(), inScaffold: true),
+    );
     await tester.pump();
 
     for (final story in StoryData.allStories) {
@@ -62,7 +41,9 @@ void main() {
     );
     await writeToStorage(tester, () => StorageService.toggleSaved(saved.id));
 
-    await tester.pumpWidget(_host());
+    await tester.pumpWidget(
+      hostScreen(const LibraryScreen(), inScaffold: true),
+    );
     await tester.pump();
 
     expect(find.text(favourite.title), findsOneWidget);
@@ -79,7 +60,9 @@ void main() {
   ) async {
     final story = StoryData.allStories.first;
 
-    await tester.pumpWidget(_host());
+    await tester.pumpWidget(
+      hostScreen(const LibraryScreen(), inScaffold: true),
+    );
     await tester.pump();
     expect(find.text(story.title), findsNothing);
 
@@ -93,7 +76,9 @@ void main() {
     testWidgets('matches on title regardless of case', (tester) async {
       final story = StoryData.allStories.first;
 
-      await tester.pumpWidget(_host());
+      await tester.pumpWidget(
+        hostScreen(const LibraryScreen(), inScaffold: true),
+      );
       await tester.pump();
 
       await tester.enterText(find.byType(TextField), story.title.toUpperCase());
@@ -104,7 +89,9 @@ void main() {
     });
 
     testWidgets('says so when nothing matches', (tester) async {
-      await tester.pumpWidget(_host());
+      await tester.pumpWidget(
+        hostScreen(const LibraryScreen(), inScaffold: true),
+      );
       await tester.pump();
 
       await tester.enterText(find.byType(TextField), 'zzzzz no such story');
