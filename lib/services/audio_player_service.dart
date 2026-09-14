@@ -184,6 +184,13 @@ class AudioPlayerService extends ChangeNotifier {
     final isSameStory = _currentStory?.id == story.id;
 
     if (isSameStory) {
+      // Already loaded -- but an explicit restart or seek still has to be
+      // honoured, otherwise `fromStart: true` silently resumes mid-story.
+      if (fromStart) {
+        await seek(Duration.zero);
+      } else if (startAt != null) {
+        await seek(startAt);
+      }
       await _handler.play();
       return;
     }
