@@ -61,7 +61,9 @@ assets/
 
 ## Adding a story
 
-1. Drop the MP3 in `assets/audio/` and the cover PNG in `assets/covers/`.
+1. Drop the MP3 in `assets/audio/` and the cover in `assets/covers/`.
+   Covers are **1024x1024 WebP**, encoded with `cwebp -q 88 -m 6` — see
+   "Image assets" below.
 2. Add a `Story(...)` entry to `lib/models/story_data.dart`, including its
    caption lines (`_caps([[start, end, 'text'], ...])`, seconds as doubles).
 3. `flutter test` — `test/story_data_test.dart` verifies that every referenced
@@ -125,6 +127,26 @@ of clear text in files that land in device backups; the lockout is what stops
 a child working through the keypad. Treat the parents area as a speed bump,
 not a vault.
 
+## Image assets
+
+Every bundled image is WebP, sized to what the UI actually renders:
+
+| asset | size | encoded with |
+|---|---|---|
+| `covers/*.webp` | 1024x1024 | `cwebp -q 88 -m 6` |
+| `images/splash_illustration.webp` | 1536x2752 | `cwebp -q 85 -m 6` |
+| `images/child_avatar.webp` | 160x160 (drawn at 40dp) | `cwebp -q 85 -m 6` |
+| `icon/app_icon.webp` | 192x192 | `cwebp -lossless -m 6` |
+
+Keep new artwork to the same recipe. Two things to watch for:
+
+- **Match the file extension to the real format.** The covers were
+  previously JPEG data named `.png`, which works (decoders sniff content)
+  but misleads every human and tool that looks at the repo.
+- **Size the asset to its widest use, not to the source file.** The avatar
+  shipped at 1024x1024 for a 40dp circle: 415 KB on disk and ~4 MB of image
+  cache to draw a thumbnail.
+
 ## Platform notes
 
 - **Android** — `MainActivity` extends `AudioServiceActivity`; the foreground
@@ -155,6 +177,8 @@ Tracked, not yet done:
   already bundled).
 - English only — no Urdu/Arabic localisation or RTL layout yet.
 - Progress and favourites are device-local; there is no backup or sync.
+- Audio is ~5.6 MB of MP3 bundled in the app; there is no streaming or
+  remote catalogue, so every new story needs an app update.
 - No crash reporting / analytics. (Adding any would change the store
   data-safety answers - see `docs/play-data-safety.md`.)
 - `shared_preferences` and `intl` are declared in `pubspec.yaml` but never
