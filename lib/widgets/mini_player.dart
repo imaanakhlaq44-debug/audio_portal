@@ -27,8 +27,14 @@ void openNowPlaying(BuildContext context) {
 }
 
 /// Start a story (if it isn't already the current one) and open Now Playing.
+///
+/// Takes the player from the widget tree rather than the singleton: every
+/// story tap in the app lands here, so reaching for `AudioPlayerService
+/// .instance` would make all of them unreachable to a test — and would tie
+/// the tap to one global instance for no benefit, since the provider is
+/// right there.
 Future<void> openStory(BuildContext context, Story story) async {
-  final player = AudioPlayerService.instance;
+  final player = context.read<AudioPlayerService>();
   if (player.currentStory?.id != story.id) {
     await player.playStory(story);
   }
@@ -36,8 +42,8 @@ Future<void> openStory(BuildContext context, Story story) async {
 }
 
 /// If the tapped story is the current one toggle play/pause, else start it.
-void togglePlayFor(Story story) {
-  final player = AudioPlayerService.instance;
+void togglePlayFor(BuildContext context, Story story) {
+  final player = context.read<AudioPlayerService>();
   if (player.currentStory?.id == story.id) {
     player.togglePlayPause();
   } else {

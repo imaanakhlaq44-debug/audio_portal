@@ -56,7 +56,7 @@ class CategoryStoriesScreen extends StatelessWidget {
                       (story) => StoryTile(
                         story: story,
                         onTap: () => openStory(context, story),
-                        onPlay: () => togglePlayFor(story),
+                        onPlay: () => togglePlayFor(context, story),
                       ),
                     )
                     .toList(),
