@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../app_info.dart';
 import '../models/story.dart';
 import '../models/story_data.dart';
 import '../services/storage_service.dart';
@@ -308,7 +309,7 @@ class _ParentsDashboardScreenState extends State<ParentsDashboardScreen> {
         const SizedBox(height: 28),
         Center(
           child: Text(
-            'Imaan & Akhlaq v1.1.0',
+            '$appName v$appVersion',
             style: AppTheme.body(size: 12, color: c.outline),
           ),
         ),
