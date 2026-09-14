@@ -36,8 +36,10 @@ void main() {
     });
 
     test('finished or near-finished stories are not resumable', () {
-      expect(make(posSec: 100, durSec: 300, completed: true).isResumable,
-          isFalse);
+      expect(
+        make(posSec: 100, durSec: 300, completed: true).isResumable,
+        isFalse,
+      );
       expect(make(posSec: 299, durSec: 300).isResumable, isFalse);
     });
 
@@ -86,6 +88,31 @@ void main() {
       expect(StorageService.getFavorites(), ['little_lamb']);
       await StorageService.toggleFavorite('little_lamb');
       expect(StorageService.getFavorites(), isEmpty);
+    });
+
+    test('saved stories toggle on and off', () async {
+      expect(StorageService.isSaved('ocean_whispers'), isFalse);
+      await StorageService.toggleSaved('ocean_whispers');
+      expect(StorageService.getSavedStories(), ['ocean_whispers']);
+      expect(StorageService.isSaved('ocean_whispers'), isTrue);
+
+      await StorageService.toggleSaved('ocean_whispers');
+      expect(StorageService.getSavedStories(), isEmpty);
+    });
+
+    test('favorites and saved stories are independent lists', () async {
+      await StorageService.toggleFavorite('brave_little_ant');
+      await StorageService.toggleSaved('ocean_whispers');
+
+      expect(StorageService.getFavorites(), ['brave_little_ant']);
+      expect(StorageService.getSavedStories(), ['ocean_whispers']);
+
+      await StorageService.clearSavedStories();
+      expect(
+        StorageService.getFavorites(),
+        ['brave_little_ant'],
+        reason: 'clearing saved stories must not touch favorites',
+      );
     });
 
     test('theme mode round trips', () async {

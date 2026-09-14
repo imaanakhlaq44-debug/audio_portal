@@ -11,15 +11,29 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Pinned, not "latest stable". dart format's output changes between
+      # SDK releases, so an unpinned runner will reject a tree that the
+      # formatter on a developer's machine considers clean. Bumping this is
+      # how the project adopts a new Flutter - deliberately, with the
+      # formatting and build fallout handled in that same change.
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
+          flutter-version: 3.44.3
           cache: true
 
       - run: flutter --version
 
       - name: Install dependencies
         run: flutter pub get
+
+      # The repo is dart-formatted; this keeps it that way. Run
+      # `dart format lib test` locally before pushing. Formatting rather than
+      # just checking means a failure prints the exact diff it wants.
+      - name: Verify formatting
+        run: |
+          dart format lib test
+          git diff --exit-code
 
       - name: Analyze
         run: flutter analyze
@@ -38,9 +52,11 @@ jobs:
           distribution: temurin
           java-version: '17'
 
+      # Same pin as the job above - both jobs must build the same way.
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
+          flutter-version: 3.44.3
           cache: true
 
       - run: flutter pub get

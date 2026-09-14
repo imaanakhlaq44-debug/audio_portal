@@ -215,7 +215,7 @@ class _ParentsDashboardScreenState extends State<ParentsDashboardScreen> {
 
   Widget _buildBody(BuildContext context, AppColors c) {
     final favs = StorageService.getFavorites();
-    final downloads = StorageService.getDownloads();
+    final saved = StorageService.getSavedStories();
     final plays = StorageService.totalPlays();
     final completed = StorageService.completedCount();
     final theme = context.watch<ThemeController>();
@@ -277,14 +277,14 @@ class _ParentsDashboardScreenState extends State<ParentsDashboardScreen> {
         ),
         const SizedBox(height: 14),
         _SectionCard(
-          icon: Icons.download_outlined,
-          title: 'Downloaded Stories',
+          icon: Icons.bookmark_border,
+          title: 'Saved Stories',
           subtitle:
-              '${downloads.length} ${downloads.length == 1 ? 'story' : 'stories'} saved offline',
+              '${saved.length} ${saved.length == 1 ? 'story' : 'stories'} in the library',
           onTap: () => _showStoryListDialog(
-            title: 'Downloaded Stories',
-            ids: downloads,
-            onClear: StorageService.clearDownloads,
+            title: 'Saved Stories',
+            ids: saved,
+            onClear: StorageService.clearSavedStories,
           ),
         ),
         const SizedBox(height: 14),
@@ -373,7 +373,7 @@ class _ParentsDashboardScreenState extends State<ParentsDashboardScreen> {
         ),
         content: Text(
           'This clears "continue listening" positions and play counts for '
-          'every story. Favorites and downloads are kept.',
+          'every story. Favorites and saved stories are kept.',
           style: AppTheme.body(size: 14, color: c.onSurfaceVariant),
         ),
         actions: [
@@ -480,9 +480,7 @@ class _SectionCard extends StatelessWidget {
               width: 46,
               height: 46,
               decoration: BoxDecoration(
-                color: warn
-                    ? c.error.withValues(alpha: 0.12)
-                    : c.primaryFixed,
+                color: warn ? c.error.withValues(alpha: 0.12) : c.primaryFixed,
                 borderRadius: BorderRadius.circular(14),
               ),
               child: Icon(icon, color: warn ? c.error : c.primaryDeep),
