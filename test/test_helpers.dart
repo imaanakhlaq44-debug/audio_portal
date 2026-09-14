@@ -23,6 +23,14 @@ Future<Directory> setUpStorage() async {
   return dir;
 }
 
+/// Closes and reopens storage on the same directory — what an app restart
+/// looks like from the boxes' point of view. Unlike [StorageService.reset]
+/// this keeps the data, so tests can assert that something persisted.
+Future<void> restartStorage() async {
+  await StorageService.close();
+  await StorageService.init(subDir: 'hive');
+}
+
 Future<void> tearDownStorage(Directory dir) async {
   await StorageService.reset();
   TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
