@@ -40,3 +40,17 @@ Future<void> tearDownStorage(Directory dir) async {
       );
   if (dir.existsSync()) dir.deleteSync(recursive: true);
 }
+
+/// Runs a storage write from inside a `testWidgets` body.
+///
+/// Hive writes touch the disk, and awaiting real I/O inside the fake-async
+/// zone `testWidgets` installs deadlocks: the clock never advances, so the
+/// completion callback never runs and the test hangs with no output.
+/// [WidgetTester.runAsync] steps outside that zone, which is the only safe
+/// way to do it.
+Future<void> writeToStorage(
+  WidgetTester tester,
+  Future<void> Function() write,
+) async {
+  await tester.runAsync(write);
+}

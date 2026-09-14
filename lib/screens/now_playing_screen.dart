@@ -310,9 +310,7 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                                   StorageService.favoritesListenable(),
                               builder: (context, _, __) {
                                 final fav = StorageService.isFavorite(story.id);
-                                final saved = StorageService.isDownloaded(
-                                  story.id,
-                                );
+                                final saved = StorageService.isSaved(story.id);
                                 return Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -341,15 +339,15 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                                     ),
                                     const SizedBox(width: 36),
                                     _SecondaryAction(
+                                      // A bookmark, not a download - the
+                                      // audio is already in the app.
                                       icon: saved
-                                          ? Icons.download_done
-                                          : Icons.download_outlined,
-                                      label: 'Save',
+                                          ? Icons.bookmark
+                                          : Icons.bookmark_border,
+                                      label: saved ? 'Saved' : 'Save',
                                       active: saved,
                                       onTap: () =>
-                                          StorageService.toggleDownload(
-                                            story.id,
-                                          ),
+                                          StorageService.toggleSaved(story.id),
                                     ),
                                   ],
                                 );
