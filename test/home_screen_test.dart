@@ -1,0 +1,148 @@
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:imaan_akhlaq/models/story_data.dart';
+import 'package:imaan_akhlaq/screens/home_screen.dart';
+import 'package:imaan_akhlaq/services/storage_service.dart';
+
+import 'fake_player.dart';
+import 'test_helpers.dart';
+
+void main() {
+  late Directory dir;
+  late FakePlayer player;
+
+  setUp(() async {
+    dir = await setUpStorage();
+    player = FakePlayer();
+  });
+
+  tearDown(() async => tearDownStorage(dir));
+
+  Future<void> open(WidgetTester tester) async {
+    // Home is a tall scroller; the default 800x600 surface cuts off most of
+    // it, and an unbuilt widget cannot be found or tapped.
+    await tester.binding.setSurfaceSize(const Size(420, 1600));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+
+    await tester.pumpWidget(
+      hostScreen(const HomeScreen(), inScaffold: true, player: player),
+    );
+    await tester.pump();
+  }
+
+  group('greeting', () {
+    testWidgets('greets the child by the name a parent set', (tester) async {
+      await writeToStorage(tester, () => StorageService.setChildName('Zayd'));
+      await open(tester);
+
+      expect(find.text('Salam, Zayd!'), findsOneWidget);
+    });
+
+    testWidgets('falls back to the default name', (tester) async {
+      await open(tester);
+
+      expect(
+        find.text('Salam, ${StorageService.defaultChildName}!'),
+        findsOneWidget,
+      );
+    });
+  });
+
+  group('story of the day', () {
+    testWidgets('features the story the catalogue marks', (tester) async {
+      await open(tester);
+
+      expect(find.text('STORY OF THE DAY'), findsOneWidget);
+      expect(find.text(StoryData.storyOfTheDay.title), findsWidgets);
+    });
+  });
+
+  group('continue listening', () {
+    testWidgets('is hidden until there is something to resume', (tester) async {
+      await open(tester);
+
+      expect(find.text('Continue Listening'), findsNothing);
+    });
+
+    testWidgets('lists a part-played story with where to resume from', (
+      tester,
+    ) async {
+      final story = StoryData.allStories.first;
+      await writeToStorage(
+        tester,
+        () => StorageService.saveProgress(
+          story.id,
+          position: const Duration(minutes: 1, seconds: 5),
+          duration: const Duration(minutes: 4),
+        ),
+      );
+      await open(tester);
+
+      expect(find.text('Continue Listening'), findsOneWidget);
+      // StoryProgressLabel.fmt zero-pads: 01:05, not 1:05.
+      expect(find.textContaining('Resume from 01:05'), findsOneWidget);
+      expect(find.textContaining('left'), findsWidgets);
+    });
+
+    testWidgets('ignores a story barely started', (tester) async {
+      final story = StoryData.allStories.first;
+      await writeToStorage(
+        tester,
+        () => StorageService.saveProgress(
+          story.id,
+          // Under the 5-second floor StoryProgress.isResumable applies.
+          position: const Duration(seconds: 2),
+          duration: const Duration(minutes: 4),
+        ),
+      );
+      await open(tester);
+
+      expect(find.text('Continue Listening'), findsNothing);
+    });
+
+    testWidgets('drops a story once it is finished', (tester) async {
+      final story = StoryData.allStories.first;
+      await writeToStorage(tester, () async {
+        await StorageService.saveProgress(
+          story.id,
+          position: const Duration(minutes: 1),
+          duration: const Duration(minutes: 4),
+        );
+        await StorageService.markCompleted(story.id);
+      });
+      await open(tester);
+
+      expect(find.text('Continue Listening'), findsNothing);
+    });
+  });
+
+  group('sections', () {
+    testWidgets('offers the bedtime carousel and the full catalogue', (
+      tester,
+    ) async {
+      await open(tester);
+
+      expect(find.text('Calm Bedtime Audio'), findsOneWidget);
+      expect(find.text('All Stories'), findsOneWidget);
+    });
+  });
+
+  group('playback', () {
+    testWidgets('asks the player for the story of the day', (tester) async {
+      await open(tester);
+
+      // The whole hero card is the target - it has no separate play button.
+      await tester.tap(find.text('STORY OF THE DAY'));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 400));
+
+      expect(
+        player.calls.single,
+        contains(StoryData.storyOfTheDay.id),
+        reason: 'the tap must reach the player from the widget tree',
+      );
+    });
+  });
+}
