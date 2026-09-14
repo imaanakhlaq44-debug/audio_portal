@@ -95,8 +95,22 @@ class PinService {
     Uint8List salt,
     int iterations,
   ) {
+    if (deriveInline) {
+      return SynchronousFuture(pbkdf2(pin, salt, iterations, keyBytes));
+    }
     return compute(_deriveEntry, <Object>[pin, salt, iterations]);
   }
+
+  /// Runs the derivation on the calling isolate instead of through
+  /// [compute].
+  ///
+  /// Widget tests need this: `compute` spawns an isolate, and its result is
+  /// never delivered under the fake-async clock `testWidgets` installs — so
+  /// a screen awaiting a PIN check would hang forever rather than fail. The
+  /// app itself must never set this; the whole point of the isolate is to
+  /// keep 50,000 rounds of PBKDF2 off the frame.
+  @visibleForTesting
+  static bool deriveInline = false;
 
   static Uint8List _deriveEntry(List<Object> args) =>
       pbkdf2(args[0] as String, args[1] as Uint8List, args[2] as int, keyBytes);
