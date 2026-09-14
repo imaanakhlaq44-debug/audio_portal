@@ -158,7 +158,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
         (story) => StoryTile(
           story: story,
           onTap: () => openStory(context, story),
-          onPlay: () => togglePlayFor(story),
+          onPlay: () => togglePlayFor(context, story),
         ),
       ),
     ];
@@ -216,7 +216,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
           (story) => StoryTile(
             story: story,
             onTap: () => openStory(context, story),
-            onPlay: () => togglePlayFor(story),
+            onPlay: () => togglePlayFor(context, story),
           ),
         ),
     ];
