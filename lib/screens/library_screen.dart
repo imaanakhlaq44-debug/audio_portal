@@ -60,7 +60,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
               children: [
                 ClipOval(
                   child: Image.asset(
-                    'assets/icon/app_icon.png',
+                    'assets/icon/app_icon.webp',
                     width: 40,
                     height: 40,
                     fit: BoxFit.cover,
