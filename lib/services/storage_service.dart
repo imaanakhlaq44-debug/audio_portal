@@ -1,6 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' show ThemeMode;
 import 'package:hive_flutter/hive_flutter.dart';
+
+import 'pin_service.dart';
 
 /// Per-story playback progress persisted locally.
 @immutable
@@ -68,7 +72,18 @@ class StorageService {
 
   static const String _keyFavorites = 'favorites';
   static const String _keyDownloads = 'downloads';
-  static const String _keyParentPin = 'parent_pin';
+
+  /// Plain-text PIN written by versions <= 1.1.0. Read once at startup so it
+  /// can be hashed, then deleted.
+  static const String _keyLegacyParentPin = 'parent_pin';
+
+  static const String _keyPinHash = 'parent_pin_hash';
+  static const String _keyPinSalt = 'parent_pin_salt';
+  static const String _keyPinIterations = 'parent_pin_iterations';
+  static const String _keyPinIsDefault = 'parent_pin_is_default';
+  static const String _keyPinFailedAttempts = 'pin_failed_attempts';
+  static const String _keyPinLockedUntil = 'pin_locked_until';
+
   static const String _keyChildName = 'child_name';
   static const String _keyThemeMode = 'theme_mode';
   static const String _keyLastStoryId = 'last_story_id';
@@ -89,9 +104,7 @@ class StorageService {
     _settings = await Hive.openBox(_settingsBox);
     _progress = await Hive.openBox(_progressBox);
 
-    if (_settings!.get(_keyParentPin) == null) {
-      await _settings!.put(_keyParentPin, defaultPin);
-    }
+    await _ensurePinCredential();
     if (_settings!.get(_keyChildName) == null) {
       await _settings!.put(_keyChildName, defaultChildName);
     }
@@ -102,6 +115,13 @@ class StorageService {
   static Future<void> reset() async {
     await _settings?.clear();
     await _progress?.clear();
+    await close();
+  }
+
+  /// Test helper – closes the boxes *without* wiping them, so a test can
+  /// reopen them and exercise what happens across an app restart.
+  @visibleForTesting
+  static Future<void> close() async {
     await _settings?.close();
     await _progress?.close();
     _settings = null;
@@ -164,14 +184,143 @@ class StorageService {
   static Future<void> clearDownloads() => _s.put(_keyDownloads, <String>[]);
 
   // ---------------- Parents Lock ----------------
-  static String getParentPin() {
-    final v = _s.get(_keyParentPin);
-    return v is String && v.isNotEmpty ? v : defaultPin;
+
+  /// Failures allowed before the pad starts locking out.
+  static const int freePinAttempts = 4;
+
+  /// Lockout applied after each further failure; the last entry repeats.
+  static const List<Duration> pinLockoutLadder = [
+    Duration(seconds: 30),
+    Duration(minutes: 1),
+    Duration(minutes: 5),
+    Duration(minutes: 15),
+    Duration(minutes: 30),
+  ];
+
+  static bool isFourDigitPin(String pin) =>
+      pin.length == 4 && pin.codeUnits.every((u) => u >= 0x30 && u <= 0x39);
+
+  /// Seeds the PIN on a fresh install, and upgrades installs still holding
+  /// the pre-1.2 plain-text PIN.
+  static Future<void> _ensurePinCredential() async {
+    final legacy = _settings!.get(_keyLegacyParentPin);
+    final hasHash = _settings!.get(_keyPinHash) is String;
+
+    if (hasHash) {
+      // Nothing to do beyond clearing a stale plain-text leftover.
+      if (legacy != null) await _settings!.delete(_keyLegacyParentPin);
+      return;
+    }
+
+    final pin = legacy is String && isFourDigitPin(legacy)
+        ? legacy
+        : defaultPin;
+    await _writePinCredential(pin);
+    if (legacy != null) await _settings!.delete(_keyLegacyParentPin);
   }
 
-  static Future<void> setParentPin(String pin) => _s.put(_keyParentPin, pin);
+  static Future<void> _writePinCredential(String pin) async {
+    final cred = await PinService.create(pin);
+    await _settings!.putAll({
+      _keyPinHash: cred.hashB64,
+      _keyPinSalt: cred.saltB64,
+      _keyPinIterations: cred.iterations,
+      _keyPinIsDefault: pin == defaultPin,
+    });
+  }
 
-  static bool verifyPin(String pin) => pin == getParentPin();
+  static PinCredential? _pinCredential() {
+    final hash = _s.get(_keyPinHash);
+    final salt = _s.get(_keyPinSalt);
+    final iterations = _s.get(_keyPinIterations);
+    if (hash is! String || salt is! String || iterations is! int) return null;
+    try {
+      return PinCredential(
+        salt: Uint8List.fromList(base64Decode(salt)),
+        hash: Uint8List.fromList(base64Decode(hash)),
+        iterations: iterations,
+      );
+    } on FormatException {
+      return null;
+    }
+  }
+
+  static Future<void> setParentPin(String pin) => _writePinCredential(pin);
+
+  /// True while the PIN is still the shipped default, so the dashboard can
+  /// nudge the parent to change it.
+  static bool isUsingDefaultPin() => _s.get(_keyPinIsDefault) == true;
+
+  /// Checks [pin] against the stored credential. Deliberately async: the
+  /// derivation is slow by design and runs off the UI isolate.
+  static Future<bool> verifyPin(String pin) async {
+    final cred = _pinCredential();
+    if (cred == null) {
+      // Storage was cleared or corrupted. Re-seed rather than lock the
+      // parent out of their own app for good.
+      await _writePinCredential(defaultPin);
+      return pin == defaultPin;
+    }
+    return PinService.verify(pin, cred);
+  }
+
+  // ---------------- PIN lockout ----------------
+
+  static int failedPinAttempts() {
+    final v = _s.get(_keyPinFailedAttempts);
+    return v is int && v > 0 ? v : 0;
+  }
+
+  /// How long the pad stays locked, or [Duration.zero] when it is open.
+  static Duration pinLockRemaining() {
+    final until = _s.get(_keyPinLockedUntil);
+    if (until is! int) return Duration.zero;
+    final left = DateTime.fromMillisecondsSinceEpoch(
+      until,
+    ).difference(DateTime.now());
+    return left > Duration.zero ? left : Duration.zero;
+  }
+
+  static bool isPinLocked() => pinLockRemaining() > Duration.zero;
+
+  /// Tries left before the next failure triggers a lockout.
+  static int pinAttemptsBeforeLockout() {
+    final left = freePinAttempts - failedPinAttempts();
+    return left > 0 ? left : 0;
+  }
+
+  /// Records a wrong PIN and returns the lockout it triggered
+  /// ([Duration.zero] while the parent still has free tries).
+  ///
+  /// Both the counter and the deadline are persisted, so force-quitting the
+  /// app does not hand out a fresh set of guesses.
+  static Future<Duration> registerFailedPinAttempt() async {
+    final attempts = failedPinAttempts() + 1;
+    await _s.put(_keyPinFailedAttempts, attempts);
+
+    if (attempts <= freePinAttempts) return Duration.zero;
+
+    final step = attempts - freePinAttempts - 1;
+    final lockout = pinLockoutLadder[step.clamp(
+      0,
+      pinLockoutLadder.length - 1,
+    )];
+    await _s.put(
+      _keyPinLockedUntil,
+      DateTime.now().add(lockout).millisecondsSinceEpoch,
+    );
+    return lockout;
+  }
+
+  /// Called after a correct PIN: the ladder starts over.
+  static Future<void> clearPinFailures() async {
+    await _s.delete(_keyPinFailedAttempts);
+    await _s.delete(_keyPinLockedUntil);
+  }
+
+  /// Fires while a lockout is armed or cleared, so the pad can redraw.
+  static ValueListenable<Box> pinLockListenable() =>
+      _s.listenable(keys: [_keyPinFailedAttempts, _keyPinLockedUntil]);
 
   // ---------------- Child Profile ----------------
   static String getChildName() {

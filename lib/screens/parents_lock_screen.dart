@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import '../services/storage_service.dart';
 import '../theme/app_theme.dart';
@@ -15,8 +17,42 @@ class _ParentsLockScreenState extends State<ParentsLockScreen> {
   String _entered = '';
   String? _error;
 
+  /// Set while the PBKDF2 derivation runs, so the pad can't be hammered.
+  bool _checking = false;
+
+  /// Drives the lockout countdown once a lockout is armed.
+  Timer? _lockTicker;
+
+  @override
+  void initState() {
+    super.initState();
+    if (StorageService.isPinLocked()) _startLockTicker();
+  }
+
+  @override
+  void dispose() {
+    _lockTicker?.cancel();
+    super.dispose();
+  }
+
+  void _startLockTicker() {
+    _lockTicker?.cancel();
+    _lockTicker = Timer.periodic(const Duration(seconds: 1), (t) {
+      if (!mounted) return;
+      if (!StorageService.isPinLocked()) {
+        t.cancel();
+        _lockTicker = null;
+        setState(() => _error = null);
+      } else {
+        setState(() {});
+      }
+    });
+  }
+
+  bool get _isLocked => StorageService.isPinLocked();
+
   void _onDigit(String digit) {
-    if (_entered.length >= 4) return;
+    if (_checking || _isLocked || _entered.length >= 4) return;
     setState(() {
       _entered += digit;
       _error = null;
@@ -27,12 +63,26 @@ class _ParentsLockScreenState extends State<ParentsLockScreen> {
   }
 
   void _onBackspace() {
-    if (_entered.isEmpty) return;
+    if (_checking || _isLocked || _entered.isEmpty) return;
     setState(() => _entered = _entered.substring(0, _entered.length - 1));
   }
 
   Future<void> _verify() async {
-    if (StorageService.verifyPin(_entered)) {
+    final pin = _entered;
+    setState(() => _checking = true);
+
+    final ok = await StorageService.verifyPin(pin);
+    if (!mounted) return;
+
+    if (ok) {
+      await StorageService.clearPinFailures();
+      if (!mounted) return;
+      setState(() {
+        _checking = false;
+        _entered = '';
+        _error = null;
+      });
+
       // Use push (not pushReplacement): this screen lives inside the
       // MainScreen IndexedStack, so replacing the route would remove the
       // whole tab bar and leave the user with no way back.
@@ -41,17 +91,43 @@ class _ParentsLockScreenState extends State<ParentsLockScreen> {
       ).push(MaterialPageRoute(builder: (_) => const ParentsDashboardScreen()));
       // Re-lock when the parent leaves the dashboard.
       if (mounted) setState(() => _entered = '');
-    } else {
-      setState(() {
-        _error = 'Incorrect PIN, try again';
-        _entered = '';
-      });
+      return;
     }
+
+    final lockout = await StorageService.registerFailedPinAttempt();
+    if (!mounted) return;
+    setState(() {
+      _checking = false;
+      _entered = '';
+      _error = lockout > Duration.zero
+          ? 'Too many attempts'
+          : _wrongPinMessage();
+    });
+    if (lockout > Duration.zero) _startLockTicker();
+  }
+
+  String _wrongPinMessage() {
+    final left = StorageService.pinAttemptsBeforeLockout();
+    if (left > 2) return 'Incorrect PIN, try again';
+    return left == 1
+        ? 'Incorrect PIN - 1 try left'
+        : 'Incorrect PIN - $left tries left';
+  }
+
+  /// "30s" / "4:59" - short enough to sit under the PIN dots.
+  static String _formatRemaining(Duration d) {
+    final total = d.inSeconds + (d.inMilliseconds % 1000 > 0 ? 1 : 0);
+    if (total < 60) return '${total}s';
+    final m = total ~/ 60;
+    final s = total % 60;
+    return '$m:${s.toString().padLeft(2, '0')}';
   }
 
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
+    final remaining = StorageService.pinLockRemaining();
+    final locked = remaining > Duration.zero;
     return Scaffold(
       backgroundColor: c.background,
       body: SafeArea(
@@ -87,7 +163,10 @@ class _ParentsLockScreenState extends State<ParentsLockScreen> {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        'Enter your 4-digit PIN to continue',
+                        locked
+                            ? 'Too many incorrect attempts'
+                            : 'Enter your 4-digit PIN to continue',
+                        textAlign: TextAlign.center,
                         style: AppTheme.body(
                           size: 14,
                           color: c.onSurfaceVariant,
@@ -95,24 +174,45 @@ class _ParentsLockScreenState extends State<ParentsLockScreen> {
                       ),
                       const SizedBox(height: 32),
 
-                      // ---- PIN dots ----
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: List.generate(4, (i) {
-                          final filled = i < _entered.length;
-                          return Container(
-                            margin: const EdgeInsets.symmetric(horizontal: 8),
-                            width: 18,
-                            height: 18,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: filled ? c.primary : c.surfaceVariant,
-                            ),
-                          );
-                        }),
+                      // ---- PIN dots (a spinner while the hash is derived) ----
+                      SizedBox(
+                        height: 18,
+                        child: _checking
+                            ? SizedBox(
+                                width: 18,
+                                height: 18,
+                                child: CircularProgressIndicator(
+                                  strokeWidth: 2,
+                                  color: c.primary,
+                                ),
+                              )
+                            : Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: List.generate(4, (i) {
+                                  final filled = i < _entered.length;
+                                  return Container(
+                                    margin: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                    ),
+                                    width: 18,
+                                    height: 18,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: filled
+                                          ? c.primary
+                                          : c.surfaceVariant,
+                                    ),
+                                  );
+                                }),
+                              ),
                       ),
                       const SizedBox(height: 12),
-                      if (_error != null)
+                      if (locked)
+                        Text(
+                          'Try again in ${_formatRemaining(remaining)}',
+                          style: AppTheme.body(size: 13, color: c.error),
+                        )
+                      else if (_error != null)
                         Text(
                           _error!,
                           style: AppTheme.body(size: 13, color: c.error),
@@ -121,14 +221,14 @@ class _ParentsLockScreenState extends State<ParentsLockScreen> {
                       const Spacer(),
 
                       // ---- Number pad ----
-                      _NumberPad(onDigit: _onDigit, onBackspace: _onBackspace),
-                      const SizedBox(height: 12),
-                      Text(
-                        'Default PIN is 1234 unless changed by a parent.',
-                        textAlign: TextAlign.center,
-                        style: AppTheme.body(size: 12, color: c.outline),
+                      Opacity(
+                        opacity: locked ? 0.4 : 1,
+                        child: _NumberPad(
+                          onDigit: _onDigit,
+                          onBackspace: _onBackspace,
+                        ),
                       ),
-                      const SizedBox(height: 8),
+                      const SizedBox(height: 20),
                     ],
                   ),
                 ),
