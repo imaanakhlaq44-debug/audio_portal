@@ -74,17 +74,20 @@ Future<void> writeToStorage(
 ///
 /// [navigatorObserver] lets a test assert on navigation without having to
 /// build the destination.
+/// Pass [player] to drive the screen from a test double; it defaults to the
+/// real singleton for screens that never touch playback.
 Widget hostScreen(
   Widget screen, {
   bool inScaffold = false,
   NavigatorObserver? navigatorObserver,
+  AudioPlayerService? player,
 }) {
   // Bundled fonts only; a test must never reach for the network.
   GoogleFonts.config.allowRuntimeFetching = false;
   return MultiProvider(
     providers: [
       ChangeNotifierProvider<AudioPlayerService>.value(
-        value: AudioPlayerService.instance,
+        value: player ?? AudioPlayerService.instance,
       ),
       ChangeNotifierProvider<ThemeController>(create: (_) => ThemeController()),
     ],

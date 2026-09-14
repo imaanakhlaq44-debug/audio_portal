@@ -82,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   story: story!,
                                   subtitle:
                                       'Resume from ${StoryProgressLabel.fmt(progress.position)} • ${_remaining(progress)} left',
-                                  onPlay: () => togglePlayFor(story),
+                                  onPlay: () => togglePlayFor(context, story),
                                 ),
                               ),
                           ],
@@ -118,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: const EdgeInsets.only(bottom: 10),
                       child: _QuickStoryRow(
                         story: story,
-                        onPlay: () => togglePlayFor(story),
+                        onPlay: () => togglePlayFor(context, story),
                       ),
                     ),
                 ],
@@ -323,7 +323,7 @@ class _HeroCard extends StatelessWidget {
                             size: 52,
                             isPlaying: isCurrent && player.isPlaying,
                             isLoading: isCurrent && player.isLoading,
-                            onTap: () => togglePlayFor(story),
+                            onTap: () => togglePlayFor(context, story),
                           ),
                         ],
                       ),
