@@ -45,3 +45,7 @@ flutter:
     - assets/audio/
     - assets/images/
     - assets/icon/
+    # Static Plus Jakarta Sans / Bricolage Grotesque faces. google_fonts picks
+    # these up from the asset bundle, so typography works offline and in
+    # release builds (which have no INTERNET permission).
+    - assets/google_fonts/

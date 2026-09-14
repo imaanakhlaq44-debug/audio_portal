@@ -43,3 +43,17 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Release signing material - NEVER commit these.
+# build.gradle.kts reads android/key.properties and falls back to the debug
+# key when it is absent, so local clones still build without them.
+key.properties
+**/key.properties
+*.jks
+*.keystore
+*.p12
+*.p8
+*.mobileprovision
+
+# Local tooling
+.vscode/launch.json
