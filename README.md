@@ -137,6 +137,16 @@ not a vault.
 - **Web / desktop** — the targets build, but the UI is designed for portrait
   phones and `audio_service` background features are limited there.
 
+## Store listing
+
+- [`docs/PRIVACY.md`](docs/PRIVACY.md) — privacy policy **draft**. Fill in the
+  `[[...]]` placeholders, publish it at a public URL, and link that URL from
+  the Play Console and App Store listings. A reachable privacy policy is
+  mandatory for a child-directed app.
+- [`docs/play-data-safety.md`](docs/play-data-safety.md) — the Data safety and
+  Families answers, each with the reason behind it, plus the list of changes
+  that would invalidate them.
+
 ## Known gaps
 
 Tracked, not yet done:
@@ -145,4 +155,7 @@ Tracked, not yet done:
   already bundled).
 - English only — no Urdu/Arabic localisation or RTL layout yet.
 - Progress and favourites are device-local; there is no backup or sync.
-- No crash reporting / analytics.
+- No crash reporting / analytics. (Adding any would change the store
+  data-safety answers - see `docs/play-data-safety.md`.)
+- `shared_preferences` and `intl` are declared in `pubspec.yaml` but never
+  imported.
