@@ -109,6 +109,24 @@ Release builds run R8 with `android/app/proguard-rules.pro` (keeps
 > **Never commit** `key.properties`, `*.jks` or `*.keystore`. They are listed
 > in `.gitignore`; if one is ever committed, rotate the key.
 
+## Parents PIN
+
+The PIN is stored as PBKDF2-HMAC-SHA256 (50,000 iterations, 16-byte random
+salt per install) — see `lib/services/pin_service.dart`. It is never written
+in clear text. Installs upgrading from 1.1.0 or earlier have their plain-text
+PIN hashed on first launch and the old key deleted.
+
+Wrong entries are rate-limited on the device: four free tries, then lockouts
+of 30s, 1m, 5m, 15m and 30m, holding at 30m. Both the counter and the
+deadline are persisted, so force-quitting the app does not reset them.
+
+**What this buys, and what it does not.** A 4-digit PIN is 10,000
+candidates, so anyone who can copy the Hive file off the device and grind it
+offline gets in regardless of the iteration count. Hashing keeps the PIN out
+of clear text in files that land in device backups; the lockout is what stops
+a child working through the keypad. Treat the parents area as a speed bump,
+not a vault.
+
 ## Image assets
 
 Every bundled image is WebP, sized to what the UI actually renders:
@@ -141,16 +159,27 @@ Keep new artwork to the same recipe. Two things to watch for:
 - **Web / desktop** — the targets build, but the UI is designed for portrait
   phones and `audio_service` background features are limited there.
 
+## Store listing
+
+- [`docs/PRIVACY.md`](docs/PRIVACY.md) — privacy policy **draft**. Fill in the
+  `[[...]]` placeholders, publish it at a public URL, and link that URL from
+  the Play Console and App Store listings. A reachable privacy policy is
+  mandatory for a child-directed app.
+- [`docs/play-data-safety.md`](docs/play-data-safety.md) — the Data safety and
+  Families answers, each with the reason behind it, plus the list of changes
+  that would invalidate them.
+
 ## Known gaps
 
 Tracked, not yet done:
 
 - The "Save" action is a bookmark, not an actual download (all audio is
   already bundled).
-- Parent PIN is stored in plain text and there is no lockout after repeated
-  wrong attempts.
 - English only — no Urdu/Arabic localisation or RTL layout yet.
 - Progress and favourites are device-local; there is no backup or sync.
 - Audio is ~5.6 MB of MP3 bundled in the app; there is no streaming or
   remote catalogue, so every new story needs an app update.
-- No crash reporting / analytics.
+- No crash reporting / analytics. (Adding any would change the store
+  data-safety answers - see `docs/play-data-safety.md`.)
+- `shared_preferences` and `intl` are declared in `pubspec.yaml` but never
+  imported.

@@ -18,7 +18,8 @@ class ParentsDashboardScreen extends StatefulWidget {
 
 class _ParentsDashboardScreenState extends State<ParentsDashboardScreen> {
   void _showChangePinDialog() {
-    final controller = TextEditingController();
+    final pinController = TextEditingController();
+    final confirmController = TextEditingController();
     final c = context.colors;
     showDialog(
       context: context,
@@ -27,11 +28,26 @@ class _ParentsDashboardScreenState extends State<ParentsDashboardScreen> {
           'Set New PIN',
           style: AppTheme.headline(size: 18, color: c.headline),
         ),
-        content: TextField(
-          controller: controller,
-          keyboardType: TextInputType.number,
-          maxLength: 4,
-          decoration: const InputDecoration(hintText: 'Enter 4-digit PIN'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            TextField(
+              controller: pinController,
+              keyboardType: TextInputType.number,
+              obscureText: true,
+              maxLength: 4,
+              decoration: const InputDecoration(hintText: 'New 4-digit PIN'),
+            ),
+            // Asking twice: a typo here would lock the parent out of their
+            // own dashboard with no way to recover it.
+            TextField(
+              controller: confirmController,
+              keyboardType: TextInputType.number,
+              obscureText: true,
+              maxLength: 4,
+              decoration: const InputDecoration(hintText: 'Repeat the PIN'),
+            ),
+          ],
         ),
         actions: [
           TextButton(
@@ -40,21 +56,28 @@ class _ParentsDashboardScreenState extends State<ParentsDashboardScreen> {
           ),
           TextButton(
             onPressed: () async {
-              final pin = controller.text.trim();
+              final pin = pinController.text.trim();
+              final confirm = confirmController.text.trim();
+
               // Must be exactly 4 digits (maxLength alone doesn't stop
               // letters/spaces from being saved as the PIN).
-              if (!RegExp(r'^\d{4}$').hasMatch(pin)) {
+              String? problem;
+              if (!StorageService.isFourDigitPin(pin)) {
+                problem = 'PIN must be exactly 4 digits';
+              } else if (pin != confirm) {
+                problem = 'The two PINs do not match';
+              }
+              if (problem != null) {
                 ScaffoldMessenger.of(ctx).showSnackBar(
-                  SnackBar(
-                    content: const Text('PIN must be exactly 4 digits'),
-                    backgroundColor: c.error,
-                  ),
+                  SnackBar(content: Text(problem), backgroundColor: c.error),
                 );
                 return;
               }
+
               await StorageService.setParentPin(pin);
               if (ctx.mounted) Navigator.pop(ctx);
               if (mounted) {
+                setState(() {});
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('PIN updated successfully')),
                 );
@@ -234,8 +257,11 @@ class _ParentsDashboardScreenState extends State<ParentsDashboardScreen> {
         _SectionCard(
           icon: Icons.lock_reset,
           title: 'Change Parents PIN',
-          subtitle: 'Update the 4-digit access code',
+          subtitle: StorageService.isUsingDefaultPin()
+              ? 'Still the default PIN - tap to change it'
+              : 'Update the 4-digit access code',
           onTap: _showChangePinDialog,
+          warn: StorageService.isUsingDefaultPin(),
         ),
         const SizedBox(height: 14),
         _SectionCard(
@@ -419,11 +445,16 @@ class _SectionCard extends StatelessWidget {
   final String subtitle;
   final VoidCallback onTap;
 
+  /// Draws the card in the warning colour - used for the "you are still on
+  /// the default PIN" nudge.
+  final bool warn;
+
   const _SectionCard({
     required this.icon,
     required this.title,
     required this.subtitle,
     required this.onTap,
+    this.warn = false,
   });
 
   @override
@@ -438,7 +469,9 @@ class _SectionCard extends StatelessWidget {
           color: c.surfaceLowest,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: c.outlineVariant.withValues(alpha: c.isDark ? 0.5 : 0.15),
+            color: warn
+                ? c.error.withValues(alpha: 0.55)
+                : c.outlineVariant.withValues(alpha: c.isDark ? 0.5 : 0.15),
           ),
         ),
         child: Row(
@@ -447,10 +480,12 @@ class _SectionCard extends StatelessWidget {
               width: 46,
               height: 46,
               decoration: BoxDecoration(
-                color: c.primaryFixed,
+                color: warn
+                    ? c.error.withValues(alpha: 0.12)
+                    : c.primaryFixed,
                 borderRadius: BorderRadius.circular(14),
               ),
-              child: Icon(icon, color: c.primaryDeep),
+              child: Icon(icon, color: warn ? c.error : c.primaryDeep),
             ),
             const SizedBox(width: 14),
             Expanded(
@@ -467,7 +502,10 @@ class _SectionCard extends StatelessWidget {
                   ),
                   Text(
                     subtitle,
-                    style: AppTheme.body(size: 13, color: c.onSurfaceVariant),
+                    style: AppTheme.body(
+                      size: 13,
+                      color: warn ? c.error : c.onSurfaceVariant,
+                    ),
                   ),
                 ],
               ),
