@@ -187,7 +187,7 @@ class _TopBar extends StatelessWidget {
                 ),
                 child: ClipOval(
                   child: Image.asset(
-                    'assets/images/child_avatar.png',
+                    'assets/images/child_avatar.webp',
                     fit: BoxFit.cover,
                   ),
                 ),
