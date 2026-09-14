@@ -21,6 +21,16 @@ import 'story_audio_handler.dart';
 class AudioPlayerService extends ChangeNotifier {
   AudioPlayerService._internal();
 
+  /// The seam that makes the screens testable.
+  ///
+  /// Every widget takes this service from Provider, so a test can supply a
+  /// stand-in — but only if it can construct one, and the real constructor
+  /// is private. This gives a subclass in `test/` something to call while
+  /// keeping the app itself on [instance]: production code has no reason to
+  /// build a second player, and nothing here starts the platform service.
+  @visibleForTesting
+  AudioPlayerService.forTesting();
+
   static final AudioPlayerService instance = AudioPlayerService._internal();
 
   /// How often progress is flushed to storage while playing.
