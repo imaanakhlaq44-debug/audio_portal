@@ -1,8 +1,14 @@
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:imaan_akhlaq/services/audio_player_service.dart';
 import 'package:imaan_akhlaq/services/storage_service.dart';
+import 'package:imaan_akhlaq/services/theme_controller.dart';
+import 'package:imaan_akhlaq/theme/app_theme.dart';
+import 'package:provider/provider.dart';
 
 /// Hive (via `path_provider`) needs a real directory. In tests there is no
 /// platform implementation, so we answer the plugin channel with a throwaway
@@ -53,4 +59,40 @@ Future<void> writeToStorage(
   Future<void> Function() write,
 ) async {
   await tester.runAsync(write);
+}
+
+/// Wraps [screen] in the context the running app gives it.
+///
+/// Screens read their colours from an [AppColors] theme extension, and the
+/// widgets inside them reach for [AudioPlayerService] and [ThemeController]
+/// through Provider — so a bare `MaterialApp(home: screen)` throws rather
+/// than renders.
+///
+/// Pass `inScaffold: true` for a screen that is not a [Scaffold] itself and
+/// relies on the one MainScreen owns (LibraryScreen and HomeScreen do; their
+/// text fields and ink effects need a [Material] ancestor).
+///
+/// [navigatorObserver] lets a test assert on navigation without having to
+/// build the destination.
+Widget hostScreen(
+  Widget screen, {
+  bool inScaffold = false,
+  NavigatorObserver? navigatorObserver,
+}) {
+  // Bundled fonts only; a test must never reach for the network.
+  GoogleFonts.config.allowRuntimeFetching = false;
+  return MultiProvider(
+    providers: [
+      ChangeNotifierProvider<AudioPlayerService>.value(
+        value: AudioPlayerService.instance,
+      ),
+      ChangeNotifierProvider<ThemeController>(create: (_) => ThemeController()),
+    ],
+    child: MaterialApp(
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      navigatorObservers: [if (navigatorObserver != null) navigatorObserver],
+      home: inScaffold ? Scaffold(body: screen) : screen,
+    ),
+  );
 }
