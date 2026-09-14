@@ -53,15 +53,17 @@ void main() {
       expect(await StorageService.verifyPin('0042'), isTrue);
     });
 
-    test('recovers instead of bricking when the credential is corrupt',
-        () async {
-      await StorageService.setParentPin('8888');
-      await Hive.box('settings_box').put('parent_pin_hash', 'not base64 !!');
+    test(
+      'recovers instead of bricking when the credential is corrupt',
+      () async {
+        await StorageService.setParentPin('8888');
+        await Hive.box('settings_box').put('parent_pin_hash', 'not base64 !!');
 
-      // Falls back to the default rather than locking the parent out forever.
-      expect(await StorageService.verifyPin('1234'), isTrue);
-      expect(await StorageService.verifyPin('8888'), isFalse);
-    });
+        // Falls back to the default rather than locking the parent out forever.
+        expect(await StorageService.verifyPin('1234'), isTrue);
+        expect(await StorageService.verifyPin('8888'), isFalse);
+      },
+    );
 
     test('isFourDigitPin accepts only four digits', () {
       expect(StorageService.isFourDigitPin('0000'), isTrue);
@@ -122,20 +124,22 @@ void main() {
       expect(StorageService.pinAttemptsBeforeLockout(), 0);
     });
 
-    test('further failures climb the ladder and then hold at the cap',
-        () async {
-      for (var i = 0; i < StorageService.freePinAttempts; i++) {
-        await StorageService.registerFailedPinAttempt();
-      }
+    test(
+      'further failures climb the ladder and then hold at the cap',
+      () async {
+        for (var i = 0; i < StorageService.freePinAttempts; i++) {
+          await StorageService.registerFailedPinAttempt();
+        }
 
-      for (final expected in StorageService.pinLockoutLadder) {
-        expect(await StorageService.registerFailedPinAttempt(), expected);
-      }
-      // Past the end of the ladder the last entry repeats.
-      final cap = StorageService.pinLockoutLadder.last;
-      expect(await StorageService.registerFailedPinAttempt(), cap);
-      expect(await StorageService.registerFailedPinAttempt(), cap);
-    });
+        for (final expected in StorageService.pinLockoutLadder) {
+          expect(await StorageService.registerFailedPinAttempt(), expected);
+        }
+        // Past the end of the ladder the last entry repeats.
+        final cap = StorageService.pinLockoutLadder.last;
+        expect(await StorageService.registerFailedPinAttempt(), cap);
+        expect(await StorageService.registerFailedPinAttempt(), cap);
+      },
+    );
 
     test('a lockout is armed and reported as remaining time', () async {
       for (var i = 0; i <= StorageService.freePinAttempts; i++) {
