@@ -16,6 +16,9 @@ dependencies:
   # State management
   provider: 6.1.5+1
 
+  # PIN hashing (PBKDF2-HMAC-SHA256)
+  crypto: ^3.0.6
+
   # Local storage
   shared_preferences: 2.5.3
   hive: 2.2.3

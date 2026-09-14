@@ -66,16 +66,18 @@ void main() {
     setUp(() async => dir = await setUpStorage());
     tearDown(() async => tearDownStorage(dir));
 
-    test('seeds a default PIN and child name on first run', () {
-      expect(StorageService.getParentPin(), StorageService.defaultPin);
+    test('seeds a default PIN and child name on first run', () async {
+      expect(await StorageService.verifyPin(StorageService.defaultPin), isTrue);
+      expect(StorageService.isUsingDefaultPin(), isTrue);
       expect(StorageService.getChildName(), StorageService.defaultChildName);
     });
 
     test('verifyPin follows the stored PIN', () async {
-      expect(StorageService.verifyPin('1234'), isTrue);
+      expect(await StorageService.verifyPin('1234'), isTrue);
       await StorageService.setParentPin('9081');
-      expect(StorageService.verifyPin('1234'), isFalse);
-      expect(StorageService.verifyPin('9081'), isTrue);
+      expect(await StorageService.verifyPin('1234'), isFalse);
+      expect(await StorageService.verifyPin('9081'), isTrue);
+      expect(StorageService.isUsingDefaultPin(), isFalse);
     });
 
     test('favorites toggle on and off', () async {
