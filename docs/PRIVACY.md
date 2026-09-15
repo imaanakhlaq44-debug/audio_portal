@@ -1,16 +1,9 @@
 # Privacy Policy — Imaan & Akhlaq
 
-> **DRAFT — needs your details before it is published.**
-> Replace every `[[...]]` placeholder, publish it at a public URL, and paste
-> that URL into the Play Console (and App Store Connect) listing. Google
-> requires the policy to be reachable without logging in, on a page you
-> control. See [`play-data-safety.md`](play-data-safety.md) for the matching
-> store-form answers.
-
 **App:** Imaan & Akhlaq — Kids Islamic Audio Story Portal
-**Developer:** `[[your name or company]]`
-**Contact:** `[[support email]]`
-**Effective date:** `[[date you publish this]]`
+**Developer:** Imaan Akhlaq
+**Contact:** imaanakhlaq44@gmail.com
+**Effective date:** 15 September 2026
 
 ## The short version
 
@@ -62,9 +55,7 @@ handled by Google or Apple under their own privacy policies, not by us.
 | `FOREGROUND_SERVICE`, `FOREGROUND_SERVICE_MEDIA_PLAYBACK`, `WAKE_LOCK` | To keep a story playing when the screen is locked or the app is in the background |
 | `POST_NOTIFICATIONS` | To show the playback notification with pause / skip controls |
 
-The app does **not** request internet access. `[[If you ever add a feature
-that needs it, this policy and the store's data-safety answers must be
-updated first.]]`
+The app does **not** request internet access.
 
 ## Children's privacy
 
@@ -84,4 +75,4 @@ updated and the effective date above changed before that version is released.
 
 ## Contact
 
-Questions about this policy: `[[support email]]`
+Questions about this policy: imaanakhlaq44@gmail.com
