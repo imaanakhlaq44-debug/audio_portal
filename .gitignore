@@ -57,3 +57,9 @@ key.properties
 
 # Local tooling
 .vscode/launch.json
+
+# Raw narration masters. Several GB of mp3/wav per language, and the app only
+# ever ships the cut, re-encoded episodes under assets/audio/.
+/Story x URDU/
+/StoryxEnglish/
+*.plan.json
