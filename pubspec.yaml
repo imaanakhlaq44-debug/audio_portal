@@ -1,5 +1,5 @@
-name: imaan_akhlaq
-description: "Imaan & Akhlaq - Kids Islamic Audio Story Portal"
+name: qissora
+description: "Qissora - Kids Islamic audio stories by Imaan & Akhlaq"
 publish_to: 'none'
 
 version: 1.2.0+3
@@ -44,8 +44,9 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/covers/
-    - assets/audio/
+    # Flutter does not include subfolders of a listed directory, so every
+    # series folder has to be listed on its own.
+    - assets/audio/en/fairness/
     - assets/images/
     - assets/icon/
     # Static Plus Jakarta Sans / Bricolage Grotesque faces. google_fonts picks

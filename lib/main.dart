@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
       child: Consumer<ThemeController>(
         builder: (context, theme, _) {
           return MaterialApp(
-            title: 'Imaan & Akhlaq',
+            title: 'Qissora',
             debugShowCheckedModeBanner: false,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,

@@ -1,13 +1,13 @@
-# Privacy Policy — Imaan & Akhlaq
+# Privacy Policy — Qissora
 
-**App:** Imaan & Akhlaq — Kids Islamic Audio Story Portal
+**App:** Qissora — Kids Islamic Audio Stories by Imaan & Akhlaq
 **Developer:** Imaan Akhlaq
 **Contact:** imaanakhlaq44@gmail.com
 **Effective date:** 15 September 2026
 
 ## The short version
 
-Imaan & Akhlaq does not collect, transmit or share any personal information.
+Qissora does not collect, transmit or share any personal information.
 The app has no accounts, no ads, no analytics and no third-party tracking. It
 does not connect to the internet at all — every story, image and font is
 bundled inside the app.

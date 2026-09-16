@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:imaan_akhlaq/services/pin_service.dart';
+import 'package:qissora/services/pin_service.dart';
 
 Uint8List _bytes(String s) => Uint8List.fromList(utf8.encode(s));
 

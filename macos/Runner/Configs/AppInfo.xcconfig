@@ -5,10 +5,10 @@
 // 'flutter create' template.
 
 // The application's name. By default this is also the title of the Flutter window.
-PRODUCT_NAME = imaan_akhlaq
+PRODUCT_NAME = qissora
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = com.imaanakhlaq.stories
+PRODUCT_BUNDLE_IDENTIFIER = com.imaanakhlaq.qissora
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2025 Imaan & Akhlaq. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2026 Imaan Akhlaq. All rights reserved.

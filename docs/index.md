@@ -1,4 +1,4 @@
-# Imaan & Akhlaq — Kids Islamic Audio Story Portal
+# Qissora — Kids Islamic Audio Stories
 
 An offline audio story app for children. No accounts, no ads, no analytics,
 no internet access.

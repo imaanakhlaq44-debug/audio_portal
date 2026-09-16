@@ -7,4 +7,4 @@
 /// part that actually matters.
 const String appVersion = '1.2.0';
 
-const String appName = 'Imaan & Akhlaq';
+const String appName = 'Qissora';

@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:imaan_akhlaq/models/story.dart';
-import 'package:imaan_akhlaq/models/story_category.dart';
-import 'package:imaan_akhlaq/models/story_data.dart';
+import 'package:qissora/models/story.dart';
+import 'package:qissora/models/story_category.dart';
+import 'package:qissora/models/story_data.dart';
 
 void main() {
   final stories = StoryData.allStories;
@@ -40,15 +40,33 @@ void main() {
       }
     });
 
-    test('exactly one story of the day', () {
-      expect(stories.where((s) => s.isStoryOfTheDay).length, 1);
-      expect(StoryData.storyOfTheDay.isStoryOfTheDay, isTrue);
+    test('every series has episodes, and its ids share the series id', () {
+      for (final series in StoryData.allSeries) {
+        expect(series.episodes, isNotEmpty, reason: series.id);
+        expect(File(series.coverAsset).existsSync(), isTrue, reason: series.id);
+        for (final track in series.tracks) {
+          expect(track.id, startsWith('${series.id}_'));
+          expect(StoryData.seriesOf(track), same(series));
+        }
+      }
     });
 
-    test('every category the UI lists has at least one story', () {
-      for (final c in StoryCategory.values) {
-        expect(StoryData.byCategory(c), isNotEmpty, reason: c.label);
+    test('a series plays straight through and stops at its end', () {
+      for (final series in StoryData.allSeries) {
+        final tracks = series.tracks;
+        for (var i = 0; i + 1 < tracks.length; i++) {
+          expect(StoryData.nextAfter(tracks[i]), same(tracks[i + 1]));
+        }
+        expect(StoryData.nextAfter(tracks.last), isNull);
       }
+    });
+
+    test('the featured series rotates through the whole catalogue', () {
+      final seen = {
+        for (var d = 0; d < StoryData.allSeries.length; d++)
+          StoryData.featuredOn(DateTime(2026, 1, 1 + d)).id,
+      };
+      expect(seen.length, StoryData.allSeries.length);
     });
   });
 
@@ -83,7 +101,7 @@ void main() {
         narrator: 'N',
         coverAsset: 'c.png',
         audioAsset: 'a.mp3',
-        category: StoryCategory.bedtime,
+        category: StoryCategory.moral,
         description: 'd',
         captions: [
           CaptionLine(
@@ -101,7 +119,7 @@ void main() {
         narrator: 'N',
         coverAsset: 'c.png',
         audioAsset: 'a.mp3',
-        category: StoryCategory.bedtime,
+        category: StoryCategory.moral,
         description: 'd',
       );
       expect(noCaptions.durationLabel, '');
@@ -120,12 +138,16 @@ void main() {
       expect(StoryData.byId('no_such_story'), isNull);
     });
 
-    test('search is case-insensitive and matches title or category', () {
+    test('search is case-insensitive and matches episode or series title', () {
       final byTitle = StoryData.search(stories.first.title.toUpperCase());
       expect(byTitle.map((s) => s.id), contains(stories.first.id));
 
-      final bedtime = StoryData.search('bedtime');
-      expect(bedtime, isNotEmpty);
+      final series = StoryData.allSeries.first;
+      final bySeries = StoryData.search(series.title.toLowerCase());
+      expect(
+        bySeries.map((s) => s.id),
+        containsAll(series.tracks.map((t) => t.id)),
+      );
     });
 
     test('an empty query returns nothing rather than everything', () {

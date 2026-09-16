@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:just_audio/just_audio.dart';
 
 import '../models/story.dart';
+import '../models/story_data.dart';
 import 'storage_service.dart';
 import 'story_audio_handler.dart';
 
@@ -38,6 +39,10 @@ class AudioPlayerService extends ChangeNotifier {
 
   /// Sleep-timer fade-out length (capped to half the timer for short timers).
   static const Duration sleepFadeDuration = Duration(seconds: 30);
+
+  /// What to play once a story finishes, or null to stop there. Series play
+  /// straight on from the trailer through every episode.
+  Story? Function(Story finished) nextStoryOf = StoryData.nextAfter;
 
   late StoryAudioHandler _handler;
   bool _initialized = false;
@@ -87,7 +92,7 @@ class AudioPlayerService extends ChangeNotifier {
       _handler = await AudioService.init<StoryAudioHandler>(
         builder: StoryAudioHandler.new,
         config: const AudioServiceConfig(
-          androidNotificationChannelId: 'com.imaanakhlaq.stories.audio',
+          androidNotificationChannelId: 'com.imaanakhlaq.qissora.audio',
           androidNotificationChannelName: 'Story playback',
           androidNotificationChannelDescription:
               'Controls for the story that is currently playing',
@@ -315,7 +320,13 @@ class AudioPlayerService extends ChangeNotifier {
     await StorageService.markCompleted(story.id);
     _lastSavedPosition = Duration.zero;
 
-    // A finished story shouldn't keep a pending sleep timer alive.
+    // The next episode plays on, and a running sleep timer keeps counting
+    // across it. Only the end of a series stops playback and the timer.
+    final next = nextStoryOf(story);
+    if (next != null && _currentStory?.id == story.id) {
+      await playStory(next, fromStart: true);
+      return;
+    }
     if (isSleepTimerActive) cancelSleepTimer(restoreVolume: true);
   }
 

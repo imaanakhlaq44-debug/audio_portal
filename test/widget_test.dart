@@ -1,4 +1,4 @@
-// Smoke test for the Imaan & Akhlaq app shell.
+// Smoke test for the Qissora app shell.
 //
 // `MyApp` reads the saved theme through StorageService, so Hive has to be up
 // before the widget tree is pumped -- the previous version of this test pumped
@@ -9,9 +9,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:imaan_akhlaq/main.dart';
-import 'package:imaan_akhlaq/screens/splash_screen.dart';
-import 'package:imaan_akhlaq/services/storage_service.dart';
+import 'package:qissora/main.dart';
+import 'package:qissora/screens/splash_screen.dart';
+import 'package:qissora/services/storage_service.dart';
 
 import 'test_helpers.dart';
 

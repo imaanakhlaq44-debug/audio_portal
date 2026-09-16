@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:imaan_akhlaq/app_info.dart';
+import 'package:qissora/app_info.dart';
 
 void main() {
   test('appVersion matches the version in pubspec.yaml', () {
