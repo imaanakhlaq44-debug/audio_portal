@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
-import 'package:imaan_akhlaq/models/story.dart';
-import 'package:imaan_akhlaq/services/audio_player_service.dart';
+import 'package:qissora/models/story.dart';
+import 'package:qissora/services/audio_player_service.dart';
 
 /// A playback controller a test can steer.
 ///

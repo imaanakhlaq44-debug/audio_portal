@@ -69,7 +69,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
                 const SizedBox(width: 12),
                 Expanded(
                   child: Text(
-                    'Imaan & Akhlaq',
+                    'Qissora',
                     style: AppTheme.headline(size: 20, color: c.primaryDeep),
                   ),
                 ),
@@ -181,7 +181,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
             .map(
               (cat) => CategoryCard(
                 category: cat,
-                count: StoryData.byCategory(cat).length,
+                count: StoryData.seriesIn(cat).length,
                 onTap: () => _openCategory(cat),
               ),
             )

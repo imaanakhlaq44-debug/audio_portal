@@ -20,14 +20,8 @@ class CategoryCard extends StatelessWidget {
     switch (category) {
       case StoryCategory.prophets:
         return (bg: c.primaryFixed, fg: c.primary);
-      case StoryCategory.animals:
-        return (bg: c.secondaryFixed, fg: c.secondaryDeep);
-      case StoryCategory.nature:
-        return (bg: c.tertiaryFixed, fg: c.tertiary);
-      case StoryCategory.bedtime:
-        return (bg: c.surfaceHigh, fg: c.primary);
       case StoryCategory.moral:
-        return (bg: c.surfaceVariant, fg: c.primaryDeep);
+        return (bg: c.secondaryFixed, fg: c.secondaryDeep);
     }
   }
 
@@ -37,7 +31,7 @@ class CategoryCard extends StatelessWidget {
     final colors = _colors(c);
     final label = count == null
         ? category.label
-        : '${category.label}, $count ${count == 1 ? 'story' : 'stories'}';
+        : '${category.label}, $count series';
     return Semantics(
       button: true,
       label: label,
@@ -72,7 +66,7 @@ class CategoryCard extends StatelessWidget {
                   if (count != null) ...[
                     const SizedBox(height: 2),
                     Text(
-                      '$count ${count == 1 ? 'story' : 'stories'}',
+                      '$count series',
                       style: AppTheme.body(size: 12, color: c.onSurfaceVariant),
                     ),
                   ],

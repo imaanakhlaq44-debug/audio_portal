@@ -1,4 +1,4 @@
-# Imaan & Akhlaq — Kids Islamic Audio Story Portal
+# Qissora — Kids Islamic Audio Stories
 
 A Flutter audio-story app for children. Stories ship inside the app, so
 everything (playback, covers, read-along captions, progress) works fully

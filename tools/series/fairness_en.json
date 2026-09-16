@@ -1,0 +1,30 @@
+{
+  "id": "fairness_en",
+  "series": "The Golden Balance",
+  "language": "english",
+  "moral": "fairness",
+  "category": "moral",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/icon/app_icon.webp",
+  "script": "StoryxEnglish/Fairness_english/annotated_script.txt",
+  "skipLeadingLines": 1,
+  "episodeMarker": "^Episode (\\d+):\\s*(.+)$",
+  "master": "StoryxEnglish/Fairness_english/Fairness_english_master.wav",
+  "transcript": "StoryxEnglish/Fairness_english/transcript.srt",
+  "audioDir": "assets/audio/en/fairness",
+  "trailer": "00_trailer.mp3",
+  "output": "lib/models/series/fairness_en.dart",
+  "variable": "fairnessEnglish",
+  "episodes": [
+    "01_the_golden_balance.mp3",
+    "02_a_shadow_in_the_photograph.mp3",
+    "03_the_bronze_key.mp3",
+    "04_the_garden_of_balance.mp3",
+    "05_the_fair_path.mp3",
+    "06_the_missing_balance.mp3",
+    "07_the_number_seventeen.mp3",
+    "08_the_hidden_passage.mp3",
+    "09_the_record_of_contestant_seventeen.mp3",
+    "10_amanpurs_promise.mp3"
+  ]
+}

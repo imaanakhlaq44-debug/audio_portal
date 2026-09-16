@@ -24,7 +24,6 @@ class Story {
   final String audioAsset;
   final StoryCategory category;
   final String description;
-  final bool isStoryOfTheDay;
   final List<CaptionLine> captions;
 
   const Story({
@@ -35,7 +34,6 @@ class Story {
     required this.audioAsset,
     required this.category,
     required this.description,
-    this.isStoryOfTheDay = false,
     this.captions = const [],
   });
 

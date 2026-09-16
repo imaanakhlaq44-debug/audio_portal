@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "Imaan & Akhlaq" "\0"
-            VALUE "FileDescription", "Imaan & Akhlaq" "\0"
+            VALUE "CompanyName", "Imaan Akhlaq" "\0"
+            VALUE "FileDescription", "Qissora" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "imaan_akhlaq" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2025 Imaan & Akhlaq. All rights reserved." "\0"
-            VALUE "OriginalFilename", "imaan_akhlaq.exe" "\0"
-            VALUE "ProductName", "Imaan & Akhlaq" "\0"
+            VALUE "InternalName", "qissora" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2026 Imaan Akhlaq. All rights reserved." "\0"
+            VALUE "OriginalFilename", "qissora.exe" "\0"
+            VALUE "ProductName", "Qissora" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

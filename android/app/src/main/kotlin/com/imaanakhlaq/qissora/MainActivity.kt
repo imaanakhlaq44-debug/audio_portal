@@ -1,4 +1,4 @@
-package com.imaanakhlaq.stories
+package com.imaanakhlaq.qissora
 
 import com.ryanheise.audioservice.AudioServiceActivity
 

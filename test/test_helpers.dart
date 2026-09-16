@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:imaan_akhlaq/services/audio_player_service.dart';
-import 'package:imaan_akhlaq/services/storage_service.dart';
-import 'package:imaan_akhlaq/services/theme_controller.dart';
-import 'package:imaan_akhlaq/theme/app_theme.dart';
+import 'package:qissora/services/audio_player_service.dart';
+import 'package:qissora/services/storage_service.dart';
+import 'package:qissora/services/theme_controller.dart';
+import 'package:qissora/theme/app_theme.dart';
 import 'package:provider/provider.dart';
 
 /// Hive (via `path_provider`) needs a real directory. In tests there is no
@@ -17,7 +17,7 @@ import 'package:provider/provider.dart';
 /// Call from `setUp`; the matching [tearDownStorage] wipes it again.
 Future<Directory> setUpStorage() async {
   TestWidgetsFlutterBinding.ensureInitialized();
-  final dir = await Directory.systemTemp.createTemp('imaan_akhlaq_test');
+  final dir = await Directory.systemTemp.createTemp('qissora_test');
 
   TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
       .setMockMethodCallHandler(

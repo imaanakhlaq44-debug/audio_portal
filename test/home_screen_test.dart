@@ -2,9 +2,12 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:imaan_akhlaq/models/story_data.dart';
-import 'package:imaan_akhlaq/screens/home_screen.dart';
-import 'package:imaan_akhlaq/services/storage_service.dart';
+import 'package:qissora/models/story_category.dart';
+import 'package:qissora/models/story_data.dart';
+import 'package:qissora/screens/home_screen.dart';
+import 'package:qissora/screens/series_screen.dart';
+import 'package:qissora/services/storage_service.dart';
+import 'package:qissora/widgets/story_tile.dart';
 
 import 'fake_player.dart';
 import 'test_helpers.dart';
@@ -50,12 +53,24 @@ void main() {
     });
   });
 
-  group('story of the day', () {
-    testWidgets('features the story the catalogue marks', (tester) async {
+  group('featured series', () {
+    testWidgets('features a series from the catalogue', (tester) async {
       await open(tester);
 
-      expect(find.text('STORY OF THE DAY'), findsOneWidget);
-      expect(find.text(StoryData.storyOfTheDay.title), findsWidgets);
+      expect(find.text('FEATURED SERIES'), findsOneWidget);
+      expect(
+        find.text(StoryData.featuredOn(DateTime.now()).title),
+        findsWidgets,
+      );
+    });
+
+    testWidgets('opens the series playlist when tapped', (tester) async {
+      await open(tester);
+
+      await tester.tap(find.text('FEATURED SERIES'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(SeriesScreen), findsOneWidget);
     });
   });
 
@@ -119,28 +134,33 @@ void main() {
   });
 
   group('sections', () {
-    testWidgets('offers the bedtime carousel and the full catalogue', (
+    testWidgets('shows a row only for categories that have series', (
       tester,
     ) async {
       await open(tester);
 
-      expect(find.text('Calm Bedtime Audio'), findsOneWidget);
-      expect(find.text('All Stories'), findsOneWidget);
+      for (final category in StoryCategory.values) {
+        expect(
+          find.text(category.label),
+          StoryData.seriesIn(category).isEmpty ? findsNothing : findsOneWidget,
+          reason: category.label,
+        );
+      }
     });
   });
 
   group('playback', () {
-    testWidgets('asks the player for the story of the day', (tester) async {
+    testWidgets('starts a fresh featured series at its trailer', (
+      tester,
+    ) async {
       await open(tester);
 
-      // The whole hero card is the target - it has no separate play button.
-      await tester.tap(find.text('STORY OF THE DAY'));
+      await tester.tap(find.byType(PlayCircleButton).first);
       await tester.pump();
-      await tester.pump(const Duration(milliseconds: 400));
 
       expect(
         player.calls.single,
-        contains(StoryData.storyOfTheDay.id),
+        contains(StoryData.featuredOn(DateTime.now()).tracks.first.id),
         reason: 'the tap must reach the player from the widget tree',
       );
     });
