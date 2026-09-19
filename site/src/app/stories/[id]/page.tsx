@@ -161,7 +161,7 @@ export default async function StoryPage({
                   </p>
                   <p className="text-xs text-ink-soft">
                     {clock(e.durationMs)}
-                    {free && ' · pehla aadha hissa free'}
+                    {free && ' · first half free'}
                   </p>
                 </div>
                 {free ? (
@@ -188,7 +188,7 @@ export default async function StoryPage({
         <div className="mt-8 rounded-[var(--radius-card)] bg-blush p-6
           text-center">
           <p className="text-base font-semibold text-navy">
-            Poori series, bina rukawat ke, Qissora app mein sunein.
+            Listen to the whole series, start to finish, in the Qissora app.
           </p>
           <a href={appStoreLinks.googlePlay} className="btn-primary mt-4">
             Get it on Google Play
@@ -198,12 +198,12 @@ export default async function StoryPage({
 
       <section className="section py-12">
         <div className="flex items-end justify-between gap-4">
-          <h2 className="text-2xl">Yeh bhi sunein</h2>
+          <h2 className="text-2xl">More to listen to</h2>
           <Link
             href="/stories"
             className="text-sm font-bold text-pink-deep hover:underline"
           >
-            Saari kahaniyan
+            All stories
           </Link>
         </div>
         <div className="mt-6">

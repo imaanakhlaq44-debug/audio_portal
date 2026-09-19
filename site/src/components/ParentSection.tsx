@@ -1,10 +1,10 @@
 const points = [
-  ['Safe content', 'Har kahani parhi, suni aur check ki gayi hai.'],
-  ['No ads, no tracking', 'Koi ishtehar nahi, koi analytics nahi.'],
-  ['Parents area', '4-digit PIN ke peeche: listening stats aur settings.'],
-  ['Screen-time friendly', 'Sunne wali app hai, is liye screen par nazar nahi.'],
-  ['Bedtime listening', 'Sleep timer kahani ko narmi se band kar deta hai.'],
-  ['Meaningful lessons', 'Har series aik akhlaqi qadar ke gird ghoomti hai.'],
+  ['Safe content', 'Every story is written, narrated and checked by us.'],
+  ['No ads, no tracking', 'No advertising, no analytics, no data collected.'],
+  ['Parents area', 'Behind a 4-digit PIN: listening stats and settings.'],
+  ['Screen-time friendly', 'Listening, so nobody has to stare at a screen.'],
+  ['Bedtime listening', 'A sleep timer fades the story out gently.'],
+  ['Meaningful lessons', 'Each series is built around one value.'],
 ];
 
 export function ParentSection() {
@@ -18,15 +18,15 @@ export function ParentSection() {
               <p className="inline-flex items-center gap-2 rounded-full
                 bg-white/10 px-4 py-1.5 text-xs font-bold tracking-wider
                 uppercase">
-                Parents ke liye
+                For parents
               </p>
               <h2 className="mt-4 text-3xl text-white sm:text-4xl">
-                Parents ke liye bhi sukoon
+                Peace of mind for parents too
               </h2>
               <p className="mt-3 text-base leading-relaxed text-white/80">
-                Qissora bachon ke liye bana hai, lekin walidain ke aitmaad par
-                khara utarne ke liye bhi. Aap jaante hain ke aap ka bacha kya
-                sun raha hai.
+                Qissora is made for children, and built to deserve their
+                parents&rsquo; trust. You always know what your child is
+                listening to.
               </p>
             </div>
 

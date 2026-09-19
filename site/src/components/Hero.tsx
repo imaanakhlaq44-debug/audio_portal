@@ -41,13 +41,13 @@ export function Hero() {
         <div>
           <p className="eyebrow">Imaan &amp; Akhlaq present</p>
           <h1 className="mt-5 text-4xl leading-tight sm:text-5xl lg:text-6xl">
-            Har kahani mein ek{' '}
-            <span className="text-pink-deep">khoobsurat sabaq</span>
+            Every story carries a{' '}
+            <span className="text-pink-deep">beautiful lesson</span>
           </h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
-            Qissora bachon ke liye pyari Islamic aur moral audio stories ka ek
-            safe aur engaging ghar hai. Imaan aur Akhlaq ke saath sunein,
-            seekhein aur achi aadatein apnayein.
+            Qissora is a safe, beautiful home for Islamic and moral audio
+            stories. Children listen along with Imaan and Akhlaq, and grow up
+            with the values every parent hopes for.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -55,10 +55,10 @@ export function Hero() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M8 5l11 7-11 7z" />
               </svg>
-              Stories Sunain
+              Listen to a story
             </Link>
             <a href={appStoreLinks.googlePlay} className="btn-ghost">
-              App Explore Karein
+              Explore the app
             </a>
           </div>
 
@@ -66,7 +66,7 @@ export function Hero() {
             {[
               [`${allSeries.length}`, 'Story series'],
               [`${episodeCount}`, 'Episodes'],
-              ['2', 'Zabaanein: English & Urdu'],
+              ['2', 'Languages: English & Urdu'],
             ].map(([value, label]) => (
               <div key={label}>
                 <dt className="sr-only">{label}</dt>
@@ -110,7 +110,7 @@ export function Hero() {
               </span>
               <span>
                 <span className="block text-sm font-bold text-navy">
-                  Ab chal rahi hai
+                  Now playing
                 </span>
                 <span className="block text-xs text-ink-soft">
                   The Kindness That Came Back

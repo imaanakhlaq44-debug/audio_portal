@@ -20,9 +20,9 @@ export default function HomePage() {
       <Hero />
 
       <Section
-        eyebrow="Sun kar dekhein"
-        title="Aik kahani, abhi"
-        lead="Har series ka pehla episode yahan free sunein. Poori kahani app mein chalti hai."
+        eyebrow="Have a listen"
+        title="A story, right now"
+        lead="The first episode of every series is free to sample here. The full story plays in the app."
         className="bg-blush/60"
       >
         <div className="mx-auto max-w-3xl">
@@ -32,13 +32,13 @@ export default function HomePage() {
 
       <Section
         eyebrow="Explore stories"
-        title="22 series, English aur Urdu mein"
-        lead="Anbiya ki kahaniyan aur akhlaqi kahaniyan, dono zabaanon mein."
+        title="22 series, in English and Urdu"
+        lead="Stories of the Prophets, and series about the values children grow up with."
       >
         <StoryGrid series={allSeries.slice(0, 8)} />
         <div className="mt-10 text-center">
           <Link href="/stories" className="btn-primary">
-            Saari kahaniyan dekhein
+            Browse all stories
           </Link>
         </div>
       </Section>

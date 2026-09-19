@@ -4,14 +4,14 @@ const characters = [
   {
     name: 'Imaan',
     meaning: 'Faith',
-    body: 'Soch samajh kar faisla karne wali behen, jo har kahani mein sahi raasta dhoondti hai.',
+    body: 'The thoughtful sister, who stops to work out the right thing to do.',
     tint: 'bg-pink-tint',
     accent: 'text-pink-deep',
   },
   {
     name: 'Akhlaq',
     meaning: 'Character',
-    body: 'Khush mizaj aur mutaji bhai, jis ke sawal har kahani ko aage badhate hain.',
+    body: 'The cheerful, curious brother, whose questions carry every story along.',
     tint: 'bg-sky-tint',
     accent: 'text-blue',
   },
@@ -35,11 +35,11 @@ export function CharacterSection() {
         <div className="order-1 lg:order-2">
           <p className="eyebrow">Meet Imaan &amp; Akhlaq</p>
           <h2 className="mt-4 text-3xl sm:text-4xl">
-            Do behen bhai, har kahani ke saathi
+            A sister and a brother, in every story
           </h2>
           <p className="mt-3 text-lg leading-relaxed text-ink-soft">
-            Imaan aur Akhlaq ke saath har kahani ek naya sabaq, ek nayi
-            adventure aur ek nayi muskurahat lekar aati hai.
+            With Imaan and Akhlaq, every story brings a new lesson, a new
+            adventure and a new smile.
           </p>
 
           <ul className="mt-8 grid gap-4 sm:grid-cols-2">
