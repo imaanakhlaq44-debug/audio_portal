@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 
+import { ReadAlong } from '@/components/ReadAlong';
 import { audioUrl, clock, coverUrl, dirOf, langAttr } from '@/data/stories';
 import type { Episode, Series } from '@/data/types';
 import { appStoreLinks } from '@/lib/site';
@@ -10,24 +11,31 @@ import { appStoreLinks } from '@/lib/site';
 interface Props {
   series: Series;
   episode: Episode;
-  /** Bigger artwork and title, for the story detail page. */
-  size?: 'compact' | 'full';
+  /** Open the read-along text straight away, as on a story's own page. */
+  readAlongOpen?: boolean;
 }
 
 /**
- * The app's Now Playing card, on the web: cover, play button, scrubber and
- * the same free preview limit. The website plays episode one up to its
- * halfway point and then invites the listener into the app, exactly as the
- * app does for a listener without Premium.
+ * The app's Now Playing card, on the web: cover, play button, scrubber,
+ * read-along text and the same free preview limit. The website plays
+ * episode one up to its halfway point and then invites the listener into
+ * the app, exactly as the app does for a listener without Premium.
  */
-export function AudioPlayer({ series, episode, size = 'full' }: Props) {
+export function AudioPlayer({
+  series,
+  episode,
+  readAlongOpen = false,
+}: Props) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
   const [position, setPosition] = useState(0);
   const [reachedLimit, setReachedLimit] = useState(false);
+  const [reading, setReading] = useState(readAlongOpen);
 
   const limitMs = episode.previewEndMs;
   const endMs = limitMs ?? episode.durationMs;
+  const dir = dirOf(series);
+  const lang = langAttr(series);
 
   // Stop at the end of the free preview, however playback got there.
   useEffect(() => {
@@ -58,17 +66,17 @@ export function AudioPlayer({ series, episode, size = 'full' }: Props) {
     }
   }
 
-  function seek(event: React.ChangeEvent<HTMLInputElement>) {
+  function seekTo(ms: number) {
     const el = audioRef.current;
     if (!el) return;
-    const ms = Math.min(Number(event.target.value), endMs);
-    el.currentTime = ms / 1000;
-    setPosition(ms);
-    if (limitMs == null || ms < limitMs) setReachedLimit(false);
+    const target = Math.min(Math.max(ms, 0), endMs);
+    el.currentTime = target / 1000;
+    setPosition(target);
+    if (limitMs == null || target < limitMs) setReachedLimit(false);
   }
 
   const progress = endMs > 0 ? (position / endMs) * 100 : 0;
-  const coverSize = size === 'full' ? 132 : 92;
+  const hasText = episode.captions.length > 0;
 
   return (
     <div
@@ -79,8 +87,8 @@ export function AudioPlayer({ series, episode, size = 'full' }: Props) {
         <Image
           src={coverUrl(series)}
           alt={`Cover art for ${series.title}`}
-          width={coverSize}
-          height={coverSize}
+          width={132}
+          height={132}
           className="mx-auto size-28 rounded-[var(--radius-card)] object-cover
             sm:mx-0 sm:size-32"
         />
@@ -90,17 +98,13 @@ export function AudioPlayer({ series, episode, size = 'full' }: Props) {
             uppercase">
             {reachedLimit ? 'End of free preview' : 'Free preview'}
           </p>
-          <h3
-            className="mt-1 truncate text-xl"
-            dir={dirOf(series)}
-            lang={langAttr(series)}
-          >
+          <h3 className="mt-1 truncate text-xl" dir={dir} lang={lang}>
             {episode.title}
           </h3>
           <p
             className="mt-0.5 truncate text-sm text-ink-soft"
-            dir={dirOf(series)}
-            lang={langAttr(series)}
+            dir={dir}
+            lang={lang}
           >
             {series.title} · Narrated by Imaan &amp; Akhlaq
           </p>
@@ -138,7 +142,7 @@ export function AudioPlayer({ series, episode, size = 'full' }: Props) {
                 min={0}
                 max={endMs}
                 value={position}
-                onChange={seek}
+                onChange={(e) => seekTo(Number(e.target.value))}
                 aria-label="Playback position"
                 className="h-2 w-full cursor-pointer appearance-none
                   rounded-full accent-pink"
@@ -157,6 +161,50 @@ export function AudioPlayer({ series, episode, size = 'full' }: Props) {
           </div>
         </div>
       </div>
+
+      {hasText && (
+        <div className="mt-5 border-t border-outline-soft/40 pt-4">
+          <button
+            type="button"
+            onClick={() => setReading((v) => !v)}
+            aria-expanded={reading}
+            className="flex w-full items-center gap-2 text-sm font-bold
+              text-pink-deep"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M4 5h7v14H4zM13 5h7v14h-7z" />
+            </svg>
+            {reading ? 'Hide the words' : 'Read along'}
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+              className={`ms-auto transition ${reading ? 'rotate-180' : ''}`}
+            >
+              <path d="M7 10l5 5 5-5z" />
+            </svg>
+          </button>
+
+          {reading && (
+            <div className="mt-3">
+              <ReadAlong
+                captions={episode.captions}
+                positionMs={position}
+                dir={dir}
+                lang={lang}
+                onSeek={seekTo}
+              />
+              <p className="mt-3 rounded-xl bg-blush px-3 py-2 text-xs
+                text-ink-soft">
+                The words follow the narration. Tap any line to jump there.
+                The rest of the story continues in the app.
+              </p>
+            </div>
+          )}
+        </div>
+      )}
 
       {reachedLimit && (
         <div className="mt-5 flex flex-col items-start gap-3 rounded-2xl

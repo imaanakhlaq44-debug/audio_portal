@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { CtaSection } from '@/components/CtaSection';
 import { PageHeader } from '@/components/PageHeader';
 import { StoryBrowser } from '@/components/StoryBrowser';
+import { allSeries, listing } from '@/data/stories';
 
 export const metadata: Metadata = {
   title: 'Stories',
@@ -21,7 +22,7 @@ export default function StoriesPage() {
         lead="22 series, 164 episodes. Pick a language and start listening — the first episode of every series is free."
       />
       <section className="section pb-10">
-        <StoryBrowser />
+        <StoryBrowser series={listing(allSeries)} />
       </section>
       <CtaSection />
     </>

@@ -3,17 +3,19 @@
 import { useMemo, useState } from 'react';
 
 import { StoryGrid } from '@/components/StoryGrid';
-import { allSeries, categoryLabel, languageLabel } from '@/data/stories';
-import type { Category, Language } from '@/data/types';
+import { categoryLabel, languageLabel } from '@/data/stories';
+import type { Category, Language, Series } from '@/data/types';
 
 const categories: (Category | 'all')[] = ['all', 'prophets', 'moral'];
 const languages: Language[] = ['english', 'urdu'];
 
 /** The Stories page: pick a language and a category, see what fits. */
 export function StoryBrowser({
+  series,
   initialLanguage = 'english',
   initialCategory = 'all',
 }: {
+  series: Series[];
   initialLanguage?: Language;
   initialCategory?: Category | 'all';
 }) {
@@ -22,12 +24,12 @@ export function StoryBrowser({
 
   const shown = useMemo(
     () =>
-      allSeries.filter(
+      series.filter(
         (s) =>
           s.language === language &&
           (category === 'all' || s.category === category),
       ),
-    [language, category],
+    [series, language, category],
   );
 
   return (
