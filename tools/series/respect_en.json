@@ -1,0 +1,18 @@
+{
+  "id": "respect_en",
+  "series": "Respect",
+  "language": "english",
+  "moral": "respect and dignity",
+  "category": "moral",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/respect.webp",
+  "script": "StoryxEnglish/IMAAN___AKHLAAQ/annotated_script.txt",
+  "skipLeadingLines": 0,
+  "episodeMarker": "^Chapter (\\w+):\\s*(.+)$",
+  "master": "StoryxEnglish/IMAAN___AKHLAAQ/IMAAN___AKHLAAQ_master.wav",
+  "transcript": "StoryxEnglish/IMAAN___AKHLAAQ/transcript.srt",
+  "audioDir": "assets/audio/en/respect",
+  
+  "output": "lib/models/series/respect_en.dart",
+  "variable": "respectEnglish"
+}

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android 6 to 11. Everything the app keeps is backed up (favourites,
+     progress, the child's name, settings) except the story audio cache:
+     it is tens of megabytes, re-downloads on its own, and would push the
+     backup past Android's 25 MB limit, which skips the whole backup. -->
+<full-backup-content>
+    <exclude domain="file" path="audio_cache/" />
+</full-backup-content>

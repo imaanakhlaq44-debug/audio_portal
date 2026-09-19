@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:qissora/models/series.dart';
 import 'package:qissora/models/story.dart';
 import 'package:qissora/models/story_category.dart';
 import 'package:qissora/models/story_data.dart';
@@ -32,6 +33,20 @@ void main() {
       }
     });
 
+    test('audio streams from the server under the same path', () {
+      // The upload script uses the path under assets/audio/ as the object
+      // key, so the URL must be exactly that path on the audio domain.
+      for (final s in stories) {
+        expect(s.audioAsset, startsWith('assets/audio/'), reason: s.id);
+        expect(
+          s.audioUrl.toString(),
+          'https://audio.qissora.app/${s.audioAsset.substring('assets/audio/'.length)}',
+          reason: s.id,
+        );
+        expect(s.audioKey, isNot(contains(' ')), reason: s.id);
+      }
+    });
+
     test('every story has a title, narrator and description', () {
       for (final s in stories) {
         expect(s.title.trim(), isNotEmpty, reason: s.id);
@@ -58,6 +73,24 @@ void main() {
           expect(StoryData.nextAfter(tracks[i]), same(tracks[i + 1]));
         }
         expect(StoryData.nextAfter(tracks.last), isNull);
+      }
+    });
+
+    test('each language lists only its own series, and both are covered', () {
+      final english = StoryData.seriesInLanguage(StoryLanguage.english);
+      final urdu = StoryData.seriesInLanguage(StoryLanguage.urdu);
+      expect(english.every((s) => s.language == StoryLanguage.english), isTrue);
+      expect(urdu.every((s) => s.language == StoryLanguage.urdu), isTrue);
+      expect(english.length + urdu.length, StoryData.allSeries.length);
+      for (final language in StoryLanguage.values) {
+        expect(
+          StoryData.featuredOn(
+            DateTime(2026, 5, 1),
+            language: language,
+          ).language,
+          language,
+          reason: language.name,
+        );
       }
     });
 

@@ -1,3 +1,4 @@
+import '../audio_config.dart';
 import 'story_category.dart';
 
 /// A single timed caption/subtitle line synced to the audio playback.
@@ -21,6 +22,10 @@ class Story {
   final String title;
   final String narrator;
   final String coverAsset;
+
+  /// Path of the audio under `assets/audio/`. The file is no longer bundled;
+  /// it is the local master that gets uploaded, and [audioKey]/[audioUrl]
+  /// are derived from it.
   final String audioAsset;
   final StoryCategory category;
   final String description;
@@ -36,6 +41,14 @@ class Story {
     required this.description,
     this.captions = const [],
   });
+
+  /// Object key on the audio server, e.g. `en/fairness/01_x.ogg`.
+  String get audioKey => audioAsset.startsWith(localAudioPrefix)
+      ? audioAsset.substring(localAudioPrefix.length)
+      : audioAsset;
+
+  /// Where the audio is streamed from.
+  Uri get audioUrl => Uri.parse('$audioBaseUrl/$audioKey');
 
   /// Full story text reconstructed from captions, for the "read along" modal.
   String get fullText => captions.map((c) => c.text).join('\n\n');

@@ -1,0 +1,18 @@
+{
+  "id": "salih_en",
+  "series": "Hazrat Salih (A.S.)",
+  "language": "english",
+  "moral": "boundaries, rights and responsibility",
+  "category": "prophets",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/salih.webp",
+  "script": "StoryxEnglish/Salih_AS/annotated_script.txt",
+  "skipLeadingLines": 1,
+  "episodeMarker": "^Episode (\\d+):\\s*(.+)$",
+  "master": "StoryxEnglish/Salih_AS/Salih_AS_master.wav",
+  "transcript": "StoryxEnglish/Salih_AS/transcript.srt",
+  "audioDir": "assets/audio/en/salih",
+  "trailer": "00_trailer.mp3",
+  "output": "lib/models/series/salih_en.dart",
+  "variable": "salihEnglish"
+}

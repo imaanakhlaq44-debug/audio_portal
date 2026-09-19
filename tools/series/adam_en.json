@@ -1,0 +1,18 @@
+{
+  "id": "adam_en",
+  "series": "Hazrat Adam (A.S.)",
+  "language": "english",
+  "moral": "the beginning of humanity",
+  "category": "prophets",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/adam.webp",
+  "script": "StoryxEnglish/Adam_AS/annotated_script.txt",
+  "skipLeadingLines": 1,
+  "episodeMarker": "^EPISODE (\\d+)$",
+  "master": "StoryxEnglish/Adam_AS/Adam_AS_IMAAN___AKHLAQ_master.wav",
+  "transcript": "StoryxEnglish/Adam_AS/transcript.srt",
+  "audioDir": "assets/audio/en/adam",
+  "trailer": "00_trailer.mp3",
+  "output": "lib/models/series/adam_en.dart",
+  "variable": "adamEnglish"
+}

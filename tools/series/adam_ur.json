@@ -1,0 +1,19 @@
+{
+  "id": "adam_ur",
+  "series": "حضرت آدم علیہ السلام",
+  "language": "urdu",
+  "moral": "حضرت آدم علیہ السلام",
+  "category": "prophets",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/adam.webp",
+  "script": "Story x URDU/Adam AS/annotated_script.txt",
+  "skipLeadingLines": 0,
+  "splitSentences": true,
+  "episodeMarker": "^قسط (\\S+)$",
+  "master": "Story x URDU/Adam AS/انسانیت_کی_ابتدا_master.wav",
+  "transcript": "Story x URDU/Adam AS/transcript.srt",
+  "audioDir": "assets/audio/ur/adam",
+  "trailer": "00_trailer.mp3",
+  "output": "lib/models/series/adam_ur.dart",
+  "variable": "adamUrdu"
+}

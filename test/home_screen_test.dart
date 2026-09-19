@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:qissora/models/series.dart';
 import 'package:qissora/models/story_category.dart';
 import 'package:qissora/models/story_data.dart';
 import 'package:qissora/screens/home_screen.dart';
@@ -59,7 +60,12 @@ void main() {
 
       expect(find.text('FEATURED SERIES'), findsOneWidget);
       expect(
-        find.text(StoryData.featuredOn(DateTime.now()).title),
+        find.text(
+          StoryData.featuredOn(
+            DateTime.now(),
+            language: StoryLanguage.english,
+          ).title,
+        ),
         findsWidgets,
       );
     });
@@ -133,6 +139,27 @@ void main() {
     });
   });
 
+  group('language', () {
+    testWidgets('with Urdu chosen, shows only Urdu series', (tester) async {
+      // Written through runAsync like every other stored setting: a Hive
+      // write started from a tap inside the fake clock never completes.
+      await writeToStorage(
+        tester,
+        () => StorageService.setLanguage(StoryLanguage.urdu),
+      );
+      await open(tester);
+
+      final urdu = StoryData.featuredOn(
+        DateTime.now(),
+        language: StoryLanguage.urdu,
+      );
+      expect(find.text(urdu.title), findsWidgets);
+      for (final series in StoryData.seriesInLanguage(StoryLanguage.english)) {
+        expect(find.text(series.title), findsNothing, reason: series.title);
+      }
+    });
+  });
+
   group('sections', () {
     testWidgets('shows a row only for categories that have series', (
       tester,
@@ -160,7 +187,12 @@ void main() {
 
       expect(
         player.calls.single,
-        contains(StoryData.featuredOn(DateTime.now()).tracks.first.id),
+        contains(
+          StoryData.featuredOn(
+            DateTime.now(),
+            language: StoryLanguage.english,
+          ).tracks.first.id,
+        ),
         reason: 'the tap must reach the player from the widget tree',
       );
     });

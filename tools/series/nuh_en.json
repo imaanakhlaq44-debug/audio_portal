@@ -1,0 +1,18 @@
+{
+  "id": "nuh_en",
+  "series": "Hazrat Nuh (A.S.)",
+  "language": "english",
+  "moral": "patience and never giving up on good",
+  "category": "prophets",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/nuh.webp",
+  "script": "StoryxEnglish/Nuh_AS_English/annotated_script.txt",
+  "skipLeadingLines": 1,
+  "episodeMarker": "^Episode (\\d+):\\s*(.+)$",
+  "master": "StoryxEnglish/Nuh_AS_English/Nuh_AS_English_master.wav",
+  "transcript": "StoryxEnglish/Nuh_AS_English/transcript.srt",
+  "audioDir": "assets/audio/en/nuh",
+  "trailer": "00_trailer.mp3",
+  "output": "lib/models/series/nuh_en.dart",
+  "variable": "nuhEnglish"
+}

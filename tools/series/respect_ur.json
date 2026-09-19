@@ -1,0 +1,18 @@
+{
+  "id": "respect_ur",
+  "series": "احترام",
+  "language": "urdu",
+  "moral": "احترام اور عزتِ نفس",
+  "category": "moral",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/respect.webp",
+  "script": "Story x URDU/Respect Urdu/annotated_script.txt",
+  "skipLeadingLines": 1,
+  "splitSentences": true,
+  "episodeMarker": "^باب (\\S+):\\s*(.+)$",
+  "master": "Story x URDU/Respect Urdu/RespectUrdu_master.wav",
+  "transcript": "Story x URDU/Respect Urdu/transcript.srt",
+  "audioDir": "assets/audio/ur/respect",
+  "output": "lib/models/series/respect_ur.dart",
+  "variable": "respectUrdu"
+}

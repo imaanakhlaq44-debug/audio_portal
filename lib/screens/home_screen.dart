@@ -8,6 +8,7 @@ import '../models/story_data.dart';
 import '../services/audio_player_service.dart';
 import '../services/storage_service.dart';
 import '../theme/app_theme.dart';
+import '../widgets/language_toggle.dart';
 import '../widgets/mini_player.dart';
 import '../widgets/series_card.dart';
 import '../widgets/story_progress_bar.dart';
@@ -23,11 +24,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late final Series _featured = StoryData.featuredOn(DateTime.now());
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => ValueListenableBuilder(
+    valueListenable: StorageService.languageListenable(),
+    builder: (context, _, __) => _build(context, StorageService.getLanguage()),
+  );
+
+  Widget _build(BuildContext context, StoryLanguage language) {
     final c = context.colors;
+    final featured = StoryData.featuredOn(DateTime.now(), language: language);
     return SafeArea(
       bottom: false,
       child: Column(
@@ -39,7 +44,9 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _HeroCard(series: _featured),
+                  const Center(child: LanguageToggle()),
+                  const SizedBox(height: 16),
+                  _HeroCard(series: featured),
                   const SizedBox(height: 28),
 
                   // ---- Continue Listening ----
@@ -92,8 +99,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
                   // ---- One row of series per category ----
                   for (final category in StoryCategory.values)
-                    if (StoryData.seriesIn(category) case final series
-                        when series.isNotEmpty) ...[
+                    if (StoryData.seriesIn(category, language: language)
+                        case final series when series.isNotEmpty) ...[
                       _SectionTitle(category.label),
                       const SizedBox(height: 14),
                       SizedBox(

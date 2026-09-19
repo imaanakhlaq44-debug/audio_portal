@@ -48,6 +48,13 @@
 	<array>
 		<string>audio</string>
 	</array>
+	<!-- just_audio's caching source streams through a local proxy over plain
+	     HTTP on 127.0.0.1; allow local networking only. -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>

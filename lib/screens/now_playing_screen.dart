@@ -6,6 +6,8 @@ import '../models/story_category.dart';
 import '../services/audio_player_service.dart';
 import '../services/storage_service.dart';
 import '../theme/app_theme.dart';
+import '../theme/text_direction.dart';
+import '../widgets/paywall_sheet.dart';
 
 class NowPlayingScreen extends StatefulWidget {
   const NowPlayingScreen({super.key});
@@ -218,6 +220,7 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                             const SizedBox(height: 4),
                             Text(
                               story.title,
+                              textDirection: textDirectionOf(story.title),
                               textAlign: TextAlign.center,
                               style: AppTheme.headline(
                                 size: 26,
@@ -247,6 +250,14 @@ class _NowPlayingScreenState extends State<NowPlayingScreen> {
                                 message: player.errorMessage!,
                                 onRetry: () =>
                                     player.playStory(story, fromStart: false),
+                              ),
+
+                            // ---- Free preview banner ----
+                            if (player.previewEnd case final end?)
+                              _PreviewBanner(
+                                end: end,
+                                reached: player.isAtPreviewEnd,
+                                onTap: () => showPaywall(context, story: story),
                               ),
 
                             // ---- Progress ----
@@ -755,6 +766,7 @@ class _CaptionCard extends StatelessWidget {
                     duration: const Duration(milliseconds: 250),
                     child: Text(
                       '"$text"',
+                      textDirection: textDirectionOf(text),
                       key: ValueKey(text),
                       textAlign: TextAlign.center,
                       style: AppTheme.headline(
@@ -893,6 +905,7 @@ class _FullStoryModalState extends State<_FullStoryModal> {
                               : null,
                           child: Text(
                             line.text,
+                            textDirection: textDirectionOf(line.text),
                             style: AppTheme.headline(
                               size: 18,
                               weight: line.isHighlight
@@ -912,6 +925,67 @@ class _FullStoryModalState extends State<_FullStoryModal> {
                 ),
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Tells a free listener how much of this episode the preview covers, and
+/// turns into the unlock prompt once they reach the end of it.
+class _PreviewBanner extends StatelessWidget {
+  final Duration end;
+  final bool reached;
+  final VoidCallback onTap;
+
+  const _PreviewBanner({
+    required this.end,
+    required this.reached,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    final minutes = (end.inSeconds / 60).round();
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16),
+      child: Material(
+        color: reached ? c.primary : c.secondaryFixed,
+        borderRadius: BorderRadius.circular(16),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: BorderRadius.circular(16),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+            child: Row(
+              children: [
+                Icon(
+                  reached ? Icons.lock_open_rounded : Icons.workspace_premium,
+                  color: reached ? Colors.white : c.secondaryDeep,
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    reached
+                        ? 'End of the free preview. Tap to unlock the '
+                              'whole story.'
+                        : 'Free preview: the first $minutes min of this '
+                              'episode',
+                    style: AppTheme.body(
+                      size: 13,
+                      weight: FontWeight.w600,
+                      color: reached ? Colors.white : c.onSurface,
+                    ),
+                  ),
+                ),
+                Icon(
+                  Icons.chevron_right,
+                  color: reached ? Colors.white : c.secondaryDeep,
+                ),
+              ],
+            ),
           ),
         ),
       ),

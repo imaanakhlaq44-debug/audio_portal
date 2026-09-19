@@ -1,0 +1,18 @@
+{
+  "id": "hud_en",
+  "series": "Hazrat Hud (A.S.)",
+  "language": "english",
+  "moral": "pride, strength and humility",
+  "category": "prophets",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/hud.webp",
+  "script": "StoryxEnglish/Hud_AS/annotated_script.txt",
+  "skipLeadingLines": 1,
+  "episodeMarker": "^Episode (\\d+):\\s*(.+)$",
+  "master": "StoryxEnglish/Hud_AS/Hud_AS_master.wav",
+  "transcript": "StoryxEnglish/Hud_AS/transcript.srt",
+  "audioDir": "assets/audio/en/hud",
+  "trailer": "00_trailer.mp3",
+  "output": "lib/models/series/hud_en.dart",
+  "variable": "hudEnglish"
+}

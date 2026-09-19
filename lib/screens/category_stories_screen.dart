@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/story_category.dart';
 import '../models/story_data.dart';
+import '../services/storage_service.dart';
 import '../theme/app_theme.dart';
 import '../widgets/mini_player.dart';
 import '../widgets/series_card.dart';
@@ -14,7 +15,10 @@ class CategoryStoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    final series = StoryData.seriesIn(category);
+    final series = StoryData.seriesIn(
+      category,
+      language: StorageService.getLanguage(),
+    );
     return Scaffold(
       backgroundColor: c.background,
       appBar: AppBar(

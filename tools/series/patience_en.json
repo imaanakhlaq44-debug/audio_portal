@@ -1,0 +1,18 @@
+{
+  "id": "patience_en",
+  "series": "The Things That Take Time",
+  "language": "english",
+  "moral": "patience",
+  "category": "moral",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/patience.webp",
+  "script": "StoryxEnglish/Patience_English/annotated_script.txt",
+  "skipLeadingLines": 1,
+  "episodeMarker": "^Episode (\\d+):\\s*“?(.+?)”?$",
+  "master": "StoryxEnglish/Patience_English/Patience_English.mp3",
+  "transcript": "StoryxEnglish/Patience_English/transcript.srt",
+  "audioDir": "assets/audio/en/patience",
+  "trailer": "00_trailer.mp3",
+  "output": "lib/models/series/patience_en.dart",
+  "variable": "patienceEnglish"
+}

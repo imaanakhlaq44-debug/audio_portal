@@ -1,0 +1,18 @@
+{
+  "id": "idris_en",
+  "series": "Hazrat Idris (A.S.)",
+  "language": "english",
+  "moral": "standing up for the truth",
+  "category": "prophets",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/idris.webp",
+  "script": "StoryxEnglish/Hazrat_Idris_English/annotated_script.txt",
+  "skipLeadingLines": 1,
+  "episodeMarker": "^Episode (\\d+):\\s*(.+)$",
+  "master": "StoryxEnglish/Hazrat_Idris_English/Hazrat_Idris_English_master.wav",
+  "transcript": "StoryxEnglish/Hazrat_Idris_English/transcript.srt",
+  "audioDir": "assets/audio/en/idris",
+  "trailer": "00_trailer.mp3",
+  "output": "lib/models/series/idris_en.dart",
+  "variable": "idrisEnglish"
+}

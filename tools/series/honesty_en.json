@@ -1,0 +1,18 @@
+{
+  "id": "honesty_en",
+  "series": "The Book of Trust",
+  "language": "english",
+  "moral": "honesty",
+  "category": "moral",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/honesty.webp",
+  "script": "StoryxEnglish/Honestly_English/annotated_script.txt",
+  "skipLeadingLines": 1,
+  "episodeMarker": "^CHAPTER (\\d+)$",
+  "master": "StoryxEnglish/Honestly_English/Honestly_English_master.wav",
+  "transcript": "StoryxEnglish/Honestly_English/transcript.srt",
+  "audioDir": "assets/audio/en/honesty",
+  "trailer": "00_trailer.mp3",
+  "output": "lib/models/series/honesty_en.dart",
+  "variable": "honestyEnglish"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "honesty_ur",
+  "series": "کتابِ امانت",
+  "language": "urdu",
+  "moral": "سچائی",
+  "category": "moral",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/honesty.webp",
+  "script": "Story x URDU/Honestly Urdu/annotated_script.txt",
+  "skipLeadingLines": 0,
+  "splitSentences": true,
+  "episodeMarker": "^باب (\\S+)$",
+  "master": "Story x URDU/Honestly Urdu/ایمان_و_اخلاق_master.wav",
+  "transcript": "Story x URDU/Honestly Urdu/transcript.srt",
+  "audioDir": "assets/audio/ur/honesty",
+  "trailer": "00_trailer.mp3",
+  "output": "lib/models/series/honesty_ur.dart",
+  "variable": "honestyUrdu"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "hud_ur",
+  "series": "حضرت ہود علیہ السلام",
+  "language": "urdu",
+  "moral": "تکبر، شکر اور عاجزی",
+  "category": "prophets",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/hud.webp",
+  "script": "Story x URDU/Hud A.S/annotated_script.txt",
+  "skipLeadingLines": 0,
+  "splitSentences": true,
+  "episodeMarker": "^قسط (\\S+)$",
+  "master": "Story x URDU/Hud A.S/ایمان_و_اخلاق_master.wav",
+  "transcript": "Story x URDU/Hud A.S/transcript.srt",
+  "audioDir": "assets/audio/ur/hud",
+  "trailer": "00_trailer.mp3",
+  "output": "lib/models/series/hud_ur.dart",
+  "variable": "hudUrdu"
+}
