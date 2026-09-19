@@ -63,3 +63,8 @@ key.properties
 /Story x URDU/
 /StoryxEnglish/
 *.plan.json
+
+# Cut episode audio (~170 MB). It is streamed from audio.qissora.app, where
+# tools/upload_audio.ps1 put it, and tools/gen_series.dart --cut rebuilds it
+# from the narration masters.
+/assets/audio/

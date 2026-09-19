@@ -5,9 +5,12 @@ import '../models/series.dart';
 import '../models/story.dart';
 import '../models/story_category.dart';
 import '../services/audio_player_service.dart';
+import '../services/premium_service.dart';
 import '../services/storage_service.dart';
 import '../theme/app_theme.dart';
+import '../theme/text_direction.dart';
 import '../widgets/mini_player.dart';
+import '../widgets/paywall_sheet.dart';
 import '../widgets/story_tile.dart';
 
 void openSeries(BuildContext context, Series series) {
@@ -16,9 +19,8 @@ void openSeries(BuildContext context, Series series) {
   ).push(MaterialPageRoute(builder: (_) => SeriesScreen(series: series)));
 }
 
-/// Where "Play" picks up: the trailer on a series never played, then a track
-/// left part-way through, then the first episode not yet finished, and back
-/// to the start once everything is done.
+/// Where "Play" picks up: a track left part-way through, then the first
+/// episode not yet finished, and back to the start once everything is done.
 Story resumeTrackOf(Series series) {
   if (series.tracks.every((t) => StorageService.getProgress(t.id) == null)) {
     return series.tracks.first;
@@ -36,8 +38,8 @@ Story resumeTrackOf(Series series) {
   return series.tracks.first;
 }
 
-/// The playlist for one series: its cover, a play button, the trailer and
-/// every episode in order.
+/// The playlist for one series: its cover, a play button, its written
+/// introduction and every episode in order.
 class SeriesScreen extends StatelessWidget {
   final Series series;
   const SeriesScreen({super.key, required this.series});
@@ -58,14 +60,13 @@ class SeriesScreen extends StatelessWidget {
             children: [
               _Header(series: series),
               const SizedBox(height: 24),
-              if (series.trailer case final trailer?) ...[
-                const _ListLabel('Trailer'),
-                StoryTile(
-                  story: trailer,
-                  onTap: () => openStory(context, trailer),
-                  onPlay: () => togglePlayFor(context, trailer),
-                ),
-                const SizedBox(height: 12),
+              if (series.intro case final intro?) ...[
+                _IntroCard(text: intro),
+                const SizedBox(height: 20),
+              ],
+              if (!context.watch<PremiumService>().isPremium) ...[
+                const _PremiumBanner(),
+                const SizedBox(height: 20),
               ],
               _ListLabel(series.episodeCountLabel),
               for (final episode in series.episodes)
@@ -112,12 +113,14 @@ class _Header extends StatelessWidget {
         const SizedBox(height: 18),
         Text(
           series.title,
+          textDirection: textDirectionOf(series.title),
           textAlign: TextAlign.center,
           style: AppTheme.headline(size: 26, color: c.headline),
         ),
         const SizedBox(height: 6),
         Text(
           series.description,
+          textDirection: textDirectionOf(series.description),
           textAlign: TextAlign.center,
           style: AppTheme.body(size: 14, color: c.onSurfaceVariant),
         ),
@@ -149,6 +152,110 @@ class _Header extends StatelessWidget {
           },
         ),
       ],
+    );
+  }
+}
+
+/// The series introduction, in place of the old spoken trailer.
+class _IntroCard extends StatelessWidget {
+  final String text;
+  const _IntroCard({required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    final direction = textDirectionOf(text);
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        color: c.surfaceLowest,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: c.outlineVariant.withValues(alpha: c.isDark ? 0.5 : 0.15),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(Icons.auto_stories_outlined, color: c.primaryDeep),
+              const SizedBox(width: 8),
+              Text(
+                'About this series',
+                style: AppTheme.headline(size: 17, color: c.headline),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          SizedBox(
+            width: double.infinity,
+            child: Text(
+              text,
+              textDirection: direction,
+              style: AppTheme.body(
+                size: 14,
+                color: c.onSurfaceVariant,
+              ).copyWith(height: 1.6),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Tells a free listener that episode 1 is a preview and the rest is Premium.
+class _PremiumBanner extends StatelessWidget {
+  const _PremiumBanner();
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    return Material(
+      color: c.secondaryFixed,
+      borderRadius: BorderRadius.circular(20),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(20),
+        onTap: () => showPaywall(context),
+        child: Padding(
+          padding: const EdgeInsets.all(14),
+          child: Row(
+            children: [
+              Container(
+                width: 44,
+                height: 44,
+                decoration: BoxDecoration(
+                  color: c.surfaceLowest,
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: Icon(Icons.workspace_premium, color: c.secondaryDeep),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Episode 1 is a free preview',
+                      style: AppTheme.body(
+                        size: 14,
+                        weight: FontWeight.w700,
+                        color: c.onSurface,
+                      ),
+                    ),
+                    Text(
+                      'Unlock every episode with Premium',
+                      style: AppTheme.body(size: 13, color: c.onSurfaceVariant),
+                    ),
+                  ],
+                ),
+              ),
+              Icon(Icons.chevron_right, color: c.secondaryDeep),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

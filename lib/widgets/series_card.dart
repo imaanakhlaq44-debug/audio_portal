@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/series.dart';
 import '../screens/series_screen.dart';
 import '../theme/app_theme.dart';
+import '../theme/text_direction.dart';
 
 /// A series thumbnail: cover, title, and how many episodes it holds. Tapping
 /// opens the series playlist.
@@ -37,6 +38,7 @@ class SeriesCard extends StatelessWidget {
               const SizedBox(height: 8),
               Text(
                 series.title,
+                textDirection: textDirectionOf(series.title),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: AppTheme.body(

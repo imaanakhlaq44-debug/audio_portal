@@ -5,6 +5,7 @@ import '../models/story.dart';
 import '../screens/now_playing_screen.dart';
 import '../services/audio_player_service.dart';
 import '../theme/app_theme.dart';
+import '../theme/text_direction.dart';
 
 /// Opens the full-screen Now Playing view with a slide-up transition.
 void openNowPlaying(BuildContext context) {
@@ -33,8 +34,12 @@ void openNowPlaying(BuildContext context) {
 /// .instance` would make all of them unreachable to a test — and would tie
 /// the tap to one global instance for no benefit, since the provider is
 /// right there.
+///
+/// A locked story shows the paywall instead (through the player's
+/// [AudioPlayerService.paywallRequests]).
 Future<void> openStory(BuildContext context, Story story) async {
   final player = context.read<AudioPlayerService>();
+  if (player.requestPaywallIfLocked(story)) return;
   if (player.currentStory?.id != story.id) {
     await player.playStory(story);
   }
@@ -122,6 +127,7 @@ class MiniPlayer extends StatelessWidget {
                               children: [
                                 Text(
                                   story.title,
+                                  textDirection: textDirectionOf(story.title),
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: const TextStyle(

@@ -80,7 +80,10 @@ class _LibraryScreenState extends State<LibraryScreen> {
           Expanded(
             child: ValueListenableBuilder(
               valueListenable: StorageService.favoritesListenable(),
-              builder: (context, _, __) => _buildBody(context),
+              builder: (context, _, __) => ValueListenableBuilder(
+                valueListenable: StorageService.languageListenable(),
+                builder: (context, _, __) => _buildBody(context),
+              ),
             ),
           ),
         ],
@@ -181,7 +184,10 @@ class _LibraryScreenState extends State<LibraryScreen> {
             .map(
               (cat) => CategoryCard(
                 category: cat,
-                count: StoryData.seriesIn(cat).length,
+                count: StoryData.seriesIn(
+                  cat,
+                  language: StorageService.getLanguage(),
+                ).length,
                 onTap: () => _openCategory(cat),
               ),
             )

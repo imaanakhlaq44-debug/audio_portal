@@ -1,0 +1,19 @@
+{
+  "id": "fairness_ur",
+  "series": "سنہری ترازو",
+  "language": "urdu",
+  "moral": "انصاف",
+  "category": "moral",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/fairness.webp",
+  "script": "Story x URDU/Fairness Urdu/annotated_script.txt",
+  "skipLeadingLines": 0,
+  "splitSentences": true,
+  "episodeMarker": "^قسط (\\S+):\\s*(.+)$",
+  "master": "Story x URDU/Fairness Urdu/سنہری_ترازو___ایمان_و_اخلاق_master.wav",
+  "transcript": "Story x URDU/Fairness Urdu/transcript.srt",
+  "audioDir": "assets/audio/ur/fairness",
+  "trailer": "00_trailer.mp3",
+  "output": "lib/models/series/fairness_ur.dart",
+  "variable": "fairnessUrdu"
+}

@@ -14,9 +14,13 @@
 //
 // Usage, from the repo root:
 //   dart run tools/gen_series.dart tools/series/fairness_en.json [--cut]
+//       [--opus=16] [--reuse-cuts]
 //
-// --cut also writes the episode mp3s. ffmpeg is taken from PATH, or from the
-// FFMPEG environment variable when set.
+// --cut also writes the episode audio: 48 kbps mp3, or Opus at the given
+// kbps with --opus. --reuse-cuts takes episode boundaries from the
+// <config>.cuts.json written by an earlier run instead of listening again.
+// ffmpeg is taken from PATH or the FFMPEG environment variable; checking
+// cuts by ear needs WHISPER_MODEL.
 
 import 'dart:convert';
 import 'dart:io';
@@ -37,10 +41,17 @@ void main(List<String> args) async {
   );
   final cfg =
       jsonDecode(File(configPath).readAsStringSync()) as Map<String, dynamic>;
-  final episodeFiles = (cfg['episodes'] as List).cast<String>();
   final trailerFile = cfg['trailer'] as String?;
-
   final (intro, parts) = _splitScript(cfg);
+
+  // Episode files are named from their titles unless the config lists them.
+  final episodeFiles =
+      (cfg['episodes'] as List?)?.cast<String>() ??
+      [
+        for (var i = 0; i < parts.length; i++)
+          // Urdu titles have no Latin letters to slug; the number alone will do.
+          '${[(i + 1).toString().padLeft(2, '0'), if (_slug(parts[i].title).isNotEmpty) _slug(parts[i].title)].join('_')}.mp3',
+      ];
   if (parts.length != episodeFiles.length) {
     _fail(
       'script has ${parts.length} episodes but the config lists '
@@ -56,18 +67,55 @@ void main(List<String> args) async {
     if (hasTrailer) _Episode('Trailer')..lines.addAll(intro),
     ...parts,
   ];
-  final files = [if (hasTrailer) trailerFile, ...episodeFiles];
+  // --opus=16 writes Opus at that many kbps (.ogg); the default is 48 kbps mp3.
+  final opusKbps = args
+      .where((a) => a.startsWith('--opus='))
+      .map((a) => int.parse(a.substring('--opus='.length)))
+      .firstOrNull;
+  final ext = opusKbps == null ? 'mp3' : 'ogg';
+  final files = [
+    for (final f in [if (hasTrailer) trailerFile, ...episodeFiles])
+      f.replaceFirst(RegExp(r'\.\w+$'), '.$ext'),
+  ];
 
   final spoken = _readSrt(cfg['transcript'] as String);
   final lines = [for (final e in episodes) ...e.lines];
   _align(lines, spoken);
 
-  final ffmpeg = Platform.environment['FFMPEG'] ?? 'ffmpeg';
-  final total = spoken.last.end;
-  final bounds = _snapToSilence(
-    _episodeBounds(episodes, total),
-    await _silences(ffmpeg, cfg['master'] as String),
+  // Where each episode starts is the slow part (it is heard, not computed),
+  // so it is kept next to the config. --reuse-cuts skips straight to it,
+  // which makes re-encoding the series in another format a few minutes' work.
+  final cutsFile = File(
+    configPath.replaceFirst(RegExp(r'\.json$'), '.cuts.json'),
   );
+  final ffmpeg = Platform.environment['FFMPEG'] ?? 'ffmpeg';
+  final List<(double, double)> bounds;
+  if (args.contains('--reuse-cuts') && cutsFile.existsSync()) {
+    bounds = [
+      for (final b in jsonDecode(cutsFile.readAsStringSync()) as List)
+        ((b[0] as num).toDouble(), (b[1] as num).toDouble()),
+    ];
+    if (bounds.length != episodes.length) {
+      _fail(
+        '${cutsFile.path} has ${bounds.length} cuts for ${episodes.length} tracks',
+      );
+    }
+  } else {
+    final total = spoken.last.end;
+    final pauses = await _silences(ffmpeg, cfg['master'] as String);
+    bounds = await _confirmByListening(
+      ffmpeg,
+      cfg,
+      episodes,
+      _snapToSilence(_episodeBounds(episodes, total), pauses),
+      pauses,
+    );
+    cutsFile.writeAsStringSync(
+      '${jsonEncode([
+        for (final (s, t) in bounds) [double.parse(s.toStringAsFixed(3)), double.parse(t.toStringAsFixed(3))],
+      ])}\n',
+    );
+  }
   _report(episodes, lines, bounds);
 
   File(cfg['output'] as String)
@@ -78,7 +126,7 @@ void main(List<String> args) async {
   stdout.writeln('wrote ${cfg['output']}');
 
   if (args.contains('--cut')) {
-    await _cut(ffmpeg, cfg, files, bounds);
+    await _cut(ffmpeg, cfg, files, bounds, opusKbps: opusKbps);
   }
 }
 
@@ -100,7 +148,7 @@ class _Line {
 
 class _Episode {
   _Episode(this.title);
-  final String title;
+  String title;
   final lines = <_Line>[];
 }
 
@@ -111,6 +159,9 @@ const _ordinals = {
   'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10,
   'اول': 1, 'دوم': 2, 'سوم': 3, 'چہارم': 4, 'پنجم': 5, //
   'ششم': 6, 'ہفتم': 7, 'ہشتم': 8, 'نہم': 9, 'دہم': 10,
+  // "قسط 1" is written as a digit but read aloud as "قسط ایک".
+  'ایک': 1, 'دو': 2, 'تین': 3, 'چار': 4, 'پانچ': 5, //
+  'چھ': 6, 'سات': 7, 'آٹھ': 8, 'نو': 9, 'دس': 10,
 };
 
 /// Splits the script at each episode marker, returning the spoken intro that
@@ -126,25 +177,52 @@ const _ordinals = {
   final intro = <_Line>[];
   final episodes = <_Episode>[];
 
-  for (final text in raw.map((l) => l.trim())) {
+  // Urdu scripts put the emotion tag at the start of a spoken line
+  // ("[warm] ...") rather than on a line of its own.
+  final inlineTag = RegExp(r'\[[^\]]+\]\s*');
+  for (final text in raw.map((l) => l.replaceAll(inlineTag, '').trim())) {
     if (text.isEmpty || tag.hasMatch(text)) continue;
 
     final m = marker.firstMatch(text);
     if (m != null) {
       final raw = m.group(1)!.trim();
       final n = int.tryParse(raw) ?? _ordinals[raw.toLowerCase()];
-      if (n != episodes.length + 1) {
+      if (n == 1 && episodes.isNotEmpty) {
+        // The numbering started over, so what came before was the contents
+        // list at the top of the script: part of the spoken intro.
+        intro.addAll([for (final e in episodes) ...e.lines]);
+        episodes.clear();
+      } else if (n != episodes.length + 1) {
         _fail('expected episode ${episodes.length + 1}, found "$text"');
       }
-      episodes.add(_Episode(m.group(2)!.trim()));
+      // Some scripts put the title on the line after "EPISODE 1".
+      final title = m.groupCount >= 2 ? m.group(2)?.trim() : null;
+      episodes.add(_Episode(title ?? ''));
+    } else if (episodes.isNotEmpty && episodes.last.title.isEmpty) {
+      episodes.last.title = text;
     }
 
-    final line = _Line(text);
-    if (line.words.isEmpty) continue;
-    (episodes.isEmpty ? intro : episodes.last.lines).add(line);
+    // Urdu scripts put a whole paragraph on one line; a caption that long
+    // fills the screen, so those are read out a sentence at a time.
+    final pieces = m == null && cfg['splitSentences'] == true
+        ? text.split(RegExp(r'(?<=[۔؟])\s+'))
+        : [text];
+    for (final piece in pieces) {
+      final line = _Line(piece);
+      if (line.words.isEmpty) continue;
+      (episodes.isEmpty ? intro : episodes.last.lines).add(line);
+    }
   }
   return (intro, episodes);
 }
+
+/// "Amanpur's Promise" -> "amanpurs_promise".
+String _slug(String title) => title
+    .toLowerCase()
+    .replaceAll(RegExp(r"['’]"), '')
+    .split(RegExp(r'[^a-z0-9]+'))
+    .where((w) => w.isNotEmpty)
+    .join('_');
 
 List<String> _tokens(String text) => text
     .toLowerCase()
@@ -415,6 +493,7 @@ String _dart(
   required bool hasTrailer,
 }) {
   final series = cfg['series'] as String;
+  final urdu = cfg['language'] == 'urdu';
   final count = episodes.length - (hasTrailer ? 1 : 0);
   final out = StringBuffer()
     ..writeln('// GENERATED by tools/gen_series.dart from $configPath.')
@@ -434,7 +513,7 @@ String _dart(
     ..writeln('  category: StoryCategory.${cfg['category']},')
     ..writeln('  coverAsset: ${_str(cfg['cover'] as String)},')
     ..writeln(
-      '  description: ${_str('A $count-part story about ${cfg['moral']}.')},',
+      '  description: ${_str(urdu ? '${cfg['moral']} پر $count اقساط کی کہانی' : 'A $count-part story about ${cfg['moral']}.')},',
     );
 
   for (var e = 0; e < episodes.length; e++) {
@@ -449,14 +528,14 @@ String _dart(
       ..writeln('  Story(')
       ..writeln("    id: '${cfg['id']}_${n.toString().padLeft(2, '0')}',")
       ..writeln(
-        '    title: ${_str(isTrailer ? 'Trailer · $series' : 'Ep $n · ${ep.title}')},',
+        '    title: ${_str(isTrailer ? '${urdu ? 'ٹریلر' : 'Trailer'} · $series' : '${urdu ? 'قسط' : 'Ep'} $n · ${ep.title}')},',
       )
       ..writeln('    narrator: ${_str(cfg['narrator'] as String)},')
       ..writeln('    coverAsset: ${_str(cfg['cover'] as String)},')
       ..writeln('    audioAsset: ${_str('${cfg['audioDir']}/${files[e]}')},')
       ..writeln('    category: StoryCategory.${cfg['category']},')
       ..writeln(
-        '    description: ${_str(isTrailer ? 'Meet the story: $series in under a minute.' : '$series — episode $n of $count.')},',
+        '    description: ${_str(isTrailer ? (urdu ? '$series کا تعارف' : 'Meet the story: $series in under a minute.') : (urdu ? '$series — قسط $n از $count' : '$series — episode $n of $count.'))},',
       )
       ..writeln('    captions: [');
 
@@ -490,15 +569,24 @@ String _dart(
   return out.toString();
 }
 
-/// Pauses of at least a third of a second in the master, as (start, end).
-Future<List<(double, double)>> _silences(String ffmpeg, String master) async {
+/// Pauses in the master as (start, end) seconds: the whole file by default,
+/// or just [length] seconds from [from].
+Future<List<(double, double)>> _silences(
+  String ffmpeg,
+  String master, {
+  double from = 0,
+  double? length,
+  double minPause = 0.3,
+}) async {
   final result = await Process.run(ffmpeg, [
     '-hide_banner',
     '-nostats',
+    if (from > 0) ...['-ss', from.toStringAsFixed(3)],
+    if (length != null) ...['-t', length.toStringAsFixed(3)],
     '-i',
     master,
     '-af',
-    'silencedetect=noise=-30dB:d=0.3',
+    'silencedetect=noise=-30dB:d=$minPause',
     '-f',
     'null',
     '-',
@@ -514,7 +602,7 @@ Future<List<(double, double)>> _silences(String ffmpeg, String master) async {
       .toList();
   return [
     for (var i = 0; i < min(starts.length, ends.length); i++)
-      (starts[i], ends[i]),
+      (from + starts[i], from + ends[i]),
   ];
 }
 
@@ -542,13 +630,224 @@ List<(double, double)> _snapToSilence(
   ];
 }
 
+/// Pause-snapping alone picks the wrong pause about a third of the time:
+/// these scripts end an episode with "Next episode: X" right before
+/// "Episode N: X", and both pauses look alike. So each boundary is checked
+/// by ear. Starting from the nearest pause, a few seconds are transcribed
+/// and the cut is accepted where the first words heard are the episode's own
+/// title line.
+///
+/// Needs WHISPER_MODEL pointing at a whisper.cpp model file.
+Future<List<(double, double)>> _confirmByListening(
+  String ffmpeg,
+  Map<String, dynamic> cfg,
+  List<_Episode> episodes,
+  List<(double, double)> bounds,
+  List<(double, double)> pauses,
+) async {
+  final model = Platform.environment['WHISPER_MODEL'];
+  if (model == null || !File(model).existsSync()) {
+    _fail('set WHISPER_MODEL to a whisper.cpp model file to check the cuts');
+  }
+  final lang = cfg['language'] == 'urdu' ? 'ur' : 'en';
+  final master = File(cfg['master'] as String).absolute.path;
+  // Filter options are ':'-separated and a Windows path has a drive colon, so
+  // ffmpeg runs from the model's folder and the filter only names files.
+  final modelFile = File(model).absolute;
+  final workDir = modelFile.parent.path;
+  final modelName = modelFile.uri.pathSegments.last;
+  final heardFile = File('$workDir/gen_series_heard.txt');
+
+  Future<List<String>> hear(double at) async {
+    if (heardFile.existsSync()) heardFile.deleteSync();
+    final result = await Process.run(ffmpeg, [
+      '-hide_banner',
+      '-loglevel',
+      'error',
+      '-ss',
+      at.toStringAsFixed(3),
+      '-t',
+      '6',
+      '-i',
+      master,
+      '-af',
+      'aresample=16000,whisper=model=$modelName:language=$lang'
+          ':queue=6:use_gpu=false:format=text'
+          ':destination=gen_series_heard.txt',
+      '-f',
+      'null',
+      '-',
+    ], workingDirectory: workDir);
+    if (result.exitCode != 0) _fail('whisper failed: ${result.stderr}');
+    return heardFile.existsSync()
+        ? _numbered(_tokens(heardFile.readAsStringSync()))
+        : [];
+  }
+
+  // "cutAt" pins an episode's start by hand, in seconds, for the rare title
+  // listening gets wrong (keyed by episode number, e.g. {"2": 562.52}).
+  final pinned = (cfg['cutAt'] as Map<String, dynamic>? ?? {}).map(
+    (k, v) => MapEntry(int.parse(k), (v as num).toDouble()),
+  );
+  final hasTrailer = episodes.first.title == 'Trailer';
+
+  final starts = <double>[0];
+  for (var e = 1; e < episodes.length; e++) {
+    final episodeNumber = hasTrailer ? e : e + 1;
+    if (pinned[episodeNumber] case final at?) {
+      starts.add(at);
+      continue;
+    }
+    final guess = bounds[e].$1;
+    final title = _numbered(episodes[e].lines.first.words);
+    final want = title.take(min(2, title.length)).toList();
+
+    List<(double, double)> nearest(List<(double, double)> from) =>
+        from.where((p) => p.$2 > guess - 12 && p.$1 < guess + 12).toList()
+          ..sort(
+            (a, b) => (a.$2 - guess).abs().compareTo((b.$2 - guess).abs()),
+          );
+
+    final tried = <double>{};
+    Future<double?> listen(List<(double, double)> candidates) async {
+      for (final p in candidates) {
+        final at = max(p.$1, p.$2 - _edgePadding);
+        if (!tried.add((at * 10).roundToDouble())) continue;
+        final heard = await hear(at);
+        final hit = lang == 'ur'
+            ? _heardUrduTitle(heard, episodes[e])
+            // Allow one stray leading word ("So", a breath read as "Uh").
+            : [0, 1].any(
+                (o) =>
+                    heard.length >= o + want.length &&
+                    List.generate(
+                      want.length,
+                      (i) => heard[o + i] == want[i],
+                    ).every((x) => x),
+              );
+        if (hit) return at;
+      }
+      return null;
+    }
+
+    var found = await listen(nearest(pauses).take(8).toList());
+    // A narrator sometimes barely pauses before a title; look again for the
+    // short pauses the full-file scan leaves out.
+    found ??= await listen(
+      nearest(
+        await _silences(
+          ffmpeg,
+          cfg['master'] as String,
+          from: max(0, guess - 12),
+          length: 24,
+          minPause: 0.1,
+        ),
+      ).take(12).toList(),
+    );
+    if (found == null) {
+      stderr.writeln(
+        'WARNING: could not hear "${episodes[e].lines.first.text}" near '
+        '${_clock(guess)}; keeping the estimate, check this cut by ear',
+      );
+    }
+    starts.add(found ?? guess);
+  }
+  if (heardFile.existsSync()) heardFile.deleteSync();
+
+  return [
+    for (var e = 0; e < episodes.length; e++)
+      (starts[e], e + 1 < episodes.length ? starts[e + 1] : bounds.last.$2),
+  ];
+}
+
+/// Whisper spells Urdu inconsistently: "قسط دوم" comes back as "کسٹ دوم",
+/// "قسطحشتم", "واقعی آتین" or "باب پنجم اید". Letters that sound alike are
+/// folded together, and the title counts as heard when one of the first two
+/// words is an episode marker (قسط, باب, واقعہ) followed straight away by the
+/// episode's number, or by its name one word later.
+///
+/// Requiring the number or that exact position matters: the Saleh and Nuh
+/// scripts close episodes with "اگلی قسط: (next title)", which has the
+/// marker and the name but no number, with the name right after the marker.
+bool _heardUrduTitle(List<String> heard, _Episode episode) {
+  final titleWords = episode.lines.first.words;
+  if (titleWords.length < 2) return false;
+  final n = int.tryParse(titleWords[1]) ?? _ordinals[titleWords[1]];
+  if (n == null) return false;
+  final numberForms = {
+    n.toString(),
+    for (final e in _ordinals.entries)
+      if (e.value == n) _fold(e.key),
+  };
+  final nameWord = titleWords.length > 2
+      ? titleWords[2]
+      : (episode.lines.length > 1 ? episode.lines[1].words.first : null);
+  final name = nameWord == null ? null : _skeleton(nameWord);
+  final words = heard.map(_fold).toList();
+
+  bool isMarker(String w) =>
+      ['کس', 'باب', 'واک'].any((m) => w.startsWith(_fold(m)));
+  bool isNumber(String w) =>
+      numberForms.any((f) => w == f || (f.length >= 2 && w.endsWith(f)));
+  bool isName(String w) {
+    if (name == null || name.isEmpty) return false;
+    final s = _skeleton(w);
+    return s == name || (name.length >= 3 && s.startsWith(name));
+  }
+
+  for (var i = 0; i < min(2, words.length); i++) {
+    final w = words[i];
+    if (!isMarker(w)) continue;
+    if (isNumber(w)) return true; // run together: "قسطحشتم"
+    if (i + 1 < words.length && isNumber(words[i + 1])) return true;
+    if (i + 2 < words.length && isName(words[i + 2])) return true;
+  }
+  return false;
+}
+
+/// A word with its vowel letters dropped, so "خاموش" and "خموش", or
+/// "اعتماد" and "اتماد", compare equal.
+String _skeleton(String word) =>
+    _fold(word).replaceAll(RegExp('[اویعءہے]'), '');
+
+String _fold(String word) {
+  const alike = {
+    'ق': 'ک', 'ط': 'ت', 'ٹ': 'ت', 'ص': 'س', 'ث': 'س', //
+    'ذ': 'ز', 'ض': 'ز', 'ظ': 'ز', 'ح': 'ہ', 'ھ': 'ہ',
+    'ۃ': 'ہ', 'ة': 'ہ', 'ي': 'ی', 'ى': 'ی', 'ئ': 'ی',
+    'أ': 'ا', 'آ': 'ا', 'ؤ': 'و',
+  };
+  return word
+      .replaceAll(RegExp('[ً-ٰٟ]'), '')
+      .split('')
+      .map((c) => alike[c] ?? c)
+      .join();
+}
+
+/// Spelled-out numbers become digits, so "Chapter Four" matches "chapter 4".
+List<String> _numbered(List<String> words) => [
+  for (final w in words) _ordinals[w]?.toString() ?? w,
+];
+
 Future<void> _cut(
   String ffmpeg,
   Map<String, dynamic> cfg,
   List<String> files,
-  List<(double, double)> bounds,
-) async {
+  List<(double, double)> bounds, {
+  int? opusKbps,
+}) async {
   final dir = Directory(cfg['audioDir'] as String)..createSync(recursive: true);
+  // Every file in the folder ships in the app, so anything from an earlier
+  // cut or another format goes.
+  for (final old in dir.listSync().whereType<File>()) {
+    if (!files.contains(old.uri.pathSegments.last)) old.deleteSync();
+  }
+  final codec = opusKbps == null
+      ? ['-c:a', 'libmp3lame', '-b:a', '48k', '-ac', '1', '-ar', '24000']
+      : [
+          '-c:a', 'libopus', '-b:a', '${opusKbps}k', '-ac', '1', //
+          '-application', 'voip',
+        ];
   for (var e = 0; e < files.length; e++) {
     final (s, t) = bounds[e];
     final out = '${dir.path}/${files[e]}';
@@ -563,14 +862,7 @@ Future<void> _cut(
       t.toStringAsFixed(3),
       '-i',
       cfg['master'] as String,
-      '-c:a',
-      'libmp3lame',
-      '-b:a',
-      '48k',
-      '-ac',
-      '1',
-      '-ar',
-      '24000',
+      ...codec,
       out,
     ]);
     if (result.exitCode != 0) _fail('ffmpeg failed on $out:\n${result.stderr}');

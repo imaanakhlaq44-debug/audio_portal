@@ -6,6 +6,7 @@ import 'package:qissora/models/story_category.dart';
 import 'package:qissora/models/story_data.dart';
 import 'package:qissora/screens/category_stories_screen.dart';
 import 'package:qissora/screens/series_screen.dart';
+import 'package:qissora/services/storage_service.dart';
 import 'package:qissora/widgets/series_card.dart';
 
 import 'test_helpers.dart';
@@ -20,7 +21,10 @@ void main() {
     tester,
   ) async {
     const category = StoryCategory.moral;
-    final series = StoryData.seriesIn(category);
+    final series = StoryData.seriesIn(
+      category,
+      language: StorageService.getLanguage(),
+    );
 
     await tester.pumpWidget(
       hostScreen(const CategoryStoriesScreen(category: category)),
@@ -44,7 +48,9 @@ void main() {
       await tester.pump();
 
       for (final series in StoryData.allSeries) {
-        final shouldShow = series.category == category;
+        final shouldShow =
+            series.category == category &&
+            series.language == StorageService.getLanguage();
         expect(
           find.widgetWithText(SeriesCard, series.title),
           shouldShow ? findsOneWidget : findsNothing,
@@ -68,7 +74,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byType(SeriesScreen), findsOneWidget);
-    expect(find.text('Trailer'), findsOneWidget);
+    expect(find.text('Trailer'), findsNothing, reason: 'trailers were retired');
     for (final episode in series.episodes.take(2)) {
       expect(find.text(episode.title), findsOneWidget);
     }

@@ -2,7 +2,7 @@ name: qissora
 description: "Qissora - Kids Islamic audio stories by Imaan & Akhlaq"
 publish_to: 'none'
 
-version: 1.2.0+3
+version: 1.3.0+5
 
 environment:
   sdk: ^3.9.2
@@ -34,6 +34,16 @@ dependencies:
   intl: ^0.19.0
   google_fonts: ^6.2.1
 
+  # Opens WhatsApp for the "Contact Us" buttons on About and FAQs
+  url_launcher: ^6.3.2
+
+  # Qissora Premium through Google Play Billing (adds the BILLING permission)
+  in_app_purchase: ^3.3.1
+  in_app_purchase_android: ^0.5.3
+
+  # Parents sign in with Google before subscribing
+  google_sign_in: ^7.2.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -44,12 +54,17 @@ flutter:
   uses-material-design: true
 
   assets:
-    # Flutter does not include subfolders of a listed directory, so every
-    # series folder has to be listed on its own.
-    - assets/audio/en/fairness/
+    # Story audio is deliberately NOT listed: it is streamed from
+    # audio.qissora.app (lib/audio_config.dart). assets/audio/ stays in the
+    # repo as the source that tools/upload_audio.ps1 uploads.
+    #
+    # Series cover art IS bundled: it is ~1.3 MB in total, it shows on every
+    # screen, and downloading it would leave grey boxes on a cold start.
+    # Masters live in covers/ and are converted by tools/make_covers.ps1.
+    - assets/covers/
     - assets/images/
     - assets/icon/
     # Static Plus Jakarta Sans / Bricolage Grotesque faces. google_fonts picks
     # these up from the asset bundle, so typography works offline and in
-    # release builds (which have no INTERNET permission).
+    # release builds without fetching them.
     - assets/google_fonts/

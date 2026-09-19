@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Cream behind the adaptive launcher icon, sampled from the logo's own
+         background so the icon looks seamless in any launcher shape. -->
+    <color name="ic_launcher_background">#FEF8F7</color>
+</resources>

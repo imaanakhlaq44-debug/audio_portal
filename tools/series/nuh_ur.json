@@ -1,0 +1,20 @@
+{
+  "id": "nuh_ur",
+  "series": "حضرت نوح علیہ السلام",
+  "language": "urdu",
+  "moral": "صبر اور ہمت",
+  "category": "prophets",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/nuh.webp",
+  "script": "Story x URDU/Nuh AS/annotated_script.txt",
+  "skipLeadingLines": 0,
+  "splitSentences": true,
+  "episodeMarker": "^قسط (\\S+):\\s*(.+)$",
+  "master": "Story x URDU/Nuh AS/ایمان_و_اخلاق_master.wav",
+  "transcript": "Story x URDU/Nuh AS/transcript.srt",
+  "audioDir": "assets/audio/ur/nuh",
+  "trailer": "00_trailer.mp3",
+  "cutAt": { "2": 562.52 },
+  "output": "lib/models/series/nuh_ur.dart",
+  "variable": "nuhUrdu"
+}

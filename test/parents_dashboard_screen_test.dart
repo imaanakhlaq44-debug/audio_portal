@@ -63,6 +63,7 @@ void main() {
         () => StorageService.toggleSaved(StoryData.allStories.first.id),
       );
       await open(tester);
+      await scrollTo(tester, find.text('1 story in the library'));
 
       expect(find.text('1 story in the library'), findsOneWidget);
       expect(find.text('0 stories saved'), findsOneWidget);
@@ -70,6 +71,7 @@ void main() {
 
     testWidgets('calls saved stories saved, never downloaded', (tester) async {
       await open(tester);
+      await scrollTo(tester, find.text('Saved Stories'));
 
       expect(find.text('Saved Stories'), findsOneWidget);
       expect(
@@ -118,6 +120,7 @@ void main() {
       final saved = StoryData.allStories[2];
       await writeToStorage(tester, () => StorageService.toggleSaved(saved.id));
       await open(tester);
+      await scrollTo(tester, find.text('Saved Stories'));
 
       await tester.tap(find.text('Saved Stories'));
       await tester.pumpAndSettle();
@@ -128,6 +131,7 @@ void main() {
 
     testWidgets('says so when there is nothing saved yet', (tester) async {
       await open(tester);
+      await scrollTo(tester, find.text('Saved Favorites'));
 
       await tester.tap(find.text('Saved Favorites'));
       await tester.pumpAndSettle();

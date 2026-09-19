@@ -5,7 +5,7 @@
   "moral": "fairness",
   "category": "moral",
   "narrator": "Imaan & Akhlaq",
-  "cover": "assets/icon/app_icon.webp",
+  "cover": "assets/covers/fairness.webp",
   "script": "StoryxEnglish/Fairness_english/annotated_script.txt",
   "skipLeadingLines": 1,
   "episodeMarker": "^Episode (\\d+):\\s*(.+)$",

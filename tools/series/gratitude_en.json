@@ -1,0 +1,18 @@
+{
+  "id": "gratitude_en",
+  "series": "The Things We Never Notice",
+  "language": "english",
+  "moral": "gratitude",
+  "category": "moral",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/gratitude.webp",
+  "script": "StoryxEnglish/Gratitude/annotated_script.txt",
+  "skipLeadingLines": 1,
+  "episodeMarker": "^EPISODE (\\d+)$",
+  "master": "StoryxEnglish/Gratitude/Gratitude_master.wav",
+  "transcript": "StoryxEnglish/Gratitude/transcript.srt",
+  "audioDir": "assets/audio/en/gratitude",
+  "trailer": "00_trailer.mp3",
+  "output": "lib/models/series/gratitude_en.dart",
+  "variable": "gratitudeEnglish"
+}

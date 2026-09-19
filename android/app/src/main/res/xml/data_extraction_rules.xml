@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android 12 and later: the same rule as backup_rules.xml, for both the
+     cloud backup and a direct phone-to-phone transfer. -->
+<data-extraction-rules>
+    <cloud-backup>
+        <exclude domain="file" path="audio_cache/" />
+    </cloud-backup>
+    <device-transfer>
+        <exclude domain="file" path="audio_cache/" />
+    </device-transfer>
+</data-extraction-rules>

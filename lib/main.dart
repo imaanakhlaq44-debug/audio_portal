@@ -1,18 +1,25 @@
+import 'dart:async';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
+import 'models/story.dart';
+import 'screens/about_screen.dart';
+import 'screens/faq_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/library_screen.dart';
 import 'screens/parents_lock_screen.dart';
 import 'screens/splash_screen.dart';
 import 'services/audio_player_service.dart';
+import 'services/premium_service.dart';
 import 'services/storage_service.dart';
 import 'services/theme_controller.dart';
 import 'theme/app_theme.dart';
 import 'widgets/mini_player.dart';
+import 'widgets/paywall_sheet.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,6 +39,9 @@ Future<void> main() async {
   ]);
   await StorageService.init();
   await AudioPlayerService.instance.init();
+  // Not awaited: Google Play can take a few seconds to answer, and the cached
+  // entitlement is loaded straight away inside.
+  unawaited(PremiumService.instance.init());
   runApp(const MyApp());
 }
 
@@ -47,6 +57,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<ThemeController>(
           create: (_) => ThemeController(),
+        ),
+        ChangeNotifierProvider<PremiumService>.value(
+          value: PremiumService.instance,
         ),
       ],
       child: Consumer<ThemeController>(
@@ -78,8 +91,30 @@ class _MainScreenState extends State<MainScreen> {
   static const List<Widget> _screens = [
     HomeScreen(),
     LibraryScreen(),
+    FaqScreen(),
+    AboutScreen(),
     ParentsLockScreen(),
   ];
+
+  StreamSubscription<Story>? _paywallSub;
+
+  @override
+  void initState() {
+    super.initState();
+    // The player asks for the paywall when a free preview ends or a locked
+    // episode is tapped, from whichever screen is on top.
+    _paywallSub = context.read<AudioPlayerService>().paywallRequests.listen((
+      story,
+    ) {
+      if (mounted) showPaywall(context, story: story);
+    });
+  }
+
+  @override
+  void dispose() {
+    _paywallSub?.cancel();
+    super.dispose();
+  }
 
   void _onItemTapped(int index) {
     if (index == _selectedIndex) return;
@@ -142,11 +177,25 @@ class _MainScreenState extends State<MainScreen> {
                       onTap: () => _onItemTapped(1),
                     ),
                     _NavIcon(
+                      icon: Icons.help_outline,
+                      activeIcon: Icons.help,
+                      label: 'FAQs',
+                      isActive: _selectedIndex == 2,
+                      onTap: () => _onItemTapped(2),
+                    ),
+                    _NavIcon(
+                      icon: Icons.info_outline,
+                      activeIcon: Icons.info,
+                      label: 'About',
+                      isActive: _selectedIndex == 3,
+                      onTap: () => _onItemTapped(3),
+                    ),
+                    _NavIcon(
                       icon: Icons.lock_outline,
                       activeIcon: Icons.lock,
                       label: 'Parents',
-                      isActive: _selectedIndex == 2,
-                      onTap: () => _onItemTapped(2),
+                      isActive: _selectedIndex == 4,
+                      onTap: () => _onItemTapped(4),
                     ),
                   ],
                 ),
@@ -187,7 +236,9 @@ class _NavIcon extends StatelessWidget {
         borderRadius: BorderRadius.circular(100),
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+          // Five tabs share the bar, so each pill stays narrow enough to
+          // fit a 320 dp wide phone.
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           decoration: BoxDecoration(
             color: isActive ? c.secondary : Colors.transparent,
             borderRadius: BorderRadius.circular(100),

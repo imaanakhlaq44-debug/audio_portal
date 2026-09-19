@@ -1,0 +1,19 @@
+{
+  "id": "kindness_ur",
+  "series": "وہ مہربانی جو لوٹ کر آئی",
+  "language": "urdu",
+  "moral": "مہربانی",
+  "category": "moral",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/kindness.webp",
+  "script": "Story x URDU/Kindness/annotated_script.txt",
+  "skipLeadingLines": 0,
+  "splitSentences": true,
+  "episodeMarker": "^باب (\\S+):\\s*(.+)$",
+  "master": "Story x URDU/Kindness/ایمان_و_اخلاق_b56ba177_master.wav",
+  "transcript": "Story x URDU/Kindness/transcript.srt",
+  "audioDir": "assets/audio/ur/kindness",
+  "trailer": "00_trailer.mp3",
+  "output": "lib/models/series/kindness_ur.dart",
+  "variable": "kindnessUrdu"
+}

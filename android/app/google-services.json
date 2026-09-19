@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "142720400050",
+    "project_id": "qissora-22c32",
+    "storage_bucket": "qissora-22c32.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:142720400050:android:100479d1a1851a62b667ab",
+        "android_client_info": {
+          "package_name": "com.imaanakhlaq.qissora"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "142720400050-m3tgskacv3te4ledpb5nrml02cnk2va8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-5dcbLRulCueo1c1Gsu1EKXpZTtySwaM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "142720400050-m3tgskacv3te4ledpb5nrml02cnk2va8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,9 +1,11 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:audio_service/audio_service.dart';
 import 'package:audio_session/audio_session.dart';
 import 'package:flutter/foundation.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:path_provider/path_provider.dart';
 
 import '../models/story.dart';
 import '../models/story_category.dart';
@@ -164,7 +166,7 @@ class StoryAudioHandler extends BaseAudioHandler with SeekHandler {
     );
 
     final duration = await player.setAudioSource(
-      AudioSource.asset(story.audioAsset),
+      await _sourceFor(story),
       initialPosition: initialPosition,
       preload: true,
     );
@@ -172,6 +174,24 @@ class StoryAudioHandler extends BaseAudioHandler with SeekHandler {
       mediaItem.add(mediaItem.value?.copyWith(duration: duration));
     }
     return duration;
+  }
+
+  /// Audio is streamed from [Story.audioUrl] and saved to disk while it
+  /// plays, so a story heard once plays again offline and costs no more
+  /// data. The cache lives in app support storage (not the temp dir) so the
+  /// OS doesn't purge it. It is keyed by the server path, so a re-recorded
+  /// episode must be uploaded under a new file name to reach devices.
+  Future<AudioSource> _sourceFor(Story story) async {
+    // The caching proxy isn't available on web; stream directly there.
+    if (kIsWeb) return AudioSource.uri(story.audioUrl);
+    final dir = await getApplicationSupportDirectory();
+    // Marked experimental, but it has been just_audio's caching source for
+    // years; revisit if a just_audio upgrade changes it.
+    // ignore: experimental_member_use
+    return LockCachingAudioSource(
+      story.audioUrl,
+      cacheFile: File('${dir.path}/audio_cache/${story.audioKey}'),
+    );
   }
 
   // ---- Transport controls (called by UI *and* by the OS notification) ----
