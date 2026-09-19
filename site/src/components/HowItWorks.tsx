@@ -3,27 +3,27 @@ import { Section } from '@/components/Section';
 const steps = [
   {
     n: '01',
-    title: 'Story Choose Karein',
-    body: '22 series, English aur Urdu dono mein. Anbiya ki kahaniyan ya akhlaqi kahaniyan.',
+    title: 'Choose a story',
+    body: '22 series in English and Urdu: stories of the Prophets, and series about everyday values.',
   },
   {
     n: '02',
-    title: 'Play Dabayein',
-    body: 'Aik tap aur kahani shuru. Screen band ho jaye to bhi chalti rehti hai.',
+    title: 'Press play',
+    body: 'One tap and the story begins. It keeps playing with the screen off.',
   },
   {
     n: '03',
-    title: 'Sunein, Seekhein aur Enjoy Karein',
-    body: 'Read-along captions ke saath, aur sone ke waqt ke liye sleep timer.',
+    title: 'Listen, learn and enjoy',
+    body: 'Read-along captions while it plays, and a sleep timer for bedtime.',
   },
 ];
 
 export function HowItWorks() {
   return (
     <Section
-      eyebrow="Kaise chalta hai"
-      title="Teen qadam, bas"
-      lead="Koi account nahi, koi ishtehar nahi — seedha kahani."
+      eyebrow="How it works"
+      title="Three simple steps"
+      lead="No account, no ads — just the story."
       className="bg-blush/60"
     >
       <ol className="grid gap-6 md:grid-cols-3">

@@ -162,7 +162,7 @@ export function AudioPlayer({ series, episode, size = 'full' }: Props) {
         <div className="mt-5 flex flex-col items-start gap-3 rounded-2xl
           bg-pink-tint p-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm font-semibold text-navy">
-            Yeh free preview yahan tak thi. Poori kahani app mein sunein.
+            That is the end of the free preview. Hear the whole story in the app.
           </p>
           <a href={appStoreLinks.googlePlay} className="btn-primary text-sm">
             Open in the app

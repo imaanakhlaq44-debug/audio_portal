@@ -34,8 +34,8 @@ const urdu = Noto_Nastaliq_Urdu({
 
 const title = 'Qissora — Kids Islamic Audio Stories | Imaan & Akhlaq';
 const description =
-  'Qissora bachon ke liye Islamic aur moral audio stories ka safe aur ' +
-  'engaging platform hai — sunain, seekhein aur achi values ke saath barhein.';
+  'Qissora is a safe, beautiful home for Islamic and moral audio stories ' +
+  'for children — listen, learn and grow up with good values.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

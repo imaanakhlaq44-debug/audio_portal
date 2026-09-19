@@ -4,37 +4,37 @@ const reasons = [
   {
     icon: '🎧',
     title: 'Audio Stories',
-    body: 'Bachay stories sunte hue enjoy aur learn karte hain.',
+    body: 'Children listen, imagine and learn, without another screen.',
     tint: 'bg-pink-tint',
   },
   {
     icon: '🌙',
     title: 'Bedtime Friendly',
-    body: 'Soft aur peaceful storytelling, sleep timer ke saath.',
+    body: 'Gentle narration and a sleep timer that fades out on its own.',
     tint: 'bg-sky-tint',
   },
   {
     icon: '❤️',
     title: 'Moral Values',
-    body: 'Honesty, kindness, patience, gratitude aur respect.',
+    body: 'Honesty, kindness, patience, gratitude, respect and fairness.',
     tint: 'bg-peach-tint',
   },
   {
     icon: '📚',
     title: 'Islamic Learning',
-    body: 'Anbiya ki kahaniyan, bachon ki umar ke mutabiq.',
+    body: 'Stories of the Prophets, told for a child to understand.',
     tint: 'bg-pink-tint',
   },
   {
     icon: '👨‍👩‍👧',
     title: 'Parent Friendly',
-    body: 'No ads, no tracking, aur parents ke liye alag PIN area.',
+    body: 'No ads, no tracking, and a PIN-protected parents area.',
     tint: 'bg-sky-tint',
   },
   {
     icon: '✨',
     title: 'Beautiful Storytelling',
-    body: 'Illustrations, narration aur read-along captions aik saath.',
+    body: 'Illustrations, narration and read-along captions in one place.',
     tint: 'bg-peach-tint',
   },
 ];
@@ -42,9 +42,9 @@ const reasons = [
 export function WhyQissora() {
   return (
     <Section
-      eyebrow="Qissora kyun?"
-      title="Kahani sunne ka aik behtareen tareeqa"
-      lead="Har cheez bachon ke liye sochi gayi hai, aur walidain ke sukoon ke liye bhi."
+      eyebrow="Why Qissora"
+      title="A lovely way to spend story time"
+      lead="Made for children, and made to earn the trust of their parents."
     >
       <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {reasons.map((r) => (

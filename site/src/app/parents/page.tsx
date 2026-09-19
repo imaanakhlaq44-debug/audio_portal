@@ -8,35 +8,35 @@ import { Section } from '@/components/Section';
 export const metadata: Metadata = {
   title: 'For Parents',
   description:
-    'Qissora walidain ke liye: safe content, no ads, no tracking, parents ' +
-    'area PIN ke peeche, sleep timer aur listening stats.',
+    'Qissora for parents: safe content, no ads, no tracking, a ' +
+    'PIN-protected parents area, a sleep timer and listening stats.',
   alternates: { canonical: '/parents' },
 };
 
 const faqs = [
   [
-    'Kya Qissora bachon ke liye mehfooz hai?',
-    'Ji haan. App mein koi ishtehar nahi, koi tracking nahi aur koi outside link nahi. Har kahani likhi, suni aur check ki gayi hai.',
+    'Is Qissora safe for children?',
+    'Yes. There are no ads, no tracking and no links out of the app. Every story is written, narrated and checked by our team.',
   ],
   [
-    'Umar kitni honi chahiye?',
-    'Kahaniyan 5 se 13 saal ke bachon ke liye likhi gayi hain, lekin poora ghar mil kar sun sakta hai.',
+    'Which ages is it for?',
+    'The stories are written for children aged 5 to 13, and they are lovely for the whole family to listen to together.',
   ],
   [
-    'Kya internet zaroori hai?',
-    'Sirf pehli dafa. Us ke baad kahani phone mein mehfooz ho jati hai aur bina internet ke chalti hai.',
+    'Is the internet needed?',
+    'Only the first time a story plays. After that it is kept on the phone and plays again without the internet.',
   ],
   [
-    'Parents area mein kya hai?',
-    '4-digit PIN ke peeche: kitni kahaniyan suni gayin, bache ka naam, favourites, night mode aur listening history clear karne ka option.',
+    'What is in the parents area?',
+    'Behind a 4-digit PIN: how much your child has listened to, their name, favourites, night mode, and a way to clear listening history.',
   ],
   [
-    'Sone se pehle sunna ho to?',
-    'Sleep timer lagayein. Waqt poora hone par kahani narmi se dheemi ho kar band ho jati hai.',
+    'What about listening at bedtime?',
+    'Set the sleep timer. When the time is up, the story fades out gently instead of stopping abruptly.',
   ],
   [
-    'Website par poori kahani kyun nahi chalti?',
-    'Website par har series ka pehla episode aadha free hai, taake aap parakh sakein. Poori kahaniyan app mein hain.',
+    'Why does the website not play the whole story?',
+    'The website plays the first half of episode one so you can try before you decide. The complete stories live in the app.',
   ],
 ];
 
@@ -45,13 +45,13 @@ export default function ParentsPage() {
     <>
       <PageHeader
         eyebrow="For parents"
-        title="Parents ke liye bhi sukoon"
-        lead="Aap jaante hain ke aap ka bacha kya sun raha hai — aur kya seekh raha hai."
+        title="Peace of mind for parents too"
+        lead="You always know what your child is listening to — and what they are learning from it."
       />
 
       <ParentSection />
 
-      <Section eyebrow="FAQs" title="Walidain ke aam sawal" align="left">
+      <Section eyebrow="FAQs" title="Questions parents ask" align="left">
         <dl className="grid gap-4 md:grid-cols-2">
           {faqs.map(([q, a]) => (
             <div key={q} className="card p-6">

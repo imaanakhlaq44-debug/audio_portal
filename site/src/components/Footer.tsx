@@ -27,9 +27,9 @@ export function Footer() {
             </span>
           </div>
           <p className="mt-4 max-w-sm text-sm leading-relaxed">
-            Kids Islamic audio stories by Imaan &amp; Akhlaq. Har kahani mein
-            ek khoobsurat sabaq — sunain, seekhein aur achi values ke saath
-            barhein.
+            Kids Islamic audio stories by Imaan &amp; Akhlaq. Every story
+            carries a beautiful lesson — listen, learn and grow up with good
+            values.
           </p>
           <a
             href={appStoreLinks.googlePlay}

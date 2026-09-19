@@ -24,10 +24,10 @@ export function CtaSection() {
               className="mx-auto rounded-2xl shadow-[var(--shadow-lift)]"
             />
             <h2 className="mt-6 text-3xl text-white sm:text-4xl">
-              Qissora ke saath kahaniyon ki duniya mein qadam rakhein
+              Step into a world of stories with Qissora
             </h2>
             <p className="mt-3 text-base text-white/85 sm:text-lg">
-              22 series, 164 episodes, English aur Urdu — sab aik app mein.
+              22 series, 164 episodes, English and Urdu — all in one app.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <a
@@ -45,7 +45,7 @@ export function CtaSection() {
               </a>
             </div>
             <p className="mt-4 text-xs text-white/70">
-              iPhone version jald aa rahi hai, in shaa Allah.
+              The iPhone version is coming soon, in shaa Allah.
             </p>
           </div>
         </div>

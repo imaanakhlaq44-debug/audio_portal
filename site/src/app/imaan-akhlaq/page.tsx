@@ -11,16 +11,16 @@ import { allSeries } from '@/data/stories';
 export const metadata: Metadata = {
   title: 'Imaan & Akhlaq',
   description:
-    'Imaan aur Akhlaq Qissora ke do kirdar hain — ek behen aur ek bhai, ' +
-    'jin ke saath bachay har kahani mein kuch naya seekhte hain.',
+    'Imaan and Akhlaq are the two characters at the heart of Qissora — a ' +
+    'sister and a brother children learn alongside in every story.',
   alternates: { canonical: '/imaan-akhlaq' },
 };
 
 const moments = [
-  ['kindness', 'Park mein apna lunch baant kar'],
-  ['fairness', 'Insaf ke liye khare ho kar'],
-  ['patience', 'Sabr se aik kaam mukammal kar ke'],
-  ['gratitude', 'Un cheezon ka shukar ada kar ke jo roz milti hain'],
+  ['kindness', 'Sharing a lunchbox in the park'],
+  ['fairness', 'Standing up for what is fair'],
+  ['patience', 'Finishing something slowly, and properly'],
+  ['gratitude', 'Noticing the blessings of an ordinary day'],
 ] as const;
 
 export default function CharactersPage() {
@@ -33,14 +33,14 @@ export default function CharactersPage() {
       <PageHeader
         eyebrow="Meet the characters"
         title="Imaan &amp; Akhlaq"
-        lead="Do behen bhai jo har kahani mein saath hote hain: Imaan soch samajh kar faisla karti hai, Akhlaq har cheez ka sabab poochhta hai."
+        lead="A sister and a brother who appear in every story: Imaan thinks things through, and Akhlaq wants to know why."
       />
 
       <CharacterSection />
 
       <Section
-        eyebrow="Kahaniyon se"
-        title="Woh lamhe jo yaad reh jate hain"
+        eyebrow="From the stories"
+        title="The moments children remember"
         className="bg-blush/60"
       >
         <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -60,8 +60,8 @@ export default function CharactersPage() {
       </Section>
 
       <Section
-        eyebrow="Unki kahaniyan"
-        title="Imaan aur Akhlaq ke saath sunein"
+        eyebrow="Their stories"
+        title="Listen along with Imaan and Akhlaq"
       >
         <StoryGrid series={withCharacters} />
       </Section>

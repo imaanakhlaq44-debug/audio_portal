@@ -9,8 +9,8 @@ import { allSeries, coverUrl, seriesById } from '@/data/stories';
 export const metadata: Metadata = {
   title: 'Categories',
   description:
-    'Qissora ki categories: Prophet stories, moral stories, aur honesty, ' +
-    'kindness, patience, gratitude, respect aur fairness par series.',
+    'Qissora categories: stories of the Prophets, and moral series about ' +
+    'honesty, kindness, patience, gratitude, respect and fairness.',
   alternates: { canonical: '/categories' },
 };
 
@@ -18,49 +18,49 @@ export const metadata: Metadata = {
 const themes = [
   {
     title: 'Prophet Stories',
-    body: 'Hazrat Adam, Idris, Nuh, Hud aur Salih (A.S.) ki kahaniyan.',
+    body: 'Hazrat Adam, Idris, Nuh, Hud and Salih (A.S.).',
     series: 'adam_en',
     tint: 'bg-sky-tint',
   },
   {
     title: 'Honesty',
-    body: 'Sach bolna aur amanat ka khayal rakhna.',
+    body: 'Telling the truth, and keeping what you were trusted with.',
     series: 'honesty_en',
     tint: 'bg-pink-tint',
   },
   {
     title: 'Kindness',
-    body: 'Doosron ke saath narmi aur madad ka jazba.',
+    body: 'Gentleness towards others, and the wish to help.',
     series: 'kindness_en',
     tint: 'bg-peach-tint',
   },
   {
     title: 'Patience',
-    body: 'Sabr, aur woh cheezein jo waqt maangti hain.',
+    body: 'Sabr, and the things that simply take time.',
     series: 'patience_en',
     tint: 'bg-sky-tint',
   },
   {
     title: 'Gratitude',
-    body: 'Un cheezon ka shukar jin par nazar nahi jati.',
+    body: 'Noticing the everyday blessings nobody stops to see.',
     series: 'gratitude_en',
     tint: 'bg-pink-tint',
   },
   {
     title: 'Respect',
-    body: 'Har insan ki izzat aur apni izzat-e-nafs.',
+    body: 'The dignity of every person, and your own self-respect.',
     series: 'respect_en',
     tint: 'bg-peach-tint',
   },
   {
     title: 'Fairness',
-    body: 'Insaf, aur sahi taraf khara hone ki himmat.',
+    body: 'Justice, and the courage to stand on the right side.',
     series: 'fairness_en',
     tint: 'bg-sky-tint',
   },
   {
     title: 'Bedtime Stories',
-    body: 'Sleep timer ke saath, sone se pehle sunne ke liye.',
+    body: 'Gentle listening before sleep, with the sleep timer on.',
     series: 'gratitude_ur',
     tint: 'bg-pink-tint',
   },
@@ -73,8 +73,8 @@ export default function CategoriesPage() {
     <>
       <PageHeader
         eyebrow="Categories"
-        title="Har achi aadat ke liye aik kahani"
-        lead={`Anbiya ki kahaniyan aur akhlaqi series — English mein bhi aur Urdu mein bhi (${urdu} Urdu series).`}
+        title="A story for every good habit"
+        lead={`Stories of the Prophets and series about everyday values — in English, and ${urdu} of them in Urdu.`}
       />
 
       <section className="section pb-6">

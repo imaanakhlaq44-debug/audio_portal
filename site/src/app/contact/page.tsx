@@ -6,22 +6,22 @@ import { contact } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Qissora team se rabta karein: WhatsApp ya email. Schools aur madaris ' +
-    'ke liye Imaan & Akhlaq program ki maloomat bhi.',
+    'Get in touch with the Qissora team on WhatsApp or by email, and ask ' +
+    'about the Imaan & Akhlaq programme for schools.',
   alternates: { canonical: '/contact' },
 };
 
 const ways = [
   {
     title: 'WhatsApp',
-    body: 'Sab se tez jawab. Sawal, mashwara ya school program ke liye.',
+    body: 'The quickest reply. Questions, feedback or the school programme.',
     action: contact.whatsappDisplay,
     href: contact.whatsappUrl,
     tint: 'bg-peach-tint',
   },
   {
     title: 'Email',
-    body: 'Tafseeli baat ya documents bhejne ke liye.',
+    body: 'For longer messages and anything with documents attached.',
     action: contact.email,
     href: `mailto:${contact.email}`,
     tint: 'bg-sky-tint',
@@ -33,8 +33,8 @@ export default function ContactPage() {
     <>
       <PageHeader
         eyebrow="Contact"
-        title="Hum se baat karein"
-        lead="Qissora ya Imaan & Akhlaq program ke baare mein koi bhi sawal ho, hum sunne ke liye hazir hain."
+        title="Talk to us"
+        lead="Any question about Qissora or the Imaan & Akhlaq programme — we would love to hear from you."
       />
 
       <section className="section pb-16">
@@ -54,11 +54,11 @@ export default function ContactPage() {
         </ul>
 
         <div className="card mt-6 p-6">
-          <h2 className="text-xl">Schools aur madaris</h2>
+          <h2 className="text-xl">Schools and madaris</h2>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ink-soft">
-            Imaan &amp; Akhlaq aik mukammal character-building program hai:
-            kitabein, activities, clubs aur Qissora ki audio kahaniyan. Apne
-            school ke liye maloomat chahiye to WhatsApp par rabta karein.
+            Imaan &amp; Akhlaq is a complete character-building programme:
+            books, activities, clubs and the Qissora audio stories. Message us
+            on WhatsApp to find out what it would look like at your school.
           </p>
         </div>
       </section>

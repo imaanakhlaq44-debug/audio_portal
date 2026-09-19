@@ -7,8 +7,8 @@ import { StoryBrowser } from '@/components/StoryBrowser';
 export const metadata: Metadata = {
   title: 'Stories',
   description:
-    'Qissora ki saari kahaniyan: Anbiya ki kahaniyan aur akhlaqi series, ' +
-    'English aur Urdu mein. Har series ka pehla episode free sunein.',
+    'Every Qissora story: series about the Prophets and about everyday ' +
+    'values, in English and Urdu. The first episode of each is free.',
   alternates: { canonical: '/stories' },
 };
 
@@ -17,8 +17,8 @@ export default function StoriesPage() {
     <>
       <PageHeader
         eyebrow="Explore stories"
-        title="Saari kahaniyan aik jagah"
-        lead="22 series, 164 episodes. Zabaan chunein aur sunna shuru karein — har series ka pehla episode free hai."
+        title="Every story in one place"
+        lead="22 series, 164 episodes. Pick a language and start listening — the first episode of every series is free."
       />
       <section className="section pb-10">
         <StoryBrowser />

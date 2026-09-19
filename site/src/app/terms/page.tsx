@@ -7,8 +7,8 @@ import { contact } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Terms of Use',
   description:
-    'Qissora website aur app ke istemal ki shartein, aur content ke ' +
-    'haqooq ke baare mein maloomat.',
+    'The terms that apply when you use the Qissora website and app, and ' +
+    'the rights in our stories and artwork.',
   alternates: { canonical: '/terms' },
 };
 
@@ -18,7 +18,7 @@ export default function TermsPage() {
       <PageHeader
         eyebrow="Legal"
         title="Terms of Use"
-        lead="Qissora website aur app istemal karte waqt yeh shartein lagu hoti hain."
+        lead="These terms apply when you use the Qissora website and app."
       />
       <Prose>
         <p>
@@ -27,59 +27,57 @@ export default function TermsPage() {
 
         <h2>Who we are</h2>
         <p>
-          Qissora, Imaan and Akhlaq Talks (Private) Limited (Islamabad,
-          Pakistan) ka product hai. &ldquo;Hum&rdquo; se murad yahi company
-          hai.
+          Qissora is a product of Imaan and Akhlaq Talks (Private) Limited,
+          Islamabad, Pakistan. &ldquo;We&rdquo; means that company.
         </p>
 
         <h2>Using Qissora</h2>
         <ul>
           <li>
-            Kahaniyan zaati aur ghareloo istemal ke liye hain, aur schools
-            mein hamari ijazat se.
+            The stories are for personal and family listening, and for schools
+            with our permission.
           </li>
           <li>
-            Website par diya gaya free preview aap sun sakte hain; poori
-            kahaniyan app mein Premium ke saath milti hain.
+            You may listen to the free preview on this website; the complete
+            stories are in the app with Premium.
           </li>
           <li>
-            Audio ya illustrations ko download kar ke dobara publish karna,
-            bechna, ya kisi aur platform par lagana mana hai.
+            Downloading the audio or artwork to republish it, sell it or post
+            it on another platform is not allowed.
           </li>
         </ul>
 
         <h2>Content and copyright</h2>
         <p>
-          Saari kahaniyan, narration, illustrations, characters (Imaan aur
-          Akhlaq), logo aur naam hamari milkiyat hain aur copyright ke tehat
-          mehfooz hain.
+          All stories, narration, illustrations, the characters Imaan and
+          Akhlaq, the logo and the name belong to us and are protected by
+          copyright.
         </p>
 
         <h2>Subscriptions</h2>
         <p>
-          Qissora Premium Google Play ke zariye bikti hai. Payment, renewal,
-          cancel karna aur refund Google Play ki shartoon ke mutabiq hote
-          hain. Subscription aap kabhi bhi Google Play mein cancel kar sakte
-          hain.
+          Qissora Premium is sold through Google Play. Payment, renewal,
+          cancellation and refunds follow Google Play&rsquo;s terms. You can
+          cancel a subscription at any time in Google Play.
         </p>
 
         <h2>No warranty</h2>
         <p>
-          Hum website aur app ko behtar rakhne ki poori koshish karte hain,
-          lekin service &ldquo;as is&rdquo; di jati hai. Kisi waqt service
-          bandh ya tabdeel ho sakti hai.
+          We work hard to keep the website and app running well, but the
+          service is provided &ldquo;as is&rdquo; and may change or stop at any
+          time.
         </p>
 
         <h2>Changes</h2>
         <p>
-          In shartoon mein tabdeeli ki soorat mein nayi tareekh yahan likhi
-          jayegi.
+          If these terms change, the new date will appear at the top of this
+          page.
         </p>
 
         <h2>Contact</h2>
         <p>
-          Sawal ke liye <a href={`mailto:${contact.email}`}>{contact.email}</a>{' '}
-          ya <a href={contact.whatsappUrl}>WhatsApp</a>.
+          Questions: <a href={`mailto:${contact.email}`}>{contact.email}</a> or{' '}
+          <a href={contact.whatsappUrl}>WhatsApp</a>.
         </p>
       </Prose>
     </>
