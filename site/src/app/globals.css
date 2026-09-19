@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+/* The Qissora design system, taken straight from the app's AppColors
+   (lib/theme/app_theme.dart) so the website and the app are one product. */
+@theme {
+  /* Brand */
+  --color-pink: #ca2962;
+  --color-pink-deep: #a8014a;
+  --color-orange: #dd7a10;
+  --color-orange-deep: #914d00;
+  --color-blue: #40547a;
+  --color-navy: #192f52;
+
+  /* Surfaces */
+  --color-cream: #fff8f7;
+  --color-white: #ffffff;
+  --color-blush: #fff0f1;
+  --color-blush-deep: #ffe9eb;
+
+  /* Tinted containers, as used by the app's category tiles */
+  --color-pink-tint: #ffd9df;
+  --color-peach-tint: #ffdcc3;
+  --color-sky-tint: #d7e3ff;
+
+  /* Text and lines */
+  --color-ink: #26181b;
+  --color-ink-soft: #594045;
+  --color-outline: #8d7075;
+  --color-outline-soft: #e0bec4;
+  --color-green: #3e8e5a;
+
+  /* Type */
+  --font-display: var(--font-bricolage), system-ui, sans-serif;
+  --font-body: var(--font-jakarta), system-ui, sans-serif;
+  --font-urdu: var(--font-urdu), "Noto Nastaliq Urdu", serif;
+
+  /* The app's rounding: 20 on cards, 28 on big surfaces, pills elsewhere */
+  --radius-card: 20px;
+  --radius-xl2: 28px;
+
+  --shadow-soft: 0 4px 16px rgba(25, 47, 82, 0.06);
+  --shadow-lift: 0 12px 28px rgba(25, 47, 82, 0.12);
+  --shadow-glow: 0 12px 30px rgba(202, 41, 98, 0.28);
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-ring: pulse-ring 2.4s ease-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.6; }
+  70% { transform: scale(1.25); opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--color-navy);
+    text-wrap: balance;
+  }
+
+  /* Urdu titles read right to left and need the taller Nastaliq metrics. */
+  [lang="ur"] {
+    font-family: var(--font-urdu);
+    line-height: 2;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-pink);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* The app's pill buttons. Tailwind v4 cannot @apply one component class
+     inside another, so each variant repeats the shared base. */
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+      px-6 py-3 text-base font-bold transition
+      hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-primary {
+    @apply bg-pink text-white shadow-[var(--shadow-glow)] hover:bg-pink-deep;
+  }
+
+  .btn-secondary {
+    @apply bg-orange text-white shadow-[var(--shadow-soft)]
+      hover:bg-orange-deep;
+  }
+
+  .btn-ghost {
+    @apply border border-outline-soft bg-white text-navy
+      hover:border-pink hover:text-pink-deep;
+  }
+
+  .card {
+    @apply rounded-[var(--radius-card)] border border-outline-soft/40
+      bg-white shadow-[var(--shadow-soft)];
+  }
+
+  .section {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full bg-pink-tint
+      px-4 py-1.5 text-xs font-bold tracking-wider text-pink-deep uppercase;
+  }
+}
