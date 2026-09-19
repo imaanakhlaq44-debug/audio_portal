@@ -1,4 +1,7 @@
+# Cache rules for the static assets Cloudflare serves.
 # https://developers.cloudflare.com/workers/static-assets/headers
-# https://opennext.js.org/cloudflare/caching#static-assets-caching
+#
+# Next puts a content hash in every file name under /_next/static, so those
+# can be cached forever; the HTML pages stay on the default short cache.
 /_next/static/*
   Cache-Control: public,max-age=31536000,immutable
