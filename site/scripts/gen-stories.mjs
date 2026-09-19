@@ -40,8 +40,16 @@ function parseSeries(file) {
   const header = src.slice(0, src.indexOf('episodes: ['));
 
   const episodes = episodeBlocks(src).map((block, i) => {
-    const ends = [...block.matchAll(/end: Duration\(milliseconds: (\d+)\)/g)]
-      .map((m) => Number(m[1]));
+    const lines = [
+      ...block.matchAll(
+        /start: Duration\(milliseconds: (\d+)\),\s*end: Duration\(milliseconds: (\d+)\),\s*text: '((?:[^'\\]|\\.)*)'/gs,
+      ),
+    ].map((m) => ({
+      startMs: Number(m[1]),
+      endMs: Number(m[2]),
+      text: unquote(m[3]),
+    }));
+    const ends = lines.map((l) => l.endMs);
     const durationMs = ends.length ? ends[ends.length - 1] : 0;
     // The same rule the app uses: a free listener hears episode one up to
     // the end of the caption line that crosses the halfway point.
@@ -57,6 +65,11 @@ function parseSeries(file) {
       audioKey: audioAsset.replace(/^assets\/audio\//, ''),
       durationMs,
       previewEndMs,
+      // The read-along text, kept only for the part the website may play.
+      captions:
+        previewEndMs == null
+          ? []
+          : lines.filter((l) => l.endMs <= previewEndMs),
     };
   });
 

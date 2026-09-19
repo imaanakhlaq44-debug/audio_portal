@@ -126,7 +126,11 @@ export default async function StoryPage({
           </p>
 
           <div className="mt-8">
-            <AudioPlayer series={series} episode={series.episodes[0]} />
+            <AudioPlayer
+              series={series}
+              episode={series.episodes[0]}
+              readAlongOpen
+            />
           </div>
         </div>
       </section>

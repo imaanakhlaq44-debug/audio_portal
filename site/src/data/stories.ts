@@ -78,3 +78,14 @@ export const themeOf: Record<string, string> = {
 };
 
 export const themeLabel = (series: Series) => themeOf[series.cover] ?? 'Stories';
+
+/**
+ * The same series without their read-along text. Browsing pages are client
+ * components, so what they import is shipped to the browser; the captions
+ * belong only to the page that reads them aloud.
+ */
+export const listing = (series: Series[]): Series[] =>
+  series.map((s) => ({
+    ...s,
+    episodes: s.episodes.map((e) => ({ ...e, captions: [] })),
+  }));
