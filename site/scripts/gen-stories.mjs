@@ -42,13 +42,24 @@ function parseSeries(file) {
   const episodes = episodeBlocks(src).map((block, i) => {
     const lines = [
       ...block.matchAll(
-        /start: Duration\(milliseconds: (\d+)\),\s*end: Duration\(milliseconds: (\d+)\),\s*text: '((?:[^'\\]|\\.)*)'/gs,
+        // `text:` may sit on its own line: dart format wraps the long
+        // lines onto the next one, which is most of the story's prose.
+        /start: Duration\(milliseconds: (\d+)\),\s*end: Duration\(milliseconds: (\d+)\),\s*text:\s*'((?:[^'\\]|\\.)*)'/gs,
       ),
     ].map((m) => ({
       startMs: Number(m[1]),
       endMs: Number(m[2]),
       text: unquote(m[3]),
     }));
+    // A line the pattern above cannot read would vanish from the website
+    // without a trace, so stop rather than ship a story with holes in it.
+    const declared = (block.match(/CaptionLine\(/g) ?? []).length;
+    if (declared !== lines.length) {
+      throw new Error(
+        `${file} episode ${i + 1}: read ${lines.length} of ${declared} caption lines`,
+      );
+    }
+
     const ends = lines.map((l) => l.endMs);
     const durationMs = ends.length ? ends[ends.length - 1] : 0;
     // The same rule the app uses: a free listener hears episode one up to
