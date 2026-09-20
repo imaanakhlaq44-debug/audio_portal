@@ -1,7 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { allSeries } from '@/data/stories';
+import { HeroNowPlaying } from '@/components/HeroNowPlaying';
+import { allSeries, coverUrl } from '@/data/stories';
+import type { Series } from '@/data/types';
 import { appStoreLinks } from '@/lib/site';
 
 const episodeCount = allSeries.reduce((n, s) => n + s.episodes.length, 0);
@@ -25,7 +27,7 @@ function Sparkles() {
   );
 }
 
-export function Hero() {
+export function Hero({ featured }: { featured: Series }) {
   return (
     <section className="relative overflow-hidden">
       {/* Soft organic blobs, the app's background treatment */}
@@ -39,9 +41,12 @@ export function Hero() {
         className="pointer-events-none absolute -right-32 top-24 size-96
           rounded-full bg-peach-tint/60 blur-3xl"
       />
+      {/* The artwork leads on a phone. Stacked the other way it started
+          below the fold, which put five lines of prose in front of the one
+          thing a child reacts to. */}
       <div className="section relative grid items-center gap-10 py-10
         sm:gap-12 sm:py-14 lg:grid-cols-2 lg:py-24">
-        <div>
+        <div className="order-2 lg:order-1">
           <p className="eyebrow">Imaan &amp; Akhlaq present</p>
           <h1 className="mt-5 text-4xl leading-tight sm:text-5xl lg:text-6xl">
             Every story carries a{' '}
@@ -92,8 +97,8 @@ export function Hero() {
           </dl>
         </div>
 
-        <div className="relative">
-          <div className="relative mx-auto max-w-lg">
+        <div className="relative order-1 lg:order-2">
+          <div className="relative mx-auto mb-6 max-w-sm sm:max-w-lg">
             <Sparkles />
             <div
               aria-hidden="true"
@@ -101,32 +106,15 @@ export function Hero() {
                 blur-2xl"
             />
             <Image
-              src="/covers/kindness.webp"
-              alt="Imaan and Akhlaq sharing their lunch with a friend in the park"
+              src={coverUrl(featured)}
+              alt={`Cover art for ${featured.title}`}
               width={800}
               height={800}
               priority
               className="relative w-full rounded-[2rem] object-cover
                 shadow-[var(--shadow-lift)] animate-[var(--animate-float)]"
             />
-            <div className="absolute -bottom-6 left-4 flex items-center gap-3
-              rounded-2xl bg-white p-3 pr-5 shadow-[var(--shadow-lift)]
-              sm:left-8">
-              <span className="flex size-11 items-center justify-center
-                rounded-full bg-orange text-white">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                  <path d="M8 5l11 7-11 7z" />
-                </svg>
-              </span>
-              <span>
-                <span className="block text-sm font-bold text-navy">
-                  Now playing
-                </span>
-                <span className="block text-xs text-ink-soft">
-                  The Kindness That Came Back
-                </span>
-              </span>
-            </div>
+            <HeroNowPlaying series={featured} />
           </div>
         </div>
       </div>
