@@ -44,6 +44,7 @@
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-ring: pulse-ring 2.4s ease-out infinite;
+  --animate-line-in: line-in 250ms ease-out;
 }
 
 @keyframes float {
@@ -57,9 +58,18 @@
   100% { opacity: 0; }
 }
 
+/* One line of the story giving way to the next. */
+@keyframes line-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* The reader pins the body while it is open. Keeping the gutter there
+       stops the page jumping sideways as the scrollbar comes and goes. */
+    scrollbar-gutter: stable;
   }
 
   body {
@@ -87,8 +97,15 @@
     border-radius: 6px;
   }
 
+  /* Written out rather than taken from a token: ::backdrop does not inherit
+     custom properties on older Safari and Firefox. */
+  dialog::backdrop {
+    background: rgba(25, 47, 82, 0.55);
+    backdrop-filter: blur(3px);
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+    *, *::before, *::after, ::backdrop {
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
