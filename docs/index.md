@@ -10,5 +10,6 @@ optional.
 
 - [Privacy Policy](PRIVACY.md)
 - [Play Store data-safety answers](play-data-safety.md)
+- [Play Store listing draft](store-listing.md)
 
 Contact: imaanakhlaq44@gmail.com
