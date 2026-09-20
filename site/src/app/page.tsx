@@ -26,7 +26,7 @@ const shortest = [...allSeries]
 export default function HomePage() {
   return (
     <>
-      <Hero />
+      <Hero featured={featured} />
 
       {/* Straight into a story: the player docks at the bottom of the page
           and keeps playing while you browse the shelves below. */}
