@@ -5,7 +5,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
-import { appStoreLinks, nav } from '@/lib/site';
+import { AppCta } from '@/components/AppCta';
+import { nav } from '@/lib/site';
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -58,13 +59,12 @@ export function Navbar() {
           </ul>
         </nav>
 
-        <a
-          href={appStoreLinks.googlePlay}
+        <AppCta
           className="btn-primary ml-auto hidden px-5 py-2.5 text-sm lg:ml-4
             lg:inline-flex"
         >
           Download App
-        </a>
+        </AppCta>
 
         <button
           type="button"
@@ -119,12 +119,7 @@ export function Navbar() {
                 </li>
               ))}
             </ul>
-            <a
-              href={appStoreLinks.googlePlay}
-              className="btn-primary mt-3 w-full"
-            >
-              Download App
-            </a>
+            <AppCta className="btn-primary mt-3 w-full">Download App</AppCta>
           </nav>
         </div>
       )}

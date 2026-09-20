@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { HeroNowPlaying } from '@/components/HeroNowPlaying';
 import { allSeries, coverUrl } from '@/data/stories';
 import type { Series } from '@/data/types';
-import { appStoreLinks } from '@/lib/site';
+import { AppCta } from '@/components/AppCta';
 
 const episodeCount = allSeries.reduce((n, s) => n + s.episodes.length, 0);
 
@@ -68,9 +68,7 @@ export function Hero({ featured }: { featured: Series }) {
               </svg>
               Listen to a story
             </Link>
-            <a href={appStoreLinks.googlePlay} className="btn-ghost">
-              Explore the app
-            </a>
+            <AppCta className="btn-ghost">Explore the app</AppCta>
           </div>
 
           {/* A fixed three-column grid: as a wrapping flex row the third stat
