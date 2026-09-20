@@ -1,10 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 
+import { usePlayer } from '@/components/player/PlayerProvider';
 import { ReadAlong } from '@/components/ReadAlong';
-import { audioUrl, clock, coverUrl, dirOf, langAttr } from '@/data/stories';
+import { clock, coverUrl, dirOf, langAttr } from '@/data/stories';
 import type { Episode, Series } from '@/data/types';
 import { appStoreLinks } from '@/lib/site';
 
@@ -16,67 +17,35 @@ interface Props {
 }
 
 /**
- * The app's Now Playing card, on the web: cover, play button, scrubber,
- * read-along text and the same free preview limit. The website plays
- * episode one up to its halfway point and then invites the listener into
- * the app, exactly as the app does for a listener without Premium.
+ * The app's Now Playing card, on the web: cover, play button, scrubber and
+ * read-along text. Sound comes from the one player the whole site shares,
+ * so the story keeps going in the bar at the bottom as the reader scrolls
+ * on. Playback stops at the end of the free preview, exactly as the app
+ * stops a listener without Premium.
  */
-export function AudioPlayer({
-  series,
-  episode,
-  readAlongOpen = false,
-}: Props) {
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const [playing, setPlaying] = useState(false);
-  const [position, setPosition] = useState(0);
-  const [reachedLimit, setReachedLimit] = useState(false);
+export function AudioPlayer({ series, episode, readAlongOpen = false }: Props) {
+  const player = usePlayer();
   const [reading, setReading] = useState(readAlongOpen);
 
-  const limitMs = episode.previewEndMs;
-  const endMs = limitMs ?? episode.durationMs;
+  const active = player.current?.episode.id === episode.id;
+  const positionMs = active ? player.positionMs : 0;
+  const endMs = episode.previewEndMs ?? episode.durationMs;
+  const playing = active && player.isPlaying;
   const dir = dirOf(series);
   const lang = langAttr(series);
-
-  // Stop at the end of the free preview, however playback got there.
-  useEffect(() => {
-    const el = audioRef.current;
-    if (!el || limitMs == null) return;
-    const onTime = () => {
-      if (el.currentTime * 1000 >= limitMs) {
-        el.pause();
-        el.currentTime = limitMs / 1000;
-        setReachedLimit(true);
-      }
-    };
-    el.addEventListener('timeupdate', onTime);
-    return () => el.removeEventListener('timeupdate', onTime);
-  }, [limitMs]);
-
-  async function toggle() {
-    const el = audioRef.current;
-    if (!el) return;
-    if (el.paused) {
-      if (limitMs != null && el.currentTime * 1000 >= limitMs) {
-        el.currentTime = 0;
-        setReachedLimit(false);
-      }
-      await el.play().catch(() => setPlaying(false));
-    } else {
-      el.pause();
-    }
-  }
-
-  function seekTo(ms: number) {
-    const el = audioRef.current;
-    if (!el) return;
-    const target = Math.min(Math.max(ms, 0), endMs);
-    el.currentTime = target / 1000;
-    setPosition(target);
-    if (limitMs == null || target < limitMs) setReachedLimit(false);
-  }
-
-  const progress = endMs > 0 ? (position / endMs) * 100 : 0;
   const hasText = episode.captions.length > 0;
+
+  const progress = endMs > 0 ? (positionMs / endMs) * 100 : 0;
+
+  function start() {
+    if (active) player.toggle();
+    else player.play(series, episode);
+  }
+
+  function seek(ms: number) {
+    if (!active) player.play(series, episode);
+    player.seek(ms);
+  }
 
   return (
     <div
@@ -96,7 +65,9 @@ export function AudioPlayer({
         <div className="min-w-0 flex-1">
           <p className="text-xs font-bold tracking-wider text-orange-deep
             uppercase">
-            {reachedLimit ? 'End of free preview' : 'Free preview'}
+            {active && player.reachedLimit
+              ? 'End of free preview'
+              : 'Free preview'}
           </p>
           <h3 className="mt-1 truncate text-xl" dir={dir} lang={lang}>
             {episode.title}
@@ -120,7 +91,7 @@ export function AudioPlayer({
               )}
               <button
                 type="button"
-                onClick={toggle}
+                onClick={start}
                 aria-label={playing ? 'Pause' : 'Play'}
                 className="relative flex size-14 items-center justify-center
                   rounded-full bg-orange text-white shadow-[var(--shadow-soft)]
@@ -141,8 +112,8 @@ export function AudioPlayer({
                 type="range"
                 min={0}
                 max={endMs}
-                value={position}
-                onChange={(e) => seekTo(Number(e.target.value))}
+                value={positionMs}
+                onChange={(e) => seek(Number(e.target.value))}
                 aria-label="Playback position"
                 className="h-2 w-full cursor-pointer appearance-none
                   rounded-full accent-pink"
@@ -154,7 +125,7 @@ export function AudioPlayer({
               />
               <div className="mt-1 flex justify-between text-xs text-ink-soft
                 tabular-nums">
-                <span>{clock(position)}</span>
+                <span>{clock(positionMs)}</span>
                 <span>{clock(endMs)} preview</span>
               </div>
             </div>
@@ -191,10 +162,10 @@ export function AudioPlayer({
             <div className="mt-3">
               <ReadAlong
                 captions={episode.captions}
-                positionMs={position}
+                positionMs={positionMs}
                 dir={dir}
                 lang={lang}
-                onSeek={seekTo}
+                onSeek={seek}
               />
               <p className="mt-3 rounded-xl bg-blush px-3 py-2 text-xs
                 text-ink-soft">
@@ -206,7 +177,7 @@ export function AudioPlayer({
         </div>
       )}
 
-      {reachedLimit && (
+      {active && player.reachedLimit && (
         <div className="mt-5 flex flex-col items-start gap-3 rounded-2xl
           bg-pink-tint p-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-sm font-semibold text-navy">
@@ -217,17 +188,6 @@ export function AudioPlayer({
           </a>
         </div>
       )}
-
-      <audio
-        ref={audioRef}
-        src={audioUrl(episode)}
-        preload="none"
-        onPlay={() => setPlaying(true)}
-        onPause={() => setPlaying(false)}
-        onTimeUpdate={(e) =>
-          setPosition(Math.round(e.currentTarget.currentTime * 1000))
-        }
-      />
     </div>
   );
 }

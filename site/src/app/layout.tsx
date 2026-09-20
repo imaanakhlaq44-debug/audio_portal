@@ -6,6 +6,8 @@ import {
 } from 'next/font/google';
 
 import { Footer } from '@/components/Footer';
+import { MiniPlayer } from '@/components/player/MiniPlayer';
+import { PlayerProvider } from '@/components/player/PlayerProvider';
 import { Navbar } from '@/components/Navbar';
 import { siteUrl } from '@/lib/site';
 import './globals.css';
@@ -93,9 +95,12 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <Navbar />
-        <main id="main">{children}</main>
-        <Footer />
+        <PlayerProvider>
+          <Navbar />
+          <main id="main">{children}</main>
+          <Footer />
+          <MiniPlayer />
+        </PlayerProvider>
       </body>
     </html>
   );
