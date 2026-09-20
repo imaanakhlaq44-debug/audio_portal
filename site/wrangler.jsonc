@@ -5,6 +5,12 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "qissora-site",
   "compatibility_date": "2026-09-20",
+  // The live site. Cloudflare points both hostnames at this Worker and issues
+  // the certificate; the apex and www serve the same build.
+  "routes": [
+    { "pattern": "qissora.app", "custom_domain": true },
+    { "pattern": "www.qissora.app", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./out",
     // Static export writes /about/index.html; serve those without a redirect
