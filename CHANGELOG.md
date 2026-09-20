@@ -1,5 +1,76 @@
 # Changelog
 
+## 1.3.0
+
+The release that turned a demo into a product: a new name, real content in two
+languages, a way to pay for it, and a website to find it from.
+
+### Added
+
+- **22 series, 164 episodes, in English and Urdu.** Five Prophets (Adam,
+  Idris, Nuh, Hud, Salih) and six moral series (Fairness, Honesty, Kindness,
+  Respect, Gratitude, Patience), each in both languages, with read-along
+  captions. `tools/gen_series.dart` builds each one from the narration script
+  and a whisper transcript; `tools/make_covers.ps1` produces the cover art.
+  The six demo stories are gone.
+- **Stories are series, not singles.** A series has a cover, a written
+  introduction and episodes in order. Finishing one episode starts the next,
+  carrying a running sleep timer, and stops at the end of the series.
+- **An English / Urdu switch**, with Urdu laid out right to left.
+- **Qissora Premium.** Free listeners get episode 1 of each series, stopping
+  at the caption line nearest its halfway point; everything else shows a lock,
+  enforced by the player including playback started from the lock screen.
+  Monthly and yearly plans through Google Play Billing, priced by Play in the
+  listener's own currency, with Google sign-in, purchase acknowledgement, and
+  a check against Play on every launch whose answer is cached so a subscriber
+  is not locked out offline.
+- **A grown-up check** in front of anything that signs in or spends money — a
+  multiplication a young child cannot pass. The Parents area skips it, being
+  behind the PIN already.
+- **An account card in the Parents area**: plan, Get Premium, Sign in with
+  Google, Restore purchase, Manage subscription, Sign out, Delete account.
+- **About and FAQ tabs**, each with a WhatsApp contact button.
+- **The website, qissora.app**, built from the app's own design and content:
+  every series browsable, the first episode of each playing free in a mini
+  player that follows you down the page, read-along text, and the privacy
+  policy at a public URL — which Play requires before a child-directed app can
+  be listed. Deployed to Cloudflare from `site/`.
+
+### Changed
+
+- **The app is called Qissora.** Imaan Akhlaq already publishes an app under
+  the old name. Display name, package and bundle id (`com.imaanakhlaq.qissora`),
+  the Dart package, docs and licence all follow. Imaan & Akhlaq remains the
+  publisher and the narrator.
+- **Audio is streamed, not bundled.** ~170 MB of cut episodes live in
+  Cloudflare R2 behind `audio.qissora.app` and are cached on the phone at first
+  play, so a story still works offline afterwards. `tools/upload_audio.ps1`
+  uploads them; `assets/audio/` is git-ignored. Covers stay bundled — they show
+  on every screen and downloading them would leave grey boxes on a cold start.
+- **Spoken trailers are retired** in favour of a written introduction per
+  series.
+- **The privacy policy and Play data-safety answers were rewritten.** Both
+  still described 1.2.0, which had no networking at all: the policy claimed the
+  app "does not connect to the internet", and the Play answers claimed no code
+  could transmit anything. Submitting either would have meant filing a false
+  declaration. The Play form now answers Yes for one data type — the parent's
+  email address, collected by Google Sign-In even though no server of ours
+  receives it.
+
+### Fixed
+
+- **Backups skipped entirely.** The audio cache pushed the app's backup past
+  Android's 25 MB limit, which silently dropped the whole backup; the cache is
+  excluded now.
+- **The playback notification icon vanished from release builds.**
+- **CI failed on a fresh clone.** A test asserted every episode's audio file
+  existed on disk, which stopped being true once the audio left the repo.
+
+### Release
+
+- Release signing reads `android/key.properties` (git-ignored).
+- Version 1.3.0 (build 5). 131 tests passing.
+
 ## 1.2.0
 
 The first release the app could actually ship. Everything below was found by
