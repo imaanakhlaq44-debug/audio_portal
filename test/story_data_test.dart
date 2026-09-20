@@ -16,15 +16,9 @@ void main() {
       expect(ids.toSet().length, ids.length, reason: 'duplicate story id');
     });
 
-    test('every audio and cover asset actually exists on disk', () {
-      // Catches the classic "renamed the mp3, forgot the reference" bug, which
-      // otherwise only shows up as a failed load on a child's device.
+    test('every cover actually exists on disk', () {
+      // Covers are bundled (see pubspec), so a missing one ships as a grey box.
       for (final s in stories) {
-        expect(
-          File(s.audioAsset).existsSync(),
-          isTrue,
-          reason: 'missing audio for ${s.id}: ${s.audioAsset}',
-        );
         expect(
           File(s.coverAsset).existsSync(),
           isTrue,
@@ -32,6 +26,29 @@ void main() {
         );
       }
     });
+
+    test(
+      'every audio file exists in the local masters',
+      () {
+        // The cut episodes are ~170 MB and git-ignored: they are uploaded to
+        // audio.qissora.app rather than bundled, so a clone — CI included — does
+        // not have them, and the app does not read them from disk either. This
+        // still catches the "renamed the mp3, forgot the reference" bug on a
+        // machine that holds the masters, which is where a rename happens.
+        // What ships is covered by the URL test below, which always runs.
+        for (final s in stories) {
+          expect(
+            File(s.audioAsset).existsSync(),
+            isTrue,
+            reason: 'missing audio for ${s.id}: ${s.audioAsset}',
+          );
+        }
+      },
+      skip: Directory('assets/audio').existsSync()
+          ? null
+          : 'assets/audio/ is not in this checkout; run tools/gen_series.dart '
+                '--cut to rebuild it from the narration masters',
+    );
 
     test('audio streams from the server under the same path', () {
       // The upload script uses the path under assets/audio/ as the object
