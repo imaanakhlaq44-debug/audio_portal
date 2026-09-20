@@ -5,6 +5,7 @@ import { appStoreLinks, contact, nav } from '@/lib/site';
 
 const legal = [
   { href: '/privacy', label: 'Privacy Policy' },
+  { href: '/app-privacy', label: 'App Privacy Policy' },
   { href: '/terms', label: 'Terms of Use' },
   { href: '/contact', label: 'Contact' },
 ];

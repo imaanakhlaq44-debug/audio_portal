@@ -12,6 +12,7 @@ const pages = [
   '/parents',
   '/contact',
   '/privacy',
+  '/app-privacy',
   '/terms',
 ];
 

@@ -78,7 +78,7 @@ to Google Play and is deleted through the user's Google account.
 | Social features / user-generated content | None |
 | Requires an account | No. A Google sign-in is needed only to buy or restore Premium |
 | Data collection from children | None. Nothing about the child is transmitted |
-| Privacy policy URL | Required — publish [`PRIVACY.md`](PRIVACY.md) at a public URL and link it here |
+| Privacy policy URL | **https://qissora.app/app-privacy** — the same text as [`PRIVACY.md`](PRIVACY.md), served from `site/src/app/app-privacy/page.tsx`. Change both together |
 
 **Content rating questionnaire.** The app contains narrated Islamic and moral
 stories for children: no violence, no profanity, no user interaction, no sharing
