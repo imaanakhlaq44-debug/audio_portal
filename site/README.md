@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# qissora.app
 
-## Getting Started
+The Qissora website: a Next.js static export, served by Cloudflare Workers at
+[qissora.app](https://qissora.app).
 
-First, run the development server:
+It is built from the app's own design and content — the same palette, the same
+covers, the same captions. Every series is browsable, the first episode of each
+plays free in a mini player that follows you down the page, and the app's
+privacy policy lives here at `/app-privacy`, which is the URL Google Play is
+given.
+
+## Running it
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deploying
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run deploy
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+That is `next build` followed by `wrangler deploy`. The static export lands in
+`out/` and is uploaded as Cloudflare assets; `wrangler.jsonc` points both
+`qissora.app` and `www.qissora.app` at the Worker, and Cloudflare issues the
+certificates. Declaring those routes turns the `workers.dev` URL off on
+purpose, so the site has one canonical address.
 
-## Learn More
+## Where things are
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+  app/            one folder per route; app-privacy/ is the app's policy
+  components/     Hero, StoryRail, StoryCard, the players, page furniture
+    player/       PlayerProvider (one audio element for the whole site)
+                  and the MiniPlayer that docks at the bottom
+  data/
+    stories.ts            helpers: covers, audio URLs, durations
+    stories.generated.ts  the catalogue, generated from the app
+  lib/site.ts     canonical URL, contact details, store links
+scripts/
+  gen-stories.mjs  regenerates stories.generated.ts from lib/models/series/
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Content is **not** edited here. `npm run gen:stories` reads the app's generated
+series files and rewrites `src/data/stories.generated.ts`, so the site and the
+app can never disagree about what a series contains. Audio is streamed from
+`audio.qissora.app`, the same bucket the app uses.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Before launch day
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The store listings are not live yet, so `appStoreLinks.published` in
+`src/lib/site.ts` is `false` and every "get the app" button renders as "coming
+soon" rather than linking to a 404. Flip it to `true` once the app is
+published, after checking both store URLs in that file resolve.

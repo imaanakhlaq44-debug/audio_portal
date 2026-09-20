@@ -1,14 +1,23 @@
 # Qissora — Kids Islamic Audio Stories
 
-A Flutter audio-story app for children. Stories ship inside the app, so
-everything (playback, covers, read-along captions, progress) works fully
-offline. Playback continues in the background with lock-screen and
-notification controls.
+A Flutter audio-story app for children. Stories stream from
+`audio.qissora.app` and are cached on the phone at first play, so a story
+heard once works offline afterwards; covers, captions and progress are always
+local. Playback continues in the background with lock-screen and notification
+controls.
+
+There is a website too, in [`site/`](site/) — see its
+[README](site/README.md).
 
 ## Features
 
-- **6 narrated stories** across Prophets, Animals, Nature, Bedtime and Moral
-  categories, with a rotating "Story of the Day".
+- **22 series, 164 episodes**, in English and Urdu, across Prophets and Moral
+  Stories, with a rotating featured series per language.
+- **Series play as playlists** — finishing an episode starts the next, keeps a
+  running sleep timer, and stops at the end of the series.
+- **Qissora Premium** — episode 1 of every series plays free up to its halfway
+  point; the rest unlocks with a Google Play subscription. A grown-up check
+  stands in front of anything that signs in or spends money.
 - **Background audio** — keeps playing when the screen is locked or the app is
   backgrounded; media notification, headphone and Bluetooth controls, pauses
   on calls and when headphones are unplugged.
@@ -51,31 +60,53 @@ build, so check that when you bump.
 ```
 lib/
   main.dart                  app entry, providers, bottom-nav shell
-  models/                    Story, StoryCategory, the story catalogue
-  screens/                   splash, home, library, category, now playing,
+  audio_config.dart          where story audio is streamed from
+  models/                    Story, Series, categories, the catalogue
+    series/                  one generated file per series (22 of them)
+  screens/                   splash, home, library, category, series,
+                             now playing, about, FAQ,
                              parents lock + dashboard
   services/
     audio_player_service.dart  app-facing playback controller (ChangeNotifier)
     story_audio_handler.dart   just_audio <-> audio_service bridge
+    premium_service.dart       Play Billing, Google sign-in, who may hear what
     storage_service.dart       Hive-backed local storage
     theme_controller.dart      light/dark/system theme
   theme/app_theme.dart       colour tokens + typography
   widgets/                   mini player, story tile, category card, ...
 assets/
-  audio/ covers/ images/ icon/   bundled story media
+  audio/                         cut episodes — git-ignored, uploaded to R2
+                                 rather than bundled (see "Adding a series")
+  covers/ images/ icon/          bundled artwork
   google_fonts/                  bundled Plus Jakarta Sans + Bricolage
                                  Grotesque (see "Fonts" below)
+site/                        the qissora.app website (Next.js)
+tools/                       series generator, cover and upload scripts
 ```
 
-## Adding a story
+## Adding a series
 
-1. Drop the MP3 in `assets/audio/` and the cover in `assets/covers/`.
-   Covers are **1024x1024 WebP**, encoded with `cwebp -q 88 -m 6` — see
-   "Image assets" below.
-2. Add a `Story(...)` entry to `lib/models/story_data.dart`, including its
-   caption lines (`_caps([[start, end, 'text'], ...])`, seconds as doubles).
-3. `flutter test` — `test/story_data_test.dart` verifies that every referenced
-   asset exists and that captions are ordered and non-overlapping.
+Series are generated, not hand-written. Each one is a config in
+[`tools/series/`](tools/series/) naming its narration script, the master
+recording, a whisper transcript of that recording, and where to write the
+Dart.
+
+1. Record the series as one master, and transcribe it once with ffmpeg's
+   whisper filter — the command is in the header of
+   [`tools/gen_series.dart`](tools/gen_series.dart).
+2. Write the config, copying a neighbour in `tools/series/`. Put the cover in
+   `assets/covers/` as **1024x1024 WebP** (`cwebp -q 88 -m 6`, see "Image
+   assets" below); `tools/make_covers.ps1` does this from `covers/`.
+3. `dart run tools/gen_series.dart tools/series/<id>.json --cut`. This cuts
+   the master into per-episode audio under `assets/audio/`, aligns every
+   script line to when it was actually spoken, and writes
+   `lib/models/series/<id>.dart`.
+4. Register the series in `lib/models/series.dart`, and write its
+   introduction in `lib/models/series_intros.dart`.
+5. `dart run tools/upload_audio.ps1` — or the PowerShell script directly — to
+   put the episodes in R2 under the same paths the app streams from.
+6. `flutter test` — `test/story_data_test.dart` checks ids, covers, stream
+   URLs, and that captions are ordered and non-overlapping.
 
 ## Fonts
 
@@ -187,13 +218,18 @@ fails if they drift — and add a [`CHANGELOG.md`](CHANGELOG.md) entry.
 
 Tracked, not yet done:
 
-- The "Save" action is a bookmark, not an actual download (all audio is
-  already bundled).
-- English only — no Urdu/Arabic localisation or RTL layout yet.
+- **Not published yet.** No Play Store listing exists, so every "get the app"
+  button on the website reads "coming soon" — flip `appStoreLinks.published`
+  in `site/src/lib/site.ts` on launch day. Still missing for submission:
+  screenshots, a 1024x500 feature graphic, and the store descriptions.
+- **Premium is Android only.** `PremiumService` is built on Play Billing;
+  there is no StoreKit path, so an iOS build would ship with nothing to buy.
+- The "Save" action is a bookmark, not a download. Audio is cached when a
+  story plays, so there is no way to fetch a series ahead of a journey.
+- The catalogue is compiled in, so a new series needs an app update even
+  though its audio is served remotely.
 - Progress and favourites are device-local; there is no backup or sync.
-- Audio is ~5.6 MB of MP3 bundled in the app; there is no streaming or
-  remote catalogue, so every new story needs an app update.
 - No crash reporting / analytics. (Adding any would change the store
-  data-safety answers - see `docs/play-data-safety.md`.)
+  data-safety answers — see `docs/play-data-safety.md`.)
 - `shared_preferences` and `intl` are declared in `pubspec.yaml` but never
   imported.
