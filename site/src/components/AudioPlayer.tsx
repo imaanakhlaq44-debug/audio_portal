@@ -7,7 +7,7 @@ import { usePlayer } from '@/components/player/PlayerProvider';
 import { ReadAlong } from '@/components/ReadAlong';
 import { clock, coverUrl, dirOf, langAttr } from '@/data/stories';
 import type { Episode, Series } from '@/data/types';
-import { appStoreLinks } from '@/lib/site';
+import { AppCta } from '@/components/AppCta';
 
 interface Props {
   series: Series;
@@ -183,9 +183,7 @@ export function AudioPlayer({ series, episode, readAlongOpen = false }: Props) {
           <p className="text-sm font-semibold text-navy">
             That is the end of the free preview. Hear the whole story in the app.
           </p>
-          <a href={appStoreLinks.googlePlay} className="btn-primary text-sm">
-            Open in the app
-          </a>
+          <AppCta className="btn-primary text-sm">Open in the app</AppCta>
         </div>
       )}
     </div>

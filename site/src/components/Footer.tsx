@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { appStoreLinks, contact, nav } from '@/lib/site';
+import { AppCta } from '@/components/AppCta';
+import { contact, nav } from '@/lib/site';
 
 const legal = [
   { href: '/privacy', label: 'Privacy Policy' },
@@ -32,12 +33,9 @@ export function Footer() {
             carries a beautiful lesson — listen, learn and grow up with good
             values.
           </p>
-          <a
-            href={appStoreLinks.googlePlay}
-            className="btn-secondary mt-6 text-sm"
-          >
+          <AppCta className="btn-secondary mt-6 text-sm">
             Get it on Google Play
-          </a>
+          </AppCta>
         </div>
 
         <nav aria-label="Footer">

@@ -19,7 +19,8 @@ import {
   themeLabel,
   totalMinutes,
 } from '@/data/stories';
-import { appStoreLinks, siteUrl } from '@/lib/site';
+import { AppCta } from '@/components/AppCta';
+import { siteUrl } from '@/lib/site';
 
 export function generateStaticParams() {
   return allSeries.map((s) => ({ id: s.id }));
@@ -194,9 +195,7 @@ export default async function StoryPage({
           <p className="text-base font-semibold text-navy">
             Listen to the whole series, start to finish, in the Qissora app.
           </p>
-          <a href={appStoreLinks.googlePlay} className="btn-primary mt-4">
-            Get it on Google Play
-          </a>
+          <AppCta className="btn-primary mt-4">Get it on Google Play</AppCta>
         </div>
       </section>
 

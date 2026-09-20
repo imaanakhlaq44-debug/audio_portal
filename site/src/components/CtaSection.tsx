@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { appStoreLinks } from '@/lib/site';
+import { AppCta } from '@/components/AppCta';
 
 /** The download call to action, shared by the home and stories pages. */
 export function CtaSection() {
@@ -30,22 +30,19 @@ export function CtaSection() {
               22 series, 164 episodes, English and Urdu — all in one app.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <a
-                href={appStoreLinks.googlePlay}
-                className="btn bg-white text-pink-deep hover:bg-cream"
-              >
+              <AppCta className="btn bg-white text-pink-deep hover:bg-cream">
                 Get it on Google Play
-              </a>
-              <a
-                href={appStoreLinks.appStore}
+              </AppCta>
+              <AppCta
+                store="appStore"
                 className="btn border border-white/60 text-white
                   hover:bg-white/10"
               >
                 Download on the App Store
-              </a>
+              </AppCta>
             </div>
             <p className="mt-4 text-xs text-white/70">
-              The iPhone version is coming soon, in shaa Allah.
+              Until then, every first episode plays free right here.
             </p>
           </div>
         </div>

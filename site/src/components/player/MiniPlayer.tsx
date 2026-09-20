@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { usePlayer } from '@/components/player/PlayerProvider';
 import { ReadAlong } from '@/components/ReadAlong';
 import { clock, coverUrl, dirOf, langAttr } from '@/data/stories';
-import { appStoreLinks } from '@/lib/site';
+import { AppCta } from '@/components/AppCta';
 
 /**
  * The bar that follows you down the page while a story plays, like the
@@ -54,9 +54,7 @@ export function MiniPlayer() {
             <p className="text-sm font-semibold text-navy">
               That is the free preview. The whole story is in the app.
             </p>
-            <a href={appStoreLinks.googlePlay} className="btn-primary text-xs">
-              Open in the app
-            </a>
+            <AppCta className="btn-primary text-xs">Open in the app</AppCta>
           </div>
         )}
 
