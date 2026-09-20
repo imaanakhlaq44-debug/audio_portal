@@ -1,10 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import { usePlayer } from '@/components/player/PlayerProvider';
-import { ReadAlong } from '@/components/ReadAlong';
+import { CaptionCard } from '@/components/reader/CaptionCard';
+import { useReader } from '@/components/reader/ReaderProvider';
 import { clock, coverUrl, dirOf, langAttr } from '@/data/stories';
 import type { Episode, Series } from '@/data/types';
 import { AppCta } from '@/components/AppCta';
@@ -25,6 +26,7 @@ interface Props {
  */
 export function AudioPlayer({ series, episode, readAlongOpen = false }: Props) {
   const player = usePlayer();
+  const reader = useReader();
   const [reading, setReading] = useState(readAlongOpen);
 
   const active = player.current?.episode.id === episode.id;
@@ -37,15 +39,18 @@ export function AudioPlayer({ series, episode, readAlongOpen = false }: Props) {
 
   const progress = endMs > 0 ? (positionMs / endMs) * 100 : 0;
 
-  function start() {
+  const start = useCallback(() => {
     if (active) player.toggle();
     else player.play(series, episode);
-  }
+  }, [active, player, series, episode]);
 
-  function seek(ms: number) {
-    if (!active) player.play(series, episode);
-    player.seek(ms);
-  }
+  const seek = useCallback(
+    (ms: number) => {
+      if (!active) player.play(series, episode);
+      player.seek(ms);
+    },
+    [active, player, series, episode],
+  );
 
   return (
     <div
@@ -160,17 +165,18 @@ export function AudioPlayer({ series, episode, readAlongOpen = false }: Props) {
 
           {reading && (
             <div className="mt-3">
-              <ReadAlong
+              <CaptionCard
                 captions={episode.captions}
                 positionMs={positionMs}
                 dir={dir}
                 lang={lang}
-                onSeek={seek}
+                onOpen={() => reader.open(series, episode)}
               />
               <p className="mt-3 rounded-xl bg-blush px-3 py-2 text-xs
                 text-ink-soft">
-                The words follow the narration. Tap any line to jump there.
-                The rest of the story continues in the app.
+                The words follow the narration. Open them to read the whole
+                preview and tap any line to jump there. The rest of the story
+                continues in the app.
               </p>
             </div>
           )}

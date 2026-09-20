@@ -2,22 +2,21 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
 
 import { usePlayer } from '@/components/player/PlayerProvider';
-import { ReadAlong } from '@/components/ReadAlong';
+import { useReader } from '@/components/reader/ReaderProvider';
 import { clock, coverUrl, dirOf, langAttr } from '@/data/stories';
 import { AppCta } from '@/components/AppCta';
 
 /**
  * The bar that follows you down the page while a story plays, like the
- * app's mini player. It expands into the read-along text, and says plainly
- * where the free preview ends.
+ * app's mini player. It opens the story to read, and says plainly where the
+ * free preview ends.
  */
 export function MiniPlayer() {
   const { current, isPlaying, positionMs, endMs, reachedLimit, toggle, seek, close } =
     usePlayer();
-  const [open, setOpen] = useState(false);
+  const reader = useReader();
 
   if (!current) return null;
 
@@ -29,25 +28,16 @@ export function MiniPlayer() {
 
   return (
     <>
-      {/* Keeps the end of the page clear of the bar. */}
+      {/* Keeps the end of the page clear of the bar. Stays whether or not
+          the bar is showing: the reader pins the body, and a page that
+          changes height under it comes back to the wrong place. */}
       <div aria-hidden="true" className="h-28" />
+      {reader.mode !== 'closed' ? null : (
       <div className="pointer-events-none fixed inset-x-0 bottom-0 z-50 p-3
         sm:p-4">
       <div className="pointer-events-auto mx-auto w-full max-w-4xl
         overflow-hidden rounded-[var(--radius-xl2)] border
         border-outline-soft/40 bg-white shadow-[var(--shadow-lift)]">
-        {open && hasText && (
-          <div className="border-b border-outline-soft/40 p-4">
-            <ReadAlong
-              captions={episode.captions}
-              positionMs={positionMs}
-              dir={dir}
-              lang={lang}
-              onSeek={seek}
-            />
-          </div>
-        )}
-
         {reachedLimit && (
           <div className="flex flex-col items-start gap-2 bg-pink-tint px-4
             py-3 sm:flex-row sm:items-center sm:justify-between">
@@ -102,16 +92,11 @@ export function MiniPlayer() {
             {hasText && (
               <button
                 type="button"
-                onClick={() => setOpen((v) => !v)}
-                aria-expanded={open}
-                aria-label={open ? 'Hide the words' : 'Read along'}
-                title={open ? 'Hide the words' : 'Read along'}
-                className={`flex size-10 items-center justify-center
-                  rounded-full transition ${
-                    open
-                      ? 'bg-pink-tint text-pink-deep'
-                      : 'text-navy hover:bg-blush'
-                  }`}
+                onClick={() => reader.open(series, episode)}
+                aria-label="Read the story"
+                title="Read the story"
+                className="flex size-10 items-center justify-center
+                  rounded-full text-navy transition hover:bg-blush"
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                   <path d="M4 5h7v14H4zM13 5h7v14h-7z" />
@@ -151,6 +136,7 @@ export function MiniPlayer() {
         </div>
       </div>
       </div>
+      )}
     </>
   );
 }

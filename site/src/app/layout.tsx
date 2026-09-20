@@ -9,6 +9,9 @@ import { Footer } from '@/components/Footer';
 import { MiniPlayer } from '@/components/player/MiniPlayer';
 import { PlayerProvider } from '@/components/player/PlayerProvider';
 import { Navbar } from '@/components/Navbar';
+import { ReaderDock } from '@/components/reader/ReaderDock';
+import { ReaderProvider } from '@/components/reader/ReaderProvider';
+import { StoryReader } from '@/components/reader/StoryReader';
 import { siteUrl } from '@/lib/site';
 import './globals.css';
 
@@ -96,10 +99,14 @@ export default function RootLayout({
           Skip to content
         </a>
         <PlayerProvider>
-          <Navbar />
-          <main id="main">{children}</main>
-          <Footer />
-          <MiniPlayer />
+          <ReaderProvider>
+            <Navbar />
+            <main id="main">{children}</main>
+            <Footer />
+            <MiniPlayer />
+            <StoryReader />
+            <ReaderDock />
+          </ReaderProvider>
         </PlayerProvider>
       </body>
     </html>
