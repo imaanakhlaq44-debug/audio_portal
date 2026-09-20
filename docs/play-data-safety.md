@@ -85,23 +85,29 @@ stories for children: no violence, no profanity, no user interaction, no sharing
 of location or personal information. It does contain a digital purchase, which
 the questionnaire asks about separately. Expect an *Everyone* / PEGI 3 rating.
 
-### Open question: the paywall is not behind the parental gate
+### The parental gate
 
 Play's Families requirements expect purchase flows in a child-directed app to
-sit behind a parental gate — a check a young child cannot pass. The app already
-has one: the parents PIN.
+sit behind a parental gate — a check a young child cannot pass. The app has one:
+`confirmGrownUp` in `lib/widgets/paywall_sheet.dart` asks the product of two
+numbers between 6 and 9, and returns false on a wrong answer or a dismissal.
 
-Today the paywall does **not** use it. Tapping a locked story opens the paywall
-directly from the home, series and Now Playing screens (`lib/main.dart`,
-`lib/screens/series_screen.dart`, `lib/screens/now_playing_screen.dart`), and
-from there a child can reach Google sign-in and the Play purchase sheet. Google
-Play's own purchase confirmation still stands between them and a charge, but
-that is Play's gate, not ours.
+Every path that signs in or spends money passes through it:
 
-**Decide this before submitting.** The options are to require the parents PIN
-before the paywall opens, or to satisfy yourself that Play's purchase
-confirmation is sufficient here. This file should record which was chosen and
-why.
+| Path | Gate |
+|---|---|
+| Paywall → subscribe (`paywall_sheet.dart`, `_CheckoutState._buy`) | `confirmGrownUp` before `premium.subscribe` |
+| Paywall → restore (`paywall_sheet.dart`) | `runPremiumAction`, which gates by default |
+| Parents area → restore and sign-in (`parents_dashboard_screen.dart`) | `gate: false`, because the whole screen is already behind the parents PIN |
+
+`PremiumService.subscribe` calls Google sign-in itself, and it is only reachable
+from the gated `_buy`, so there is no route to a Google account picker or a Play
+purchase sheet that skips the check. `test/premium_test.dart` covers it: a wrong
+answer is rejected and the purchase does not proceed.
+
+The paywall *sheet* opens without a gate, from the home, series and Now Playing
+screens. That is deliberate — it only describes what Premium is. Nothing on it
+reaches an account or a charge until the question is answered.
 
 ---
 
