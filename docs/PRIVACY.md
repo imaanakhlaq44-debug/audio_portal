@@ -1,8 +1,9 @@
 # Privacy Policy — Qissora
 
 **App:** Qissora — Kids Islamic Audio Stories by Imaan & Akhlaq
-**Developer:** Imaan Akhlaq
+**Publisher:** Imaan and Akhlaq Talks (Private) Limited, Islamabad, Pakistan
 **Contact:** imaanakhlaq44@gmail.com
+**Published at:** https://qissora.app/app-privacy
 **Effective date:** 20 September 2026
 
 ## The short version

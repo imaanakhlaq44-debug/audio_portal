@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 import { PageHeader } from '@/components/PageHeader';
 import { Prose } from '@/components/Prose';
@@ -69,8 +70,10 @@ export default function PrivacyPage() {
           In the Qissora app, listening progress, favourites and the parents
           PIN are kept on the phone itself. Premium subscriptions run through
           Google Play, and a parent&rsquo;s Google sign-in is used only to tie
-          the subscription to their account. The app&rsquo;s own policy has
-          the detail.
+          the subscription to their account. The{' '}
+          <Link href="/app-privacy">app privacy policy</Link> has the detail,
+          including what the app sends over the internet and what it keeps on
+          the phone.
         </p>
 
         <h2>Contact</h2>
