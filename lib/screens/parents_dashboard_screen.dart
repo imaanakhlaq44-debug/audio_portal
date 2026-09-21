@@ -3,12 +3,14 @@ import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../app_info.dart';
+import '../models/challenges.dart';
 import '../models/story.dart';
 import '../models/story_data.dart';
 import '../services/premium_service.dart';
 import '../services/storage_service.dart';
 import '../services/theme_controller.dart';
 import '../theme/app_theme.dart';
+import '../theme/text_direction.dart';
 import '../widgets/paywall_sheet.dart';
 
 /// Google Play's page for managing this app's subscription.
@@ -234,6 +236,9 @@ class _ParentsDashboardScreenState extends State<ParentsDashboardScreen> {
       children: [
         const _AccountCard(),
         const SizedBox(height: 20),
+
+        // ---- What to try with your child today ----
+        const _ChallengeCard(),
 
         // ---- Listening stats ----
         Row(
@@ -630,6 +635,164 @@ class _AccountAction extends StatelessWidget {
           decoration: TextDecoration.underline,
           decorationColor: Colors.white,
         ),
+      ),
+    );
+  }
+}
+
+/// Today's challenge: the small thing the last episode asked the child to
+/// go and do.
+///
+/// It follows what the child actually listened to rather than the calendar,
+/// because the challenge only makes sense next to its story. Nothing here
+/// is tracked — a parent reads it and decides for themselves.
+class _ChallengeCard extends StatelessWidget {
+  const _ChallengeCard();
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    final storyId = StorageService.getLastStoryId();
+    final story = storyId == null ? null : StoryData.byId(storyId);
+    final challenge = storyId == null ? null : challengesByStoryId[storyId];
+
+    if (story == null || challenge == null) return const _NoChallengeYet();
+
+    final dir = textDirectionOf(challenge.mission);
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(18),
+      margin: const EdgeInsets.only(bottom: 20),
+      decoration: BoxDecoration(
+        color: c.secondaryFixed,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: c.secondary.withValues(alpha: 0.35)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(Icons.wb_sunny_outlined, size: 18, color: c.secondaryDeep),
+              const SizedBox(width: 8),
+              Text(
+                'TODAY\'S CHALLENGE',
+                style: AppTheme.body(
+                  size: 11,
+                  weight: FontWeight.w700,
+                  color: c.secondaryDeep,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Text(
+            challenge.title,
+            textDirection: textDirectionOf(challenge.title),
+            style: AppTheme.headline(size: 18, color: c.headline),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            challenge.mission,
+            textDirection: dir,
+            style: AppTheme.body(size: 14, color: c.onSurface).copyWith(
+              height: 1.5,
+            ),
+          ),
+          if (challenge.hasReflection) ...[
+            const SizedBox(height: 12),
+            _ChallengeAside(
+              label: 'Ask afterwards',
+              text: challenge.reflection,
+            ),
+          ],
+          if (challenge.hasLevelUp) ...[
+            const SizedBox(height: 12),
+            _ChallengeAside(label: 'Level up', text: challenge.levelUp),
+          ],
+          const SizedBox(height: 14),
+          Text(
+            'From ${story.title}',
+            textDirection: textDirectionOf(story.title),
+            style: AppTheme.body(size: 12, color: c.onSurfaceVariant),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// The "ask afterwards" and "level up" notes under a challenge.
+class _ChallengeAside extends StatelessWidget {
+  final String label;
+  final String text;
+
+  const _ChallengeAside({required this.label, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      decoration: BoxDecoration(
+        color: c.surfaceLowest.withValues(alpha: 0.7),
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            label.toUpperCase(),
+            style: AppTheme.body(
+              size: 10,
+              weight: FontWeight.w700,
+              color: c.secondaryDeep,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            text,
+            textDirection: textDirectionOf(text),
+            style: AppTheme.body(size: 13, color: c.onSurfaceVariant)
+                .copyWith(height: 1.45),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Shown until the child has listened to something.
+class _NoChallengeYet extends StatelessWidget {
+  const _NoChallengeYet();
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(18),
+      margin: const EdgeInsets.only(bottom: 20),
+      decoration: BoxDecoration(
+        color: c.surfaceLow,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Today\'s challenge',
+            style: AppTheme.headline(size: 17, color: c.headline),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            'Every story closes with something small to go and try. Play an '
+            'episode together, and it will appear here.',
+            style: AppTheme.body(size: 13, color: c.onSurfaceVariant)
+                .copyWith(height: 1.45),
+          ),
+        ],
       ),
     );
   }

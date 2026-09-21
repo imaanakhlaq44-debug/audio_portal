@@ -8,6 +8,16 @@ export interface Caption {
   text: string;
 }
 
+/** The small thing to go and do that an episode closes on. */
+export interface Challenge {
+  title: string;
+  mission: string;
+  /** The question to ask afterwards. Only the Kindness stories have one. */
+  reflection?: string;
+  /** The harder version, for a child who wants more. */
+  levelUp?: string;
+}
+
 export interface Episode {
   id: string;
   title: string;
@@ -24,6 +34,11 @@ export interface Episode {
    * kept, so this is empty on the episodes that need Premium.
    */
   captions: Caption[];
+  /**
+   * What the episode asks the listener to go and do. Kept only on the
+   * episode the website may play; the rest belong to the app.
+   */
+  challenge: Challenge | null;
 }
 
 export interface Series {
