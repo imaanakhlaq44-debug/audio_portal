@@ -68,3 +68,8 @@ key.properties
 # tools/upload_audio.ps1 put it, and tools/gen_series.dart --cut rebuilds it
 # from the narration masters.
 /assets/audio/
+
+# Brand fonts for tools/make_feature_graphic.mjs. Hey Haters is licensed and
+# must not be committed; Plus Jakarta Sans is fetched per the note in that
+# script. Both are found through the fontconfig it writes.
+/tools/fonts/
