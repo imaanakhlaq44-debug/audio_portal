@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 import { AudioPlayer } from '@/components/AudioPlayer';
+import { ChallengeCard } from '@/components/ChallengeCard';
 import { CtaSection } from '@/components/CtaSection';
 import { StoryGrid } from '@/components/StoryGrid';
 import {
@@ -135,6 +136,16 @@ export default async function StoryPage({
           </div>
         </div>
       </section>
+
+      {series.episodes[0].challenge && (
+        <section className="section pb-2">
+          <ChallengeCard
+            challenge={series.episodes[0].challenge}
+            dir={dir}
+            lang={lang}
+          />
+        </section>
+      )}
 
       <section className="section pb-6">
         <h2 className="text-2xl">Episodes</h2>

@@ -15,6 +15,28 @@ const here = dirname(fileURLToPath(import.meta.url));
 const seriesDir = join(here, '..', '..', 'lib', 'models', 'series');
 const outFile = join(here, '..', 'src', 'data', 'stories.generated.ts');
 
+// The end-of-episode challenges, keyed by story id, built by
+// tools/extract_challenges.mjs. Absent on a fresh clone until that has run.
+const challengesFile = join(here, '..', '..', 'tools', 'challenges.json');
+const challenges = {};
+try {
+  const byseries = JSON.parse(readFileSync(challengesFile, 'utf8'));
+  for (const [seriesId, list] of Object.entries(byseries)) {
+    list.forEach((c, i) => {
+      if (!c) return;
+      const episodeId = `${seriesId}_${String(i + 1).padStart(2, '0')}`;
+      challenges[episodeId] = {
+        title: c.title,
+        mission: c.mission,
+        ...(c.reflection ? { reflection: c.reflection } : {}),
+        ...(c.levelUp ? { levelUp: c.levelUp } : {}),
+      };
+    });
+  }
+} catch {
+  console.warn('tools/challenges.json not found — pages will have no challenge');
+}
+
 /** `'Rashid\'s Salam'` -> `Rashid's Salam` */
 const unquote = (s) => s.replace(/\\(['"$])/g, '$1');
 
@@ -70,12 +92,18 @@ function parseSeries(file) {
       : null;
     const audioAsset = field(block, 'audioAsset') ?? '';
 
+    const id = field(block, 'id');
+
     return {
-      id: field(block, 'id'),
+      id,
       title: field(block, 'title'),
       audioKey: audioAsset.replace(/^assets\/audio\//, ''),
       durationMs,
       previewEndMs,
+      // The challenge the episode closes on — only for the episode the
+      // website may actually play. The rest belong to the app, the same way
+      // the words below do.
+      challenge: previewEndMs == null ? null : (challenges[id] ?? null),
       // The read-along text, kept only for the part the website may play.
       captions:
         previewEndMs == null

@@ -18,6 +18,11 @@ export const allSeries: Series[] = [
         "audioKey": "en/adam/01_before_the_first_footstep.ogg",
         "durationMs": 446728,
         "previewEndMs": 224160,
+        "challenge": {
+          "title": "Leave a Good Footprint",
+          "mission": "Today, do one good act without being asked and without announcing it afterward. Help someone, give another person a turn, pick up something someone dropped, assist a younger child, care for an animal, or make life easier for someone around you.",
+          "levelUp": "Do three quiet good acts in three different places - one at home, one at school, and one with a friend or neighbour."
+        },
         "captions": [
           {
             "startMs": 258,
@@ -307,6 +312,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/adam/02_the_secret_of_knowledge.ogg",
         "durationMs": 380032,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -315,6 +321,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/adam/03_i_am_better.ogg",
         "durationMs": 330722,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -323,6 +330,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/adam/04_the_forbidden_tree.ogg",
         "durationMs": 337131,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -331,6 +339,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/adam/05_the_door_was_still_open.ogg",
         "durationMs": 362556,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -339,6 +348,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/adam/06_the_fire_called_envy.ogg",
         "durationMs": 517145,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]
@@ -357,6 +367,11 @@ export const allSeries: Series[] = [
         "audioKey": "en/hud/01_nobody_can_beat_us.ogg",
         "durationMs": 749032,
         "previewEndMs": 377231,
+        "challenge": {
+          "title": "Make Your Strength Useful",
+          "mission": "Choose one thing you are good at. Do not hide it and do not boast about it. Say: “Alhamdulillah, Allah has given me this ability.” Then use that ability to help one person today. At the end, ask yourself: “Did my ability make someone feel smaller, or did it make me more useful?”",
+          "levelUp": "Watch yourself today for one warning sign of arrogance: laughing at someone’s weakness, refusing advice, expecting to be better than everyone, or looking down on another person. If you notice it, correct yourself immediately. Confidence recognises the gift. Gratitude remembers the Giver. Arrogance begins when the gift makes us forget both."
+        },
         "captions": [
           {
             "startMs": 119,
@@ -806,6 +821,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/hud/02_look_what_we_built.ogg",
         "durationMs": 765817,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -814,6 +830,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/hud/03_who_gave_you_all_this.ogg",
         "durationMs": 687858,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -822,6 +839,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/hud/04_strong_enough_to_be_kind.ogg",
         "durationMs": 761350,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -830,6 +848,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/hud/05_when_strength_was_not_enough.ogg",
         "durationMs": 775997,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]
@@ -848,6 +867,11 @@ export const allSeries: Series[] = [
         "audioKey": "en/idris/01_the_price_of_standing_for_the_truth.ogg",
         "durationMs": 836232,
         "previewEndMs": 420987,
+        "challenge": {
+          "title": "Choose Truth When It Costs Something",
+          "mission": "Today, choose honesty in one situation where dishonesty would make things easier for you. Admit a mistake, return something that is not yours, refuse to copy, correct an unfair story, or tell a trusted adult about something genuinely harmful. But there are two rules: do not expose someone merely to embarrass them, and do not repeat something you are not sure is true.",
+          "levelUp": "If somebody becomes unhappy because you made an honest choice, do not insult them, gossip about them or celebrate their consequences. Stay respectful and let your behaviour show that you stood for the truth, not against the person."
+        },
         "captions": [
           {
             "startMs": 1094,
@@ -1557,6 +1581,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/idris/02_when_truth_becomes_heavy.ogg",
         "durationMs": 926578,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -1565,6 +1590,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/idris/03_the_high_station.ogg",
         "durationMs": 933442,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]
@@ -1583,6 +1609,11 @@ export const allSeries: Series[] = [
         "audioKey": "en/nuh/01_what_was_the_point.ogg",
         "durationMs": 766960,
         "previewEndMs": 386749,
+        "challenge": {
+          "title": "Do Good Without Waiting for Thanks",
+          "mission": "Choose one shared place today and make it slightly better. It may be your classroom, home, street, mosque area, playground or park. Put something in its proper place, safely remove rubbish, organise something, or help maintain cleanliness. Do it because it is good, not because you expect someone to notice you. If nobody thanks you, remind yourself: “Allah knows why I did it.”",
+          "levelUp": "If someone undoes your good work, do not immediately ask, “What was the point?” Instead ask: “What can I do differently so this good effort lasts longer?”"
+        },
         "captions": [
           {
             "startMs": 0,
@@ -1892,6 +1923,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/nuh/02_try_again_differently.ogg",
         "durationMs": 709002,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -1900,6 +1932,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/nuh/03_when_people_laugh.ogg",
         "durationMs": 1003611,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -1908,6 +1941,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/nuh/04_only_a_few.ogg",
         "durationMs": 947791,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -1916,6 +1950,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/nuh/05_build_before_they_understand.ogg",
         "durationMs": 1152020,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -1924,6 +1959,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/nuh/06_what_remains.ogg",
         "durationMs": 1257743,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]
@@ -1942,6 +1978,11 @@ export const allSeries: Series[] = [
         "audioKey": "en/salih/01_why_is_everything_a_rule.ogg",
         "durationMs": 669176,
         "previewEndMs": 347707,
+        "challenge": {
+          "title": "Can I Do It, or Do I Have the Right?",
+          "mission": "Today, notice one moment when you can do something but should first ask whether you have the right to do it. Before acting, ask: “Just because I can do this, does it mean I should?”",
+          "levelUp": "Choose one family rule you do not fully understand. Instead of complaining or secretly breaking it, respectfully ask: “Can you explain what this rule is protecting?” Then listen carefully before deciding what you think."
+        },
         "captions": [
           {
             "startMs": 731,
@@ -2026,6 +2067,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/salih/02_but_tell_me_why.ogg",
         "durationMs": 616899,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2034,6 +2076,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/salih/03_that_was_my_turn.ogg",
         "durationMs": 662665,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2042,6 +2085,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/salih/04_ammi_will_never_know.ogg",
         "durationMs": 685499,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2050,6 +2094,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/salih/05_the_rule_was_not_the_enemy.ogg",
         "durationMs": 720367,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]
@@ -2068,6 +2113,11 @@ export const allSeries: Series[] = [
         "audioKey": "en/fairness/01_the_golden_balance.ogg",
         "durationMs": 359210,
         "previewEndMs": 180664,
+        "challenge": {
+          "title": "Fairness Without a Prize",
+          "mission": "Do one fair thing today when nobody is rewarding you for it. Give someone a turn, invite a quiet child into a game, share fairly, or let another person speak before you. Ask yourself: Would I still do this if nobody noticed?",
+          "levelUp": "Notice one moment when fairness costs you something small, such as giving up the first turn, and choose fairness anyway."
+        },
         "captions": [
           {
             "startMs": 192,
@@ -2312,6 +2362,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/fairness/02_a_shadow_in_the_photograph.ogg",
         "durationMs": 283798,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2320,6 +2371,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/fairness/03_the_bronze_key.ogg",
         "durationMs": 286081,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2328,6 +2380,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/fairness/04_the_garden_of_balance.ogg",
         "durationMs": 283709,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2336,6 +2389,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/fairness/05_the_fair_path.ogg",
         "durationMs": 301609,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2344,6 +2398,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/fairness/06_the_missing_balance.ogg",
         "durationMs": 309573,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2352,6 +2407,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/fairness/07_the_number_seventeen.ogg",
         "durationMs": 278731,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2360,6 +2416,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/fairness/08_the_hidden_passage.ogg",
         "durationMs": 360499,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2368,6 +2425,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/fairness/09_the_record_of_contestant_seventeen.ogg",
         "durationMs": 358163,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2376,6 +2434,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/fairness/10_amanpurs_promise.ogg",
         "durationMs": 436172,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]
@@ -2394,6 +2453,11 @@ export const allSeries: Series[] = [
         "audioKey": "en/gratitude/01_the_list_that_wouldnt_end.ogg",
         "durationMs": 447625,
         "previewEndMs": 224644,
+        "challenge": {
+          "title": "Notice and Lighten One Load",
+          "mission": "Choose one person whose work you usually benefit from without noticing. Make one small part of their work easier today: put your own things away, carry something, clean up after yourself, return a trolley or chair, or help before being asked.",
+          "levelUp": "(Ages 9-12): Do a good act without telling anyone you did it. Let the reduced burden be the thank-you."
+        },
         "captions": [
           {
             "startMs": 116,
@@ -2633,6 +2697,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/gratitude/02_the_man_at_the_gate.ogg",
         "durationMs": 377812,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2641,6 +2706,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/gratitude/03_the_teacher_in_the_photograph.ogg",
         "durationMs": 300767,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2649,6 +2715,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/gratitude/04_the_missing_page.ogg",
         "durationMs": 318128,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2657,6 +2724,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/gratitude/05_when_the_house_went_quiet.ogg",
         "durationMs": 330392,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2665,6 +2733,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/gratitude/06_the_work_we_never_saw.ogg",
         "durationMs": 311438,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2673,6 +2742,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/gratitude/07_the_silver_key.ogg",
         "durationMs": 244345,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2681,6 +2751,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/gratitude/08_the_woman_who_came_back.ogg",
         "durationMs": 315637,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2689,6 +2760,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/gratitude/09_while_they_can_hear_you.ogg",
         "durationMs": 259570,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2697,6 +2769,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/gratitude/10_the_children_who_notice.ogg",
         "durationMs": 423055,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]
@@ -2715,6 +2788,11 @@ export const allSeries: Series[] = [
         "audioKey": "en/honesty/01_the_missing_notebook.ogg",
         "durationMs": 375807,
         "previewEndMs": 189535,
+        "challenge": {
+          "title": "Tell the Small Truth",
+          "mission": "Today, tell one small truth that would be easier to hide. Admit a forgotten task, a broken item, an unfinished responsibility, or another mistake without inventing an excuse. Keep the truth simple and complete.",
+          "levelUp": "After telling the truth, take one action to repair the problem instead of expecting the words alone to fix it."
+        },
         "captions": [
           {
             "startMs": 0,
@@ -2929,6 +3007,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/honesty/02_the_mysterious_footprints.ogg",
         "durationMs": 411908,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2937,6 +3016,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/honesty/03_the_blue_thread.ogg",
         "durationMs": 340546,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2945,6 +3025,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/honesty/04_the_test_of_trust.ogg",
         "durationMs": 293633,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2953,6 +3034,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/honesty/05_the_missing_money.ogg",
         "durationMs": 350188,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2961,6 +3043,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/honesty/06_the_shadow_of_suspicion.ogg",
         "durationMs": 290757,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2969,6 +3052,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/honesty/07_the_phone_that_changed_everything.ogg",
         "durationMs": 355004,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2977,6 +3061,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/honesty/08_the_empty_seat.ogg",
         "durationMs": 326732,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2985,6 +3070,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/honesty/09_the_truth_on_the_screen.ogg",
         "durationMs": 365073,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -2993,6 +3079,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/honesty/10_when_the_truth_was_revealed.ogg",
         "durationMs": 481154,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]
@@ -3011,6 +3098,12 @@ export const allSeries: Series[] = [
         "audioKey": "en/kindness/01_the_boy_on_the_bench.ogg",
         "durationMs": 360683,
         "previewEndMs": 180894,
+        "challenge": {
+          "title": "Notice Someone",
+          "mission": "Notice one person who is often left out, quiet or alone. Offer a greeting, a place beside you, or a simple invitation without forcing them to talk.",
+          "reflection": "Did I make the person feel welcomed, or did I make them feel watched?",
+          "levelUp": "Try to include someone in a way that protects their dignity and gives them the freedom to say yes or no."
+        },
         "captions": [
           {
             "startMs": 348,
@@ -3310,6 +3403,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/kindness/02_quiet_kindness.ogg",
         "durationMs": 343391,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -3318,6 +3412,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/kindness/03_the_space_between_questions.ogg",
         "durationMs": 308249,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -3326,6 +3421,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/kindness/04_a_place_at_the_table.ogg",
         "durationMs": 331585,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -3334,6 +3430,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/kindness/05_the_day_of_eid.ogg",
         "durationMs": 365332,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -3342,6 +3439,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/kindness/06_a_door_to_learning.ogg",
         "durationMs": 324759,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -3350,6 +3448,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/kindness/07_when_kindness_needs_courage.ogg",
         "durationMs": 324944,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -3358,6 +3457,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/kindness/08_the_right_kind_of_help.ogg",
         "durationMs": 302660,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -3366,6 +3466,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/kindness/09_the_empty_house.ogg",
         "durationMs": 315728,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -3374,6 +3475,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/kindness/10_the_kindness_that_came_back.ogg",
         "durationMs": 461965,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]
@@ -3392,6 +3494,11 @@ export const allSeries: Series[] = [
         "audioKey": "en/patience/01_why_cant_it_happen_now.ogg",
         "durationMs": 867161,
         "previewEndMs": 434993,
+        "challenge": {
+          "title": "Do One Part Today",
+          "mission": "Pick something you want finished right now - a drawing, a model, a chapter, a tidy room - and do only one part of it today, properly. Do not rush towards the end. Measure, check, and correct as you go.",
+          "levelUp": "Come back to the same thing tomorrow and do the next part. Notice how much steadier it feels than starting over."
+        },
         "captions": [
           {
             "startMs": 228,
@@ -4316,6 +4423,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/patience/02_the_easy_way.ogg",
         "durationMs": 889280,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -4324,6 +4432,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/patience/03_not_everything_has_an_answer.ogg",
         "durationMs": 736515,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -4332,6 +4441,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/patience/04_the_first_step.ogg",
         "durationMs": 815105,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -4340,6 +4450,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/patience/05_three_days.ogg",
         "durationMs": 891160,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -4348,6 +4459,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/patience/06_one_chance.ogg",
         "durationMs": 799885,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -4356,6 +4468,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/patience/07_the_door.ogg",
         "durationMs": 362039,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -4364,6 +4477,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/patience/08_what_was_lost.ogg",
         "durationMs": 472756,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -4372,6 +4486,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/patience/09_the_missing_piece.ogg",
         "durationMs": 548714,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -4380,6 +4495,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/patience/10_the_right_time.ogg",
         "durationMs": 635868,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]
@@ -4398,6 +4514,11 @@ export const allSeries: Series[] = [
         "audioKey": "en/respect/01_rashids_salam.ogg",
         "durationMs": 417816,
         "previewEndMs": 259135,
+        "challenge": {
+          "title": "The Respectful Greeting Mission",
+          "mission": "Today, greet at least three people properly – one classmate, one adult at school, and one person you do not usually speak to. Use their name if you know it, look at them, and do not judge the value of your greeting by how warmly they reply.",
+          "levelUp": "Ages 9-12: Notice whether you greet people differently because of age, job, popularity or ability. Correct one unfair habit."
+        },
         "captions": [
           {
             "startMs": 0,
@@ -4452,6 +4573,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/respect/02_votes_and_promises.ogg",
         "durationMs": 427259,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -4460,6 +4582,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/respect/03_the_first_loss.ogg",
         "durationMs": 652558,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -4468,6 +4591,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/respect/04_the_courage_to_speak.ogg",
         "durationMs": 220588,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -4476,6 +4600,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/respect/05_the_boy_behind_the_badge.ogg",
         "durationMs": 307020,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -4484,6 +4609,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/respect/06_the_captains_special_seat.ogg",
         "durationMs": 414590,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -4492,6 +4618,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/respect/07_the_captain_learns_to_listen.ogg",
         "durationMs": 287365,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -4500,6 +4627,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/respect/08_the_test_of_true_respect.ogg",
         "durationMs": 244547,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -4508,6 +4636,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/respect/09_the_choice_that_changed_everything.ogg",
         "durationMs": 425335,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -4516,6 +4645,7 @@ export const allSeries: Series[] = [
         "audioKey": "en/respect/10_the_man_behind_the_notes.ogg",
         "durationMs": 691961,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]
@@ -4534,6 +4664,11 @@ export const allSeries: Series[] = [
         "audioKey": "ur/adam/01.ogg",
         "durationMs": 387389,
         "previewEndMs": 195787,
+        "challenge": {
+          "title": "خاموش نیکی",
+          "mission": "آج کوئی ایک اچھا کام کریں اور اس کا شور نہ مچائیں۔ کسی کی مدد کریں، اپنی باری کسی اور کو دے دیں، گری ہوئی چیز اٹھا دیں، کسی چھوٹے بچے کی مدد کریں یا کسی جانور کے لیے پانی رکھ دیں۔",
+          "levelUp": "تین خاموش نیکیاں کریں: ایک گھر میں، ایک اسکول میں، اور ایک دوست یا پڑوسی کے لیے۔"
+        },
         "captions": [
           {
             "startMs": 0,
@@ -4838,6 +4973,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/adam/02.ogg",
         "durationMs": 338339,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -4846,6 +4982,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/adam/03.ogg",
         "durationMs": 289164,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -4854,6 +4991,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/adam/04.ogg",
         "durationMs": 294389,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -4862,6 +5000,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/adam/05.ogg",
         "durationMs": 353136,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -4870,6 +5009,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/adam/06.ogg",
         "durationMs": 464606,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]
@@ -4888,6 +5028,11 @@ export const allSeries: Series[] = [
         "audioKey": "ur/hud/01.ogg",
         "durationMs": 591320,
         "previewEndMs": 296223,
+        "challenge": {
+          "title": "اپنی طاقت کو فائدہ مند بنائیں",
+          "mission": "آج اپنی کسی ایک صلاحیت کو پہچانیے۔ اسے چھپانے کی ضرورت نہیں، مگر اسے اپنی بڑائی کی وجہ بھی نہ بنائیں۔ دل میں کہیے: ’’الحمدللہ، اللہ نے مجھے یہ صلاحیت عطا کی ہے۔‘‘ پھر اسی صلاحیت سے کسی ایک شخص کی مدد کیجیے۔",
+          "levelUp": "آج اپنے اندر تکبر کی ایک علامت تلاش کیجیے: کسی کی کمزوری پر ہنسنا، نصیحت نہ سننا، ہمیشہ خود کو بہتر سمجھنا یا کسی دوسرے کو حقیر جاننا۔ خود سے پوچھیے: ’’میری صلاحیت مجھے زیادہ فائدہ مند بنا رہی ہے یا صرف زیادہ مغرور؟‘‘"
+        },
         "captions": [
           {
             "startMs": 521,
@@ -5377,6 +5522,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/hud/02.ogg",
         "durationMs": 481195,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -5385,6 +5531,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/hud/03.ogg",
         "durationMs": 394046,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -5393,6 +5540,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/hud/04.ogg",
         "durationMs": 518587,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -5401,6 +5549,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/hud/05.ogg",
         "durationMs": 629483,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]
@@ -5419,6 +5568,11 @@ export const allSeries: Series[] = [
         "audioKey": "ur/idris/01.ogg",
         "durationMs": 833898,
         "previewEndMs": 419970,
+        "challenge": {
+          "title": "قیمت ادا کرکے بھی سچ کا انتخاب کریں",
+          "mission": "آج کسی ایسی صورتِ حال میں سچائی کا انتخاب کریں جہاں جھوٹ بولنا آپ کے لیے آسان ہوتا۔ اپنی غلطی تسلیم کریں، کوئی ایسی چیز واپس کریں جو آپ کی نہیں، نقل کرنے سے انکار کریں، کسی ناانصافی پر مبنی بات کی اصلاح کریں، یا کسی واقعی نقصان دہ معاملے کے بارے میں کسی قابلِ اعتماد بڑے کو بتائیں۔ لیکن دو اصول ہیں: کسی کو صرف شرمندہ کرنے کے لیے اسے ظاہر نہ کریں، اور ایسی بات آگے نہ پھیلائیں جس کے سچ ہونے کا آپ کو یقین نہ ہو۔",
+          "levelUp": "اگر کوئی آپ کے سچائی پر مبنی فیصلے سے ناراض ہوجائے تو اسے برا بھلا نہ کہیں، اس کے بارے میں غیبت نہ کریں اور اس کے انجام پر خوش نہ ہوں۔ احترام کے ساتھ رہیں اور اپنے عمل سے ظاہر کریں کہ آپ نے سچ کا ساتھ دیا تھا، کسی شخص کے خلاف کھڑے نہیں ہوئے تھے۔"
+        },
         "captions": [
           {
             "startMs": 43,
@@ -6198,6 +6352,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/idris/02.ogg",
         "durationMs": 918655,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -6206,6 +6361,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/idris/03.ogg",
         "durationMs": 944388,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]
@@ -6224,6 +6380,11 @@ export const allSeries: Series[] = [
         "audioKey": "ur/nuh/01.ogg",
         "durationMs": 538826,
         "previewEndMs": 271009,
+        "challenge": {
+          "title": "شکریے کے بغیر بھی نیکی",
+          "mission": "آج کسی ایسی جگہ کو تھوڑا بہتر بنائیں جسے سب استعمال کرتے ہوں: جماعت، گھر، گلی، مسجد کے آس پاس، کھیل کا میدان یا پارک۔ کسی چیز کو اس کی مناسب جگہ پر رکھیں، محفوظ طریقے سے کچرا اٹھائیں، کسی چیز کو منظم کریں یا صفائی برقرار رکھنے میں مدد کریں۔ یہ کام اس لیے کریں کہ یہ درست اور اچھا کام ہے، صرف اس لیے نہیں کہ کوئی آپ کو دیکھے یا تعریف کرے۔ اگر کوئی آپ کا شکریہ ادا نہ کرے تو خود کو یاد دلائیں: \"اللہ جانتا ہے کہ میں نے یہ کیوں کیا۔\"",
+          "levelUp": "اگر کوئی آپ کی اچھی محنت کو بگاڑ دے تو فوراً یہ نہ پوچھیں: \"اس سب کا مقصد کیا تھا؟\" اس کے بجائے پوچھیں: \"میں کیا مختلف کر سکتا ہوں تاکہ یہ اچھی کوشش زیادہ دیر تک قائم رہے؟\" اگلی قسط: دوبارہ کوشش، نئے انداز سے"
+        },
         "captions": [
           {
             "startMs": 465,
@@ -6488,6 +6649,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/nuh/02.ogg",
         "durationMs": 485464,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -6496,6 +6658,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/nuh/03.ogg",
         "durationMs": 1083781,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -6504,6 +6667,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/nuh/04.ogg",
         "durationMs": 962981,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -6512,6 +6676,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/nuh/05.ogg",
         "durationMs": 1290665,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -6520,6 +6685,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/nuh/06.ogg",
         "durationMs": 1263373,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]
@@ -6538,6 +6704,11 @@ export const allSeries: Series[] = [
         "audioKey": "ur/salih/01.ogg",
         "durationMs": 722847,
         "previewEndMs": 363983,
+        "challenge": {
+          "title": "کیا میں صرف کر سکتا ہوں، یا مجھے کرنے کا حق بھی ہے؟",
+          "mission": "آج ایسے ایک موقع کو محسوس کریں جب آپ کوئی کام کرسکتے ہوں، لیکن پہلے یہ سوچنا چاہیے کہ کیا آپ کو وہ کرنے کا حق بھی ہے۔ عمل کرنے سے پہلے خود سے پوچھیں: \"صرف اس لیے کہ میں یہ کرسکتا ہوں، کیا اس کا مطلب یہ ہے کہ مجھے یہ کرنا بھی چاہیے؟\"",
+          "levelUp": "گھر کے کسی ایسے اصول کا انتخاب کریں جسے آپ پوری طرح نہیں سمجھتے۔ شکایت کرنے یا چپکے سے اسے توڑنے کے بجائے احترام سے پوچھیں: \"کیا آپ سمجھا سکتے ہیں کہ یہ اصول کس چیز کی حفاظت کررہا ہے؟\" پھر فیصلہ کرنے سے پہلے جواب کو غور سے سنیں۔ اگلی قسط: لیکن مجھے بتائیں کیوں؟"
+        },
         "captions": [
           {
             "startMs": 0,
@@ -7052,6 +7223,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/salih/02.ogg",
         "durationMs": 657871,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -7060,6 +7232,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/salih/03.ogg",
         "durationMs": 709522,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -7068,6 +7241,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/salih/04.ogg",
         "durationMs": 690453,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -7076,6 +7250,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/salih/05.ogg",
         "durationMs": 751286,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]
@@ -7094,6 +7269,11 @@ export const allSeries: Series[] = [
         "audioKey": "ur/fairness/01.ogg",
         "durationMs": 363433,
         "previewEndMs": 187321,
+        "challenge": {
+          "title": "انعام کے بغیر انصاف",
+          "mission": "آج ایک ایسا منصفانہ کام کریں جس کے بدلے آپ کو کوئی انعام نہ مل رہا ہو۔ کسی کو اپنی باری دیں، کسی خاموش بچے کو کھیل میں شامل کریں، چیزیں انصاف کے ساتھ تقسیم کریں، یا کسی دوسرے شخص کو پہلے بولنے کا موقع دیں۔ اپنے آپ سے پوچھیں: \"اگر کوئی مجھے نہ دیکھ رہا ہو تو کیا میں پھر بھی یہ کام کروں گا؟\"",
+          "levelUp": "کوئی ایسا موقع چنیے جہاں انصاف کے لیے آپ کو اپنی چھوٹی سی خواہش چھوڑنی پڑے، مثلاً پہلی باری۔ پھر دیکھیے کہ کیا آپ تب بھی انصاف کا انتخاب کرتے ہیں۔"
+        },
         "captions": [
           {
             "startMs": 0,
@@ -7343,6 +7523,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/fairness/02.ogg",
         "durationMs": 303456,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -7351,6 +7532,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/fairness/03.ogg",
         "durationMs": 320696,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -7359,6 +7541,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/fairness/04.ogg",
         "durationMs": 288032,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -7367,6 +7550,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/fairness/05.ogg",
         "durationMs": 314048,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -7375,6 +7559,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/fairness/06.ogg",
         "durationMs": 309681,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -7383,6 +7568,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/fairness/07.ogg",
         "durationMs": 302897,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -7391,6 +7577,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/fairness/08.ogg",
         "durationMs": 355310,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -7399,6 +7586,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/fairness/09.ogg",
         "durationMs": 376373,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -7407,6 +7595,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/fairness/10.ogg",
         "durationMs": 445476,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]
@@ -7425,6 +7614,11 @@ export const allSeries: Series[] = [
         "audioKey": "ur/gratitude/01.ogg",
         "durationMs": 470613,
         "previewEndMs": 237877,
+        "challenge": {
+          "title": "کسی کا بوجھ ہلکا کریں",
+          "mission": "ایسے شخص کو پہچانیے جس کے کام سے آپ روز فائدہ اٹھاتے ہیں مگر عموماً اس پر توجہ نہیں دیتے۔ آج اس کے کام کا ایک چھوٹا حصہ آسان کر دیں۔ اپنی چیز خود جگہ پر رکھیں، اپنے بعد صفائی کریں، کرسی واپس رکھیں یا کوئی ہلکی مدد کر دیں۔",
+          "levelUp": "کوئی ایسا اچھا کام کریں جس کے بارے میں بعد میں کسی کو بتانے کی ضرورت نہ ہو۔ بوجھ ہلکا ہو جانا ہی کافی ہے۔"
+        },
         "captions": [
           {
             "startMs": 106,
@@ -7804,6 +7998,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/gratitude/02.ogg",
         "durationMs": 350900,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -7812,6 +8007,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/gratitude/03.ogg",
         "durationMs": 299258,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -7820,6 +8016,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/gratitude/04.ogg",
         "durationMs": 226796,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -7828,6 +8025,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/gratitude/05.ogg",
         "durationMs": 277026,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -7836,6 +8034,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/gratitude/06.ogg",
         "durationMs": 280528,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -7844,6 +8043,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/gratitude/07.ogg",
         "durationMs": 221946,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -7852,6 +8052,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/gratitude/08.ogg",
         "durationMs": 271755,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -7860,6 +8061,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/gratitude/09.ogg",
         "durationMs": 228545,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -7868,6 +8070,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/gratitude/10.ogg",
         "durationMs": 460791,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]
@@ -7886,6 +8089,11 @@ export const allSeries: Series[] = [
         "audioKey": "ur/honesty/01.ogg",
         "durationMs": 400957,
         "previewEndMs": 202957,
+        "challenge": {
+          "title": "ایک چھوٹی سچائی بولیں",
+          "mission": "آج کوئی ایسی چھوٹی غلطی تسلیم کریں جسے چھپانا آسان ہو، مثلاً بھولا ہوا کام، ٹوٹی ہوئی چیز یا ادھوری ذمہ داری۔ بہانہ بنائے بغیر سادہ انداز میں سچ کہہ دیں۔",
+          "levelUp": "صرف سچ بولنے پر نہ رکیں۔ اپنی غلطی درست کرنے کے لیے ایک عملی قدم بھی اٹھائیں۔"
+        },
         "captions": [
           {
             "startMs": 0,
@@ -8155,6 +8363,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/honesty/02.ogg",
         "durationMs": 362343,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -8163,6 +8372,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/honesty/03.ogg",
         "durationMs": 275979,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -8171,6 +8381,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/honesty/04.ogg",
         "durationMs": 118447,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]
@@ -8189,6 +8400,11 @@ export const allSeries: Series[] = [
         "audioKey": "ur/kindness/01.ogg",
         "durationMs": 366356,
         "previewEndMs": 183985,
+        "challenge": {
+          "title": "کسی کو نظر انداز نہ کریں",
+          "mission": "آپ کا مشن: آج ایسے شخص پر توجہ دیں جو اکثر الگ، خاموش یا اکیلا رہتا ہو۔ اسے سلام کریں، اپنے پاس جگہ دیں یا ساتھ آنے کی دعوت دیں، مگر اسے بات کرنے پر مجبور نہ کریں۔ ذرا سوچیے: کیا میری وجہ سے اس شخص کو اپنائیت محسوس ہوئی، یا اسے لگا کہ سب کی نظریں اسی پر ہیں؟",
+          "levelUp": "کسی کو اپنے ساتھ شامل کرتے وقت اس کی عزت بھی محفوظ رکھیں اور اسے ہاں یا ناں کہنے کی آزادی بھی دیں۔"
+        },
         "captions": [
           {
             "startMs": 0,
@@ -8458,6 +8674,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/kindness/02.ogg",
         "durationMs": 376798,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -8466,6 +8683,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/kindness/03.ogg",
         "durationMs": 338122,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -8474,6 +8692,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/kindness/04.ogg",
         "durationMs": 328403,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -8482,6 +8701,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/kindness/05.ogg",
         "durationMs": 380977,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -8490,6 +8710,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/kindness/06.ogg",
         "durationMs": 348962,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -8498,6 +8719,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/kindness/07.ogg",
         "durationMs": 342680,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -8506,6 +8728,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/kindness/08.ogg",
         "durationMs": 310967,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -8514,6 +8737,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/kindness/09.ogg",
         "durationMs": 344421,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -8522,6 +8746,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/kindness/10.ogg",
         "durationMs": 456370,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]
@@ -8540,6 +8765,11 @@ export const allSeries: Series[] = [
         "audioKey": "ur/patience/01.ogg",
         "durationMs": 863530,
         "previewEndMs": 436666,
+        "challenge": {
+          "title": "آج صرف ایک حصہ",
+          "mission": "کوئی ایک کام چنیں جسے آپ ابھی مکمل کرنا چاہتے ہیں: کوئی ڈرائنگ، کوئی ماڈل، کوئی سبق، یا کمرہ سمیٹنا۔ آج اس کا صرف ایک حصہ کریں، مگر اچھی طرح۔ جلدی میں آخر تک پہنچنے کی کوشش نہ کریں۔ ناپ کر کریں، دیکھ کر کریں، اور غلطی ہو تو درست کریں۔",
+          "levelUp": "کل اسی کام پر واپس آئیں اور اگلا حصہ کریں۔ محسوس کریں کہ یہ بار بار شروع سے کرنے کے مقابلے میں کتنا آسان ہے۔"
+        },
         "captions": [
           {
             "startMs": 0,
@@ -9259,6 +9489,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/patience/02.ogg",
         "durationMs": 907812,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -9267,6 +9498,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/patience/03.ogg",
         "durationMs": 767300,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -9275,6 +9507,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/patience/04.ogg",
         "durationMs": 781011,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -9283,6 +9516,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/patience/05.ogg",
         "durationMs": 853921,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -9291,6 +9525,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/patience/06.ogg",
         "durationMs": 832299,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -9299,6 +9534,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/patience/07.ogg",
         "durationMs": 394054,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -9307,6 +9543,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/patience/08.ogg",
         "durationMs": 480354,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -9315,6 +9552,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/patience/09.ogg",
         "durationMs": 498921,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -9323,6 +9561,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/patience/10.ogg",
         "durationMs": 658334,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]
@@ -9341,6 +9580,11 @@ export const allSeries: Series[] = [
         "audioKey": "ur/respect/01.ogg",
         "durationMs": 430447,
         "previewEndMs": 217399,
+        "challenge": {
+          "title": "باادب سلام کی مہم",
+          "mission": "مشن: آج کم از کم تین لوگوں کو اچھے انداز سے سلام کریں: ایک ہم جماعت، اسکول کے کسی بڑے کو، اور ایک ایسے شخص کو جس سے آپ عام طور پر بات نہیں کرتے۔ اگر نام معلوم ہو تو نام لے کر سلام کریں۔ جواب جیسا بھی آئے، اپنا ادب قائم رکھیں۔",
+          "levelUp": "عمر 9 تا 12 سال: غور کریں، کیا آپ کسی کی عمر، کام یا مقبولیت دیکھ کر سلام کا انداز بدل دیتے ہیں؟ اگر ہاں، آج ایک ایسی عادت بدلنے کی کوشش کریں۔"
+        },
         "captions": [
           {
             "startMs": 0,
@@ -9600,6 +9844,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/respect/02.ogg",
         "durationMs": 454646,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -9608,6 +9853,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/respect/03.ogg",
         "durationMs": 460972,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -9616,6 +9862,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/respect/04.ogg",
         "durationMs": 230661,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -9624,6 +9871,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/respect/05.ogg",
         "durationMs": 328736,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -9632,6 +9880,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/respect/06.ogg",
         "durationMs": 450236,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -9640,6 +9889,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/respect/07.ogg",
         "durationMs": 285484,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -9648,6 +9898,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/respect/08.ogg",
         "durationMs": 260311,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -9656,6 +9907,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/respect/09.ogg",
         "durationMs": 482150,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       },
       {
@@ -9664,6 +9916,7 @@ export const allSeries: Series[] = [
         "audioKey": "ur/respect/10.ogg",
         "durationMs": 738243,
         "previewEndMs": null,
+        "challenge": null,
         "captions": []
       }
     ]

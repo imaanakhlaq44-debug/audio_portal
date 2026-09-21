@@ -1,0 +1,125 @@
+{
+  "_note": "Challenges written by hand, for episodes whose narration script has none. tools/extract_challenges.mjs merges these into challenges.json; anything found in a script wins over what is here, so if a challenge is later added to a script this file can simply be trimmed.",
+
+  "patience_en": {
+    "1": {
+      "title": "Do One Part Today",
+      "mission": "Pick something you want finished right now - a drawing, a model, a chapter, a tidy room - and do only one part of it today, properly. Do not rush towards the end. Measure, check, and correct as you go.",
+      "levelUp": "Come back to the same thing tomorrow and do the next part. Notice how much steadier it feels than starting over."
+    },
+    "2": {
+      "title": "Skip the Shortcut",
+      "mission": "Notice one moment today when you are about to take the easy way - guessing instead of reading, hiding a mistake instead of fixing it, or rushing a job you were asked to do carefully. Choose the slower, proper way instead.",
+      "levelUp": "If something goes missing or goes wrong, search calmly and check one place at a time instead of blaming someone."
+    },
+    "3": {
+      "title": "Wait Without Pushing",
+      "mission": "There will be something today that you want to know and are not told - a surprise, a grown-up conversation, a decision still being made. Ask once, politely, then let it be. Patience is also respecting a boundary while curiosity is pushing.",
+      "levelUp": "Notice the restless feeling of wanting to know, and say to yourself: \"I can wait, and I will still be alright.\""
+    },
+    "4": {
+      "title": "Do the Next Thing",
+      "mission": "Think of something so big that you keep putting it off. You may not be able to do all of it today, but you can do the next thing. Write down the very next small step, and do only that.",
+      "levelUp": "When it is finished, write the step after it. Do not plan the whole thing - just keep naming the next one."
+    },
+    "5": {
+      "title": "Be Patient With Yourself",
+      "mission": "Today, when you make a mistake at something you have been practising, do not call yourself careless or slow. Say instead: \"I am still learning this.\" Then try it once more.",
+      "levelUp": "Ages 9-12: Think of one thing you are hard on yourself about, and give yourself the same kindness you would give a friend who was still learning it."
+    },
+    "6": {
+      "title": "Keep Going When It Goes Wrong",
+      "mission": "Something will not go to plan today - a game, a task, a plan with a friend. Instead of stopping, take one breath and carry on with the next part. Finishing something imperfectly is still finishing it.",
+      "levelUp": "At the end of the day, name one thing that went wrong and one thing you did anyway."
+    },
+    "7": {
+      "title": "Look Across Days, Not Minutes",
+      "mission": "Choose one thing you are slowly getting better at - reading, a skill, memorising, good manners - and write one line about it today. Do not judge it by today alone.",
+      "levelUp": "Write a line every day for a week, then read all seven together and see the change you could not feel day by day."
+    },
+    "8": {
+      "title": "Check One Thing at a Time",
+      "mission": "When something does not work today - a task, a device, a sum, a plan - do not try everything at once. Check one thing, then the next, then the next, until you find it.",
+      "levelUp": "Find one small thing that is better today than it was yesterday, even if the whole job still looks unfinished."
+    },
+    "9": {
+      "title": "Wait for the Evidence",
+      "mission": "If something goes missing or goes wrong today, do not decide who is to blame. Ask questions first, look properly, and wait until you actually know.",
+      "levelUp": "If you find that your first guess about a person was wrong, go and tell them so."
+    },
+    "10": {
+      "title": "Keep Doing the Right Thing",
+      "mission": "Choose one good thing you will keep doing this week even though you will not see the result yet - a prayer, a kindness, practice, study, or a habit you are building. Do it today without asking when it will pay off.",
+      "levelUp": "At the end of the week, look back. Name what changed, and name what still needs more time."
+    }
+  },
+
+  "patience_ur": {
+    "1": {
+      "title": "آج صرف ایک حصہ",
+      "mission": "کوئی ایک کام چنیں جسے آپ ابھی مکمل کرنا چاہتے ہیں: کوئی ڈرائنگ، کوئی ماڈل، کوئی سبق، یا کمرہ سمیٹنا۔ آج اس کا صرف ایک حصہ کریں، مگر اچھی طرح۔ جلدی میں آخر تک پہنچنے کی کوشش نہ کریں۔ ناپ کر کریں، دیکھ کر کریں، اور غلطی ہو تو درست کریں۔",
+      "levelUp": "کل اسی کام پر واپس آئیں اور اگلا حصہ کریں۔ محسوس کریں کہ یہ بار بار شروع سے کرنے کے مقابلے میں کتنا آسان ہے۔"
+    },
+    "2": {
+      "title": "آسان راستہ چھوڑ دیں",
+      "mission": "آج ایک لمحہ ایسا آئے گا جب آپ آسان راستہ لینا چاہیں گے: پڑھنے کے بجائے اندازہ لگانا، غلطی درست کرنے کے بجائے چھپانا، یا جو کام احتیاط سے کرنے کو کہا گیا اسے جلدی جلدی نمٹانا۔ اس وقت سست مگر درست راستہ چنیں۔",
+      "levelUp": "اگر کوئی چیز گم ہو جائے یا کام بگڑ جائے تو کسی پر الزام لگانے کے بجائے سکون سے، ایک ایک جگہ دیکھ کر تلاش کریں۔"
+    },
+    "3": {
+      "title": "اصرار کے بغیر انتظار",
+      "mission": "آج کوئی ایسی بات ہوگی جو آپ جاننا چاہیں گے مگر آپ کو نہیں بتائی جائے گی: کوئی سرپرائز، بڑوں کی کوئی گفتگو، یا کوئی فیصلہ جو ابھی ہو رہا ہے۔ ایک بار ادب سے پوچھ لیں، پھر بات چھوڑ دیں۔ صبر یہ بھی ہے کہ تجسس کے باوجود حد کا احترام کیا جائے۔",
+      "levelUp": "جاننے کی بےچینی کو پہچانیں اور دل میں کہیں: ’’میں انتظار کر سکتا ہوں، اور مجھے کچھ نہیں ہوگا۔‘‘"
+    },
+    "4": {
+      "title": "بس اگلا ایک قدم",
+      "mission": "کوئی ایسا کام سوچیں جو اتنا بڑا لگتا ہے کہ آپ اسے ٹالتے رہتے ہیں۔ شاید آج آپ پورا نہ کر سکیں، مگر اگلا ایک قدم ضرور کر سکتے ہیں۔ وہ چھوٹا سا قدم لکھیں اور آج صرف وہی کریں۔",
+      "levelUp": "وہ مکمل ہو جائے تو اس کے بعد والا قدم لکھیں۔ پورا منصوبہ نہ بنائیں، بس ہر بار اگلا قدم۔"
+    },
+    "5": {
+      "title": "اپنے آپ کے ساتھ نرمی",
+      "mission": "آج جب کسی ایسی چیز میں غلطی ہو جس کی آپ مشق کر رہے ہیں، تو اپنے آپ کو لاپرواہ یا کمزور نہ کہیں۔ اس کے بجائے کہیں: ’’میں ابھی سیکھ رہا ہوں۔‘‘ پھر ایک بار اور کوشش کریں۔",
+      "levelUp": "عمر 9 تا 12 سال: کوئی ایک بات سوچیں جس پر آپ خود کو بہت سناتے ہیں، اور اپنے ساتھ وہی نرمی کریں جو آپ سیکھتے ہوئے کسی دوست کے ساتھ کرتے۔"
+    },
+    "6": {
+      "title": "بگڑ جائے تب بھی جاری رکھیں",
+      "mission": "آج کوئی ایک چیز منصوبے کے مطابق نہیں ہوگی: کوئی کھیل، کوئی کام، یا دوست کے ساتھ کوئی پروگرام۔ رک جانے کے بجائے ایک سانس لیں اور اگلا حصہ کریں۔ کام کا کچھ کمی کے ساتھ مکمل ہونا بھی مکمل ہونا ہے۔",
+      "levelUp": "دن کے آخر میں ایک بات بتائیں جو بگڑی، اور ایک بات جو آپ نے پھر بھی کر لی۔"
+    },
+    "7": {
+      "title": "دنوں میں دیکھیں، منٹوں میں نہیں",
+      "mission": "کوئی ایک چیز چنیں جس میں آپ آہستہ آہستہ بہتر ہو رہے ہیں: پڑھائی، کوئی ہنر، حفظ، یا اچھا اخلاق۔ آج اس کے بارے میں ایک جملہ لکھیں۔ صرف آج کو دیکھ کر فیصلہ نہ کریں۔",
+      "levelUp": "ایک ہفتے تک روز ایک جملہ لکھیں، پھر ساتوں ایک ساتھ پڑھیں اور وہ تبدیلی دیکھیں جو روزانہ محسوس نہیں ہوتی تھی۔"
+    },
+    "8": {
+      "title": "ایک وقت میں ایک چیز",
+      "mission": "آج جب کوئی چیز کام نہ کرے: کوئی کام، کوئی آلہ، کوئی سوال، یا کوئی منصوبہ، تو سب کچھ ایک ساتھ آزمانے کے بجائے ایک ایک کر کے دیکھیں، جب تک وجہ نہ مل جائے۔",
+      "levelUp": "کوئی ایک چھوٹی بہتری تلاش کریں جو کل کے مقابلے میں آج موجود ہے، چاہے پورا کام ابھی ادھورا ہی لگے۔"
+    },
+    "9": {
+      "title": "ثبوت کا انتظار کریں",
+      "mission": "آج اگر کوئی چیز گم ہو جائے یا کوئی کام بگڑ جائے تو فوراً یہ فیصلہ نہ کریں کہ قصور کس کا ہے۔ پہلے سوال کریں، اچھی طرح دیکھیں، اور جب تک یقین نہ ہو، رائے قائم نہ کریں۔",
+      "levelUp": "اگر معلوم ہو کہ کسی کے بارے میں آپ کا پہلا خیال غلط تھا، تو اسے بتا دیں۔"
+    },
+    "10": {
+      "title": "اچھا کام جاری رکھیں",
+      "mission": "کوئی ایک اچھا کام چنیں جو آپ اس ہفتے جاری رکھیں گے، حالانکہ ابھی اس کا نتیجہ نظر نہیں آئے گا: نماز، کوئی نیکی، مشق، پڑھائی، یا کوئی اچھی عادت۔ آج یہ پوچھے بغیر کریں کہ اس کا فائدہ کب ملے گا۔",
+      "levelUp": "ہفتے کے آخر میں پیچھے دیکھیں۔ بتائیں کیا بدلا، اور کس چیز کو ابھی مزید وقت چاہیے۔"
+    }
+  },
+
+  "honesty_ur": {
+    "4": {
+      "title": "امانت کی حفاظت",
+      "mission": "آج کوئی ایک چیز، ذمہ داری، پیغام یا کام جو کسی نے آپ کے سپرد کیا ہو، اس کی پوری حفاظت کریں۔ وقت پر واپس کریں، کام ٹھیک سے مکمل کریں، اور اجازت کے بغیر اسے اپنے لیے استعمال نہ کریں۔",
+      "levelUp": "امانت کا کام کرنے کے بعد لوگوں کو یاد نہ دلائیں کہ آپ کتنے ذمہ دار ہیں۔"
+    }
+  },
+
+  "nuh_ur": {
+    "2": {
+      "title": "بہتر طریقہ آزمائیں",
+      "mission": "کوئی ایک اچھا کام چنیں جو آپ کر تو رہے ہیں مگر وہ ٹھیک سے نہیں ہو رہا۔ چھوڑ دینے کے بجائے طریقہ بدلیں۔ اپنے آپ سے پوچھیں: ’’کیا مقصد غلط ہے، یا میرا طریقہ بہتر ہونا چاہیے؟‘‘",
+      "levelUp": "آج کوئی ایک اچھی بات دو مختلف مگر باادب طریقوں سے پہنچائیں۔ بات وہی رکھیں، انداز بہتر کریں۔"
+    }
+  }
+}
