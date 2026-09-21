@@ -222,6 +222,22 @@ Tracked, not yet done:
   button on the website reads "coming soon" — flip `appStoreLinks.published`
   in `site/src/lib/site.ts` on launch day. Still missing for submission:
   screenshots, a 1024x500 feature graphic, and the store descriptions.
+- **Ads are planned for 1.4.0, and deliberately not in 1.3.0.** Free listeners
+  would get them; Premium stays ad-free, which is what the paywall's "No ads,
+  ever" line already promises. Wanted: a banner on the browse screens, an
+  interstitial at the end of an episode, and an opt-in rewarded ad in the
+  Parents area. None of it is a small change. The app is child-directed, so it
+  needs a Play-**certified** ads SDK with child-directed treatment — no
+  personalised ads, content rating G — the Play Ads declaration flipped to Yes,
+  the Data safety answers redone (an ads SDK collects device identifiers, which
+  turns several of them), and the "no ads" claim rewritten in the thirteen
+  places it appears: `faq_screen.dart`, `paywall_sheet.dart`, `docs/PRIVACY.md`
+  and the site's copy of it, `docs/store-listing.md`,
+  `docs/play-data-safety.md`, `docs/index.md`, four website components, and the
+  feature graphic. Two things to design rather than bolt on: the end-of-episode
+  interstitial cuts across series auto-continuing into the next episode, which
+  is a headline feature and a listing claim; and full-screen ads shown to
+  under-8s carry extra Play restrictions.
 - **Premium is Android only.** `PremiumService` is built on Play Billing;
   there is no StoreKit path, so an iOS build would ship with nothing to buy.
 - The "Save" action is a bookmark, not a download. Audio is cached when a
