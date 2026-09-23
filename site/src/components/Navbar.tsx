@@ -15,7 +15,7 @@ export function Navbar() {
   return (
     <header
       className="sticky top-0 z-40 border-b border-outline-soft/40
-        bg-cream/90 backdrop-blur-md"
+        bg-cream backdrop-blur-md"
     >
       <div className="section flex h-18 items-center gap-4 py-3">
         <Link href="/" className="flex items-center gap-3">

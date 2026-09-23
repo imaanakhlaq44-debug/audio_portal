@@ -30,16 +30,16 @@ export function StoryRail({ title, subtitle, series, href }: Props) {
   if (series.length === 0) return null;
 
   return (
-    <section className="py-8">
-      <div className="section flex items-end justify-between gap-4">
-        <div>
+    <section className="py-10 sm:py-12">
+      <div className="section">
+        <div className="text-center">
           <h2 className="text-2xl sm:text-3xl">{title}</h2>
           {subtitle && (
             <p className="mt-1 text-sm text-ink-soft">{subtitle}</p>
           )}
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="mt-4 flex items-center justify-center gap-2">
           {href && (
             <Link
               href={href}
@@ -71,8 +71,9 @@ export function StoryRail({ title, subtitle, series, href }: Props) {
 
       <ul
         ref={trackRef}
-        className="mt-5 flex snap-x snap-mandatory gap-5 overflow-x-auto
-          px-5 pb-4 sm:px-8 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="section mt-5 flex snap-x snap-mandatory scroll-px-5 gap-5
+          overflow-x-auto pb-4 sm:scroll-px-8 [scrollbar-width:none]
+          [&::-webkit-scrollbar]:hidden"
       >
         {series.map((s) => (
           <li
