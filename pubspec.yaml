@@ -44,6 +44,10 @@ dependencies:
   # Parents sign in with Google before subscribing
   google_sign_in: ^7.2.0
 
+  # Letting a child put their own photo on the home screen. The picture is
+  # copied into the app's own folder and never leaves the device.
+  image_picker: ^1.1.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

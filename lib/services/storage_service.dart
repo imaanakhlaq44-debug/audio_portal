@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' show ThemeMode;
@@ -90,6 +91,7 @@ class StorageService {
   static const String _keyPinLockedUntil = 'pin_locked_until';
 
   static const String _keyChildName = 'child_name';
+  static const String _keyChildPhoto = 'child_photo_path';
   static const String _keyThemeMode = 'theme_mode';
   static const String _keyLanguage = 'story_language';
   static const String _keyLastStoryId = 'last_story_id';
@@ -157,7 +159,7 @@ class StorageService {
       _s.listenable(keys: [_keyFavorites, _keySaved]);
 
   static ValueListenable<Box> childNameListenable() =>
-      _s.listenable(keys: [_keyChildName]);
+      _s.listenable(keys: [_keyChildName, _keyChildPhoto]);
 
   static ValueListenable<Box> themeListenable() =>
       _s.listenable(keys: [_keyThemeMode]);
@@ -344,6 +346,19 @@ class StorageService {
 
   static Future<void> setChildName(String name) =>
       _s.put(_keyChildName, name.trim());
+
+  /// The photo a child chose for themselves, copied into the app's own
+  /// folder. Null until one is picked, and null again if the file has since
+  /// gone — an absolute path saved on one install is not promised to a later
+  /// one, so it is checked rather than trusted.
+  static String? getChildPhotoPath() {
+    final v = _s.get(_keyChildPhoto);
+    if (v is! String || v.isEmpty) return null;
+    return File(v).existsSync() ? v : null;
+  }
+
+  static Future<void> setChildPhotoPath(String? path) =>
+      path == null ? _s.delete(_keyChildPhoto) : _s.put(_keyChildPhoto, path);
 
   // ---------------- Premium ----------------
   // The last entitlement Google Play reported, so a subscriber who opens the

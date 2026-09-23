@@ -8,6 +8,7 @@ import '../models/story_data.dart';
 import '../services/audio_player_service.dart';
 import '../services/storage_service.dart';
 import '../theme/app_theme.dart';
+import '../widgets/child_avatar.dart';
 import '../widgets/language_toggle.dart';
 import '../widgets/mini_player.dart';
 import '../widgets/series_card.dart';
@@ -44,8 +45,6 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Center(child: LanguageToggle()),
-                  const SizedBox(height: 16),
                   _HeroCard(series: featured),
                   const SizedBox(height: 28),
 
@@ -166,42 +165,28 @@ class _TopBar extends StatelessWidget {
     final c = context.colors;
     return ValueListenableBuilder(
       valueListenable: StorageService.childNameListenable(),
-      builder: (context, _, __) {
-        final childName = StorageService.getChildName();
-        return Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-          color: c.surfaceLowest,
-          child: Row(
-            children: [
-              Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: c.primary, width: 2),
-                ),
-                child: ClipOval(
-                  child: Image.asset(
-                    'assets/images/child_avatar.webp',
-                    fit: BoxFit.cover,
-                  ),
-                ),
+      builder: (context, _, __) => Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+        color: c.surfaceLowest,
+        child: Row(
+          children: [
+            const ChildAvatar(),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Text(
+                StorageService.getChildName(),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: AppTheme.headline(size: 20, color: c.primaryDeep),
               ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Text(
-                  'Salam, $childName!',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: AppTheme.headline(size: 20, color: c.primaryDeep),
-                ),
-              ),
-              const SizedBox(width: 8),
-              const ThemeToggleButton(),
-            ],
-          ),
-        );
-      },
+            ),
+            const SizedBox(width: 10),
+            const LanguageToggle(),
+            const SizedBox(width: 8),
+            const ThemeToggleButton(),
+          ],
+        ),
+      ),
     );
   }
 }
