@@ -141,6 +141,30 @@ const Map<String, MeetTheSeries> seriesWelcomes = {
     ),
     length: Duration(milliseconds: 64550),
   ),
+  'ibrahim_en': MeetTheSeries(
+    track: Story(
+      id: 'ibrahim_en_meet',
+      title: 'Meet the series · Hazrat Ibrahim (A.S.)',
+      narrator: 'Imaan & Akhlaq',
+      coverAsset: 'assets/covers/ibrahim.webp',
+      audioAsset: 'assets/audio/en/ibrahim/00_meet_the_series.ogg',
+      category: StoryCategory.prophets,
+      description: 'A short welcome to the series.',
+    ),
+    length: Duration(milliseconds: 73017),
+  ),
+  'ibrahim_ur': MeetTheSeries(
+    track: Story(
+      id: 'ibrahim_ur_meet',
+      title: 'سلسلے کا تعارف · حضرت ابراہیم علیہ السلام',
+      narrator: 'Imaan & Akhlaq',
+      coverAsset: 'assets/covers/ibrahim.webp',
+      audioAsset: 'assets/audio/ur/ibrahim/00_meet_the_series.ogg',
+      category: StoryCategory.prophets,
+      description: 'سلسلے کا مختصر تعارف',
+    ),
+    length: Duration(milliseconds: 70057),
+  ),
   'idris_en': MeetTheSeries(
     track: Story(
       id: 'idris_en_meet',
@@ -188,6 +212,30 @@ const Map<String, MeetTheSeries> seriesWelcomes = {
       description: 'سلسلے کا مختصر تعارف',
     ),
     length: Duration(milliseconds: 60470),
+  ),
+  'lut_en': MeetTheSeries(
+    track: Story(
+      id: 'lut_en_meet',
+      title: 'Meet the series · Hazrat Lut (A.S.)',
+      narrator: 'Imaan & Akhlaq',
+      coverAsset: 'assets/covers/lut.webp',
+      audioAsset: 'assets/audio/en/lut/00_meet_the_series.ogg',
+      category: StoryCategory.prophets,
+      description: 'A short welcome to the series.',
+    ),
+    length: Duration(milliseconds: 65297),
+  ),
+  'lut_ur': MeetTheSeries(
+    track: Story(
+      id: 'lut_ur_meet',
+      title: 'سلسلے کا تعارف · حضرت لوط علیہ السلام',
+      narrator: 'Imaan & Akhlaq',
+      coverAsset: 'assets/covers/lut.webp',
+      audioAsset: 'assets/audio/ur/lut/00_meet_the_series.ogg',
+      category: StoryCategory.prophets,
+      description: 'سلسلے کا مختصر تعارف',
+    ),
+    length: Duration(milliseconds: 68097),
   ),
   'nuh_en': MeetTheSeries(
     track: Story(

@@ -62,11 +62,21 @@ function parseEpisode(lines) {
   const [, , rawTitle] = lines[at].match(HEADING);
   const out = { title: rawTitle.trim(), mission: '', reflection: '', levelUp: '' };
 
+  // Ibrahim (Urdu) writes "آج کا چیلنج" alone and puts the name of the
+  // challenge on the line below, where every other script keeps the two
+  // together. Without this the name is read as the first words of the
+  // mission and the challenge reaches the Parents area with no title.
+  let body = at + 1;
+  if (!out.title && lines[body]?.trim()) {
+    out.title = lines[body].trim();
+    body++;
+  }
+
   // Everything after the heading belongs to the challenge: it closes the
   // episode. Text before the first label is the challenge itself — until
   // the series' closing sections, or a second challenge, begins.
   let current = 'mission';
-  for (const line of lines.slice(at + 1)) {
+  for (const line of lines.slice(body)) {
     if (CLOSING.test(line) || HEADING.test(line)) break;
     let matched = false;
     for (const { key, re } of LABELS) {

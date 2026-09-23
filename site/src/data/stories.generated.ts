@@ -363,515 +363,6 @@ export const allSeries: Series[] = [
     ]
   },
   {
-    "id": "hud_en",
-    "title": "Hazrat Hud (A.S.)",
-    "description": "A 5-part story about pride, strength and humility.",
-    "language": "english",
-    "category": "prophets",
-    "cover": "hud",
-    "welcome": {
-      "id": "hud_en_meet",
-      "title": "Meet the series · Hazrat Hud (A.S.)",
-      "audioKey": "en/hud/00_meet_the_series.ogg",
-      "durationMs": 62830,
-      "previewEndMs": null,
-      "captions": [],
-      "challenge": null
-    },
-    "episodes": [
-      {
-        "id": "hud_en_01",
-        "title": "Ep 1 · Nobody Can Beat Us",
-        "audioKey": "en/hud/01_nobody_can_beat_us.ogg",
-        "durationMs": 749032,
-        "previewEndMs": 377231,
-        "challenge": {
-          "title": "Make Your Strength Useful",
-          "mission": "Choose one thing you are good at. Do not hide it and do not boast about it. Say: “Alhamdulillah, Allah has given me this ability.” Then use that ability to help one person today. At the end, ask yourself: “Did my ability make someone feel smaller, or did it make me more useful?”",
-          "levelUp": "Watch yourself today for one warning sign of arrogance: laughing at someone’s weakness, refusing advice, expecting to be better than everyone, or looking down on another person. If you notice it, correct yourself immediately. Confidence recognises the gift. Gratitude remembers the Giver. Arrogance begins when the gift makes us forget both."
-        },
-        "captions": [
-          {
-            "startMs": 119,
-            "endMs": 3279,
-            "text": "Episode 1: Nobody Can Beat Us"
-          },
-          {
-            "startMs": 3279,
-            "endMs": 15037,
-            "text": "The notice appeared on the main board of Sheikh Uncle’s Academy just after morning assembly: “Strength, Skills and Service Week — Five Days, Five Challenges, One Team Trophy.”"
-          },
-          {
-            "startMs": 15037,
-            "endMs": 19199,
-            "text": "Within minutes, the courtyard was full of excitement."
-          },
-          {
-            "startMs": 19199,
-            "endMs": 27985,
-            "text": "There would be races, teamwork activities, construction challenges, problem-solving tasks and a final service project."
-          },
-          {
-            "startMs": 27985,
-            "endMs": 33197,
-            "text": "Akhlaq read the notice and immediately turned towards Imaan, Mohsin and Mohsina."
-          },
-          {
-            "startMs": 33775,
-            "endMs": 35775,
-            "text": "“We are entering.”"
-          },
-          {
-            "startMs": 36147,
-            "endMs": 39775,
-            "text": "Imaan smiled and asked whether that was a suggestion."
-          },
-          {
-            "startMs": 39775,
-            "endMs": 42775,
-            "text": "“A decision,” Akhlaq replied proudly."
-          },
-          {
-            "startMs": 43301,
-            "endMs": 47775,
-            "text": "Mohsina laughed and reminded him that they had not even made a team yet."
-          },
-          {
-            "startMs": 47775,
-            "endMs": 50775,
-            "text": "Akhlaq called that a technical detail."
-          },
-          {
-            "startMs": 50775,
-            "endMs": 59034,
-            "text": "After several suggestions, including his rejected choice of The Unbeatables, they finally registered themselves as Team Amanah."
-          },
-          {
-            "startMs": 59483,
-            "endMs": 64443,
-            "text": "The first morning began on the school field with a relay challenge."
-          },
-          {
-            "startMs": 64443,
-            "endMs": 67043,
-            "text": "Each member had a different task."
-          },
-          {
-            "startMs": 67388,
-            "endMs": 79411,
-            "text": "Imaan crossed a narrow path while balancing a beanbag, Mohsina completed a quick puzzle, Mohsin carried a weighted bag between two markers, and Akhlaq finished with a sprint."
-          },
-          {
-            "startMs": 79411,
-            "endMs": 84711,
-            "text": "The teacher reminded everyone that the competition was not only about speed."
-          },
-          {
-            "startMs": 84711,
-            "endMs": 91071,
-            "text": "Dropping equipment, ignoring instructions or behaving unfairly would cost points."
-          },
-          {
-            "startMs": 91071,
-            "endMs": 92751,
-            "text": "The whistle blew."
-          },
-          {
-            "startMs": 92751,
-            "endMs": 94679,
-            "text": "Team Amanah worked smoothly."
-          },
-          {
-            "startMs": 95061,
-            "endMs": 105279,
-            "text": "Imaan stayed balanced, Mohsina solved her puzzle quickly, Mohsin carried the bag steadily, and Akhlaq raced through the final section."
-          },
-          {
-            "startMs": 105279,
-            "endMs": 107279,
-            "text": "They finished first."
-          },
-          {
-            "startMs": 107279,
-            "endMs": 108779,
-            "text": "“Alhamdulillah!”"
-          },
-          {
-            "startMs": 109240,
-            "endMs": 110279,
-            "text": "Imaan exclaimed."
-          },
-          {
-            "startMs": 110745,
-            "endMs": 113639,
-            "text": "Mohsin grinned, while Akhlaq jumped in the air."
-          },
-          {
-            "startMs": 113647,
-            "endMs": 116407,
-            "text": "Their happiness was natural."
-          },
-          {
-            "startMs": 116407,
-            "endMs": 119647,
-            "text": "They had worked together and won fairly."
-          },
-          {
-            "startMs": 119647,
-            "endMs": 122447,
-            "text": "The next activity was tug-of-war."
-          },
-          {
-            "startMs": 123015,
-            "endMs": 125287,
-            "text": "Mohsin looked at the rope and smiled."
-          },
-          {
-            "startMs": 125287,
-            "endMs": 127487,
-            "text": "“Now this is interesting.”"
-          },
-          {
-            "startMs": 127487,
-            "endMs": 130927,
-            "text": "Team Amanah won the first round comfortably."
-          },
-          {
-            "startMs": 130927,
-            "endMs": 143215,
-            "text": "The second round was much harder, but Mohsin encouraged everyone to pull together instead of at different times."
-          },
-          {
-            "startMs": 143215,
-            "endMs": 149455,
-            "text": "Slowly the rope moved towards them."
-          },
-          {
-            "startMs": 149455,
-            "endMs": 152295,
-            "text": "They won again."
-          },
-          {
-            "startMs": 152295,
-            "endMs": 156888,
-            "text": "“Two competitions, two victories!”"
-          },
-          {
-            "startMs": 157750,
-            "endMs": 159043,
-            "text": "Akhlaq announced."
-          },
-          {
-            "startMs": 159043,
-            "endMs": 166803,
-            "text": "At lunchtime, a younger boy approached Mohsin and asked how he had carried the weighted bag so easily."
-          },
-          {
-            "startMs": 167366,
-            "endMs": 171492,
-            "text": "Mohsin showed him how to hold it safely and encouraged him to practise."
-          },
-          {
-            "startMs": 172243,
-            "endMs": 175159,
-            "text": "For now, winning had made them happy."
-          },
-          {
-            "startMs": 175159,
-            "endMs": 177874,
-            "text": "It had not yet made them arrogant."
-          },
-          {
-            "startMs": 177874,
-            "endMs": 181921,
-            "text": "But the third victory began to change something."
-          },
-          {
-            "startMs": 181921,
-            "endMs": 186777,
-            "text": "That afternoon, Team Amanah won an obstacle course as well."
-          },
-          {
-            "startMs": 186777,
-            "endMs": 197439,
-            "text": "When another child congratulated them and said, “You people are impossible to catch,” Akhlaq laughed and replied, “You can still try.”"
-          },
-          {
-            "startMs": 197439,
-            "endMs": 202999,
-            "text": "Later, someone asked whether Team Amanah thought they would win the final trophy."
-          },
-          {
-            "startMs": 202999,
-            "endMs": 209159,
-            "text": "“At this point,” Akhlaq replied, “you should probably ask who is coming second.”"
-          },
-          {
-            "startMs": 209737,
-            "endMs": 211279,
-            "text": "Mohsin burst out laughing."
-          },
-          {
-            "startMs": 211279,
-            "endMs": 212959,
-            "text": "Even Imaan smiled."
-          },
-          {
-            "startMs": 213487,
-            "endMs": 214133,
-            "text": "Mohsina did not."
-          },
-          {
-            "startMs": 214133,
-            "endMs": 217365,
-            "text": "“That sounded a little proud,” she said."
-          },
-          {
-            "startMs": 218119,
-            "endMs": 221027,
-            "text": "Akhlaq answered that he had been joking."
-          },
-          {
-            "startMs": 221573,
-            "endMs": 222302,
-            "text": "Mohsina shrugged."
-          },
-          {
-            "startMs": 222302,
-            "endMs": 225947,
-            "text": "“Nothing yet,” she said when he asked what was wrong."
-          },
-          {
-            "startMs": 225947,
-            "endMs": 232787,
-            "text": "The next morning brought another physical challenge, and Team Amanah again came first."
-          },
-          {
-            "startMs": 233455,
-            "endMs": 235935,
-            "text": "Mohsin looked at the scoreboard with satisfaction."
-          },
-          {
-            "startMs": 235935,
-            "endMs": 238815,
-            "text": "“I don’t think anyone here is stronger than us.”"
-          },
-          {
-            "startMs": 240133,
-            "endMs": 240651,
-            "text": "Akhlaq nodded."
-          },
-          {
-            "startMs": 240996,
-            "endMs": 247086,
-            "text": "Imaan warned them not to become overconfident, but Mohsin pointed towards the scoreboard."
-          },
-          {
-            "startMs": 247086,
-            "endMs": 249182,
-            "text": "“The numbers are right there.”"
-          },
-          {
-            "startMs": 249182,
-            "endMs": 254712,
-            "text": "Nearby, a younger child was struggling to lift one of the practice bags."
-          },
-          {
-            "startMs": 254712,
-            "endMs": 258257,
-            "text": "He tried once, dropped it, and tried again."
-          },
-          {
-            "startMs": 258794,
-            "endMs": 260943,
-            "text": "Mohsin watched him and laughed."
-          },
-          {
-            "startMs": 260943,
-            "endMs": 263937,
-            "text": "“That is going to take him all day.”"
-          },
-          {
-            "startMs": 263937,
-            "endMs": 265549,
-            "text": "The boy heard him."
-          },
-          {
-            "startMs": 265549,
-            "endMs": 267161,
-            "text": "His face changed."
-          },
-          {
-            "startMs": 267852,
-            "endMs": 270897,
-            "text": "Mohsina looked at Mohsin and told him he could help."
-          },
-          {
-            "startMs": 271317,
-            "endMs": 274374,
-            "text": "Mohsin shrugged and said the boy would learn."
-          },
-          {
-            "startMs": 274767,
-            "endMs": 275946,
-            "text": "Imaan glanced at him."
-          },
-          {
-            "startMs": 275946,
-            "endMs": 281121,
-            "text": "Only one day earlier, his strength had made him useful to someone."
-          },
-          {
-            "startMs": 281121,
-            "endMs": 286410,
-            "text": "Now the same strength was beginning to make someone else seem small."
-          },
-          {
-            "startMs": 286410,
-            "endMs": 288481,
-            "text": "The next event was different."
-          },
-          {
-            "startMs": 288481,
-            "endMs": 295224,
-            "text": "Two team members had to carry a large lightweight box through a pathway without touching any cones."
-          },
-          {
-            "startMs": 295224,
-            "endMs": 301199,
-            "text": "Because the box blocked their view, communication mattered more than physical strength."
-          },
-          {
-            "startMs": 301679,
-            "endMs": 306445,
-            "text": "Akhlaq immediately chose himself and Mohsin because they were the strongest."
-          },
-          {
-            "startMs": 306915,
-            "endMs": 310957,
-            "text": "Mohsina reminded him that it was a communication challenge."
-          },
-          {
-            "startMs": 310957,
-            "endMs": 315327,
-            "text": "Within seconds of starting, Akhlaq shouted, “Left!”"
-          },
-          {
-            "startMs": 316383,
-            "endMs": 318467,
-            "text": "Mohsin replied that he was going left."
-          },
-          {
-            "startMs": 318967,
-            "endMs": 320467,
-            "text": "“Your other left!”"
-          },
-          {
-            "startMs": 321787,
-            "endMs": 322467,
-            "text": "Akhlaq yelled."
-          },
-          {
-            "startMs": 322967,
-            "endMs": 324967,
-            "text": "The box struck a cone."
-          },
-          {
-            "startMs": 325267,
-            "endMs": 326267,
-            "text": "Penalty."
-          },
-          {
-            "startMs": 326667,
-            "endMs": 329367,
-            "text": "A few seconds later, they hit another."
-          },
-          {
-            "startMs": 329867,
-            "endMs": 338695,
-            "text": "Another team moved much more slowly but communicated carefully and completed the course without touching anything."
-          },
-          {
-            "startMs": 338695,
-            "endMs": 343175,
-            "text": "For the first time that week, Team Amanah did not win."
-          },
-          {
-            "startMs": 343175,
-            "endMs": 344855,
-            "text": "They came third."
-          },
-          {
-            "startMs": 345370,
-            "endMs": 350695,
-            "text": "Akhlaq stared at the results and complained that the activity was badly designed."
-          },
-          {
-            "startMs": 351020,
-            "endMs": 357103,
-            "text": "Imaan laughed and reminded him that all the activities had been excellent when they were winning."
-          },
-          {
-            "startMs": 357631,
-            "endMs": 360803,
-            "text": "Mohsin complained that strength hardly mattered."
-          },
-          {
-            "startMs": 361586,
-            "endMs": 365503,
-            "text": "Mohsina smiled and said, “Perhaps that was the point.”"
-          },
-          {
-            "startMs": 365503,
-            "endMs": 371703,
-            "text": "Despite the loss, Team Amanah still remained well ahead on the overall scoreboard."
-          },
-          {
-            "startMs": 371703,
-            "endMs": 377231,
-            "text": "As they headed towards the school gate, they passed the younger boy whom Mohsin had laughed at earlier."
-          }
-        ]
-      },
-      {
-        "id": "hud_en_02",
-        "title": "Ep 2 · Look What We Built",
-        "audioKey": "en/hud/02_look_what_we_built.ogg",
-        "durationMs": 765817,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "hud_en_03",
-        "title": "Ep 3 · Who Gave You All This?",
-        "audioKey": "en/hud/03_who_gave_you_all_this.ogg",
-        "durationMs": 687858,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "hud_en_04",
-        "title": "Ep 4 · Strong Enough to Be Kind",
-        "audioKey": "en/hud/04_strong_enough_to_be_kind.ogg",
-        "durationMs": 761350,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "hud_en_05",
-        "title": "Ep 5 · When Strength Was Not Enough",
-        "audioKey": "en/hud/05_when_strength_was_not_enough.ogg",
-        "durationMs": 775997,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      }
-    ]
-  },
-  {
     "id": "idris_en",
     "title": "Hazrat Idris (A.S.)",
     "description": "A 3-part story about standing up for the truth.",
@@ -2001,6 +1492,515 @@ export const allSeries: Series[] = [
     ]
   },
   {
+    "id": "hud_en",
+    "title": "Hazrat Hud (A.S.)",
+    "description": "A 5-part story about pride, strength and humility.",
+    "language": "english",
+    "category": "prophets",
+    "cover": "hud",
+    "welcome": {
+      "id": "hud_en_meet",
+      "title": "Meet the series · Hazrat Hud (A.S.)",
+      "audioKey": "en/hud/00_meet_the_series.ogg",
+      "durationMs": 62830,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
+    "episodes": [
+      {
+        "id": "hud_en_01",
+        "title": "Ep 1 · Nobody Can Beat Us",
+        "audioKey": "en/hud/01_nobody_can_beat_us.ogg",
+        "durationMs": 749032,
+        "previewEndMs": 377231,
+        "challenge": {
+          "title": "Make Your Strength Useful",
+          "mission": "Choose one thing you are good at. Do not hide it and do not boast about it. Say: “Alhamdulillah, Allah has given me this ability.” Then use that ability to help one person today. At the end, ask yourself: “Did my ability make someone feel smaller, or did it make me more useful?”",
+          "levelUp": "Watch yourself today for one warning sign of arrogance: laughing at someone’s weakness, refusing advice, expecting to be better than everyone, or looking down on another person. If you notice it, correct yourself immediately. Confidence recognises the gift. Gratitude remembers the Giver. Arrogance begins when the gift makes us forget both."
+        },
+        "captions": [
+          {
+            "startMs": 119,
+            "endMs": 3279,
+            "text": "Episode 1: Nobody Can Beat Us"
+          },
+          {
+            "startMs": 3279,
+            "endMs": 15037,
+            "text": "The notice appeared on the main board of Sheikh Uncle’s Academy just after morning assembly: “Strength, Skills and Service Week — Five Days, Five Challenges, One Team Trophy.”"
+          },
+          {
+            "startMs": 15037,
+            "endMs": 19199,
+            "text": "Within minutes, the courtyard was full of excitement."
+          },
+          {
+            "startMs": 19199,
+            "endMs": 27985,
+            "text": "There would be races, teamwork activities, construction challenges, problem-solving tasks and a final service project."
+          },
+          {
+            "startMs": 27985,
+            "endMs": 33197,
+            "text": "Akhlaq read the notice and immediately turned towards Imaan, Mohsin and Mohsina."
+          },
+          {
+            "startMs": 33775,
+            "endMs": 35775,
+            "text": "“We are entering.”"
+          },
+          {
+            "startMs": 36147,
+            "endMs": 39775,
+            "text": "Imaan smiled and asked whether that was a suggestion."
+          },
+          {
+            "startMs": 39775,
+            "endMs": 42775,
+            "text": "“A decision,” Akhlaq replied proudly."
+          },
+          {
+            "startMs": 43301,
+            "endMs": 47775,
+            "text": "Mohsina laughed and reminded him that they had not even made a team yet."
+          },
+          {
+            "startMs": 47775,
+            "endMs": 50775,
+            "text": "Akhlaq called that a technical detail."
+          },
+          {
+            "startMs": 50775,
+            "endMs": 59034,
+            "text": "After several suggestions, including his rejected choice of The Unbeatables, they finally registered themselves as Team Amanah."
+          },
+          {
+            "startMs": 59483,
+            "endMs": 64443,
+            "text": "The first morning began on the school field with a relay challenge."
+          },
+          {
+            "startMs": 64443,
+            "endMs": 67043,
+            "text": "Each member had a different task."
+          },
+          {
+            "startMs": 67388,
+            "endMs": 79411,
+            "text": "Imaan crossed a narrow path while balancing a beanbag, Mohsina completed a quick puzzle, Mohsin carried a weighted bag between two markers, and Akhlaq finished with a sprint."
+          },
+          {
+            "startMs": 79411,
+            "endMs": 84711,
+            "text": "The teacher reminded everyone that the competition was not only about speed."
+          },
+          {
+            "startMs": 84711,
+            "endMs": 91071,
+            "text": "Dropping equipment, ignoring instructions or behaving unfairly would cost points."
+          },
+          {
+            "startMs": 91071,
+            "endMs": 92751,
+            "text": "The whistle blew."
+          },
+          {
+            "startMs": 92751,
+            "endMs": 94679,
+            "text": "Team Amanah worked smoothly."
+          },
+          {
+            "startMs": 95061,
+            "endMs": 105279,
+            "text": "Imaan stayed balanced, Mohsina solved her puzzle quickly, Mohsin carried the bag steadily, and Akhlaq raced through the final section."
+          },
+          {
+            "startMs": 105279,
+            "endMs": 107279,
+            "text": "They finished first."
+          },
+          {
+            "startMs": 107279,
+            "endMs": 108779,
+            "text": "“Alhamdulillah!”"
+          },
+          {
+            "startMs": 109240,
+            "endMs": 110279,
+            "text": "Imaan exclaimed."
+          },
+          {
+            "startMs": 110745,
+            "endMs": 113639,
+            "text": "Mohsin grinned, while Akhlaq jumped in the air."
+          },
+          {
+            "startMs": 113647,
+            "endMs": 116407,
+            "text": "Their happiness was natural."
+          },
+          {
+            "startMs": 116407,
+            "endMs": 119647,
+            "text": "They had worked together and won fairly."
+          },
+          {
+            "startMs": 119647,
+            "endMs": 122447,
+            "text": "The next activity was tug-of-war."
+          },
+          {
+            "startMs": 123015,
+            "endMs": 125287,
+            "text": "Mohsin looked at the rope and smiled."
+          },
+          {
+            "startMs": 125287,
+            "endMs": 127487,
+            "text": "“Now this is interesting.”"
+          },
+          {
+            "startMs": 127487,
+            "endMs": 130927,
+            "text": "Team Amanah won the first round comfortably."
+          },
+          {
+            "startMs": 130927,
+            "endMs": 143215,
+            "text": "The second round was much harder, but Mohsin encouraged everyone to pull together instead of at different times."
+          },
+          {
+            "startMs": 143215,
+            "endMs": 149455,
+            "text": "Slowly the rope moved towards them."
+          },
+          {
+            "startMs": 149455,
+            "endMs": 152295,
+            "text": "They won again."
+          },
+          {
+            "startMs": 152295,
+            "endMs": 156888,
+            "text": "“Two competitions, two victories!”"
+          },
+          {
+            "startMs": 157750,
+            "endMs": 159043,
+            "text": "Akhlaq announced."
+          },
+          {
+            "startMs": 159043,
+            "endMs": 166803,
+            "text": "At lunchtime, a younger boy approached Mohsin and asked how he had carried the weighted bag so easily."
+          },
+          {
+            "startMs": 167366,
+            "endMs": 171492,
+            "text": "Mohsin showed him how to hold it safely and encouraged him to practise."
+          },
+          {
+            "startMs": 172243,
+            "endMs": 175159,
+            "text": "For now, winning had made them happy."
+          },
+          {
+            "startMs": 175159,
+            "endMs": 177874,
+            "text": "It had not yet made them arrogant."
+          },
+          {
+            "startMs": 177874,
+            "endMs": 181921,
+            "text": "But the third victory began to change something."
+          },
+          {
+            "startMs": 181921,
+            "endMs": 186777,
+            "text": "That afternoon, Team Amanah won an obstacle course as well."
+          },
+          {
+            "startMs": 186777,
+            "endMs": 197439,
+            "text": "When another child congratulated them and said, “You people are impossible to catch,” Akhlaq laughed and replied, “You can still try.”"
+          },
+          {
+            "startMs": 197439,
+            "endMs": 202999,
+            "text": "Later, someone asked whether Team Amanah thought they would win the final trophy."
+          },
+          {
+            "startMs": 202999,
+            "endMs": 209159,
+            "text": "“At this point,” Akhlaq replied, “you should probably ask who is coming second.”"
+          },
+          {
+            "startMs": 209737,
+            "endMs": 211279,
+            "text": "Mohsin burst out laughing."
+          },
+          {
+            "startMs": 211279,
+            "endMs": 212959,
+            "text": "Even Imaan smiled."
+          },
+          {
+            "startMs": 213487,
+            "endMs": 214133,
+            "text": "Mohsina did not."
+          },
+          {
+            "startMs": 214133,
+            "endMs": 217365,
+            "text": "“That sounded a little proud,” she said."
+          },
+          {
+            "startMs": 218119,
+            "endMs": 221027,
+            "text": "Akhlaq answered that he had been joking."
+          },
+          {
+            "startMs": 221573,
+            "endMs": 222302,
+            "text": "Mohsina shrugged."
+          },
+          {
+            "startMs": 222302,
+            "endMs": 225947,
+            "text": "“Nothing yet,” she said when he asked what was wrong."
+          },
+          {
+            "startMs": 225947,
+            "endMs": 232787,
+            "text": "The next morning brought another physical challenge, and Team Amanah again came first."
+          },
+          {
+            "startMs": 233455,
+            "endMs": 235935,
+            "text": "Mohsin looked at the scoreboard with satisfaction."
+          },
+          {
+            "startMs": 235935,
+            "endMs": 238815,
+            "text": "“I don’t think anyone here is stronger than us.”"
+          },
+          {
+            "startMs": 240133,
+            "endMs": 240651,
+            "text": "Akhlaq nodded."
+          },
+          {
+            "startMs": 240996,
+            "endMs": 247086,
+            "text": "Imaan warned them not to become overconfident, but Mohsin pointed towards the scoreboard."
+          },
+          {
+            "startMs": 247086,
+            "endMs": 249182,
+            "text": "“The numbers are right there.”"
+          },
+          {
+            "startMs": 249182,
+            "endMs": 254712,
+            "text": "Nearby, a younger child was struggling to lift one of the practice bags."
+          },
+          {
+            "startMs": 254712,
+            "endMs": 258257,
+            "text": "He tried once, dropped it, and tried again."
+          },
+          {
+            "startMs": 258794,
+            "endMs": 260943,
+            "text": "Mohsin watched him and laughed."
+          },
+          {
+            "startMs": 260943,
+            "endMs": 263937,
+            "text": "“That is going to take him all day.”"
+          },
+          {
+            "startMs": 263937,
+            "endMs": 265549,
+            "text": "The boy heard him."
+          },
+          {
+            "startMs": 265549,
+            "endMs": 267161,
+            "text": "His face changed."
+          },
+          {
+            "startMs": 267852,
+            "endMs": 270897,
+            "text": "Mohsina looked at Mohsin and told him he could help."
+          },
+          {
+            "startMs": 271317,
+            "endMs": 274374,
+            "text": "Mohsin shrugged and said the boy would learn."
+          },
+          {
+            "startMs": 274767,
+            "endMs": 275946,
+            "text": "Imaan glanced at him."
+          },
+          {
+            "startMs": 275946,
+            "endMs": 281121,
+            "text": "Only one day earlier, his strength had made him useful to someone."
+          },
+          {
+            "startMs": 281121,
+            "endMs": 286410,
+            "text": "Now the same strength was beginning to make someone else seem small."
+          },
+          {
+            "startMs": 286410,
+            "endMs": 288481,
+            "text": "The next event was different."
+          },
+          {
+            "startMs": 288481,
+            "endMs": 295224,
+            "text": "Two team members had to carry a large lightweight box through a pathway without touching any cones."
+          },
+          {
+            "startMs": 295224,
+            "endMs": 301199,
+            "text": "Because the box blocked their view, communication mattered more than physical strength."
+          },
+          {
+            "startMs": 301679,
+            "endMs": 306445,
+            "text": "Akhlaq immediately chose himself and Mohsin because they were the strongest."
+          },
+          {
+            "startMs": 306915,
+            "endMs": 310957,
+            "text": "Mohsina reminded him that it was a communication challenge."
+          },
+          {
+            "startMs": 310957,
+            "endMs": 315327,
+            "text": "Within seconds of starting, Akhlaq shouted, “Left!”"
+          },
+          {
+            "startMs": 316383,
+            "endMs": 318467,
+            "text": "Mohsin replied that he was going left."
+          },
+          {
+            "startMs": 318967,
+            "endMs": 320467,
+            "text": "“Your other left!”"
+          },
+          {
+            "startMs": 321787,
+            "endMs": 322467,
+            "text": "Akhlaq yelled."
+          },
+          {
+            "startMs": 322967,
+            "endMs": 324967,
+            "text": "The box struck a cone."
+          },
+          {
+            "startMs": 325267,
+            "endMs": 326267,
+            "text": "Penalty."
+          },
+          {
+            "startMs": 326667,
+            "endMs": 329367,
+            "text": "A few seconds later, they hit another."
+          },
+          {
+            "startMs": 329867,
+            "endMs": 338695,
+            "text": "Another team moved much more slowly but communicated carefully and completed the course without touching anything."
+          },
+          {
+            "startMs": 338695,
+            "endMs": 343175,
+            "text": "For the first time that week, Team Amanah did not win."
+          },
+          {
+            "startMs": 343175,
+            "endMs": 344855,
+            "text": "They came third."
+          },
+          {
+            "startMs": 345370,
+            "endMs": 350695,
+            "text": "Akhlaq stared at the results and complained that the activity was badly designed."
+          },
+          {
+            "startMs": 351020,
+            "endMs": 357103,
+            "text": "Imaan laughed and reminded him that all the activities had been excellent when they were winning."
+          },
+          {
+            "startMs": 357631,
+            "endMs": 360803,
+            "text": "Mohsin complained that strength hardly mattered."
+          },
+          {
+            "startMs": 361586,
+            "endMs": 365503,
+            "text": "Mohsina smiled and said, “Perhaps that was the point.”"
+          },
+          {
+            "startMs": 365503,
+            "endMs": 371703,
+            "text": "Despite the loss, Team Amanah still remained well ahead on the overall scoreboard."
+          },
+          {
+            "startMs": 371703,
+            "endMs": 377231,
+            "text": "As they headed towards the school gate, they passed the younger boy whom Mohsin had laughed at earlier."
+          }
+        ]
+      },
+      {
+        "id": "hud_en_02",
+        "title": "Ep 2 · Look What We Built",
+        "audioKey": "en/hud/02_look_what_we_built.ogg",
+        "durationMs": 765817,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "hud_en_03",
+        "title": "Ep 3 · Who Gave You All This?",
+        "audioKey": "en/hud/03_who_gave_you_all_this.ogg",
+        "durationMs": 687858,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "hud_en_04",
+        "title": "Ep 4 · Strong Enough to Be Kind",
+        "audioKey": "en/hud/04_strong_enough_to_be_kind.ogg",
+        "durationMs": 761350,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "hud_en_05",
+        "title": "Ep 5 · When Strength Was Not Enough",
+        "audioKey": "en/hud/05_when_strength_was_not_enough.ogg",
+        "durationMs": 775997,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      }
+    ]
+  },
+  {
     "id": "salih_en",
     "title": "Hazrat Salih (A.S.)",
     "description": "A 5-part story about boundaries, rights and responsibility.",
@@ -2138,6 +2138,1436 @@ export const allSeries: Series[] = [
         "title": "Ep 5 · The Rule Was Not the Enemy",
         "audioKey": "en/salih/05_the_rule_was_not_the_enemy.ogg",
         "durationMs": 720367,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      }
+    ]
+  },
+  {
+    "id": "ibrahim_en",
+    "title": "Hazrat Ibrahim (A.S.)",
+    "description": "An 11-part story about searching for the truth and trusting Allah with everything.",
+    "language": "english",
+    "category": "prophets",
+    "cover": "ibrahim",
+    "welcome": {
+      "id": "ibrahim_en_meet",
+      "title": "Meet the series · Hazrat Ibrahim (A.S.)",
+      "audioKey": "en/ibrahim/00_meet_the_series.ogg",
+      "durationMs": 73017,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
+    "episodes": [
+      {
+        "id": "ibrahim_en_01",
+        "title": "Ep 1 · The Compass That Chose Ibrahim",
+        "audioKey": "en/ibrahim/01_the_compass_that_chose_ibrahim.ogg",
+        "durationMs": 599208,
+        "previewEndMs": 299689,
+        "challenge": {
+          "title": "Stand Apart for One Right Thing",
+          "mission": "Today, choose one small right action even if the people around you are not doing it. Return something that is not yours, refuse to laugh when someone is mocked, tell the truth when lying would be easier, or stop someone from wasting food or water. Do not show off. Simply choose what is right."
+        },
+        "captions": [
+          {
+            "startMs": 0,
+            "endMs": 1,
+            "text": "Episode 1: The Compass That Chose Ibrahim"
+          },
+          {
+            "startMs": 1,
+            "endMs": 3400,
+            "text": "The book fell by itself."
+          },
+          {
+            "startMs": 3400,
+            "endMs": 7440,
+            "text": "At least, that was what Akhlaq insisted."
+          },
+          {
+            "startMs": 7962,
+            "endMs": 11720,
+            "text": "Imaan was certain his elbow had touched the shelf."
+          },
+          {
+            "startMs": 11720,
+            "endMs": 22528,
+            "text": "Either way, the enormous old volume crashed onto the wooden floor of Sheikh Uncle’s library with such a loud thud that both children froze."
+          },
+          {
+            "startMs": 22528,
+            "endMs": 27193,
+            "text": "“Please tell me that was not expensive,” Akhlaq whispered."
+          },
+          {
+            "startMs": 27913,
+            "endMs": 31457,
+            "text": "“Please tell me you are going to pick it up.”"
+          },
+          {
+            "startMs": 31457,
+            "endMs": 32531,
+            "text": "He bent down."
+          },
+          {
+            "startMs": 32531,
+            "endMs": 33712,
+            "text": "Then stopped."
+          },
+          {
+            "startMs": 33712,
+            "endMs": 39753,
+            "text": "Behind the place where the book had been was a narrow hollow in the wall."
+          },
+          {
+            "startMs": 39985,
+            "endMs": 43105,
+            "text": "Something inside it reflected the light."
+          },
+          {
+            "startMs": 43798,
+            "endMs": 45185,
+            "text": "Imaan came closer."
+          },
+          {
+            "startMs": 45185,
+            "endMs": 47105,
+            "text": "“What is that?”"
+          },
+          {
+            "startMs": 47768,
+            "endMs": 51745,
+            "text": "Akhlaq reached in and pulled out a small wooden box."
+          },
+          {
+            "startMs": 51745,
+            "endMs": 59905,
+            "text": "It was covered in dust except for one strange mark carved into its lid: a circle crossed by a single line."
+          },
+          {
+            "startMs": 59977,
+            "endMs": 61977,
+            "text": "There was no lock."
+          },
+          {
+            "startMs": 61977,
+            "endMs": 63977,
+            "text": "“No,” Imaan said."
+          },
+          {
+            "startMs": 63977,
+            "endMs": 65977,
+            "text": "“I haven’t done anything.”"
+          },
+          {
+            "startMs": 65977,
+            "endMs": 67977,
+            "text": "“You are about to.”"
+          },
+          {
+            "startMs": 68644,
+            "endMs": 69977,
+            "text": "Akhlaq opened the box."
+          },
+          {
+            "startMs": 69977,
+            "endMs": 71977,
+            "text": "Inside lay a brass compass."
+          },
+          {
+            "startMs": 71977,
+            "endMs": 73977,
+            "text": "But it had no north."
+          },
+          {
+            "startMs": 73977,
+            "endMs": 75977,
+            "text": "No south."
+          },
+          {
+            "startMs": 75977,
+            "endMs": 77977,
+            "text": "No directions at all."
+          },
+          {
+            "startMs": 79969,
+            "endMs": 90449,
+            "text": "Around its edge were eleven tiny marks. Beside them was another mark scratched so deeply that someone appeared to have tried to erase it."
+          },
+          {
+            "startMs": 91249,
+            "endMs": 93409,
+            "text": "A folded paper lay underneath."
+          },
+          {
+            "startMs": 94556,
+            "endMs": 95409,
+            "text": "Imaan opened it."
+          },
+          {
+            "startMs": 96129,
+            "endMs": 98609,
+            "text": "Three words were written in dark ink."
+          },
+          {
+            "startMs": 99961,
+            "endMs": 102161,
+            "text": "SEE. REMEMBER. RETURN."
+          },
+          {
+            "startMs": 102161,
+            "endMs": 105601,
+            "text": "“That is all?” Akhlaq asked."
+          },
+          {
+            "startMs": 105601,
+            "endMs": 107601,
+            "text": "She turned the paper over."
+          },
+          {
+            "startMs": 107601,
+            "endMs": 108601,
+            "text": "Blank."
+          },
+          {
+            "startMs": 109146,
+            "endMs": 110601,
+            "text": "Akhlaq lifted the compass."
+          },
+          {
+            "startMs": 111109,
+            "endMs": 113481,
+            "text": "Its needle trembled."
+          },
+          {
+            "startMs": 113481,
+            "endMs": 114481,
+            "text": "“Put it back.”"
+          },
+          {
+            "startMs": 115126,
+            "endMs": 116901,
+            "text": "“Imaan, it’s a compass.”"
+          },
+          {
+            "startMs": 116901,
+            "endMs": 119641,
+            "text": "“It was hidden inside a wall.”"
+          },
+          {
+            "startMs": 119641,
+            "endMs": 119961,
+            "text": "“Still a compass.”"
+          },
+          {
+            "startMs": 120933,
+            "endMs": 123873,
+            "text": "The needle suddenly spun."
+          },
+          {
+            "startMs": 123873,
+            "endMs": 124433,
+            "text": "Once."
+          },
+          {
+            "startMs": 124433,
+            "endMs": 125133,
+            "text": "Twice."
+          },
+          {
+            "startMs": 125133,
+            "endMs": 125973,
+            "text": "Faster."
+          },
+          {
+            "startMs": 125973,
+            "endMs": 128353,
+            "text": "The lamps flickered."
+          },
+          {
+            "startMs": 128353,
+            "endMs": 133584,
+            "text": "Then every sound in Sheikh Uncle’s library disappeared."
+          },
+          {
+            "startMs": 133584,
+            "endMs": 134955,
+            "text": "No rain outside."
+          },
+          {
+            "startMs": 134955,
+            "endMs": 136221,
+            "text": "No ceiling fan."
+          },
+          {
+            "startMs": 136221,
+            "endMs": 138473,
+            "text": "No traffic from the road."
+          },
+          {
+            "startMs": 138473,
+            "endMs": 139353,
+            "text": "Nothing."
+          },
+          {
+            "startMs": 140505,
+            "endMs": 141765,
+            "text": "Imaan whispered, “Akhlaq…”"
+          },
+          {
+            "startMs": 142745,
+            "endMs": 145945,
+            "text": "Three knocks came from inside the bookshelf."
+          },
+          {
+            "startMs": 145945,
+            "endMs": 148665,
+            "text": "Knock. Knock. Knock."
+          },
+          {
+            "startMs": 149318,
+            "endMs": 151465,
+            "text": "Akhlaq slowly lowered the compass."
+          },
+          {
+            "startMs": 151465,
+            "endMs": 153905,
+            "text": "“I have changed my opinion.”"
+          },
+          {
+            "startMs": 153905,
+            "endMs": 157585,
+            "text": "A thin golden line appeared between two shelves."
+          },
+          {
+            "startMs": 157585,
+            "endMs": 158335,
+            "text": "It widened."
+          },
+          {
+            "startMs": 158335,
+            "endMs": 160945,
+            "text": "Wood became darkness."
+          },
+          {
+            "startMs": 160945,
+            "endMs": 165732,
+            "text": "And where the wall had been, there was now a door."
+          },
+          {
+            "startMs": 165732,
+            "endMs": 167873,
+            "text": "Neither child moved."
+          },
+          {
+            "startMs": 167873,
+            "endMs": 170283,
+            "text": "Then someone knocked again."
+          },
+          {
+            "startMs": 170283,
+            "endMs": 171887,
+            "text": "From the other side."
+          },
+          {
+            "startMs": 172489,
+            "endMs": 175746,
+            "text": "Akhlaq whispered, “We should call Sheikh Uncle.”"
+          },
+          {
+            "startMs": 175746,
+            "endMs": 177821,
+            "text": "“Finally, a good idea.”"
+          },
+          {
+            "startMs": 177821,
+            "endMs": 179897,
+            "text": "He opened his mouth."
+          },
+          {
+            "startMs": 179929,
+            "endMs": 181830,
+            "text": "The door flew open."
+          },
+          {
+            "startMs": 182718,
+            "endMs": 185760,
+            "text": "Wind rushed through the room."
+          },
+          {
+            "startMs": 185760,
+            "endMs": 188929,
+            "text": "Books lifted from the shelves."
+          },
+          {
+            "startMs": 188929,
+            "endMs": 192737,
+            "text": "The compass burned hot in Akhlaq’s hand."
+          },
+          {
+            "startMs": 193429,
+            "endMs": 194929,
+            "text": "Imaan grabbed his arm."
+          },
+          {
+            "startMs": 194929,
+            "endMs": 197320,
+            "text": "Then the library vanished."
+          },
+          {
+            "startMs": 198081,
+            "endMs": 201765,
+            "text": "Akhlaq landed on something soft."
+          },
+          {
+            "startMs": 201765,
+            "endMs": 203750,
+            "text": "He opened one eye."
+          },
+          {
+            "startMs": 203750,
+            "endMs": 204601,
+            "text": "“Carpet.”"
+          },
+          {
+            "startMs": 205168,
+            "endMs": 207154,
+            "text": "Imaan was lying nearby."
+          },
+          {
+            "startMs": 207154,
+            "endMs": 210381,
+            "text": "“That is your first observation?”"
+          },
+          {
+            "startMs": 210381,
+            "endMs": 212281,
+            "text": "“It is better than stone.”"
+          },
+          {
+            "startMs": 212281,
+            "endMs": 216481,
+            "text": "The room around them was not Sheikh Uncle’s library."
+          },
+          {
+            "startMs": 217496,
+            "endMs": 226633,
+            "text": "Rows of handwritten manuscripts filled wooden shelves. An oil lamp burned beside an inkpot. Pages were stacked across a large desk."
+          },
+          {
+            "startMs": 227273,
+            "endMs": 230311,
+            "text": "A man sitting there had stopped writing."
+          },
+          {
+            "startMs": 230311,
+            "endMs": 231968,
+            "text": "He was staring at them."
+          },
+          {
+            "startMs": 231968,
+            "endMs": 233993,
+            "text": "The man asked who they were."
+          },
+          {
+            "startMs": 234939,
+            "endMs": 245316,
+            "text": "Imaan introduced herself and Akhlaq. They explained that they had been in another library, had found the strange compass, and then somehow landed there."
+          },
+          {
+            "startMs": 245316,
+            "endMs": 247276,
+            "text": "The scholar examined it."
+          },
+          {
+            "startMs": 247276,
+            "endMs": 250545,
+            "text": "“I have never seen such an object.”"
+          },
+          {
+            "startMs": 253265,
+            "endMs": 255305,
+            "text": "Akhlaq sighed. “Everyone keeps saying that.”"
+          },
+          {
+            "startMs": 255305,
+            "endMs": 258465,
+            "text": "“What is your name, sir?” Imaan asked."
+          },
+          {
+            "startMs": 259229,
+            "endMs": 260556,
+            "text": "“Ismail ibn Umar.”"
+          },
+          {
+            "startMs": 262203,
+            "endMs": 263026,
+            "text": "Imaan froze."
+          },
+          {
+            "startMs": 264015,
+            "endMs": 266650,
+            "text": "“Ismail ibn Umar… Ibn Kathir?”"
+          },
+          {
+            "startMs": 266650,
+            "endMs": 270109,
+            "text": "The scholar became still."
+          },
+          {
+            "startMs": 271097,
+            "endMs": 272885,
+            "text": "Akhlaq turned towards her."
+          },
+          {
+            "startMs": 272885,
+            "endMs": 274338,
+            "text": "“Wait. Ibn Kathir?”"
+          },
+          {
+            "startMs": 274897,
+            "endMs": 275568,
+            "text": "Imaan nodded."
+          },
+          {
+            "startMs": 276238,
+            "endMs": 278697,
+            "text": "Akhlaq looked down at the compass."
+          },
+          {
+            "startMs": 278697,
+            "endMs": 284309,
+            "text": "“I wanted to rearrange books. I have somehow travelled to Ibn Kathir.”"
+          },
+          {
+            "startMs": 284723,
+            "endMs": 287001,
+            "text": "Imaan showed Ibn Kathir the note."
+          },
+          {
+            "startMs": 287001,
+            "endMs": 287002,
+            "text": "SEE. REMEMBER. RETURN."
+          },
+          {
+            "startMs": 287002,
+            "endMs": 288969,
+            "text": "He did not recognise it."
+          },
+          {
+            "startMs": 288969,
+            "endMs": 292596,
+            "text": "Then Akhlaq noticed a manuscript open on the desk."
+          },
+          {
+            "startMs": 292596,
+            "endMs": 294189,
+            "text": "“What were you writing?”"
+          },
+          {
+            "startMs": 294189,
+            "endMs": 296649,
+            "text": "Ibn Kathir looked at the page."
+          },
+          {
+            "startMs": 296649,
+            "endMs": 299689,
+            "text": "“About Ibrahim, peace be upon him.”"
+          }
+        ]
+      },
+      {
+        "id": "ibrahim_en_02",
+        "title": "Ep 2 · When the Great Light Disappeared",
+        "audioKey": "en/ibrahim/02_when_the_great_light_disappeared.ogg",
+        "durationMs": 291074,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "ibrahim_en_03",
+        "title": "Ep 3 · The House of Silent Gods",
+        "audioKey": "en/ibrahim/03_the_house_of_silent_gods.ogg",
+        "durationMs": 224234,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "ibrahim_en_04",
+        "title": "Ep 4 · The Fire That Could Not Burn",
+        "audioKey": "en/ibrahim/04_the_fire_that_could_not_burn.ogg",
+        "durationMs": 203965,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "ibrahim_en_05",
+        "title": "Ep 5 · The King Who Could Not Move the Sun",
+        "audioKey": "en/ibrahim/05_the_king_who_could_not_move_the_sun.ogg",
+        "durationMs": 201794,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "ibrahim_en_06",
+        "title": "Ep 6 · So That My Heart May Be Reassured",
+        "audioKey": "en/ibrahim/06_so_that_my_heart_may_be_reassured.ogg",
+        "durationMs": 180542,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "ibrahim_en_07",
+        "title": "Ep 7 · The Road Away From Home",
+        "audioKey": "en/ibrahim/07_the_road_away_from_home.ogg",
+        "durationMs": 213993,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "ibrahim_en_08",
+        "title": "Ep 8 · The Valley With Nothing",
+        "audioKey": "en/ibrahim/08_the_valley_with_nothing.ogg",
+        "durationMs": 198959,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "ibrahim_en_09",
+        "title": "Ep 9 · The Guests Who Would Not Eat",
+        "audioKey": "en/ibrahim/09_the_guests_who_would_not_eat.ogg",
+        "durationMs": 168142,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "ibrahim_en_10",
+        "title": "Ep 10 · Raise the Foundations",
+        "audioKey": "en/ibrahim/10_raise_the_foundations.ogg",
+        "durationMs": 216593,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "ibrahim_en_11",
+        "title": "Ep 11 · The Hardest Test",
+        "audioKey": "en/ibrahim/11_the_hardest_test.ogg",
+        "durationMs": 425986,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      }
+    ]
+  },
+  {
+    "id": "lut_en",
+    "title": "Hazrat Lut (A.S.)",
+    "description": "A 6-part story about haya, self-control and staying clean when wrong feels normal.",
+    "language": "english",
+    "category": "prophets",
+    "cover": "lut",
+    "welcome": {
+      "id": "lut_en_meet",
+      "title": "Meet the series · Hazrat Lut (A.S.)",
+      "audioKey": "en/lut/00_meet_the_series.ogg",
+      "durationMs": 65297,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
+    "episodes": [
+      {
+        "id": "lut_en_01",
+        "title": "Ep 1 · When Wrong Became Normal",
+        "audioKey": "en/lut/01_when_wrong_became_normal.ogg",
+        "durationMs": 934532,
+        "previewEndMs": 469307,
+        "challenge": {
+          "title": "Common Does Not Mean Right",
+          "mission": "Today, notice one moment when people around you are doing something you know is wrong. It might be laughing at an inappropriate joke, watching something they should not watch, mocking another child, using bad language, cheating, or saying: “Everyone does it.” Do not join simply because the group accepts it. You can say: “No, I don’t want to do that.” Then move away calmly.",
+          "levelUp": "If someone asks: “Why are you being so strict?” Do not insult them. Simply say: “I don’t think everything becomes right just because lots of people do it.” Right and wrong are not decided by popularity. A believer learns Allah’s guidance and has the courage to follow it."
+        },
+        "captions": [
+          {
+            "startMs": 0,
+            "endMs": 1,
+            "text": "Episode 1: When Wrong Became Normal"
+          },
+          {
+            "startMs": 1,
+            "endMs": 2800,
+            "text": "The three knocks came again."
+          },
+          {
+            "startMs": 4000,
+            "endMs": 5767,
+            "text": "Knock."
+          },
+          {
+            "startMs": 5767,
+            "endMs": 7533,
+            "text": "Knock."
+          },
+          {
+            "startMs": 7533,
+            "endMs": 9300,
+            "text": "Knock."
+          },
+          {
+            "startMs": 10400,
+            "endMs": 14000,
+            "text": "Nobody in Ibn Kathir’s library moved."
+          },
+          {
+            "startMs": 14947,
+            "endMs": 17000,
+            "text": "Imaan stared at the wall."
+          },
+          {
+            "startMs": 17600,
+            "endMs": 19400,
+            "text": "Akhlaq stared at the Compass."
+          },
+          {
+            "startMs": 19400,
+            "endMs": 22024,
+            "text": "Nadir stared at both."
+          },
+          {
+            "startMs": 22024,
+            "endMs": 28953,
+            "text": "Then Akhlaq whispered, “I was hoping we might get one normal afternoon.”"
+          },
+          {
+            "startMs": 28953,
+            "endMs": 34207,
+            "text": "Nadir looked at him. “After everything you have seen?”"
+          },
+          {
+            "startMs": 34207,
+            "endMs": 35833,
+            "text": "“I can still hope.”"
+          },
+          {
+            "startMs": 35833,
+            "endMs": 44530,
+            "text": "The Compass lay open on Ibn Kathir’s desk. All eleven marks from the journey of Ibrahim (A.S.) had gone dark."
+          },
+          {
+            "startMs": 44530,
+            "endMs": 46605,
+            "text": "But the needle was moving."
+          },
+          {
+            "startMs": 46605,
+            "endMs": 48485,
+            "text": "Slowly."
+          },
+          {
+            "startMs": 49142,
+            "endMs": 50565,
+            "text": "Past one manuscript."
+          },
+          {
+            "startMs": 51322,
+            "endMs": 52205,
+            "text": "Past another."
+          },
+          {
+            "startMs": 52205,
+            "endMs": 55805,
+            "text": "Until it stopped over a new name."
+          },
+          {
+            "startMs": 55805,
+            "endMs": 56993,
+            "text": "LUT"
+          },
+          {
+            "startMs": 56993,
+            "endMs": 59765,
+            "text": "Imaan remembered immediately."
+          },
+          {
+            "startMs": 59765,
+            "endMs": 60977,
+            "text": "“The angels.”"
+          },
+          {
+            "startMs": 61877,
+            "endMs": 62777,
+            "text": "Akhlaq nodded."
+          },
+          {
+            "startMs": 62777,
+            "endMs": 68177,
+            "text": "“The guests who came to Ibrahim (A.S.). They said they were going to the people of Lut.”"
+          },
+          {
+            "startMs": 68177,
+            "endMs": 71217,
+            "text": "Nadir’s face became serious."
+          },
+          {
+            "startMs": 71217,
+            "endMs": 76577,
+            "text": "“So this story had already started before Ibrahim’s journey ended.”"
+          },
+          {
+            "startMs": 76577,
+            "endMs": 79137,
+            "text": "Ibn Kathir opened the manuscript carefully."
+          },
+          {
+            "startMs": 79137,
+            "endMs": 79897,
+            "text": "“Yes.”"
+          },
+          {
+            "startMs": 80768,
+            "endMs": 83049,
+            "text": "Akhlaq looked towards the wall."
+          },
+          {
+            "startMs": 83049,
+            "endMs": 87489,
+            "text": "“And I suppose those knocks mean we are about to see why.”"
+          },
+          {
+            "startMs": 87489,
+            "endMs": 88989,
+            "text": "The Compass clicked."
+          },
+          {
+            "startMs": 88989,
+            "endMs": 94249,
+            "text": "A new ring of six small marks appeared around its edge."
+          },
+          {
+            "startMs": 94249,
+            "endMs": 97009,
+            "text": "The first began to glow."
+          },
+          {
+            "startMs": 97009,
+            "endMs": 99449,
+            "text": "Words formed across the glass:"
+          },
+          {
+            "startMs": 99961,
+            "endMs": 104761,
+            "text": "WHEN EVERYONE ACCEPTS SOMETHING, DOES THAT MAKE IT RIGHT?"
+          },
+          {
+            "startMs": 105450,
+            "endMs": 107321,
+            "text": "Akhlaq answered immediately."
+          },
+          {
+            "startMs": 107321,
+            "endMs": 108761,
+            "text": "“No.”"
+          },
+          {
+            "startMs": 109230,
+            "endMs": 110521,
+            "text": "Imaan looked at him."
+          },
+          {
+            "startMs": 110521,
+            "endMs": 112441,
+            "text": "“That was quick.”"
+          },
+          {
+            "startMs": 112441,
+            "endMs": 116641,
+            "text": "“I have learned not to argue with mysterious compasses.”"
+          },
+          {
+            "startMs": 116641,
+            "endMs": 119041,
+            "text": "Then the wall opened."
+          },
+          {
+            "startMs": 119041,
+            "endMs": 122071,
+            "text": "The first thing they heard was laughter."
+          },
+          {
+            "startMs": 122071,
+            "endMs": 124190,
+            "text": "Not happy laughter."
+          },
+          {
+            "startMs": 124190,
+            "endMs": 125778,
+            "text": "Loud laughter."
+          },
+          {
+            "startMs": 125778,
+            "endMs": 127764,
+            "text": "Mocking laughter."
+          },
+          {
+            "startMs": 128956,
+            "endMs": 131196,
+            "text": "Imaan, Akhlaq and Nadir stepped into the dreamworld."
+          },
+          {
+            "startMs": 132166,
+            "endMs": 134978,
+            "text": "They were standing near a busy town."
+          },
+          {
+            "startMs": 134978,
+            "endMs": 137034,
+            "text": "People filled the streets."
+          },
+          {
+            "startMs": 137034,
+            "endMs": 142535,
+            "text": "There were houses, stalls and travellers passing along the road."
+          },
+          {
+            "startMs": 142535,
+            "endMs": 145304,
+            "text": "At first, everything looked ordinary."
+          },
+          {
+            "startMs": 145304,
+            "endMs": 148545,
+            "text": "Then Imaan began noticing small things."
+          },
+          {
+            "startMs": 148545,
+            "endMs": 154785,
+            "text": "A group of men laughed loudly at a traveller who looked uncomfortable."
+          },
+          {
+            "startMs": 154785,
+            "endMs": 157385,
+            "text": "Someone shouted something rude."
+          },
+          {
+            "startMs": 157385,
+            "endMs": 159407,
+            "text": "Another person joined in."
+          },
+          {
+            "startMs": 159407,
+            "endMs": 161475,
+            "text": "Nobody seemed surprised."
+          },
+          {
+            "startMs": 161475,
+            "endMs": 166909,
+            "text": "Farther away, people were behaving in ways that made Imaan uneasy."
+          },
+          {
+            "startMs": 166909,
+            "endMs": 171077,
+            "text": "Not because she fully understood everything she was seeing."
+          },
+          {
+            "startMs": 171077,
+            "endMs": 175215,
+            "text": "But because nobody seemed to care about modesty anymore."
+          },
+          {
+            "startMs": 175892,
+            "endMs": 176569,
+            "text": "Akhlaq frowned."
+          },
+          {
+            "startMs": 176569,
+            "endMs": 181929,
+            "text": "“Why is everyone acting as though nothing is wrong?”"
+          },
+          {
+            "startMs": 181929,
+            "endMs": 183649,
+            "text": "Nadir did not answer."
+          },
+          {
+            "startMs": 183649,
+            "endMs": 185489,
+            "text": "The Compass grew warm."
+          },
+          {
+            "startMs": 185489,
+            "endMs": 187769,
+            "text": "Then they saw him."
+          },
+          {
+            "startMs": 187769,
+            "endMs": 190929,
+            "text": "A man stood before a group of people."
+          },
+          {
+            "startMs": 190929,
+            "endMs": 194889,
+            "text": "His voice was calm, but his message was serious."
+          },
+          {
+            "startMs": 195436,
+            "endMs": 197489,
+            "text": "Imaan knew immediately."
+          },
+          {
+            "startMs": 198982,
+            "endMs": 199729,
+            "text": "“Lut (A.S.).”"
+          },
+          {
+            "startMs": 199729,
+            "endMs": 201196,
+            "text": "They moved closer."
+          },
+          {
+            "startMs": 201196,
+            "endMs": 206646,
+            "text": "The crowd around Lut (A.S.) was not listening respectfully."
+          },
+          {
+            "startMs": 206646,
+            "endMs": 207921,
+            "text": "Some laughed."
+          },
+          {
+            "startMs": 207921,
+            "endMs": 209763,
+            "text": "Others rolled their eyes."
+          },
+          {
+            "startMs": 209763,
+            "endMs": 215072,
+            "text": "One man shouted as though he had heard the same warning many times before."
+          },
+          {
+            "startMs": 215623,
+            "endMs": 221507,
+            "text": "Lut (A.S.) continued calling them away from the shameful behaviour they had accepted."
+          },
+          {
+            "startMs": 221507,
+            "endMs": 225334,
+            "text": "He reminded them of the limits Allah had set."
+          },
+          {
+            "startMs": 225759,
+            "endMs": 227353,
+            "text": "Imaan listened closely."
+          },
+          {
+            "startMs": 227353,
+            "endMs": 229173,
+            "text": "Then she whispered to Akhlaq:"
+          },
+          {
+            "startMs": 229679,
+            "endMs": 233521,
+            "text": "“Why does he keep talking about relationships?”"
+          },
+          {
+            "startMs": 234026,
+            "endMs": 235729,
+            "text": "Akhlaq looked confused too."
+          },
+          {
+            "startMs": 235729,
+            "endMs": 239116,
+            "text": "Nadir glanced at them but remained quiet."
+          },
+          {
+            "startMs": 239116,
+            "endMs": 242305,
+            "text": "The dreamworld began to slow."
+          },
+          {
+            "startMs": 242305,
+            "endMs": 245234,
+            "text": "The Compass displayed a message:"
+          },
+          {
+            "startMs": 245234,
+            "endMs": 248705,
+            "text": "UNDERSTAND BEFORE YOU JUDGE THE SCENE."
+          },
+          {
+            "startMs": 248705,
+            "endMs": 254105,
+            "text": "Suddenly Ibn Kathir’s voice seemed to reach them from far away."
+          },
+          {
+            "startMs": 254105,
+            "endMs": 259897,
+            "text": "Not as another character inside history, but as their guide through the account."
+          },
+          {
+            "startMs": 259897,
+            "endMs": 262937,
+            "text": "And the explanation was simple."
+          },
+          {
+            "startMs": 263313,
+            "endMs": 281809,
+            "text": "Allah had taught people the right boundaries for relationships between men and women. But many people in Lut’s town ignored those boundaries. What was wrong slowly became so common that people stopped feeling ashamed of it."
+          },
+          {
+            "startMs": 282236,
+            "endMs": 284902,
+            "text": "Imaan looked towards the town again."
+          },
+          {
+            "startMs": 284902,
+            "endMs": 287569,
+            "text": "Now she understood the lesson."
+          },
+          {
+            "startMs": 287569,
+            "endMs": 292660,
+            "text": "“So the problem was not only that people were doing something wrong.”"
+          },
+          {
+            "startMs": 292660,
+            "endMs": 293679,
+            "text": "Nadir nodded."
+          },
+          {
+            "startMs": 293679,
+            "endMs": 307017,
+            "text": "“They had started treating it as though it was not wrong anymore.”"
+          },
+          {
+            "startMs": 308908,
+            "endMs": 308909,
+            "text": "Akhlaq looked at the laughing crowd."
+          },
+          {
+            "startMs": 308909,
+            "endMs": 308910,
+            "text": "“And if someone reminded them…”"
+          },
+          {
+            "startMs": 308910,
+            "endMs": 308911,
+            "text": "“They did not want to hear it,” Imaan said."
+          },
+          {
+            "startMs": 308911,
+            "endMs": 311498,
+            "text": "Lut (A.S.) continued warning his people."
+          },
+          {
+            "startMs": 311498,
+            "endMs": 319721,
+            "text": "The Qur’an tells us that he challenged the men of his people for going towards men with desire instead of women."
+          },
+          {
+            "startMs": 319873,
+            "endMs": 324273,
+            "text": "For Imaan and Akhlaq, the meaning was explained simply:"
+          },
+          {
+            "startMs": 324273,
+            "endMs": 330273,
+            "text": "Allah had created proper boundaries for relationships between men and women."
+          },
+          {
+            "startMs": 330273,
+            "endMs": 338073,
+            "text": "But the people were choosing forbidden relationships and refusing to feel ashamed of crossing Allah’s limits."
+          },
+          {
+            "startMs": 338673,
+            "endMs": 340671,
+            "text": "Akhlaq lowered his voice."
+          },
+          {
+            "startMs": 340671,
+            "endMs": 345506,
+            "text": "“So they knew Lut (A.S.) said it was wrong?”"
+          },
+          {
+            "startMs": 345506,
+            "endMs": 345990,
+            "text": "“Yes.”"
+          },
+          {
+            "startMs": 345990,
+            "endMs": 349697,
+            "text": "“And they still kept doing it?”"
+          },
+          {
+            "startMs": 349697,
+            "endMs": 350180,
+            "text": "“Yes.”"
+          },
+          {
+            "startMs": 350180,
+            "endMs": 352365,
+            "text": "“Then why didn’t they stop?”"
+          },
+          {
+            "startMs": 352365,
+            "endMs": 354674,
+            "text": "Nadir looked around the town."
+          },
+          {
+            "startMs": 354674,
+            "endMs": 357465,
+            "text": "“Look at how many people are doing it.”"
+          },
+          {
+            "startMs": 357922,
+            "endMs": 359065,
+            "text": "Akhlaq followed his gaze."
+          },
+          {
+            "startMs": 359857,
+            "endMs": 360865,
+            "text": "Many."
+          },
+          {
+            "startMs": 360865,
+            "endMs": 362377,
+            "text": "Not one."
+          },
+          {
+            "startMs": 362377,
+            "endMs": 363889,
+            "text": "Not two."
+          },
+          {
+            "startMs": 363889,
+            "endMs": 364897,
+            "text": "Many."
+          },
+          {
+            "startMs": 364897,
+            "endMs": 366187,
+            "text": "Nadir continued."
+          },
+          {
+            "startMs": 366187,
+            "endMs": 372977,
+            "text": "“When something wrong is repeated again and again, people can start becoming used to it.”"
+          },
+          {
+            "startMs": 373541,
+            "endMs": 374894,
+            "text": "Imaan nodded slowly."
+          },
+          {
+            "startMs": 374894,
+            "endMs": 378278,
+            "text": "“Then used to it becomes accepting it.”"
+          },
+          {
+            "startMs": 378278,
+            "endMs": 382594,
+            "text": "“And accepting it can become defending it,” Nadir said."
+          },
+          {
+            "startMs": 382594,
+            "endMs": 384203,
+            "text": "The Compass clicked."
+          },
+          {
+            "startMs": 384203,
+            "endMs": 386569,
+            "text": "The first mark filled halfway."
+          },
+          {
+            "startMs": 386569,
+            "endMs": 388211,
+            "text": "Words appeared:"
+          },
+          {
+            "startMs": 388211,
+            "endMs": 391242,
+            "text": "COMMON DOES NOT MEAN CORRECT."
+          },
+          {
+            "startMs": 391999,
+            "endMs": 393262,
+            "text": "Akhlaq repeated it."
+          },
+          {
+            "startMs": 393262,
+            "endMs": 396149,
+            "text": "“Common does not mean correct.”"
+          },
+          {
+            "startMs": 396149,
+            "endMs": 398898,
+            "text": "They moved deeper into the town."
+          },
+          {
+            "startMs": 398898,
+            "endMs": 402161,
+            "text": "A young boy was standing beside an older group."
+          },
+          {
+            "startMs": 402161,
+            "endMs": 406401,
+            "text": "The older people were laughing about something inappropriate."
+          },
+          {
+            "startMs": 406401,
+            "endMs": 408437,
+            "text": "The boy looked uncertain."
+          },
+          {
+            "startMs": 408437,
+            "endMs": 409989,
+            "text": "One man noticed him."
+          },
+          {
+            "startMs": 409989,
+            "endMs": 413297,
+            "text": "“Why are you standing there? Come and listen!”"
+          },
+          {
+            "startMs": 413297,
+            "endMs": 414536,
+            "text": "The boy hesitated."
+          },
+          {
+            "startMs": 415114,
+            "endMs": 422291,
+            "text": "Akhlaq immediately stepped forward before remembering that the people in the dreamworld could not see him."
+          },
+          {
+            "startMs": 422291,
+            "endMs": 424134,
+            "text": "The boy looked around."
+          },
+          {
+            "startMs": 424134,
+            "endMs": 426489,
+            "text": "Everyone else was laughing."
+          },
+          {
+            "startMs": 426489,
+            "endMs": 427820,
+            "text": "So he smiled too."
+          },
+          {
+            "startMs": 427820,
+            "endMs": 430072,
+            "text": "Not because he understood."
+          },
+          {
+            "startMs": 430072,
+            "endMs": 431914,
+            "text": "Not because he agreed."
+          },
+          {
+            "startMs": 431914,
+            "endMs": 436148,
+            "text": "Simply because he did not want to look different."
+          },
+          {
+            "startMs": 436595,
+            "endMs": 437935,
+            "text": "Imaan’s face changed."
+          },
+          {
+            "startMs": 437935,
+            "endMs": 439833,
+            "text": "“That happens now too.”"
+          },
+          {
+            "startMs": 440582,
+            "endMs": 441970,
+            "text": "Akhlaq looked at her."
+          },
+          {
+            "startMs": 441970,
+            "endMs": 442474,
+            "text": "“What?”"
+          },
+          {
+            "startMs": 442474,
+            "endMs": 454710,
+            "text": "“Someone shows something wrong. Or tells a bad joke. Everyone laughs, so another child laughs because they do not want to feel strange.”"
+          },
+          {
+            "startMs": 454710,
+            "endMs": 455798,
+            "text": "Nadir nodded."
+          },
+          {
+            "startMs": 455798,
+            "endMs": 460636,
+            "text": "“And that is how people slowly start treating something wrong as normal.”"
+          },
+          {
+            "startMs": 460636,
+            "endMs": 462582,
+            "text": "The Compass displayed:"
+          },
+          {
+            "startMs": 462582,
+            "endMs": 469307,
+            "text": "YOU DO NOT HAVE TO JOIN SOMETHING JUST BECAUSE OTHERS HAVE STOPPED QUESTIONING IT."
+          }
+        ]
+      },
+      {
+        "id": "lut_en_02",
+        "title": "Ep 2 · Don’t Open That",
+        "audioKey": "en/lut/02_dont_open_that.ogg",
+        "durationMs": 770789,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "lut_en_03",
+        "title": "Ep 3 · The Guests at the Door",
+        "audioKey": "en/lut/03_the_guests_at_the_door.ogg",
+        "durationMs": 864242,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "lut_en_04",
+        "title": "Ep 4 · Why Are You So Different?",
+        "audioKey": "en/lut/04_why_are_you_so_different.ogg",
+        "durationMs": 883641,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "lut_en_05",
+        "title": "Ep 5 · When I Really Want Something",
+        "audioKey": "en/lut/05_when_i_really_want_something.ogg",
+        "durationMs": 970869,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "lut_en_06",
+        "title": "Ep 6 · Leave Before Morning",
+        "audioKey": "en/lut/06_leave_before_morning.ogg",
+        "durationMs": 888641,
         "previewEndMs": null,
         "challenge": null,
         "captions": []
@@ -2487,350 +3917,6 @@ export const allSeries: Series[] = [
         "title": "Ep 10 · Amanpur's Promise",
         "audioKey": "en/fairness/10_amanpurs_promise.ogg",
         "durationMs": 436172,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      }
-    ]
-  },
-  {
-    "id": "gratitude_en",
-    "title": "The Things We Never Notice",
-    "description": "A 10-part story about gratitude.",
-    "language": "english",
-    "category": "moral",
-    "cover": "gratitude",
-    "welcome": {
-      "id": "gratitude_en_meet",
-      "title": "Meet the series · The Things We Never Notice",
-      "audioKey": "en/gratitude/00_meet_the_series.ogg",
-      "durationMs": 62870,
-      "previewEndMs": null,
-      "captions": [],
-      "challenge": null
-    },
-    "episodes": [
-      {
-        "id": "gratitude_en_01",
-        "title": "Ep 1 · The List That Wouldn’t End",
-        "audioKey": "en/gratitude/01_the_list_that_wouldnt_end.ogg",
-        "durationMs": 447625,
-        "previewEndMs": 224644,
-        "challenge": {
-          "title": "Notice and Lighten One Load",
-          "mission": "Choose one person whose work you usually benefit from without noticing. Make one small part of their work easier today: put your own things away, carry something, clean up after yourself, return a trolley or chair, or help before being asked.",
-          "levelUp": "(Ages 9-12): Do a good act without telling anyone you did it. Let the reduced burden be the thank-you."
-        },
-        "captions": [
-          {
-            "startMs": 116,
-            "endMs": 1219,
-            "text": "EPISODE 1"
-          },
-          {
-            "startMs": 1219,
-            "endMs": 4116,
-            "text": "The List That Wouldn’t End"
-          },
-          {
-            "startMs": 4116,
-            "endMs": 9116,
-            "text": "Gratitude begins when we notice what has become ordinary."
-          },
-          {
-            "startMs": 9116,
-            "endMs": 14116,
-            "text": "The first rays of sunlight slipped through the windows of the house in Amanpur."
-          },
-          {
-            "startMs": 14116,
-            "endMs": 25484,
-            "text": "The Fajr Adhan had faded, the birds had begun their morning chatter, and almost everyone in the house was still enjoying the last few minutes of sleep."
-          },
-          {
-            "startMs": 25484,
-            "endMs": 27164,
-            "text": "Almost everyone."
-          },
-          {
-            "startMs": 27478,
-            "endMs": 31244,
-            "text": "Ammi had already folded her prayer mat and entered the kitchen."
-          },
-          {
-            "startMs": 31244,
-            "endMs": 41052,
-            "text": "She checked the milk, kneaded the dough, packed Abbu’s lunch, prepared breakfast, filled water bottles and placed Dadi’s medicine beside her cup."
-          },
-          {
-            "startMs": 41052,
-            "endMs": 51652,
-            "text": "By the time the smell of fresh parathas reached the hallway, Ammi had already completed a small day’s work before the rest of the family had properly begun theirs."
-          },
-          {
-            "startMs": 51652,
-            "endMs": 54852,
-            "text": "Then came the voice everyone knew."
-          },
-          {
-            "startMs": 54852,
-            "endMs": 55487,
-            "text": "“Ammi!"
-          },
-          {
-            "startMs": 55487,
-            "endMs": 57980,
-            "text": "I can’t find my socks!”"
-          },
-          {
-            "startMs": 57980,
-            "endMs": 63843,
-            "text": "Without turning from the stove, Ammi replied, “Inside your school shoes, Akhlaaq.”"
-          },
-          {
-            "startMs": 64460,
-            "endMs": 68460,
-            "text": "There was a pause, followed by a much quieter voice."
-          },
-          {
-            "startMs": 68460,
-            "endMs": 68787,
-            "text": "“Oh."
-          },
-          {
-            "startMs": 68787,
-            "endMs": 72060,
-            "text": "They are inside my shoes.”"
-          },
-          {
-            "startMs": 72271,
-            "endMs": 80428,
-            "text": "Abbu laughed from the dining table and told him that one day he would lose his own head and ask Ammi where she had put it."
-          },
-          {
-            "startMs": 80428,
-            "endMs": 84348,
-            "text": "Just then Ali arrived to walk with them to school."
-          },
-          {
-            "startMs": 84348,
-            "endMs": 95617,
-            "text": "When he heard about the missing socks, he announced that Imaan and Akhlaaq should open a detective agency, although he doubted they could solve a case involving anything inside Akhlaaq’s own room."
-          },
-          {
-            "startMs": 95617,
-            "endMs": 97034,
-            "text": "Everyone laughed."
-          },
-          {
-            "startMs": 97034,
-            "endMs": 105476,
-            "text": "While they did, Ammi straightened Akhlaaq’s tie, brushed crumbs from his shirt and checked Imaan’s water bottle."
-          },
-          {
-            "startMs": 105476,
-            "endMs": 106944,
-            "text": "No one thanked her."
-          },
-          {
-            "startMs": 106944,
-            "endMs": 109901,
-            "text": "In fact, no one even seemed to notice."
-          },
-          {
-            "startMs": 109901,
-            "endMs": 113663,
-            "text": "At breakfast, the same thing continued."
-          },
-          {
-            "startMs": 113663,
-            "endMs": 130164,
-            "text": "Everyone sat down while Ammi moved between the table and kitchen: tea, milk, lunch boxes, Dadi’s medicine, Abbu’s file, one forgotten spoon and then another glass of water."
-          },
-          {
-            "startMs": 130164,
-            "endMs": 134404,
-            "text": "She finally sat when the others were almost finished."
-          },
-          {
-            "startMs": 134892,
-            "endMs": 136988,
-            "text": "Imaan watched her for a few seconds."
-          },
-          {
-            "startMs": 136988,
-            "endMs": 143372,
-            "text": "Something about it stayed in her mind, although she could not yet explain why."
-          },
-          {
-            "startMs": 144150,
-            "endMs": 148233,
-            "text": "At school, the Principal announced Gratitude Week."
-          },
-          {
-            "startMs": 148816,
-            "endMs": 154572,
-            "text": "Akhlaaq whispered to Ali that perhaps gratitude involved free burgers."
-          },
-          {
-            "startMs": 155156,
-            "endMs": 161840,
-            "text": "Fatima heard him and told the boys that food appeared to be their only serious academic interest."
-          },
-          {
-            "startMs": 161840,
-            "endMs": 166200,
-            "text": "Their laughter stopped when the sports teacher glanced in their direction."
-          },
-          {
-            "startMs": 166200,
-            "endMs": 171900,
-            "text": "Later, Ms. Sana entered the classroom carrying a small green plant."
-          },
-          {
-            "startMs": 171900,
-            "endMs": 175994,
-            "text": "She placed it on her desk and asked the children what kept it alive."
-          },
-          {
-            "startMs": 175994,
-            "endMs": 180235,
-            "text": "Water, sunlight and care came quickly as answers."
-          },
-          {
-            "startMs": 180235,
-            "endMs": 190366,
-            "text": "Then she asked a different question: “How many things in your own life continue because someone remembers to care for them?”"
-          },
-          {
-            "startMs": 190366,
-            "endMs": 196358,
-            "text": "The room became quieter."
-          },
-          {
-            "startMs": 198456,
-            "endMs": 198457,
-            "text": "“Shukr begins with Allah,” Ms. Sana continued."
-          },
-          {
-            "startMs": 198457,
-            "endMs": 204680,
-            "text": "“We say Alhamdulillah for His blessings, but gratitude should also change the way we notice, use and care for those blessings.”"
-          },
-          {
-            "startMs": 204680,
-            "endMs": 213956,
-            "text": "For homework, she asked each student to observe what their parents or guardians did from the time they returned home until bedtime."
-          },
-          {
-            "startMs": 213956,
-            "endMs": 214101,
-            "text": "No interviews."
-          },
-          {
-            "startMs": 214764,
-            "endMs": 216137,
-            "text": "No speeches."
-          },
-          {
-            "startMs": 216137,
-            "endMs": 218195,
-            "text": "Just observation."
-          },
-          {
-            "startMs": 218882,
-            "endMs": 221215,
-            "text": "Akhlaaq smiled confidently."
-          },
-          {
-            "startMs": 221215,
-            "endMs": 221764,
-            "text": "“Easy.”"
-          },
-          {
-            "startMs": 222404,
-            "endMs": 224644,
-            "text": "Ms. Sana smiled back."
-          }
-        ]
-      },
-      {
-        "id": "gratitude_en_02",
-        "title": "Ep 2 · The Man at the Gate",
-        "audioKey": "en/gratitude/02_the_man_at_the_gate.ogg",
-        "durationMs": 377812,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "gratitude_en_03",
-        "title": "Ep 3 · The Teacher in the Photograph",
-        "audioKey": "en/gratitude/03_the_teacher_in_the_photograph.ogg",
-        "durationMs": 300767,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "gratitude_en_04",
-        "title": "Ep 4 · The Missing Page",
-        "audioKey": "en/gratitude/04_the_missing_page.ogg",
-        "durationMs": 318128,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "gratitude_en_05",
-        "title": "Ep 5 · When the House Went Quiet",
-        "audioKey": "en/gratitude/05_when_the_house_went_quiet.ogg",
-        "durationMs": 330392,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "gratitude_en_06",
-        "title": "Ep 6 · The Work We Never Saw",
-        "audioKey": "en/gratitude/06_the_work_we_never_saw.ogg",
-        "durationMs": 311438,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "gratitude_en_07",
-        "title": "Ep 7 · The Silver Key",
-        "audioKey": "en/gratitude/07_the_silver_key.ogg",
-        "durationMs": 244345,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "gratitude_en_08",
-        "title": "Ep 8 · The Woman Who Came Back",
-        "audioKey": "en/gratitude/08_the_woman_who_came_back.ogg",
-        "durationMs": 315637,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "gratitude_en_09",
-        "title": "Ep 9 · While They Can Hear You",
-        "audioKey": "en/gratitude/09_while_they_can_hear_you.ogg",
-        "durationMs": 259570,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "gratitude_en_10",
-        "title": "Ep 10 · The Children Who Notice",
-        "audioKey": "en/gratitude/10_the_children_who_notice.ogg",
-        "durationMs": 423055,
         "previewEndMs": null,
         "challenge": null,
         "captions": []
@@ -3555,6 +4641,509 @@ export const allSeries: Series[] = [
         "title": "Ep 10 · The Kindness That Came Back",
         "audioKey": "en/kindness/10_the_kindness_that_came_back.ogg",
         "durationMs": 461965,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      }
+    ]
+  },
+  {
+    "id": "respect_en",
+    "title": "Respect",
+    "description": "A 10-part story about respect and dignity.",
+    "language": "english",
+    "category": "moral",
+    "cover": "respect",
+    "welcome": {
+      "id": "respect_en_meet",
+      "title": "Meet the series · Respect",
+      "audioKey": "en/respect/00_meet_the_series.ogg",
+      "durationMs": 61741,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
+    "episodes": [
+      {
+        "id": "respect_en_01",
+        "title": "Ep 1 · Rashid's Salam",
+        "audioKey": "en/respect/01_rashids_salam.ogg",
+        "durationMs": 417816,
+        "previewEndMs": 259135,
+        "challenge": {
+          "title": "The Respectful Greeting Mission",
+          "mission": "Today, greet at least three people properly – one classmate, one adult at school, and one person you do not usually speak to. Use their name if you know it, look at them, and do not judge the value of your greeting by how warmly they reply.",
+          "levelUp": "Ages 9-12: Notice whether you greet people differently because of age, job, popularity or ability. Correct one unfair habit."
+        },
+        "captions": [
+          {
+            "startMs": 0,
+            "endMs": 1685,
+            "text": "IMAAN & AKHLAAQ"
+          },
+          {
+            "startMs": 1685,
+            "endMs": 2593,
+            "text": "RESPECT"
+          },
+          {
+            "startMs": 2593,
+            "endMs": 7000,
+            "text": "A Ten-Chapter Story on Respect and Dignity"
+          },
+          {
+            "startMs": 7000,
+            "endMs": 10000,
+            "text": "Chapter One: Rashid's Salam"
+          },
+          {
+            "startMs": 10000,
+            "endMs": 54175,
+            "text": "Every morning, Rashid greeted the people he met with \"Assalamu Alaikum!\" He greeted his mother in the kitchen, the elderly guard at the school gate, and even the strict class monitor who rarely smiled. \"Why do you bother?\" Hamid asked one morning. \"Some people hardly reply.\" Rashid shrugged. \"Because a respectful greeting is still worth giving. I do not have to wait for someone else to be kind first.\" Hamid was funny and could make almost the whole class laugh, but sometimes his jokes copied people in ways that embarrassed them. Rashid usually stayed out of those jokes, although he was beginning to wonder whether staying silent was always enough."
+          },
+          {
+            "startMs": 54175,
+            "endMs": 101839,
+            "text": "That morning, the class teacher announced that the students would elect a Class Captain. The Captain would help the teacher organise class tasks, listen to classmates, represent the class during the Spring Festival, and set a good example. The room filled with excited whispers. \"I am going to win,\" Hamid told Rashid with a grin. \"Easy.\" \"You do not even know what the job requires yet,\" Rashid replied. \"People vote for who they like, and everyone likes me.\" Imaan, sitting in front of them, turned around. \"People also choose whom they trust. Liking someone and trusting someone are not always the same.\" Hamid shrugged. Akhlaaq, Imaan's brother, simply raised one eyebrow."
+          },
+          {
+            "startMs": 119807,
+            "endMs": 149175,
+            "text": "The next day, Hamid began campaigning near the football ground. “Vote for me and there will be no homework on Fridays!” he announced. “You cannot promise that,” Rashid said. “Homework is Miss’s decision, not the Captain’s.” Hamid waved him away and continued talking as if he already owned the position. Nearby, a younger boy named Ayaan sat alone by the fence, holding a cricket ball. Ayaan walked with a leg brace and had not been invited into the older boys’ game. Rashid noticed him first, but before he could speak, Akhlaaq followed his gaze. “Assalam o Alaikum, Ayaan,” Akhlaaq called. “Do you want to join us?” Ayaan’s face brightened. “Wa Alaikum Assalam. Yes.”"
+          },
+          {
+            "startMs": 149175,
+            "endMs": 188911,
+            "text": "Hamid frowned. “He might slow us down.” Imaan looked directly at him. “We have not even asked what he can do.” She turned to Ayaan instead of speaking about him as though he were not there. “What position do you like?” “Bowling,” Ayaan replied. Rashid handed him the ball, and Akhlaaq moved aside to give him a proper run-up. “Then bowl.” Ayaan’s first delivery clipped the wicket. Even Hamid looked surprised. Imaan smiled, not because Ayaan needed pity, but because he had been given the same dignity, choice and chance to participate as everyone else."
+          },
+          {
+            "startMs": 188911,
+            "endMs": 259135,
+            "text": "That evening, Rashid sat beside his grandmother while she peeled potatoes. \"Hamid is probably going to win,\" he said. \"Everyone likes him.\" his grandmother put the knife down. \"Being liked and being worthy of respect are not always the same thing, beta.\" Then she told him an authentic incident from the life of the Prophet (PBUH). Once, when a funeral procession passed, the Prophet (PBUH) stood up. When people mentioned that the deceased was Jewish, he reminded them that the person was still a human soul. \"That is dignity,\" his grandmother said. \"Respect begins when we remember that every human being has worth, even when they are different from us.\" Rashid stayed quiet for a moment. \"So respect is not something people have to earn before I show basic decency?\" \"Exactly,\" his grandmother replied. \"Good character begins with what you choose to give.\" (Reference: Sahih al-Bukhari 1312-1313.)"
+          }
+        ]
+      },
+      {
+        "id": "respect_en_02",
+        "title": "Ep 2 · Votes and Promises",
+        "audioKey": "en/respect/02_votes_and_promises.ogg",
+        "durationMs": 427259,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "respect_en_03",
+        "title": "Ep 3 · The First Loss",
+        "audioKey": "en/respect/03_the_first_loss.ogg",
+        "durationMs": 652558,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "respect_en_04",
+        "title": "Ep 4 · The Courage to Speak",
+        "audioKey": "en/respect/04_the_courage_to_speak.ogg",
+        "durationMs": 220588,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "respect_en_05",
+        "title": "Ep 5 · The Boy Behind the Badge",
+        "audioKey": "en/respect/05_the_boy_behind_the_badge.ogg",
+        "durationMs": 307020,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "respect_en_06",
+        "title": "Ep 6 · The Captain's Special Seat",
+        "audioKey": "en/respect/06_the_captains_special_seat.ogg",
+        "durationMs": 414590,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "respect_en_07",
+        "title": "Ep 7 · The Captain Learns to Listen",
+        "audioKey": "en/respect/07_the_captain_learns_to_listen.ogg",
+        "durationMs": 287365,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "respect_en_08",
+        "title": "Ep 8 · The Test of True Respect",
+        "audioKey": "en/respect/08_the_test_of_true_respect.ogg",
+        "durationMs": 244547,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "respect_en_09",
+        "title": "Ep 9 · The Choice That Changed Everything",
+        "audioKey": "en/respect/09_the_choice_that_changed_everything.ogg",
+        "durationMs": 425335,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "respect_en_10",
+        "title": "Ep 10 · The Man Behind the Notes",
+        "audioKey": "en/respect/10_the_man_behind_the_notes.ogg",
+        "durationMs": 691961,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      }
+    ]
+  },
+  {
+    "id": "gratitude_en",
+    "title": "The Things We Never Notice",
+    "description": "A 10-part story about gratitude.",
+    "language": "english",
+    "category": "moral",
+    "cover": "gratitude",
+    "welcome": {
+      "id": "gratitude_en_meet",
+      "title": "Meet the series · The Things We Never Notice",
+      "audioKey": "en/gratitude/00_meet_the_series.ogg",
+      "durationMs": 62870,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
+    "episodes": [
+      {
+        "id": "gratitude_en_01",
+        "title": "Ep 1 · The List That Wouldn’t End",
+        "audioKey": "en/gratitude/01_the_list_that_wouldnt_end.ogg",
+        "durationMs": 447625,
+        "previewEndMs": 224644,
+        "challenge": {
+          "title": "Notice and Lighten One Load",
+          "mission": "Choose one person whose work you usually benefit from without noticing. Make one small part of their work easier today: put your own things away, carry something, clean up after yourself, return a trolley or chair, or help before being asked.",
+          "levelUp": "(Ages 9-12): Do a good act without telling anyone you did it. Let the reduced burden be the thank-you."
+        },
+        "captions": [
+          {
+            "startMs": 116,
+            "endMs": 1219,
+            "text": "EPISODE 1"
+          },
+          {
+            "startMs": 1219,
+            "endMs": 4116,
+            "text": "The List That Wouldn’t End"
+          },
+          {
+            "startMs": 4116,
+            "endMs": 9116,
+            "text": "Gratitude begins when we notice what has become ordinary."
+          },
+          {
+            "startMs": 9116,
+            "endMs": 14116,
+            "text": "The first rays of sunlight slipped through the windows of the house in Amanpur."
+          },
+          {
+            "startMs": 14116,
+            "endMs": 25484,
+            "text": "The Fajr Adhan had faded, the birds had begun their morning chatter, and almost everyone in the house was still enjoying the last few minutes of sleep."
+          },
+          {
+            "startMs": 25484,
+            "endMs": 27164,
+            "text": "Almost everyone."
+          },
+          {
+            "startMs": 27478,
+            "endMs": 31244,
+            "text": "Ammi had already folded her prayer mat and entered the kitchen."
+          },
+          {
+            "startMs": 31244,
+            "endMs": 41052,
+            "text": "She checked the milk, kneaded the dough, packed Abbu’s lunch, prepared breakfast, filled water bottles and placed Dadi’s medicine beside her cup."
+          },
+          {
+            "startMs": 41052,
+            "endMs": 51652,
+            "text": "By the time the smell of fresh parathas reached the hallway, Ammi had already completed a small day’s work before the rest of the family had properly begun theirs."
+          },
+          {
+            "startMs": 51652,
+            "endMs": 54852,
+            "text": "Then came the voice everyone knew."
+          },
+          {
+            "startMs": 54852,
+            "endMs": 55487,
+            "text": "“Ammi!"
+          },
+          {
+            "startMs": 55487,
+            "endMs": 57980,
+            "text": "I can’t find my socks!”"
+          },
+          {
+            "startMs": 57980,
+            "endMs": 63843,
+            "text": "Without turning from the stove, Ammi replied, “Inside your school shoes, Akhlaaq.”"
+          },
+          {
+            "startMs": 64460,
+            "endMs": 68460,
+            "text": "There was a pause, followed by a much quieter voice."
+          },
+          {
+            "startMs": 68460,
+            "endMs": 68787,
+            "text": "“Oh."
+          },
+          {
+            "startMs": 68787,
+            "endMs": 72060,
+            "text": "They are inside my shoes.”"
+          },
+          {
+            "startMs": 72271,
+            "endMs": 80428,
+            "text": "Abbu laughed from the dining table and told him that one day he would lose his own head and ask Ammi where she had put it."
+          },
+          {
+            "startMs": 80428,
+            "endMs": 84348,
+            "text": "Just then Ali arrived to walk with them to school."
+          },
+          {
+            "startMs": 84348,
+            "endMs": 95617,
+            "text": "When he heard about the missing socks, he announced that Imaan and Akhlaaq should open a detective agency, although he doubted they could solve a case involving anything inside Akhlaaq’s own room."
+          },
+          {
+            "startMs": 95617,
+            "endMs": 97034,
+            "text": "Everyone laughed."
+          },
+          {
+            "startMs": 97034,
+            "endMs": 105476,
+            "text": "While they did, Ammi straightened Akhlaaq’s tie, brushed crumbs from his shirt and checked Imaan’s water bottle."
+          },
+          {
+            "startMs": 105476,
+            "endMs": 106944,
+            "text": "No one thanked her."
+          },
+          {
+            "startMs": 106944,
+            "endMs": 109901,
+            "text": "In fact, no one even seemed to notice."
+          },
+          {
+            "startMs": 109901,
+            "endMs": 113663,
+            "text": "At breakfast, the same thing continued."
+          },
+          {
+            "startMs": 113663,
+            "endMs": 130164,
+            "text": "Everyone sat down while Ammi moved between the table and kitchen: tea, milk, lunch boxes, Dadi’s medicine, Abbu’s file, one forgotten spoon and then another glass of water."
+          },
+          {
+            "startMs": 130164,
+            "endMs": 134404,
+            "text": "She finally sat when the others were almost finished."
+          },
+          {
+            "startMs": 134892,
+            "endMs": 136988,
+            "text": "Imaan watched her for a few seconds."
+          },
+          {
+            "startMs": 136988,
+            "endMs": 143372,
+            "text": "Something about it stayed in her mind, although she could not yet explain why."
+          },
+          {
+            "startMs": 144150,
+            "endMs": 148233,
+            "text": "At school, the Principal announced Gratitude Week."
+          },
+          {
+            "startMs": 148816,
+            "endMs": 154572,
+            "text": "Akhlaaq whispered to Ali that perhaps gratitude involved free burgers."
+          },
+          {
+            "startMs": 155156,
+            "endMs": 161840,
+            "text": "Fatima heard him and told the boys that food appeared to be their only serious academic interest."
+          },
+          {
+            "startMs": 161840,
+            "endMs": 166200,
+            "text": "Their laughter stopped when the sports teacher glanced in their direction."
+          },
+          {
+            "startMs": 166200,
+            "endMs": 171900,
+            "text": "Later, Ms. Sana entered the classroom carrying a small green plant."
+          },
+          {
+            "startMs": 171900,
+            "endMs": 175994,
+            "text": "She placed it on her desk and asked the children what kept it alive."
+          },
+          {
+            "startMs": 175994,
+            "endMs": 180235,
+            "text": "Water, sunlight and care came quickly as answers."
+          },
+          {
+            "startMs": 180235,
+            "endMs": 190366,
+            "text": "Then she asked a different question: “How many things in your own life continue because someone remembers to care for them?”"
+          },
+          {
+            "startMs": 190366,
+            "endMs": 196358,
+            "text": "The room became quieter."
+          },
+          {
+            "startMs": 198456,
+            "endMs": 198457,
+            "text": "“Shukr begins with Allah,” Ms. Sana continued."
+          },
+          {
+            "startMs": 198457,
+            "endMs": 204680,
+            "text": "“We say Alhamdulillah for His blessings, but gratitude should also change the way we notice, use and care for those blessings.”"
+          },
+          {
+            "startMs": 204680,
+            "endMs": 213956,
+            "text": "For homework, she asked each student to observe what their parents or guardians did from the time they returned home until bedtime."
+          },
+          {
+            "startMs": 213956,
+            "endMs": 214101,
+            "text": "No interviews."
+          },
+          {
+            "startMs": 214764,
+            "endMs": 216137,
+            "text": "No speeches."
+          },
+          {
+            "startMs": 216137,
+            "endMs": 218195,
+            "text": "Just observation."
+          },
+          {
+            "startMs": 218882,
+            "endMs": 221215,
+            "text": "Akhlaaq smiled confidently."
+          },
+          {
+            "startMs": 221215,
+            "endMs": 221764,
+            "text": "“Easy.”"
+          },
+          {
+            "startMs": 222404,
+            "endMs": 224644,
+            "text": "Ms. Sana smiled back."
+          }
+        ]
+      },
+      {
+        "id": "gratitude_en_02",
+        "title": "Ep 2 · The Man at the Gate",
+        "audioKey": "en/gratitude/02_the_man_at_the_gate.ogg",
+        "durationMs": 377812,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "gratitude_en_03",
+        "title": "Ep 3 · The Teacher in the Photograph",
+        "audioKey": "en/gratitude/03_the_teacher_in_the_photograph.ogg",
+        "durationMs": 300767,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "gratitude_en_04",
+        "title": "Ep 4 · The Missing Page",
+        "audioKey": "en/gratitude/04_the_missing_page.ogg",
+        "durationMs": 318128,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "gratitude_en_05",
+        "title": "Ep 5 · When the House Went Quiet",
+        "audioKey": "en/gratitude/05_when_the_house_went_quiet.ogg",
+        "durationMs": 330392,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "gratitude_en_06",
+        "title": "Ep 6 · The Work We Never Saw",
+        "audioKey": "en/gratitude/06_the_work_we_never_saw.ogg",
+        "durationMs": 311438,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "gratitude_en_07",
+        "title": "Ep 7 · The Silver Key",
+        "audioKey": "en/gratitude/07_the_silver_key.ogg",
+        "durationMs": 244345,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "gratitude_en_08",
+        "title": "Ep 8 · The Woman Who Came Back",
+        "audioKey": "en/gratitude/08_the_woman_who_came_back.ogg",
+        "durationMs": 315637,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "gratitude_en_09",
+        "title": "Ep 9 · While They Can Hear You",
+        "audioKey": "en/gratitude/09_while_they_can_hear_you.ogg",
+        "durationMs": 259570,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "gratitude_en_10",
+        "title": "Ep 10 · The Children Who Notice",
+        "audioKey": "en/gratitude/10_the_children_who_notice.ogg",
+        "durationMs": 423055,
         "previewEndMs": null,
         "challenge": null,
         "captions": []
@@ -4591,165 +6180,6 @@ export const allSeries: Series[] = [
     ]
   },
   {
-    "id": "respect_en",
-    "title": "Respect",
-    "description": "A 10-part story about respect and dignity.",
-    "language": "english",
-    "category": "moral",
-    "cover": "respect",
-    "welcome": {
-      "id": "respect_en_meet",
-      "title": "Meet the series · Respect",
-      "audioKey": "en/respect/00_meet_the_series.ogg",
-      "durationMs": 61741,
-      "previewEndMs": null,
-      "captions": [],
-      "challenge": null
-    },
-    "episodes": [
-      {
-        "id": "respect_en_01",
-        "title": "Ep 1 · Rashid's Salam",
-        "audioKey": "en/respect/01_rashids_salam.ogg",
-        "durationMs": 417816,
-        "previewEndMs": 259135,
-        "challenge": {
-          "title": "The Respectful Greeting Mission",
-          "mission": "Today, greet at least three people properly – one classmate, one adult at school, and one person you do not usually speak to. Use their name if you know it, look at them, and do not judge the value of your greeting by how warmly they reply.",
-          "levelUp": "Ages 9-12: Notice whether you greet people differently because of age, job, popularity or ability. Correct one unfair habit."
-        },
-        "captions": [
-          {
-            "startMs": 0,
-            "endMs": 1685,
-            "text": "IMAAN & AKHLAAQ"
-          },
-          {
-            "startMs": 1685,
-            "endMs": 2593,
-            "text": "RESPECT"
-          },
-          {
-            "startMs": 2593,
-            "endMs": 7000,
-            "text": "A Ten-Chapter Story on Respect and Dignity"
-          },
-          {
-            "startMs": 7000,
-            "endMs": 10000,
-            "text": "Chapter One: Rashid's Salam"
-          },
-          {
-            "startMs": 10000,
-            "endMs": 54175,
-            "text": "Every morning, Rashid greeted the people he met with \"Assalamu Alaikum!\" He greeted his mother in the kitchen, the elderly guard at the school gate, and even the strict class monitor who rarely smiled. \"Why do you bother?\" Hamid asked one morning. \"Some people hardly reply.\" Rashid shrugged. \"Because a respectful greeting is still worth giving. I do not have to wait for someone else to be kind first.\" Hamid was funny and could make almost the whole class laugh, but sometimes his jokes copied people in ways that embarrassed them. Rashid usually stayed out of those jokes, although he was beginning to wonder whether staying silent was always enough."
-          },
-          {
-            "startMs": 54175,
-            "endMs": 101839,
-            "text": "That morning, the class teacher announced that the students would elect a Class Captain. The Captain would help the teacher organise class tasks, listen to classmates, represent the class during the Spring Festival, and set a good example. The room filled with excited whispers. \"I am going to win,\" Hamid told Rashid with a grin. \"Easy.\" \"You do not even know what the job requires yet,\" Rashid replied. \"People vote for who they like, and everyone likes me.\" Imaan, sitting in front of them, turned around. \"People also choose whom they trust. Liking someone and trusting someone are not always the same.\" Hamid shrugged. Akhlaaq, Imaan's brother, simply raised one eyebrow."
-          },
-          {
-            "startMs": 119807,
-            "endMs": 149175,
-            "text": "The next day, Hamid began campaigning near the football ground. “Vote for me and there will be no homework on Fridays!” he announced. “You cannot promise that,” Rashid said. “Homework is Miss’s decision, not the Captain’s.” Hamid waved him away and continued talking as if he already owned the position. Nearby, a younger boy named Ayaan sat alone by the fence, holding a cricket ball. Ayaan walked with a leg brace and had not been invited into the older boys’ game. Rashid noticed him first, but before he could speak, Akhlaaq followed his gaze. “Assalam o Alaikum, Ayaan,” Akhlaaq called. “Do you want to join us?” Ayaan’s face brightened. “Wa Alaikum Assalam. Yes.”"
-          },
-          {
-            "startMs": 149175,
-            "endMs": 188911,
-            "text": "Hamid frowned. “He might slow us down.” Imaan looked directly at him. “We have not even asked what he can do.” She turned to Ayaan instead of speaking about him as though he were not there. “What position do you like?” “Bowling,” Ayaan replied. Rashid handed him the ball, and Akhlaaq moved aside to give him a proper run-up. “Then bowl.” Ayaan’s first delivery clipped the wicket. Even Hamid looked surprised. Imaan smiled, not because Ayaan needed pity, but because he had been given the same dignity, choice and chance to participate as everyone else."
-          },
-          {
-            "startMs": 188911,
-            "endMs": 259135,
-            "text": "That evening, Rashid sat beside his grandmother while she peeled potatoes. \"Hamid is probably going to win,\" he said. \"Everyone likes him.\" his grandmother put the knife down. \"Being liked and being worthy of respect are not always the same thing, beta.\" Then she told him an authentic incident from the life of the Prophet (PBUH). Once, when a funeral procession passed, the Prophet (PBUH) stood up. When people mentioned that the deceased was Jewish, he reminded them that the person was still a human soul. \"That is dignity,\" his grandmother said. \"Respect begins when we remember that every human being has worth, even when they are different from us.\" Rashid stayed quiet for a moment. \"So respect is not something people have to earn before I show basic decency?\" \"Exactly,\" his grandmother replied. \"Good character begins with what you choose to give.\" (Reference: Sahih al-Bukhari 1312-1313.)"
-          }
-        ]
-      },
-      {
-        "id": "respect_en_02",
-        "title": "Ep 2 · Votes and Promises",
-        "audioKey": "en/respect/02_votes_and_promises.ogg",
-        "durationMs": 427259,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "respect_en_03",
-        "title": "Ep 3 · The First Loss",
-        "audioKey": "en/respect/03_the_first_loss.ogg",
-        "durationMs": 652558,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "respect_en_04",
-        "title": "Ep 4 · The Courage to Speak",
-        "audioKey": "en/respect/04_the_courage_to_speak.ogg",
-        "durationMs": 220588,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "respect_en_05",
-        "title": "Ep 5 · The Boy Behind the Badge",
-        "audioKey": "en/respect/05_the_boy_behind_the_badge.ogg",
-        "durationMs": 307020,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "respect_en_06",
-        "title": "Ep 6 · The Captain's Special Seat",
-        "audioKey": "en/respect/06_the_captains_special_seat.ogg",
-        "durationMs": 414590,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "respect_en_07",
-        "title": "Ep 7 · The Captain Learns to Listen",
-        "audioKey": "en/respect/07_the_captain_learns_to_listen.ogg",
-        "durationMs": 287365,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "respect_en_08",
-        "title": "Ep 8 · The Test of True Respect",
-        "audioKey": "en/respect/08_the_test_of_true_respect.ogg",
-        "durationMs": 244547,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "respect_en_09",
-        "title": "Ep 9 · The Choice That Changed Everything",
-        "audioKey": "en/respect/09_the_choice_that_changed_everything.ogg",
-        "durationMs": 425335,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "respect_en_10",
-        "title": "Ep 10 · The Man Behind the Notes",
-        "audioKey": "en/respect/10_the_man_behind_the_notes.ogg",
-        "durationMs": 691961,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      }
-    ]
-  },
-  {
     "id": "adam_ur",
     "title": "حضرت آدم علیہ السلام",
     "description": "حضرت آدم علیہ السلام پر 6 اقساط کی کہانی",
@@ -5116,555 +6546,6 @@ export const allSeries: Series[] = [
         "title": "قسط 6 · حسد کی آگ",
         "audioKey": "ur/adam/06.ogg",
         "durationMs": 464606,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      }
-    ]
-  },
-  {
-    "id": "hud_ur",
-    "title": "حضرت ہود علیہ السلام",
-    "description": "تکبر، شکر اور عاجزی پر 5 اقساط کی کہانی",
-    "language": "urdu",
-    "category": "prophets",
-    "cover": "hud",
-    "welcome": {
-      "id": "hud_ur_meet",
-      "title": "سلسلے کا تعارف · حضرت ہود علیہ السلام",
-      "audioKey": "ur/hud/00_meet_the_series.ogg",
-      "durationMs": 64550,
-      "previewEndMs": null,
-      "captions": [],
-      "challenge": null
-    },
-    "episodes": [
-      {
-        "id": "hud_ur_01",
-        "title": "قسط 1 · کوئی مجھے ہرا نہیں سکتا!",
-        "audioKey": "ur/hud/01.ogg",
-        "durationMs": 591320,
-        "previewEndMs": 296223,
-        "challenge": {
-          "title": "اپنی طاقت کو فائدہ مند بنائیں",
-          "mission": "آج اپنی کسی ایک صلاحیت کو پہچانیے۔ اسے چھپانے کی ضرورت نہیں، مگر اسے اپنی بڑائی کی وجہ بھی نہ بنائیں۔ دل میں کہیے: ’’الحمدللہ، اللہ نے مجھے یہ صلاحیت عطا کی ہے۔‘‘ پھر اسی صلاحیت سے کسی ایک شخص کی مدد کیجیے۔",
-          "levelUp": "آج اپنے اندر تکبر کی ایک علامت تلاش کیجیے: کسی کی کمزوری پر ہنسنا، نصیحت نہ سننا، ہمیشہ خود کو بہتر سمجھنا یا کسی دوسرے کو حقیر جاننا۔ خود سے پوچھیے: ’’میری صلاحیت مجھے زیادہ فائدہ مند بنا رہی ہے یا صرف زیادہ مغرور؟‘‘"
-        },
-        "captions": [
-          {
-            "startMs": 521,
-            "endMs": 607,
-            "text": "قسط 1"
-          },
-          {
-            "startMs": 607,
-            "endMs": 3684,
-            "text": "کوئی مجھے ہرا نہیں سکتا!"
-          },
-          {
-            "startMs": 4184,
-            "endMs": 11351,
-            "text": "صبح کی اسمبلی ختم ہوتے ہی شیخ انکل کی اکیڈمی کے مرکزی بورڈ پر ایک نیا نوٹس لگ گیا۔"
-          },
-          {
-            "startMs": 12078,
-            "endMs": 15351,
-            "text": "طاقت، مہارت اور خدمت کا ہفتہ"
-          },
-          {
-            "startMs": 15351,
-            "endMs": 18442,
-            "text": "پانچ دن، پانچ چیلنجز، ایک ٹیم ٹرافی!"
-          },
-          {
-            "startMs": 19351,
-            "endMs": 22351,
-            "text": "چند ہی منٹوں میں پورے صحن میں شور مچ گیا۔"
-          },
-          {
-            "startMs": 22351,
-            "endMs": 29351,
-            "text": "کوئی دوڑ کی بات کر رہا تھا، کوئی رسہ کشی کی، کوئی اندازے لگا رہا تھا کہ کون سی ٹیم جیتے گی۔"
-          },
-          {
-            "startMs": 29981,
-            "endMs": 35539,
-            "text": "اخلاق نے نوٹس پڑھا اور فوراً ایمان، محسن اور محسنہ کی طرف مڑا۔"
-          },
-          {
-            "startMs": 35539,
-            "endMs": 38219,
-            "text": "’’آپی، ہم حصہ لے رہے ہیں۔‘‘"
-          },
-          {
-            "startMs": 38219,
-            "endMs": 39890,
-            "text": "ایمان مسکرائی۔"
-          },
-          {
-            "startMs": 39890,
-            "endMs": 41423,
-            "text": "’’یہ مشورہ ہے یا اعلان؟‘‘"
-          },
-          {
-            "startMs": 42744,
-            "endMs": 45619,
-            "text": "اخلاق نے بڑے اطمینان سے کہا، ’’فیصلہ ہے۔‘‘"
-          },
-          {
-            "startMs": 45619,
-            "endMs": 46244,
-            "text": "محسنہ ہنس پڑی۔"
-          },
-          {
-            "startMs": 46869,
-            "endMs": 49287,
-            "text": "’’ابھی ہماری ٹیم بنی بھی نہیں۔‘‘"
-          },
-          {
-            "startMs": 49287,
-            "endMs": 53967,
-            "text": "’’یہ معمولی سی تکنیکی مشکل ہے،‘‘ اخلاق نے جواب دیا۔"
-          },
-          {
-            "startMs": 54638,
-            "endMs": 56787,
-            "text": "ٹیم کے نام پر خاصی بحث ہوئی۔"
-          },
-          {
-            "startMs": 56787,
-            "endMs": 58867,
-            "text": "اخلاق کی پہلی تجویز تھی:"
-          },
-          {
-            "startMs": 60586,
-            "endMs": 63287,
-            "text": "’’دی اَن بیٹیبلز! یعنی جنہیں کوئی ہرا نہ سکے!‘‘"
-          },
-          {
-            "startMs": 63287,
-            "endMs": 65427,
-            "text": "ایمان نے فوراً سر ہلا دیا۔"
-          },
-          {
-            "startMs": 65427,
-            "endMs": 68427,
-            "text": "’’پہلے دن ہی اتنا بڑا دعویٰ نہیں۔‘‘"
-          },
-          {
-            "startMs": 69255,
-            "endMs": 72855,
-            "text": "آخرکار سب نے ٹیم امانت کے نام پر اتفاق کر لیا۔"
-          },
-          {
-            "startMs": 72855,
-            "endMs": 75535,
-            "text": "پہلا مقابلہ ٹیم ریلے دوڑ تھا۔"
-          },
-          {
-            "startMs": 75535,
-            "endMs": 78095,
-            "text": "ہر بچے کو ایک الگ کام کرنا تھا۔"
-          },
-          {
-            "startMs": 78095,
-            "endMs": 92543,
-            "text": "ایمان نے سر پر بین بیگ سنبھالتے ہوئے تنگ راستہ عبور کیا، محسنہ نے ایک پہیلی حل کی، محسن نے وزن والا بیگ ایک جگہ سے دوسری جگہ پہنچایا اور آخر میں اخلاق نے تیز دوڑ لگائی۔"
-          },
-          {
-            "startMs": 93080,
-            "endMs": 96303,
-            "text": "استاد نے مقابلے سے پہلے سب کو خبردار کیا تھا:"
-          },
-          {
-            "startMs": 96303,
-            "endMs": 98113,
-            "text": "’’صرف تیزی کافی نہیں۔"
-          },
-          {
-            "startMs": 98113,
-            "endMs": 103663,
-            "text": "سامان گرایا، ہدایات توڑیں یا بے انصافی کی تو نمبر کم ہوں گے۔‘‘"
-          },
-          {
-            "startMs": 103663,
-            "endMs": 104540,
-            "text": "سیٹی بجی۔"
-          },
-          {
-            "startMs": 104916,
-            "endMs": 107423,
-            "text": "ٹیم امانت نے بہت اچھا کام کیا۔"
-          },
-          {
-            "startMs": 107423,
-            "endMs": 108867,
-            "text": "اخلاق آخری لائن پار کرنے والا پہلا بچہ تھا۔"
-          },
-          {
-            "startMs": 108867,
-            "endMs": 109240,
-            "text": "’’الحمدللہ!‘‘ ایمان خوشی سے بولی۔"
-          },
-          {
-            "startMs": 109240,
-            "endMs": 109762,
-            "text": "محسن نے ہاتھ ہوا میں بلند کیا۔"
-          },
-          {
-            "startMs": 109762,
-            "endMs": 110191,
-            "text": "’’پہلی جیت!‘‘"
-          },
-          {
-            "startMs": 110191,
-            "endMs": 111905,
-            "text": "اخلاق اچھل پڑا۔"
-          },
-          {
-            "startMs": 111905,
-            "endMs": 114191,
-            "text": "’’اور یہ تو صرف آغاز ہے!‘‘"
-          },
-          {
-            "startMs": 114191,
-            "endMs": 117191,
-            "text": "اگلی سرگرمی رسہ کشی تھی۔"
-          },
-          {
-            "startMs": 117591,
-            "endMs": 120191,
-            "text": "پہلا مقابلہ انہوں نے آسانی سے جیت لیا۔"
-          },
-          {
-            "startMs": 120191,
-            "endMs": 122191,
-            "text": "دوسرا کافی مشکل تھا۔"
-          },
-          {
-            "startMs": 129633,
-            "endMs": 130699,
-            "text": "محسن نے سب سے کہا:"
-          },
-          {
-            "startMs": 131601,
-            "endMs": 134319,
-            "text": "’’الگ الگ زور لگانے کے بجائے ایک ساتھ کھینچتے ہیں۔"
-          },
-          {
-            "startMs": 134519,
-            "endMs": 137259,
-            "text": "تین پر! ایک، دو، تین!‘‘"
-          },
-          {
-            "startMs": 137459,
-            "endMs": 140339,
-            "text": "رسی آہستہ آہستہ ان کی طرف آنے لگی۔"
-          },
-          {
-            "startMs": 140459,
-            "endMs": 141879,
-            "text": "وہ دوبارہ جیت گئے۔"
-          },
-          {
-            "startMs": 141999,
-            "endMs": 146479,
-            "text": "اخلاق نے انگلیوں پر گنتے ہوئے کہا، ’’دو مقابلے، دو جیت!‘‘"
-          },
-          {
-            "startMs": 146619,
-            "endMs": 150149,
-            "text": "ابھی تک جیت انہیں خوش کر رہی تھی، مغرور نہیں۔"
-          },
-          {
-            "startMs": 150149,
-            "endMs": 153327,
-            "text": "لیکن تیسری جیت کے بعد کچھ بدلنے لگا۔"
-          },
-          {
-            "startMs": 154046,
-            "endMs": 156407,
-            "text": "رکاوٹوں کی دوڑ بھی ٹیم امانت نے جیت لی۔"
-          },
-          {
-            "startMs": 156407,
-            "endMs": 161247,
-            "text": "ایک بچے نے خوش ہو کر کہا، ’’آپ لوگوں کو پکڑنا تو مشکل لگ رہا ہے!‘‘"
-          },
-          {
-            "startMs": 161247,
-            "endMs": 162026,
-            "text": "اخلاق ہنسا۔"
-          },
-          {
-            "startMs": 162493,
-            "endMs": 164207,
-            "text": "’’کوشش کرتے رہو۔‘‘"
-          },
-          {
-            "startMs": 164207,
-            "endMs": 166287,
-            "text": "بعد میں کسی نے پوچھا، ’’کیا ٹرافی بھی آپ ہی جیتیں گے؟‘‘"
-          },
-          {
-            "startMs": 166287,
-            "endMs": 172335,
-            "text": "اخلاق نے فوراً جواب دیا، ’’اب تو یہ پوچھنا چاہیے کہ دوسرے نمبر پر کون آئے گا!‘‘"
-          },
-          {
-            "startMs": 172735,
-            "endMs": 173251,
-            "text": "محسن ہنس پڑا۔"
-          },
-          {
-            "startMs": 174295,
-            "endMs": 178335,
-            "text": "ایمان کے چہرے پر بھی مسکراہٹ آئی، مگر محسنہ خاموش رہی۔"
-          },
-          {
-            "startMs": 178855,
-            "endMs": 180575,
-            "text": "’’کیا ہوا؟‘‘ اخلاق نے پوچھا۔"
-          },
-          {
-            "startMs": 180935,
-            "endMs": 184495,
-            "text": "محسنہ نے کہا، ’’بات تھوڑی زیادہ غرور والی ہو گئی تھی۔‘‘"
-          },
-          {
-            "startMs": 184975,
-            "endMs": 186375,
-            "text": "’’ارے، مذاق تھا۔‘‘"
-          },
-          {
-            "startMs": 186922,
-            "endMs": 189654,
-            "text": "’’ہاں،‘‘ محسنہ نے کہا، ’’ابھی صرف مذاق ہے۔‘‘"
-          },
-          {
-            "startMs": 190442,
-            "endMs": 195269,
-            "text": "اگلی صبح ایک اور طاقت والا مقابلہ ہوا اور ٹیم امانت پھر پہلی پوزیشن پر آ گئی۔"
-          },
-          {
-            "startMs": 195663,
-            "endMs": 197660,
-            "text": "محسن نے اسکور بورڈ دیکھا۔"
-          },
-          {
-            "startMs": 197660,
-            "endMs": 201443,
-            "text": "’’مجھے نہیں لگتا یہاں کوئی ہم سے زیادہ طاقتور ہے۔‘‘"
-          },
-          {
-            "startMs": 201443,
-            "endMs": 204809,
-            "text": "ایمان نے فوراً کہا، ’’اتنا یقین بھی اچھا نہیں۔‘‘"
-          },
-          {
-            "startMs": 204809,
-            "endMs": 207563,
-            "text": "محسن نے اسکور بورڈ کی طرف اشارہ کیا۔"
-          },
-          {
-            "startMs": 207563,
-            "endMs": 208790,
-            "text": "’’نمبر سامنے ہیں۔‘‘"
-          },
-          {
-            "startMs": 209031,
-            "endMs": 214151,
-            "text": "اسی وقت قریب ایک چھوٹا بچہ مشقی بیگ اٹھانے کی کوشش کر رہا تھا۔"
-          },
-          {
-            "startMs": 214151,
-            "endMs": 216394,
-            "text": "اس نے ایک بار زور لگایا۔"
-          },
-          {
-            "startMs": 216768,
-            "endMs": 217391,
-            "text": "بیگ گر گیا۔"
-          },
-          {
-            "startMs": 217391,
-            "endMs": 218768,
-            "text": "دوبارہ کوشش کی۔"
-          },
-          {
-            "startMs": 218768,
-            "endMs": 220031,
-            "text": "پھر بیگ گر گیا۔"
-          },
-          {
-            "startMs": 220031,
-            "endMs": 221341,
-            "text": "محسن ہنس پڑا۔"
-          },
-          {
-            "startMs": 221341,
-            "endMs": 223831,
-            "text": "’’اسے تو پورا دن لگ جائے گا!‘‘"
-          },
-          {
-            "startMs": 223831,
-            "endMs": 224966,
-            "text": "بچے نے سن لیا۔"
-          },
-          {
-            "startMs": 224966,
-            "endMs": 228031,
-            "text": "اس کے چہرے کی خوشی فوراً غائب ہو گئی۔"
-          },
-          {
-            "startMs": 228031,
-            "endMs": 229999,
-            "text": "محسنہ نے محسن کو دیکھا۔"
-          },
-          {
-            "startMs": 229999,
-            "endMs": 231999,
-            "text": "’’تم اس کی مدد بھی کر سکتے ہو۔‘‘"
-          },
-          {
-            "startMs": 231999,
-            "endMs": 233221,
-            "text": "محسن نے کندھے اچکائے۔"
-          },
-          {
-            "startMs": 233999,
-            "endMs": 234999,
-            "text": "’’خود سیکھ جائے گا۔‘‘"
-          },
-          {
-            "startMs": 234999,
-            "endMs": 238999,
-            "text": "ایمان خاموش رہی، مگر اس کی نظر بہت کچھ کہہ رہی تھی۔"
-          },
-          {
-            "startMs": 238999,
-            "endMs": 243999,
-            "text": "صرف ایک دن پہلے محسن کی طاقت کسی دوسرے کے لیے فائدہ مند تھی۔"
-          },
-          {
-            "startMs": 243999,
-            "endMs": 247870,
-            "text": "اب وہی طاقت اسے کسی دوسرے کو چھوٹا سمجھنے کی وجہ دے رہی تھی۔"
-          },
-          {
-            "startMs": 248967,
-            "endMs": 251772,
-            "text": "اگلا مقابلہ بالکل مختلف تھا۔"
-          },
-          {
-            "startMs": 251772,
-            "endMs": 258967,
-            "text": "اخلاق اور محسن کو ایک بڑا مگر ہلکا ڈبہ اٹھا کر کونز کے درمیان سے گزارنا تھا۔"
-          },
-          {
-            "startMs": 259308,
-            "endMs": 263967,
-            "text": "ڈبہ اتنا بڑا تھا کہ سامنے کا راستہ صاف نظر نہیں آ رہا تھا۔"
-          },
-          {
-            "startMs": 263967,
-            "endMs": 270575,
-            "text": "اس مقابلے میں طاقت سے زیادہ ایک دوسرے کی بات سننا ضروری تھا۔"
-          },
-          {
-            "startMs": 270575,
-            "endMs": 273015,
-            "text": "اخلاق نے آواز دی، ’’بائیں!‘‘"
-          },
-          {
-            "startMs": 273015,
-            "endMs": 276415,
-            "text": "محسن نے جواب دیا، ’’میں بائیں ہی جا رہا ہوں!‘‘"
-          },
-          {
-            "startMs": 276415,
-            "endMs": 278997,
-            "text": "’’تمہاری دوسری بائیں!‘‘ اخلاق چلایا۔"
-          },
-          {
-            "startMs": 278997,
-            "endMs": 280788,
-            "text": "ٹھک!"
-          },
-          {
-            "startMs": 280788,
-            "endMs": 282655,
-            "text": "ڈبہ ایک کون سے ٹکرا گیا۔"
-          },
-          {
-            "startMs": 282655,
-            "endMs": 285086,
-            "text": "جرمانہ۔"
-          },
-          {
-            "startMs": 285086,
-            "endMs": 287055,
-            "text": "چند سیکنڈ بعد دوسرا کون بھی گر گیا۔"
-          },
-          {
-            "startMs": 287055,
-            "endMs": 288430,
-            "text": "دوسری ٹیم بہت آہستہ چلی۔"
-          },
-          {
-            "startMs": 288903,
-            "endMs": 292950,
-            "text": "وہ بار بار ایک دوسرے سے پوچھتے، ’’تیار؟"
-          },
-          {
-            "startMs": 292950,
-            "endMs": 294223,
-            "text": "اب دائیں۔"
-          },
-          {
-            "startMs": 294223,
-            "endMs": 295290,
-            "text": "ذرا رکنا۔"
-          },
-          {
-            "startMs": 295290,
-            "endMs": 296223,
-            "text": "اب سیدھا۔‘‘"
-          }
-        ]
-      },
-      {
-        "id": "hud_ur_02",
-        "title": "قسط 2 · دیکھو! ہم نے کیا بنایا ہے",
-        "audioKey": "ur/hud/02.ogg",
-        "durationMs": 481195,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "hud_ur_03",
-        "title": "قسط 3 · یہ سب تمہیں کس نے دیا؟",
-        "audioKey": "ur/hud/03.ogg",
-        "durationMs": 394046,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "hud_ur_04",
-        "title": "قسط 4 · اتنے مضبوط کہ مہربان بن سکیں",
-        "audioKey": "ur/hud/04.ogg",
-        "durationMs": 518587,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "hud_ur_05",
-        "title": "قسط 5 · جب طاقت کافی نہ رہی",
-        "audioKey": "ur/hud/05.ogg",
-        "durationMs": 629483,
         "previewEndMs": null,
         "challenge": null,
         "captions": []
@@ -6826,6 +7707,555 @@ export const allSeries: Series[] = [
     ]
   },
   {
+    "id": "hud_ur",
+    "title": "حضرت ہود علیہ السلام",
+    "description": "تکبر، شکر اور عاجزی پر 5 اقساط کی کہانی",
+    "language": "urdu",
+    "category": "prophets",
+    "cover": "hud",
+    "welcome": {
+      "id": "hud_ur_meet",
+      "title": "سلسلے کا تعارف · حضرت ہود علیہ السلام",
+      "audioKey": "ur/hud/00_meet_the_series.ogg",
+      "durationMs": 64550,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
+    "episodes": [
+      {
+        "id": "hud_ur_01",
+        "title": "قسط 1 · کوئی مجھے ہرا نہیں سکتا!",
+        "audioKey": "ur/hud/01.ogg",
+        "durationMs": 591320,
+        "previewEndMs": 296223,
+        "challenge": {
+          "title": "اپنی طاقت کو فائدہ مند بنائیں",
+          "mission": "آج اپنی کسی ایک صلاحیت کو پہچانیے۔ اسے چھپانے کی ضرورت نہیں، مگر اسے اپنی بڑائی کی وجہ بھی نہ بنائیں۔ دل میں کہیے: ’’الحمدللہ، اللہ نے مجھے یہ صلاحیت عطا کی ہے۔‘‘ پھر اسی صلاحیت سے کسی ایک شخص کی مدد کیجیے۔",
+          "levelUp": "آج اپنے اندر تکبر کی ایک علامت تلاش کیجیے: کسی کی کمزوری پر ہنسنا، نصیحت نہ سننا، ہمیشہ خود کو بہتر سمجھنا یا کسی دوسرے کو حقیر جاننا۔ خود سے پوچھیے: ’’میری صلاحیت مجھے زیادہ فائدہ مند بنا رہی ہے یا صرف زیادہ مغرور؟‘‘"
+        },
+        "captions": [
+          {
+            "startMs": 521,
+            "endMs": 607,
+            "text": "قسط 1"
+          },
+          {
+            "startMs": 607,
+            "endMs": 3684,
+            "text": "کوئی مجھے ہرا نہیں سکتا!"
+          },
+          {
+            "startMs": 4184,
+            "endMs": 11351,
+            "text": "صبح کی اسمبلی ختم ہوتے ہی شیخ انکل کی اکیڈمی کے مرکزی بورڈ پر ایک نیا نوٹس لگ گیا۔"
+          },
+          {
+            "startMs": 12078,
+            "endMs": 15351,
+            "text": "طاقت، مہارت اور خدمت کا ہفتہ"
+          },
+          {
+            "startMs": 15351,
+            "endMs": 18442,
+            "text": "پانچ دن، پانچ چیلنجز، ایک ٹیم ٹرافی!"
+          },
+          {
+            "startMs": 19351,
+            "endMs": 22351,
+            "text": "چند ہی منٹوں میں پورے صحن میں شور مچ گیا۔"
+          },
+          {
+            "startMs": 22351,
+            "endMs": 29351,
+            "text": "کوئی دوڑ کی بات کر رہا تھا، کوئی رسہ کشی کی، کوئی اندازے لگا رہا تھا کہ کون سی ٹیم جیتے گی۔"
+          },
+          {
+            "startMs": 29981,
+            "endMs": 35539,
+            "text": "اخلاق نے نوٹس پڑھا اور فوراً ایمان، محسن اور محسنہ کی طرف مڑا۔"
+          },
+          {
+            "startMs": 35539,
+            "endMs": 38219,
+            "text": "’’آپی، ہم حصہ لے رہے ہیں۔‘‘"
+          },
+          {
+            "startMs": 38219,
+            "endMs": 39890,
+            "text": "ایمان مسکرائی۔"
+          },
+          {
+            "startMs": 39890,
+            "endMs": 41423,
+            "text": "’’یہ مشورہ ہے یا اعلان؟‘‘"
+          },
+          {
+            "startMs": 42744,
+            "endMs": 45619,
+            "text": "اخلاق نے بڑے اطمینان سے کہا، ’’فیصلہ ہے۔‘‘"
+          },
+          {
+            "startMs": 45619,
+            "endMs": 46244,
+            "text": "محسنہ ہنس پڑی۔"
+          },
+          {
+            "startMs": 46869,
+            "endMs": 49287,
+            "text": "’’ابھی ہماری ٹیم بنی بھی نہیں۔‘‘"
+          },
+          {
+            "startMs": 49287,
+            "endMs": 53967,
+            "text": "’’یہ معمولی سی تکنیکی مشکل ہے،‘‘ اخلاق نے جواب دیا۔"
+          },
+          {
+            "startMs": 54638,
+            "endMs": 56787,
+            "text": "ٹیم کے نام پر خاصی بحث ہوئی۔"
+          },
+          {
+            "startMs": 56787,
+            "endMs": 58867,
+            "text": "اخلاق کی پہلی تجویز تھی:"
+          },
+          {
+            "startMs": 60586,
+            "endMs": 63287,
+            "text": "’’دی اَن بیٹیبلز! یعنی جنہیں کوئی ہرا نہ سکے!‘‘"
+          },
+          {
+            "startMs": 63287,
+            "endMs": 65427,
+            "text": "ایمان نے فوراً سر ہلا دیا۔"
+          },
+          {
+            "startMs": 65427,
+            "endMs": 68427,
+            "text": "’’پہلے دن ہی اتنا بڑا دعویٰ نہیں۔‘‘"
+          },
+          {
+            "startMs": 69255,
+            "endMs": 72855,
+            "text": "آخرکار سب نے ٹیم امانت کے نام پر اتفاق کر لیا۔"
+          },
+          {
+            "startMs": 72855,
+            "endMs": 75535,
+            "text": "پہلا مقابلہ ٹیم ریلے دوڑ تھا۔"
+          },
+          {
+            "startMs": 75535,
+            "endMs": 78095,
+            "text": "ہر بچے کو ایک الگ کام کرنا تھا۔"
+          },
+          {
+            "startMs": 78095,
+            "endMs": 92543,
+            "text": "ایمان نے سر پر بین بیگ سنبھالتے ہوئے تنگ راستہ عبور کیا، محسنہ نے ایک پہیلی حل کی، محسن نے وزن والا بیگ ایک جگہ سے دوسری جگہ پہنچایا اور آخر میں اخلاق نے تیز دوڑ لگائی۔"
+          },
+          {
+            "startMs": 93080,
+            "endMs": 96303,
+            "text": "استاد نے مقابلے سے پہلے سب کو خبردار کیا تھا:"
+          },
+          {
+            "startMs": 96303,
+            "endMs": 98113,
+            "text": "’’صرف تیزی کافی نہیں۔"
+          },
+          {
+            "startMs": 98113,
+            "endMs": 103663,
+            "text": "سامان گرایا، ہدایات توڑیں یا بے انصافی کی تو نمبر کم ہوں گے۔‘‘"
+          },
+          {
+            "startMs": 103663,
+            "endMs": 104540,
+            "text": "سیٹی بجی۔"
+          },
+          {
+            "startMs": 104916,
+            "endMs": 107423,
+            "text": "ٹیم امانت نے بہت اچھا کام کیا۔"
+          },
+          {
+            "startMs": 107423,
+            "endMs": 108867,
+            "text": "اخلاق آخری لائن پار کرنے والا پہلا بچہ تھا۔"
+          },
+          {
+            "startMs": 108867,
+            "endMs": 109240,
+            "text": "’’الحمدللہ!‘‘ ایمان خوشی سے بولی۔"
+          },
+          {
+            "startMs": 109240,
+            "endMs": 109762,
+            "text": "محسن نے ہاتھ ہوا میں بلند کیا۔"
+          },
+          {
+            "startMs": 109762,
+            "endMs": 110191,
+            "text": "’’پہلی جیت!‘‘"
+          },
+          {
+            "startMs": 110191,
+            "endMs": 111905,
+            "text": "اخلاق اچھل پڑا۔"
+          },
+          {
+            "startMs": 111905,
+            "endMs": 114191,
+            "text": "’’اور یہ تو صرف آغاز ہے!‘‘"
+          },
+          {
+            "startMs": 114191,
+            "endMs": 117191,
+            "text": "اگلی سرگرمی رسہ کشی تھی۔"
+          },
+          {
+            "startMs": 117591,
+            "endMs": 120191,
+            "text": "پہلا مقابلہ انہوں نے آسانی سے جیت لیا۔"
+          },
+          {
+            "startMs": 120191,
+            "endMs": 122191,
+            "text": "دوسرا کافی مشکل تھا۔"
+          },
+          {
+            "startMs": 129633,
+            "endMs": 130699,
+            "text": "محسن نے سب سے کہا:"
+          },
+          {
+            "startMs": 131601,
+            "endMs": 134319,
+            "text": "’’الگ الگ زور لگانے کے بجائے ایک ساتھ کھینچتے ہیں۔"
+          },
+          {
+            "startMs": 134519,
+            "endMs": 137259,
+            "text": "تین پر! ایک، دو، تین!‘‘"
+          },
+          {
+            "startMs": 137459,
+            "endMs": 140339,
+            "text": "رسی آہستہ آہستہ ان کی طرف آنے لگی۔"
+          },
+          {
+            "startMs": 140459,
+            "endMs": 141879,
+            "text": "وہ دوبارہ جیت گئے۔"
+          },
+          {
+            "startMs": 141999,
+            "endMs": 146479,
+            "text": "اخلاق نے انگلیوں پر گنتے ہوئے کہا، ’’دو مقابلے، دو جیت!‘‘"
+          },
+          {
+            "startMs": 146619,
+            "endMs": 150149,
+            "text": "ابھی تک جیت انہیں خوش کر رہی تھی، مغرور نہیں۔"
+          },
+          {
+            "startMs": 150149,
+            "endMs": 153327,
+            "text": "لیکن تیسری جیت کے بعد کچھ بدلنے لگا۔"
+          },
+          {
+            "startMs": 154046,
+            "endMs": 156407,
+            "text": "رکاوٹوں کی دوڑ بھی ٹیم امانت نے جیت لی۔"
+          },
+          {
+            "startMs": 156407,
+            "endMs": 161247,
+            "text": "ایک بچے نے خوش ہو کر کہا، ’’آپ لوگوں کو پکڑنا تو مشکل لگ رہا ہے!‘‘"
+          },
+          {
+            "startMs": 161247,
+            "endMs": 162026,
+            "text": "اخلاق ہنسا۔"
+          },
+          {
+            "startMs": 162493,
+            "endMs": 164207,
+            "text": "’’کوشش کرتے رہو۔‘‘"
+          },
+          {
+            "startMs": 164207,
+            "endMs": 166287,
+            "text": "بعد میں کسی نے پوچھا، ’’کیا ٹرافی بھی آپ ہی جیتیں گے؟‘‘"
+          },
+          {
+            "startMs": 166287,
+            "endMs": 172335,
+            "text": "اخلاق نے فوراً جواب دیا، ’’اب تو یہ پوچھنا چاہیے کہ دوسرے نمبر پر کون آئے گا!‘‘"
+          },
+          {
+            "startMs": 172735,
+            "endMs": 173251,
+            "text": "محسن ہنس پڑا۔"
+          },
+          {
+            "startMs": 174295,
+            "endMs": 178335,
+            "text": "ایمان کے چہرے پر بھی مسکراہٹ آئی، مگر محسنہ خاموش رہی۔"
+          },
+          {
+            "startMs": 178855,
+            "endMs": 180575,
+            "text": "’’کیا ہوا؟‘‘ اخلاق نے پوچھا۔"
+          },
+          {
+            "startMs": 180935,
+            "endMs": 184495,
+            "text": "محسنہ نے کہا، ’’بات تھوڑی زیادہ غرور والی ہو گئی تھی۔‘‘"
+          },
+          {
+            "startMs": 184975,
+            "endMs": 186375,
+            "text": "’’ارے، مذاق تھا۔‘‘"
+          },
+          {
+            "startMs": 186922,
+            "endMs": 189654,
+            "text": "’’ہاں،‘‘ محسنہ نے کہا، ’’ابھی صرف مذاق ہے۔‘‘"
+          },
+          {
+            "startMs": 190442,
+            "endMs": 195269,
+            "text": "اگلی صبح ایک اور طاقت والا مقابلہ ہوا اور ٹیم امانت پھر پہلی پوزیشن پر آ گئی۔"
+          },
+          {
+            "startMs": 195663,
+            "endMs": 197660,
+            "text": "محسن نے اسکور بورڈ دیکھا۔"
+          },
+          {
+            "startMs": 197660,
+            "endMs": 201443,
+            "text": "’’مجھے نہیں لگتا یہاں کوئی ہم سے زیادہ طاقتور ہے۔‘‘"
+          },
+          {
+            "startMs": 201443,
+            "endMs": 204809,
+            "text": "ایمان نے فوراً کہا، ’’اتنا یقین بھی اچھا نہیں۔‘‘"
+          },
+          {
+            "startMs": 204809,
+            "endMs": 207563,
+            "text": "محسن نے اسکور بورڈ کی طرف اشارہ کیا۔"
+          },
+          {
+            "startMs": 207563,
+            "endMs": 208790,
+            "text": "’’نمبر سامنے ہیں۔‘‘"
+          },
+          {
+            "startMs": 209031,
+            "endMs": 214151,
+            "text": "اسی وقت قریب ایک چھوٹا بچہ مشقی بیگ اٹھانے کی کوشش کر رہا تھا۔"
+          },
+          {
+            "startMs": 214151,
+            "endMs": 216394,
+            "text": "اس نے ایک بار زور لگایا۔"
+          },
+          {
+            "startMs": 216768,
+            "endMs": 217391,
+            "text": "بیگ گر گیا۔"
+          },
+          {
+            "startMs": 217391,
+            "endMs": 218768,
+            "text": "دوبارہ کوشش کی۔"
+          },
+          {
+            "startMs": 218768,
+            "endMs": 220031,
+            "text": "پھر بیگ گر گیا۔"
+          },
+          {
+            "startMs": 220031,
+            "endMs": 221341,
+            "text": "محسن ہنس پڑا۔"
+          },
+          {
+            "startMs": 221341,
+            "endMs": 223831,
+            "text": "’’اسے تو پورا دن لگ جائے گا!‘‘"
+          },
+          {
+            "startMs": 223831,
+            "endMs": 224966,
+            "text": "بچے نے سن لیا۔"
+          },
+          {
+            "startMs": 224966,
+            "endMs": 228031,
+            "text": "اس کے چہرے کی خوشی فوراً غائب ہو گئی۔"
+          },
+          {
+            "startMs": 228031,
+            "endMs": 229999,
+            "text": "محسنہ نے محسن کو دیکھا۔"
+          },
+          {
+            "startMs": 229999,
+            "endMs": 231999,
+            "text": "’’تم اس کی مدد بھی کر سکتے ہو۔‘‘"
+          },
+          {
+            "startMs": 231999,
+            "endMs": 233221,
+            "text": "محسن نے کندھے اچکائے۔"
+          },
+          {
+            "startMs": 233999,
+            "endMs": 234999,
+            "text": "’’خود سیکھ جائے گا۔‘‘"
+          },
+          {
+            "startMs": 234999,
+            "endMs": 238999,
+            "text": "ایمان خاموش رہی، مگر اس کی نظر بہت کچھ کہہ رہی تھی۔"
+          },
+          {
+            "startMs": 238999,
+            "endMs": 243999,
+            "text": "صرف ایک دن پہلے محسن کی طاقت کسی دوسرے کے لیے فائدہ مند تھی۔"
+          },
+          {
+            "startMs": 243999,
+            "endMs": 247870,
+            "text": "اب وہی طاقت اسے کسی دوسرے کو چھوٹا سمجھنے کی وجہ دے رہی تھی۔"
+          },
+          {
+            "startMs": 248967,
+            "endMs": 251772,
+            "text": "اگلا مقابلہ بالکل مختلف تھا۔"
+          },
+          {
+            "startMs": 251772,
+            "endMs": 258967,
+            "text": "اخلاق اور محسن کو ایک بڑا مگر ہلکا ڈبہ اٹھا کر کونز کے درمیان سے گزارنا تھا۔"
+          },
+          {
+            "startMs": 259308,
+            "endMs": 263967,
+            "text": "ڈبہ اتنا بڑا تھا کہ سامنے کا راستہ صاف نظر نہیں آ رہا تھا۔"
+          },
+          {
+            "startMs": 263967,
+            "endMs": 270575,
+            "text": "اس مقابلے میں طاقت سے زیادہ ایک دوسرے کی بات سننا ضروری تھا۔"
+          },
+          {
+            "startMs": 270575,
+            "endMs": 273015,
+            "text": "اخلاق نے آواز دی، ’’بائیں!‘‘"
+          },
+          {
+            "startMs": 273015,
+            "endMs": 276415,
+            "text": "محسن نے جواب دیا، ’’میں بائیں ہی جا رہا ہوں!‘‘"
+          },
+          {
+            "startMs": 276415,
+            "endMs": 278997,
+            "text": "’’تمہاری دوسری بائیں!‘‘ اخلاق چلایا۔"
+          },
+          {
+            "startMs": 278997,
+            "endMs": 280788,
+            "text": "ٹھک!"
+          },
+          {
+            "startMs": 280788,
+            "endMs": 282655,
+            "text": "ڈبہ ایک کون سے ٹکرا گیا۔"
+          },
+          {
+            "startMs": 282655,
+            "endMs": 285086,
+            "text": "جرمانہ۔"
+          },
+          {
+            "startMs": 285086,
+            "endMs": 287055,
+            "text": "چند سیکنڈ بعد دوسرا کون بھی گر گیا۔"
+          },
+          {
+            "startMs": 287055,
+            "endMs": 288430,
+            "text": "دوسری ٹیم بہت آہستہ چلی۔"
+          },
+          {
+            "startMs": 288903,
+            "endMs": 292950,
+            "text": "وہ بار بار ایک دوسرے سے پوچھتے، ’’تیار؟"
+          },
+          {
+            "startMs": 292950,
+            "endMs": 294223,
+            "text": "اب دائیں۔"
+          },
+          {
+            "startMs": 294223,
+            "endMs": 295290,
+            "text": "ذرا رکنا۔"
+          },
+          {
+            "startMs": 295290,
+            "endMs": 296223,
+            "text": "اب سیدھا۔‘‘"
+          }
+        ]
+      },
+      {
+        "id": "hud_ur_02",
+        "title": "قسط 2 · دیکھو! ہم نے کیا بنایا ہے",
+        "audioKey": "ur/hud/02.ogg",
+        "durationMs": 481195,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "hud_ur_03",
+        "title": "قسط 3 · یہ سب تمہیں کس نے دیا؟",
+        "audioKey": "ur/hud/03.ogg",
+        "durationMs": 394046,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "hud_ur_04",
+        "title": "قسط 4 · اتنے مضبوط کہ مہربان بن سکیں",
+        "audioKey": "ur/hud/04.ogg",
+        "durationMs": 518587,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "hud_ur_05",
+        "title": "قسط 5 · جب طاقت کافی نہ رہی",
+        "audioKey": "ur/hud/05.ogg",
+        "durationMs": 629483,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      }
+    ]
+  },
+  {
     "id": "salih_ur",
     "title": "حضرت صالح علیہ السلام",
     "description": "حدود، حقوق اور ذمہ داری پر 5 اقساط کی کہانی",
@@ -7400,6 +8830,1681 @@ export const allSeries: Series[] = [
     ]
   },
   {
+    "id": "ibrahim_ur",
+    "title": "حضرت ابراہیم علیہ السلام",
+    "description": "حضرت ابراہیم علیہ السلام پر 11 اقساط کی کہانی",
+    "language": "urdu",
+    "category": "prophets",
+    "cover": "ibrahim",
+    "welcome": {
+      "id": "ibrahim_ur_meet",
+      "title": "سلسلے کا تعارف · حضرت ابراہیم علیہ السلام",
+      "audioKey": "ur/ibrahim/00_meet_the_series.ogg",
+      "durationMs": 70057,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
+    "episodes": [
+      {
+        "id": "ibrahim_ur_01",
+        "title": "قسط 1 · وہ قطب نما جس نے ابراہیمؑ کا انتخاب کیا",
+        "audioKey": "ur/ibrahim/01.ogg",
+        "durationMs": 750505,
+        "previewEndMs": 376857,
+        "challenge": {
+          "title": "ایک صحیح بات کے لیے الگ کھڑے ہوں",
+          "mission": "آج ایک چھوٹا سا درست کام صرف اس لیے نہ چھوڑیں کہ دوسرے لوگ وہ نہیں کر رہے۔ اگر کوئی چیز آپ کی نہیں تو واپس کریں۔ اگر کسی کا مذاق اڑایا جا رہا ہو تو اس میں شامل نہ ہوں۔ جھوٹ بولنا آسان ہو تب بھی سچ بولیں۔ کھانا یا پانی ضائع ہوتا دیکھیں تو اسے روکنے کی کوشش کریں۔ مگر اپنے اچھے کام کی نمائش نہ کریں۔ صرف اس لیے صحیح کام کریں کیونکہ وہ صحیح ہے۔"
+        },
+        "captions": [
+          {
+            "startMs": 6000,
+            "endMs": 8000,
+            "text": "قسط اول"
+          },
+          {
+            "startMs": 8000,
+            "endMs": 12000,
+            "text": "وہ قطب نما جس نے ابراہیمؑ کا انتخاب کیا"
+          },
+          {
+            "startMs": 12000,
+            "endMs": 14000,
+            "text": "کتاب خود گری تھی۔"
+          },
+          {
+            "startMs": 14000,
+            "endMs": 17000,
+            "text": "کم از کم اخلاق کا تو یہی دعویٰ تھا۔"
+          },
+          {
+            "startMs": 17000,
+            "endMs": 25393,
+            "text": "ایمان کو پورا یقین تھا کہ کتابوں کی الماری کے پاس سے گزرتے ہوئے اخلاق کی کہنی اس سے ٹکرائی تھی۔"
+          },
+          {
+            "startMs": 25833,
+            "endMs": 34713,
+            "text": "وجہ جو بھی تھی، شیخ انکل کی لائبریری کی ایک بہت بڑی اور پرانی کتاب زور دار دھڑام سے لکڑی کے فرش پر گری۔"
+          },
+          {
+            "startMs": 35153,
+            "endMs": 39393,
+            "text": "آواز اتنی بلند تھی کہ دونوں بچے اپنی جگہ جم گئے۔"
+          },
+          {
+            "startMs": 39985,
+            "endMs": 41625,
+            "text": "اخلاق نے سرگوشی کی:"
+          },
+          {
+            "startMs": 42125,
+            "endMs": 46285,
+            "text": "’’آپی... بس یہ بتا دیجیے کہ یہ کتاب بہت مہنگی نہیں تھی۔‘‘"
+          },
+          {
+            "startMs": 46785,
+            "endMs": 48205,
+            "text": "ایمان نے اسے دیکھا۔"
+          },
+          {
+            "startMs": 48605,
+            "endMs": 52745,
+            "text": "’’آپ پہلے یہ بتائیے کہ اسے اٹھانے کا ارادہ ہے یا نہیں؟‘‘"
+          },
+          {
+            "startMs": 53205,
+            "endMs": 53751,
+            "text": "اخلاق فوراً جھکا۔"
+          },
+          {
+            "startMs": 54925,
+            "endMs": 56905,
+            "text": "مگر کتاب اٹھانے سے پہلے رک گیا۔"
+          },
+          {
+            "startMs": 57285,
+            "endMs": 57700,
+            "text": "’’آپی...‘‘"
+          },
+          {
+            "startMs": 57700,
+            "endMs": 58805,
+            "text": "’’اب کیا ہوا؟‘‘"
+          },
+          {
+            "startMs": 59125,
+            "endMs": 59768,
+            "text": "’’یہاں تو کچھ ہے۔‘‘"
+          },
+          {
+            "startMs": 59977,
+            "endMs": 67297,
+            "text": "جس جگہ کتاب رکھی ہوئی تھی، اس کے پیچھے دیوار میں ایک باریک سا خالی حصہ نظر آ رہا تھا۔"
+          },
+          {
+            "startMs": 67297,
+            "endMs": 70777,
+            "text": "اندر سے کوئی چیز ہلکی سی چمک رہی تھی۔"
+          },
+          {
+            "startMs": 70777,
+            "endMs": 72777,
+            "text": "ایمان بھی قریب آ گئی۔"
+          },
+          {
+            "startMs": 72777,
+            "endMs": 73977,
+            "text": "’’یہ کیا ہے؟‘‘"
+          },
+          {
+            "startMs": 73977,
+            "endMs": 78977,
+            "text": "اخلاق نے ہاتھ اندر ڈالا اور لکڑی کا ایک چھوٹا سا ڈبہ نکال لیا۔"
+          },
+          {
+            "startMs": 79969,
+            "endMs": 85469,
+            "text": "ڈبے پر موٹی دھول جمی ہوئی تھی، مگر ڈھکن پر ایک عجیب نشان بنا ہوا تھا:"
+          },
+          {
+            "startMs": 85469,
+            "endMs": 89769,
+            "text": "ایک دائرہ، جس کے درمیان سے ایک لکیر گزر رہی تھی۔"
+          },
+          {
+            "startMs": 89769,
+            "endMs": 91769,
+            "text": "اس پر کوئی تالا نہیں تھا۔"
+          },
+          {
+            "startMs": 91769,
+            "endMs": 93769,
+            "text": "ایمان نے فوراً کہا:"
+          },
+          {
+            "startMs": 93769,
+            "endMs": 94769,
+            "text": "’’نہیں۔‘‘"
+          },
+          {
+            "startMs": 94769,
+            "endMs": 96644,
+            "text": "اخلاق نے معصوم سا چہرہ بنایا۔"
+          },
+          {
+            "startMs": 97269,
+            "endMs": 99769,
+            "text": "’’میں نے ابھی کچھ کیا بھی نہیں۔‘‘"
+          },
+          {
+            "startMs": 99961,
+            "endMs": 101761,
+            "text": "’’مگر آپ کرنے والے ہیں۔‘‘"
+          },
+          {
+            "startMs": 102261,
+            "endMs": 103961,
+            "text": "اخلاق نے ڈبہ کھول دیا۔"
+          },
+          {
+            "startMs": 104461,
+            "endMs": 107961,
+            "text": "اندر پیتل کا بنا ہوا ایک پرانا قطب نما رکھا تھا۔"
+          },
+          {
+            "startMs": 108461,
+            "endMs": 110961,
+            "text": "مگر وہ عام قطب نما جیسا نہیں تھا۔"
+          },
+          {
+            "startMs": 111461,
+            "endMs": 113261,
+            "text": "اس پر نہ شمال لکھا تھا۔"
+          },
+          {
+            "startMs": 113461,
+            "endMs": 114361,
+            "text": "نہ جنوب۔"
+          },
+          {
+            "startMs": 114561,
+            "endMs": 115461,
+            "text": "نہ مشرق۔"
+          },
+          {
+            "startMs": 115661,
+            "endMs": 116461,
+            "text": "نہ مغرب۔"
+          },
+          {
+            "startMs": 116961,
+            "endMs": 119953,
+            "text": "کنارے کے گرد گیارہ چھوٹے چھوٹے نشان بنے ہوئے تھے۔"
+          },
+          {
+            "startMs": 119953,
+            "endMs": 129433,
+            "text": "ان کے پاس ایک اور نشان بھی تھا جسے اتنی گہری خراشوں سے مٹانے کی کوشش کی گئی تھی کہ وہ پہلے سے بھی زیادہ نمایاں لگ رہا تھا۔"
+          },
+          {
+            "startMs": 129433,
+            "endMs": 133673,
+            "text": "قطب نما کے نیچے کاغذ کا ایک تہہ کیا ہوا ٹکڑا پڑا تھا۔"
+          },
+          {
+            "startMs": 133673,
+            "endMs": 135461,
+            "text": "ایمان نے اسے کھولا۔"
+          },
+          {
+            "startMs": 135461,
+            "endMs": 138560,
+            "text": "گہری سیاہی میں صرف تین باتیں لکھی تھیں:"
+          },
+          {
+            "startMs": 138917,
+            "endMs": 140995,
+            "text": "دیکھو۔یاد رکھو۔لوٹ آؤ۔"
+          },
+          {
+            "startMs": 142185,
+            "endMs": 143865,
+            "text": "اخلاق نے پوچھا:"
+          },
+          {
+            "startMs": 143865,
+            "endMs": 144145,
+            "text": "’’بس؟‘‘"
+          },
+          {
+            "startMs": 144585,
+            "endMs": 146265,
+            "text": "ایمان نے کاغذ الٹ دیا۔"
+          },
+          {
+            "startMs": 146705,
+            "endMs": 148385,
+            "text": "دوسری طرف کچھ نہیں تھا۔"
+          },
+          {
+            "startMs": 148825,
+            "endMs": 150665,
+            "text": "اخلاق نے قطب نما اٹھا لیا۔"
+          },
+          {
+            "startMs": 151145,
+            "endMs": 152785,
+            "text": "اس کی سوئی کانپنے لگی۔"
+          },
+          {
+            "startMs": 153185,
+            "endMs": 154105,
+            "text": "ایمان نے کہا:"
+          },
+          {
+            "startMs": 154585,
+            "endMs": 155985,
+            "text": "’’اسے واپس رکھ دیجیے۔‘‘"
+          },
+          {
+            "startMs": 156425,
+            "endMs": 158385,
+            "text": "’’آپی، یہ صرف قطب نما ہے۔‘‘"
+          },
+          {
+            "startMs": 158745,
+            "endMs": 161550,
+            "text": "’’جو دیوار کے اندر چھپا ہوا تھا۔‘‘"
+          },
+          {
+            "startMs": 161550,
+            "endMs": 163535,
+            "text": "’’پھر بھی قطب نما ہی ہے۔‘‘"
+          },
+          {
+            "startMs": 163535,
+            "endMs": 165644,
+            "text": "اچانک سوئی گھومنے لگی۔"
+          },
+          {
+            "startMs": 165644,
+            "endMs": 166388,
+            "text": "ایک چکر۔"
+          },
+          {
+            "startMs": 166388,
+            "endMs": 167008,
+            "text": "دوسرا۔"
+          },
+          {
+            "startMs": 167008,
+            "endMs": 168497,
+            "text": "پھر بہت تیزی سے۔"
+          },
+          {
+            "startMs": 169532,
+            "endMs": 173231,
+            "text": "لائبریری کے چراغ ہلکے ہلکے جھلملا اٹھے۔"
+          },
+          {
+            "startMs": 173231,
+            "endMs": 174118,
+            "text": "اور پھر—"
+          },
+          {
+            "startMs": 174118,
+            "endMs": 176337,
+            "text": "ہر آواز غائب ہو گئی۔"
+          },
+          {
+            "startMs": 176337,
+            "endMs": 179606,
+            "text": "باہر بارش کی آواز بند۔"
+          },
+          {
+            "startMs": 179606,
+            "endMs": 180361,
+            "text": "چھت کا پنکھا خاموش۔"
+          },
+          {
+            "startMs": 180361,
+            "endMs": 184246,
+            "text": "سڑک سے آنے والی گاڑیوں کی آواز بھی ختم۔"
+          },
+          {
+            "startMs": 184246,
+            "endMs": 185684,
+            "text": "مکمل خاموشی۔"
+          },
+          {
+            "startMs": 185684,
+            "endMs": 188130,
+            "text": "ایمان نے آہستہ سے کہا:"
+          },
+          {
+            "startMs": 188130,
+            "endMs": 188850,
+            "text": "’’اخلاق...‘‘"
+          },
+          {
+            "startMs": 188850,
+            "endMs": 193886,
+            "text": "اسی وقت کتابوں کی الماری کے اندر سے آواز آئی:"
+          },
+          {
+            "startMs": 193886,
+            "endMs": 194749,
+            "text": "ٹھک۔ٹھک۔ٹھک۔"
+          },
+          {
+            "startMs": 194749,
+            "endMs": 196044,
+            "text": "تین دستکیں۔"
+          },
+          {
+            "startMs": 196044,
+            "endMs": 198490,
+            "text": "اخلاق نے آہستہ سے قطب نما نیچے کیا۔"
+          },
+          {
+            "startMs": 199921,
+            "endMs": 202595,
+            "text": "’’آپی، میں نے اپنی رائے بدل لی ہے۔‘‘"
+          },
+          {
+            "startMs": 202595,
+            "endMs": 208641,
+            "text": "دو الماریوں کے درمیان سنہری روشنی کی ایک باریک لکیر نمودار ہوئی۔"
+          },
+          {
+            "startMs": 208641,
+            "endMs": 210658,
+            "text": "پھر وہ چوڑی ہونے لگی۔"
+          },
+          {
+            "startMs": 210658,
+            "endMs": 212438,
+            "text": "لکڑی غائب ہونے لگی۔"
+          },
+          {
+            "startMs": 212438,
+            "endMs": 215286,
+            "text": "اس کی جگہ گہرا اندھیرا نمودار ہوا۔"
+          },
+          {
+            "startMs": 215761,
+            "endMs": 218089,
+            "text": "اور چند لمحوں میں وہاں—"
+          },
+          {
+            "startMs": 218089,
+            "endMs": 219641,
+            "text": "ایک دروازہ تھا۔"
+          },
+          {
+            "startMs": 220476,
+            "endMs": 222073,
+            "text": "دونوں بچے اپنی جگہ کھڑے رہے۔"
+          },
+          {
+            "startMs": 222313,
+            "endMs": 224793,
+            "text": "پھر دوسری طرف سے دوبارہ دستک ہوئی۔"
+          },
+          {
+            "startMs": 225559,
+            "endMs": 226612,
+            "text": "اخلاق نے سرگوشی کی:"
+          },
+          {
+            "startMs": 226612,
+            "endMs": 229033,
+            "text": "’’ہمیں شیخ انکل کو بلانا چاہیے۔‘‘"
+          },
+          {
+            "startMs": 229273,
+            "endMs": 230633,
+            "text": "ایمان نے فوراً کہا:"
+          },
+          {
+            "startMs": 230953,
+            "endMs": 232913,
+            "text": "’’آخرکار ایک اچھا خیال۔‘‘"
+          },
+          {
+            "startMs": 233612,
+            "endMs": 238073,
+            "text": "اخلاق نے منہ کھولا ہی تھا کہ دروازہ اچانک پوری قوت سے کھل گیا۔"
+          },
+          {
+            "startMs": 238393,
+            "endMs": 239913,
+            "text": "تیز ہوا لائبریری میں داخل ہوئی۔"
+          },
+          {
+            "startMs": 241601,
+            "endMs": 242514,
+            "text": "کتابیں الماریوں سے اٹھنے لگیں۔"
+          },
+          {
+            "startMs": 243557,
+            "endMs": 245905,
+            "text": "صفحات ہوا میں پھڑپھڑانے لگے۔"
+          },
+          {
+            "startMs": 245905,
+            "endMs": 248905,
+            "text": "اخلاق کے ہاتھ میں قطب نما گرم ہونے لگا۔"
+          },
+          {
+            "startMs": 248905,
+            "endMs": 249238,
+            "text": "’’آپی!‘‘"
+          },
+          {
+            "startMs": 249238,
+            "endMs": 251905,
+            "text": "ایمان نے فوراً اس کا بازو پکڑا۔"
+          },
+          {
+            "startMs": 251905,
+            "endMs": 253238,
+            "text": "اور اگلے ہی لمحے—"
+          },
+          {
+            "startMs": 253238,
+            "endMs": 255905,
+            "text": "شیخ انکل کی لائبریری غائب ہو گئی۔"
+          },
+          {
+            "startMs": 255905,
+            "endMs": 258905,
+            "text": "اخلاق کسی نرم چیز پر آ کر گرا۔"
+          },
+          {
+            "startMs": 258905,
+            "endMs": 261128,
+            "text": "اس نے ایک آنکھ کھولی۔"
+          },
+          {
+            "startMs": 261128,
+            "endMs": 261897,
+            "text": "’’قالین۔‘‘"
+          },
+          {
+            "startMs": 261897,
+            "endMs": 263897,
+            "text": "ایمان اس کے قریب گری ہوئی تھی۔"
+          },
+          {
+            "startMs": 263897,
+            "endMs": 265897,
+            "text": "اس نے اٹھتے ہوئے کہا:"
+          },
+          {
+            "startMs": 265897,
+            "endMs": 267897,
+            "text": "’’یہ آپ کی پہلی observation ہے؟‘‘"
+          },
+          {
+            "startMs": 267897,
+            "endMs": 269897,
+            "text": "’’پتھر سے تو بہتر ہے۔‘‘"
+          },
+          {
+            "startMs": 269897,
+            "endMs": 271897,
+            "text": "ایمان نے اردگرد دیکھا۔"
+          },
+          {
+            "startMs": 271897,
+            "endMs": 273897,
+            "text": "یہ شیخ انکل کی لائبریری نہیں تھی۔"
+          },
+          {
+            "startMs": 273897,
+            "endMs": 279889,
+            "text": "لکڑی کی الماریوں میں ہاتھ سے لکھے ہوئے پرانے نسخے بھرے تھے۔"
+          },
+          {
+            "startMs": 279889,
+            "endMs": 282449,
+            "text": "ایک میز پر روشن تیل کا چراغ رکھا تھا۔"
+          },
+          {
+            "startMs": 282949,
+            "endMs": 283368,
+            "text": "ساتھ دوات۔"
+          },
+          {
+            "startMs": 283368,
+            "endMs": 285255,
+            "text": "کاغذات کے ڈھیر۔"
+          },
+          {
+            "startMs": 285255,
+            "endMs": 289449,
+            "text": "اور میز کے پیچھے ایک شخص قلم ہاتھ میں لیے بیٹھا تھا۔"
+          },
+          {
+            "startMs": 289749,
+            "endMs": 291369,
+            "text": "اس نے لکھنا روک دیا تھا۔"
+          },
+          {
+            "startMs": 291749,
+            "endMs": 294529,
+            "text": "وہ حیرت سے ایمان اور اخلاق کو دیکھ رہا تھا۔"
+          },
+          {
+            "startMs": 295049,
+            "endMs": 297249,
+            "text": "’’تم دونوں کون ہو؟‘‘ اس نے پوچھا۔"
+          },
+          {
+            "startMs": 297749,
+            "endMs": 298892,
+            "text": "ایمان نے ادب سے تعارف کرایا۔"
+          },
+          {
+            "startMs": 299881,
+            "endMs": 303681,
+            "text": "’’میرا نام ایمان ہے، اور یہ میرے چھوٹے بھائی اخلاق ہیں۔"
+          },
+          {
+            "startMs": 303681,
+            "endMs": 307781,
+            "text": "ہمیں خود بھی پوری طرح معلوم نہیں کہ ہم یہاں کیسے پہنچے۔"
+          },
+          {
+            "startMs": 307781,
+            "endMs": 312646,
+            "text": "ہم ایک لائبریری میں تھے، ہمیں ایک عجیب سا قطب نما ملا اور پھر...‘‘"
+          },
+          {
+            "startMs": 312646,
+            "endMs": 314681,
+            "text": "اخلاق نے اردگرد دیکھا۔"
+          },
+          {
+            "startMs": 314681,
+            "endMs": 315636,
+            "text": "’’پھر یہاں آ گرے۔‘‘"
+          },
+          {
+            "startMs": 316181,
+            "endMs": 319873,
+            "text": "اس عالم نے قطب نما اپنے ہاتھ میں لے کر غور سے دیکھا۔"
+          },
+          {
+            "startMs": 319873,
+            "endMs": 322893,
+            "text": "’’میں نے ایسی چیز پہلے کبھی نہیں دیکھی۔‘‘"
+          },
+          {
+            "startMs": 322893,
+            "endMs": 325393,
+            "text": "اخلاق نے آہ بھری۔"
+          },
+          {
+            "startMs": 325393,
+            "endMs": 327333,
+            "text": "’’ہر کوئی یہی کہتا ہے۔‘‘"
+          },
+          {
+            "startMs": 327333,
+            "endMs": 328833,
+            "text": "ایمان نے پوچھا:"
+          },
+          {
+            "startMs": 328833,
+            "endMs": 330833,
+            "text": "’’جناب، آپ کا نام کیا ہے؟‘‘"
+          },
+          {
+            "startMs": 330833,
+            "endMs": 332621,
+            "text": "انہوں نے جواب دیا:"
+          },
+          {
+            "startMs": 333515,
+            "endMs": 334153,
+            "text": "’’اسماعیل بن عمر۔‘‘"
+          },
+          {
+            "startMs": 334153,
+            "endMs": 335724,
+            "text": "ایمان ساکت ہو گئی۔"
+          },
+          {
+            "startMs": 337310,
+            "endMs": 338632,
+            "text": "’’اسماعیل بن عمر... ابن کثیر؟‘‘"
+          },
+          {
+            "startMs": 338632,
+            "endMs": 340320,
+            "text": "عالم بھی ایک لمحے کے لیے خاموش ہو گئے۔"
+          },
+          {
+            "startMs": 340320,
+            "endMs": 341865,
+            "text": "اخلاق نے ایمان کی طرف دیکھا۔"
+          },
+          {
+            "startMs": 341865,
+            "endMs": 343065,
+            "text": "’’آپی... ابن کثیر؟‘‘"
+          },
+          {
+            "startMs": 343865,
+            "endMs": 346151,
+            "text": "ایمان نے آہستہ سے سر ہلایا۔"
+          },
+          {
+            "startMs": 347365,
+            "endMs": 348865,
+            "text": "اخلاق نے قطب نما کو دیکھا۔"
+          },
+          {
+            "startMs": 348865,
+            "endMs": 351865,
+            "text": "’’میں تو صرف کتابیں سیدھی کرنا چاہتا تھا۔"
+          },
+          {
+            "startMs": 351865,
+            "endMs": 354865,
+            "text": "میں ابن کثیر کے زمانے میں کیسے پہنچ گیا؟‘‘"
+          },
+          {
+            "startMs": 354865,
+            "endMs": 361857,
+            "text": "ایمان نے وہ کاغذ ابن کثیر کے سامنے رکھا۔"
+          },
+          {
+            "startMs": 361857,
+            "endMs": 362739,
+            "text": "دیکھو۔"
+          },
+          {
+            "startMs": 362739,
+            "endMs": 363975,
+            "text": "یاد رکھو۔"
+          },
+          {
+            "startMs": 363975,
+            "endMs": 364857,
+            "text": "لوٹ آؤ۔"
+          },
+          {
+            "startMs": 364857,
+            "endMs": 366857,
+            "text": "انہوں نے تحریر دیکھی۔"
+          },
+          {
+            "startMs": 366857,
+            "endMs": 368857,
+            "text": "’’میں اسے نہیں پہچانتا۔‘‘"
+          },
+          {
+            "startMs": 368857,
+            "endMs": 372857,
+            "text": "اسی وقت اخلاق کی نظر میز پر کھلے ہوئے ایک مخطوطے پر پڑی۔"
+          },
+          {
+            "startMs": 372857,
+            "endMs": 374857,
+            "text": "’’آپ کیا لکھ رہے تھے؟‘‘"
+          },
+          {
+            "startMs": 375553,
+            "endMs": 376857,
+            "text": "ابن کثیر نے صفحے کی طرف دیکھا۔"
+          }
+        ]
+      },
+      {
+        "id": "ibrahim_ur_02",
+        "title": "قسط 2 · جب سب سے بڑی روشنی غائب ہوئی",
+        "audioKey": "ur/ibrahim/02.ogg",
+        "durationMs": 375854,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "ibrahim_ur_03",
+        "title": "قسط 3 · خاموش معبودوں کا گھر",
+        "audioKey": "ur/ibrahim/03.ogg",
+        "durationMs": 261164,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "ibrahim_ur_04",
+        "title": "قسط 4 · وہ آگ جو جلا نہ سکی",
+        "audioKey": "ur/ibrahim/04.ogg",
+        "durationMs": 221525,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "ibrahim_ur_05",
+        "title": "قسط 5 · وہ بادشاہ جو سورج کو نہ موڑ سکا",
+        "audioKey": "ur/ibrahim/05.ogg",
+        "durationMs": 208994,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "ibrahim_ur_06",
+        "title": "قسط 6 · تاکہ میرا دل مطمئن ہو جائے",
+        "audioKey": "ur/ibrahim/06.ogg",
+        "durationMs": 175673,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "ibrahim_ur_07",
+        "title": "قسط 7 · گھر سے دور جانے والا راستہ",
+        "audioKey": "ur/ibrahim/07.ogg",
+        "durationMs": 213633,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "ibrahim_ur_08",
+        "title": "قسط 8 · وہ وادی جہاں کچھ نہ تھا",
+        "audioKey": "ur/ibrahim/08.ogg",
+        "durationMs": 198633,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "ibrahim_ur_09",
+        "title": "قسط 9 · وہ مہمان جنہوں نے کھانا نہ کھایا",
+        "audioKey": "ur/ibrahim/09.ogg",
+        "durationMs": 178313,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "ibrahim_ur_10",
+        "title": "قسط 10 · بنیادیں اٹھاؤ",
+        "audioKey": "ur/ibrahim/10.ogg",
+        "durationMs": 234272,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "ibrahim_ur_11",
+        "title": "قسط 11 · سب سے کڑا امتحان",
+        "audioKey": "ur/ibrahim/11.ogg",
+        "durationMs": 454826,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      }
+    ]
+  },
+  {
+    "id": "lut_ur",
+    "title": "حضرت لوط علیہ السلام",
+    "description": "حضرت لوط علیہ السلام پر 6 اقساط کی کہانی",
+    "language": "urdu",
+    "category": "prophets",
+    "cover": "lut",
+    "welcome": {
+      "id": "lut_ur_meet",
+      "title": "سلسلے کا تعارف · حضرت لوط علیہ السلام",
+      "audioKey": "ur/lut/00_meet_the_series.ogg",
+      "durationMs": 68097,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
+    "episodes": [
+      {
+        "id": "lut_ur_01",
+        "title": "قسط 1 · جب غلط بات معمول بن گئی",
+        "audioKey": "ur/lut/01.ogg",
+        "durationMs": 928412,
+        "previewEndMs": 467917,
+        "challenge": {
+          "title": "عام ہونے کا مطلب درست ہونا نہیں",
+          "mission": "آج ایک ایسا لمحہ محسوس کریں جب آپ کے آس پاس لوگ کوئی ایسی چیز کر رہے ہوں جسے آپ غلط جانتے ہیں۔ نامناسب مذاق پر ہنسنا، غلط چیز دیکھنا، کسی بچے کا مذاق اڑانا، گالی دینا، نقل کرنا، یا یہ کہنا: ’’سب کرتے ہیں۔‘‘ صرف اس لیے شامل نہ ہوں کہ باقی گروپ اسے قبول کرتا ہے۔ آپ کہہ سکتے ہیں: ’’نہیں، میں یہ نہیں کرنا چاہتا۔‘‘ پھر سکون سے وہاں سے ہٹ جائیں۔",
+          "levelUp": "اگر کوئی کہے: ’’اتنے سخت کیوں بن رہے ہو؟‘‘ اس کی توہین نہ کریں۔ بس کہیں: ’’میرے خیال میں کوئی چیز صرف اس لیے صحیح نہیں ہو جاتی کہ بہت سے لوگ اسے کر رہے ہیں۔‘‘ صحیح اور غلط کا فیصلہ مقبولیت نہیں کرتی۔ مومن اللہ تعالیٰ کی ہدایت سیکھتا ہے اور اس پر چلنے کی ہمت رکھتا ہے۔"
+        },
+        "captions": [
+          {
+            "startMs": 4370,
+            "endMs": 7800,
+            "text": "قسط اول: جب غلط بات معمول بن گئی"
+          },
+          {
+            "startMs": 8200,
+            "endMs": 10840,
+            "text": "وہ تین دستکیں پھر سنائی دیں۔"
+          },
+          {
+            "startMs": 10840,
+            "endMs": 13525,
+            "text": "ٹھک۔ٹھک۔ٹھک۔"
+          },
+          {
+            "startMs": 13525,
+            "endMs": 16800,
+            "text": "ابن کثیر کی لائبریری میں کوئی اپنی جگہ سے نہ ہلا۔"
+          },
+          {
+            "startMs": 16800,
+            "endMs": 19040,
+            "text": "ایمان دیوار کو دیکھ رہی تھی۔"
+          },
+          {
+            "startMs": 19040,
+            "endMs": 21040,
+            "text": "اخلاق قطب نما کو۔"
+          },
+          {
+            "startMs": 21040,
+            "endMs": 22873,
+            "text": "اور نادر دونوں کو۔"
+          },
+          {
+            "startMs": 22873,
+            "endMs": 25073,
+            "text": "پھر اخلاق نے سرگوشی کی:"
+          },
+          {
+            "startMs": 25073,
+            "endMs": 30233,
+            "text": "’’آپی، مجھے امید تھی کہ شاید آج ایک عام سی دوپہر گزارنے کو مل جائے۔‘‘"
+          },
+          {
+            "startMs": 30233,
+            "endMs": 31721,
+            "text": "نادر نے اسے دیکھا۔"
+          },
+          {
+            "startMs": 31721,
+            "endMs": 33953,
+            "text": "’’اتنا کچھ دیکھنے کے بعد بھی؟‘‘"
+          },
+          {
+            "startMs": 34403,
+            "endMs": 35753,
+            "text": "’’امید تو رکھ سکتا ہوں۔‘‘"
+          },
+          {
+            "startMs": 35753,
+            "endMs": 39153,
+            "text": "قطب نما ابن کثیر کی میز پر کھلا پڑا تھا۔"
+          },
+          {
+            "startMs": 39153,
+            "endMs": 46125,
+            "text": "حضرت ابراہیم علیہ السلام کے سفر میں روشن ہونے والے اس کے تمام گیارہ نشان بجھ چکے تھے۔"
+          },
+          {
+            "startMs": 47325,
+            "endMs": 48285,
+            "text": "مگر سوئی حرکت کر رہی تھی۔"
+          },
+          {
+            "startMs": 48285,
+            "endMs": 50065,
+            "text": "آہستہ آہستہ۔"
+          },
+          {
+            "startMs": 50065,
+            "endMs": 51905,
+            "text": "ایک مخطوطے سے گزری۔"
+          },
+          {
+            "startMs": 51905,
+            "endMs": 53265,
+            "text": "پھر دوسرے سے۔"
+          },
+          {
+            "startMs": 53265,
+            "endMs": 56125,
+            "text": "اور آخرکار ایک نئے نام پر رک گئی:"
+          },
+          {
+            "startMs": 56125,
+            "endMs": 57145,
+            "text": "لوط"
+          },
+          {
+            "startMs": 57145,
+            "endMs": 59265,
+            "text": "ایمان کو فوراً یاد آ گیا۔"
+          },
+          {
+            "startMs": 59265,
+            "endMs": 59977,
+            "text": "’’فرشتے۔‘‘"
+          },
+          {
+            "startMs": 59977,
+            "endMs": 60909,
+            "text": "اخلاق نے سر ہلایا۔"
+          },
+          {
+            "startMs": 61531,
+            "endMs": 65777,
+            "text": "’’وہ مہمان جو حضرت ابراہیم علیہ السلام کے پاس آئے تھے۔"
+          },
+          {
+            "startMs": 65777,
+            "endMs": 70537,
+            "text": "انہوں نے کہا تھا کہ وہ حضرت لوط علیہ السلام کی قوم کی طرف جا رہے ہیں۔‘‘"
+          },
+          {
+            "startMs": 70537,
+            "endMs": 72622,
+            "text": "نادر کا چہرہ سنجیدہ ہو گیا۔"
+          },
+          {
+            "startMs": 72622,
+            "endMs": 78977,
+            "text": "’’یعنی یہ کہانی حضرت ابراہیم علیہ السلام کا سفر ختم ہونے سے پہلے ہی شروع ہو چکی تھی۔‘‘"
+          },
+          {
+            "startMs": 80727,
+            "endMs": 82369,
+            "text": "ابن کثیر نے احتیاط سے مخطوطہ کھولا۔"
+          },
+          {
+            "startMs": 82369,
+            "endMs": 82634,
+            "text": "’’جی۔‘‘"
+          },
+          {
+            "startMs": 82634,
+            "endMs": 85549,
+            "text": "اخلاق نے دیوار کی طرف دیکھا۔"
+          },
+          {
+            "startMs": 85549,
+            "endMs": 92269,
+            "text": "’’اور میرا خیال ہے ان دستکوں کا مطلب یہ ہے کہ اب ہمیں معلوم ہونے والا ہے کہ کیوں۔‘‘"
+          },
+          {
+            "startMs": 93555,
+            "endMs": 95269,
+            "text": "قطب نما سے کلک کی آواز آئی۔"
+          },
+          {
+            "startMs": 95269,
+            "endMs": 99589,
+            "text": "اس کے کنارے کے گرد چھ نئے چھوٹے نشان نمودار ہوئے۔"
+          },
+          {
+            "startMs": 100340,
+            "endMs": 101761,
+            "text": "پہلا نشان روشن ہونے لگا۔"
+          },
+          {
+            "startMs": 102161,
+            "endMs": 102881,
+            "text": "شیشے پر الفاظ ابھرے:"
+          },
+          {
+            "startMs": 104361,
+            "endMs": 109041,
+            "text": "اگر سب لوگ کسی چیز کو قبول کر لیں تو کیا وہ چیز درست ہو جاتی ہے؟"
+          },
+          {
+            "startMs": 109441,
+            "endMs": 111361,
+            "text": "اخلاق نے فوراً جواب دیا:"
+          },
+          {
+            "startMs": 111641,
+            "endMs": 112241,
+            "text": "’’نہیں۔‘‘"
+          },
+          {
+            "startMs": 112641,
+            "endMs": 114041,
+            "text": "ایمان نے اسے دیکھا۔"
+          },
+          {
+            "startMs": 114401,
+            "endMs": 116361,
+            "text": "’’جواب کافی جلدی دے دیا۔‘‘"
+          },
+          {
+            "startMs": 116641,
+            "endMs": 119816,
+            "text": "’’میں نے پراسرار قطب نماؤں سے بحث نہ کرنا سیکھ لیا ہے۔‘‘"
+          },
+          {
+            "startMs": 119953,
+            "endMs": 122233,
+            "text": "پھر دیوار کھل گئی۔"
+          },
+          {
+            "startMs": 122233,
+            "endMs": 126513,
+            "text": "سب سے پہلی آواز جو انہوں نے سنی، وہ ہنسی تھی۔"
+          },
+          {
+            "startMs": 126513,
+            "endMs": 128313,
+            "text": "خوشی والی ہنسی نہیں۔"
+          },
+          {
+            "startMs": 128313,
+            "endMs": 130033,
+            "text": "زور زور سے ہنسنا۔"
+          },
+          {
+            "startMs": 130033,
+            "endMs": 132513,
+            "text": "کسی کا مذاق اڑانے والی ہنسی۔"
+          },
+          {
+            "startMs": 132513,
+            "endMs": 136873,
+            "text": "ایمان، اخلاق اور نادر خوابوں کی دنیا میں داخل ہو گئے۔"
+          },
+          {
+            "startMs": 136873,
+            "endMs": 139753,
+            "text": "وہ ایک مصروف شہر کے قریب کھڑے تھے۔"
+          },
+          {
+            "startMs": 140293,
+            "endMs": 141945,
+            "text": "گلیاں لوگوں سے بھری ہوئی تھیں۔"
+          },
+          {
+            "startMs": 141945,
+            "endMs": 145665,
+            "text": "گھر، دکانیں اور راستے سے گزرتے مسافر۔"
+          },
+          {
+            "startMs": 145665,
+            "endMs": 148285,
+            "text": "شروع میں سب کچھ عام سا دکھائی دیا۔"
+          },
+          {
+            "startMs": 148285,
+            "endMs": 152275,
+            "text": "پھر ایمان نے چھوٹی چھوٹی چیزیں محسوس کرنا شروع کیں۔"
+          },
+          {
+            "startMs": 152485,
+            "endMs": 159085,
+            "text": "کچھ مرد ایک مسافر پر زور زور سے ہنس رہے تھے جو خاصا بے آرام دکھائی دے رہا تھا۔"
+          },
+          {
+            "startMs": 159085,
+            "endMs": 161342,
+            "text": "کسی نے ایک بدتمیز جملہ کہا۔"
+          },
+          {
+            "startMs": 161844,
+            "endMs": 163551,
+            "text": "دوسرا بھی اس میں شامل ہو گیا۔"
+          },
+          {
+            "startMs": 163551,
+            "endMs": 165257,
+            "text": "کسی کو حیرت نہیں ہوئی۔"
+          },
+          {
+            "startMs": 165257,
+            "endMs": 171697,
+            "text": "کچھ فاصلے پر لوگ ایسے انداز میں برتاؤ کر رہے تھے جس سے ایمان کو بے چینی محسوس ہوئی۔"
+          },
+          {
+            "startMs": 171697,
+            "endMs": 175217,
+            "text": "اس لیے نہیں کہ وہ ہر چیز کی تفصیل سمجھ رہی تھی۔"
+          },
+          {
+            "startMs": 175217,
+            "endMs": 179929,
+            "text": "بلکہ اس لیے کہ جیسے اب کسی کو حیا کی پروا ہی نہیں رہی تھی۔"
+          },
+          {
+            "startMs": 179929,
+            "endMs": 181807,
+            "text": "اخلاق نے تیوری چڑھائی۔"
+          },
+          {
+            "startMs": 181807,
+            "endMs": 186709,
+            "text": "’’آپی، سب ایسے کیوں رہ رہے ہیں جیسے کوئی غلط بات ہو ہی نہیں رہی؟‘‘"
+          },
+          {
+            "startMs": 186709,
+            "endMs": 188640,
+            "text": "نادر نے جواب نہیں دیا۔"
+          },
+          {
+            "startMs": 188640,
+            "endMs": 190457,
+            "text": "قطب نما گرم ہونے لگا۔"
+          },
+          {
+            "startMs": 190457,
+            "endMs": 192729,
+            "text": "پھر انہوں نے انہیں دیکھا۔"
+          },
+          {
+            "startMs": 192729,
+            "endMs": 196029,
+            "text": "ایک شخص لوگوں کے ایک گروہ کے سامنے کھڑے تھے۔"
+          },
+          {
+            "startMs": 196029,
+            "endMs": 199909,
+            "text": "آواز پرسکون تھی، مگر پیغام بہت سنجیدہ۔"
+          },
+          {
+            "startMs": 199921,
+            "endMs": 201921,
+            "text": "ایمان فوراً پہچان گئی۔"
+          },
+          {
+            "startMs": 201921,
+            "endMs": 203961,
+            "text": "’’حضرت لوط علیہ السلام۔‘‘"
+          },
+          {
+            "startMs": 203961,
+            "endMs": 205041,
+            "text": "وہ قریب گئے۔"
+          },
+          {
+            "startMs": 205041,
+            "endMs": 210641,
+            "text": "حضرت لوط علیہ السلام کے اردگرد موجود لوگ احترام سے بات نہیں سن رہے تھے۔"
+          },
+          {
+            "startMs": 210641,
+            "endMs": 211805,
+            "text": "کچھ ہنس رہے تھے۔"
+          },
+          {
+            "startMs": 211805,
+            "endMs": 213921,
+            "text": "کچھ آنکھیں گھما رہے تھے۔"
+          },
+          {
+            "startMs": 213921,
+            "endMs": 218681,
+            "text": "ایک شخص ایسے چلایا جیسے یہ نصیحت وہ کئی بار سن چکا ہو۔"
+          },
+          {
+            "startMs": 218681,
+            "endMs": 224993,
+            "text": "حضرت لوط علیہ السلام اپنی قوم کو اس بے حیائی سے روک رہے تھے جسے وہ معمول سمجھنے لگے تھے۔"
+          },
+          {
+            "startMs": 224993,
+            "endMs": 229133,
+            "text": "وہ انہیں اللہ تعالیٰ کی مقرر کی ہوئی حدود یاد دلا رہے تھے۔"
+          },
+          {
+            "startMs": 229133,
+            "endMs": 231213,
+            "text": "ایمان غور سے سن رہی تھی۔"
+          },
+          {
+            "startMs": 231213,
+            "endMs": 233753,
+            "text": "پھر اس نے اخلاق سے آہستہ کہا:"
+          },
+          {
+            "startMs": 233753,
+            "endMs": 239193,
+            "text": "’’حضرت لوط علیہ السلام بار بار مرد و عورت کے تعلقات کی بات کیوں کر رہے ہیں؟‘‘"
+          },
+          {
+            "startMs": 239193,
+            "endMs": 241905,
+            "text": "اخلاق بھی الجھا ہوا تھا۔"
+          },
+          {
+            "startMs": 241905,
+            "endMs": 243905,
+            "text": "نادر نے دونوں کو دیکھا مگر خاموش رہا۔"
+          },
+          {
+            "startMs": 244619,
+            "endMs": 247905,
+            "text": "خوابوں کی دنیا جیسے آہستہ ہونے لگی۔"
+          },
+          {
+            "startMs": 248655,
+            "endMs": 249905,
+            "text": "قطب نما پر پیغام آیا:"
+          },
+          {
+            "startMs": 249905,
+            "endMs": 253905,
+            "text": "منظر کے بارے میں فیصلہ کرنے سے پہلے اسے سمجھو۔"
+          },
+          {
+            "startMs": 253905,
+            "endMs": 257905,
+            "text": "اچانک ابن کثیر کی آواز بہت دور سے سنائی دی۔"
+          },
+          {
+            "startMs": 257905,
+            "endMs": 265817,
+            "text": "وہ تاریخ کے اندر موجود کسی کردار کی طرح نہیں بلکہ اس واقعے کے رہنما کی طرح ان تک پہنچ رہی تھی۔"
+          },
+          {
+            "startMs": 266567,
+            "endMs": 267617,
+            "text": "وضاحت سادہ تھی:"
+          },
+          {
+            "startMs": 267617,
+            "endMs": 272574,
+            "text": "اللہ تعالیٰ نے مرد و عورت کے تعلقات کے لیے درست حدود مقرر کی تھیں۔"
+          },
+          {
+            "startMs": 272897,
+            "endMs": 279177,
+            "text": "مگر حضرت لوط علیہ السلام کی قوم کے بہت سے لوگوں نے ان حدود کی پروا کرنا چھوڑ دی تھی۔"
+          },
+          {
+            "startMs": 279889,
+            "endMs": 285689,
+            "text": "غلط کام رفتہ رفتہ اتنا عام ہو گیا کہ لوگ اس پر شرمندگی محسوس کرنا بھی چھوڑنے لگے۔"
+          },
+          {
+            "startMs": 285689,
+            "endMs": 288506,
+            "text": "ایمان نے دوبارہ شہر کی طرف دیکھا۔"
+          },
+          {
+            "startMs": 288506,
+            "endMs": 290489,
+            "text": "اب اسے سبق سمجھ آ رہا تھا۔"
+          },
+          {
+            "startMs": 290489,
+            "endMs": 294169,
+            "text": "’’تو مسئلہ صرف یہ نہیں تھا کہ لوگ غلط کام کر رہے تھے۔‘‘"
+          },
+          {
+            "startMs": 294169,
+            "endMs": 295006,
+            "text": "نادر نے سر ہلایا۔"
+          },
+          {
+            "startMs": 296052,
+            "endMs": 299609,
+            "text": "’’انہوں نے اس غلط کام کو غلط سمجھنا بھی چھوڑ دیا تھا۔‘‘"
+          },
+          {
+            "startMs": 300291,
+            "endMs": 302445,
+            "text": "اخلاق نے ہنستے ہوئے ہجوم کو دیکھا۔"
+          },
+          {
+            "startMs": 302445,
+            "endMs": 304804,
+            "text": "’’اور اگر کوئی انہیں یاد دلاتا...‘‘"
+          },
+          {
+            "startMs": 304804,
+            "endMs": 305830,
+            "text": "ایمان نے کہا:"
+          },
+          {
+            "startMs": 305830,
+            "endMs": 307881,
+            "text": "’’تو وہ سننا نہیں چاہتے تھے۔‘‘"
+          },
+          {
+            "startMs": 308285,
+            "endMs": 311721,
+            "text": "حضرت لوط علیہ السلام اپنی قوم کو متنبہ کرتے رہے۔"
+          },
+          {
+            "startMs": 311721,
+            "endMs": 319873,
+            "text": "قرآن ہمیں بتاتا ہے کہ انہوں نے اپنی قوم کے مردوں کو متوجہ کیا کہ وہ عورتوں کے بجائے مردوں کی طرف شہوت کے ساتھ جاتے ہیں۔"
+          },
+          {
+            "startMs": 319873,
+            "endMs": 324073,
+            "text": "ایمان اور اخلاق کے لیے بات سادہ انداز میں سمجھائی گئی:"
+          },
+          {
+            "startMs": 324073,
+            "endMs": 329636,
+            "text": "اللہ تعالیٰ نے مرد و عورت کے تعلقات کے لیے درست حدود بنائی ہیں۔"
+          },
+          {
+            "startMs": 329873,
+            "endMs": 339865,
+            "text": "مگر قومِ لوط کے لوگ حرام تعلقات اختیار کر رہے تھے اور اللہ کی حدود توڑنے پر شرمندگی محسوس کرنا بھی نہیں چاہتے تھے۔"
+          },
+          {
+            "startMs": 339865,
+            "endMs": 342365,
+            "text": "اخلاق نے آواز دھیمی کر لی۔"
+          },
+          {
+            "startMs": 342365,
+            "endMs": 347865,
+            "text": "’’انہیں معلوم تھا کہ حضرت لوط علیہ السلام اسے غلط کہہ رہے ہیں؟‘‘"
+          },
+          {
+            "startMs": 347865,
+            "endMs": 348198,
+            "text": "’’جی۔‘‘"
+          },
+          {
+            "startMs": 348198,
+            "endMs": 350365,
+            "text": "’’پھر بھی کرتے رہے؟‘‘"
+          },
+          {
+            "startMs": 350365,
+            "endMs": 350678,
+            "text": "’’جی۔‘‘"
+          },
+          {
+            "startMs": 350678,
+            "endMs": 352865,
+            "text": "’’پھر رکے کیوں نہیں؟‘‘"
+          },
+          {
+            "startMs": 352865,
+            "endMs": 354865,
+            "text": "نادر نے شہر کی طرف دیکھا۔"
+          },
+          {
+            "startMs": 354865,
+            "endMs": 357865,
+            "text": "’’دیکھو، کتنے لوگ کر رہے ہیں۔‘‘"
+          },
+          {
+            "startMs": 357865,
+            "endMs": 359857,
+            "text": "اخلاق نے اردگرد دیکھا۔"
+          },
+          {
+            "startMs": 359857,
+            "endMs": 360744,
+            "text": "بہت سے۔"
+          },
+          {
+            "startMs": 360744,
+            "endMs": 361986,
+            "text": "ایک نہیں۔"
+          },
+          {
+            "startMs": 361986,
+            "endMs": 363050,
+            "text": "دو نہیں۔"
+          },
+          {
+            "startMs": 363050,
+            "endMs": 363937,
+            "text": "بہت سے۔"
+          },
+          {
+            "startMs": 363937,
+            "endMs": 365062,
+            "text": "نادر نے کہا:"
+          },
+          {
+            "startMs": 365062,
+            "endMs": 371437,
+            "text": "’’جب کوئی غلط چیز بار بار دہرائی جائے تو انسان اس کا عادی ہونے لگتا ہے۔‘‘"
+          },
+          {
+            "startMs": 371437,
+            "endMs": 374017,
+            "text": "ایمان نے آہستہ سے سر ہلایا۔"
+          },
+          {
+            "startMs": 374017,
+            "endMs": 376657,
+            "text": "’’پھر عادت سے قبولیت آتی ہے۔‘‘"
+          },
+          {
+            "startMs": 376657,
+            "endMs": 377824,
+            "text": "نادر نے کہا:"
+          },
+          {
+            "startMs": 377824,
+            "endMs": 382649,
+            "text": "’’اور قبولیت ایک دن اس غلط چیز کے دفاع میں بدل سکتی ہے۔‘‘"
+          },
+          {
+            "startMs": 382649,
+            "endMs": 385149,
+            "text": "قطب نما سے کلک کی آواز آئی۔"
+          },
+          {
+            "startMs": 385667,
+            "endMs": 387349,
+            "text": "پہلا نشان آدھا بھر گیا۔"
+          },
+          {
+            "startMs": 388120,
+            "endMs": 389149,
+            "text": "الفاظ ظاہر ہوئے:"
+          },
+          {
+            "startMs": 389405,
+            "endMs": 392349,
+            "text": "عام ہونا، درست ہونے کی دلیل نہیں۔"
+          },
+          {
+            "startMs": 392349,
+            "endMs": 394149,
+            "text": "اخلاق نے دہرایا:"
+          },
+          {
+            "startMs": 394416,
+            "endMs": 397349,
+            "text": "’’عام ہونے کا مطلب صحیح ہونا نہیں۔‘‘"
+          },
+          {
+            "startMs": 397349,
+            "endMs": 399649,
+            "text": "وہ شہر کے اندر آگے بڑھے۔"
+          },
+          {
+            "startMs": 399841,
+            "endMs": 403641,
+            "text": "ایک کم عمر لڑکا چند بڑے لوگوں کے پاس کھڑا تھا۔"
+          },
+          {
+            "startMs": 403641,
+            "endMs": 407241,
+            "text": "وہ لوگ کسی نامناسب بات پر ہنس رہے تھے۔"
+          },
+          {
+            "startMs": 408270,
+            "endMs": 409041,
+            "text": "لڑکا الجھن میں تھا۔"
+          },
+          {
+            "startMs": 409041,
+            "endMs": 411041,
+            "text": "ایک شخص نے اسے دیکھا۔"
+          },
+          {
+            "startMs": 411041,
+            "endMs": 412841,
+            "text": "’’وہاں کیوں کھڑے ہو؟"
+          },
+          {
+            "startMs": 413241,
+            "endMs": 413841,
+            "text": "آؤ، سنو!‘‘"
+          },
+          {
+            "startMs": 413841,
+            "endMs": 415441,
+            "text": "لڑکا ہچکچایا۔"
+          },
+          {
+            "startMs": 415441,
+            "endMs": 422393,
+            "text": "اخلاق بے اختیار آگے بڑھا، پھر اسے یاد آیا کہ خوابوں کی دنیا کے لوگ اسے دیکھ نہیں سکتے۔"
+          },
+          {
+            "startMs": 422393,
+            "endMs": 424393,
+            "text": "لڑکے نے اردگرد دیکھا۔"
+          },
+          {
+            "startMs": 424393,
+            "endMs": 425913,
+            "text": "سب ہنس رہے تھے۔"
+          },
+          {
+            "startMs": 425913,
+            "endMs": 427913,
+            "text": "آخر وہ بھی مسکرا دیا۔"
+          },
+          {
+            "startMs": 427913,
+            "endMs": 429913,
+            "text": "اس لیے نہیں کہ وہ سمجھتا تھا۔"
+          },
+          {
+            "startMs": 429913,
+            "endMs": 432153,
+            "text": "اس لیے بھی نہیں کہ وہ متفق تھا۔"
+          },
+          {
+            "startMs": 432153,
+            "endMs": 436393,
+            "text": "صرف اس لیے کہ وہ دوسروں سے مختلف دکھائی نہیں دینا چاہتا تھا۔"
+          },
+          {
+            "startMs": 436393,
+            "endMs": 438793,
+            "text": "ایمان کے چہرے کا رنگ بدل گیا۔"
+          },
+          {
+            "startMs": 438793,
+            "endMs": 440453,
+            "text": "’’یہ آج بھی ہوتا ہے۔‘‘"
+          },
+          {
+            "startMs": 440453,
+            "endMs": 441709,
+            "text": "اخلاق نے پوچھا:"
+          },
+          {
+            "startMs": 441709,
+            "endMs": 442023,
+            "text": "’’کیا؟‘‘"
+          },
+          {
+            "startMs": 442023,
+            "endMs": 443907,
+            "text": "’’کوئی غلط چیز دکھاتا ہے۔"
+          },
+          {
+            "startMs": 443907,
+            "endMs": 446105,
+            "text": "کوئی نامناسب مذاق کرتا ہے۔"
+          },
+          {
+            "startMs": 446105,
+            "endMs": 451665,
+            "text": "سب ہنستے ہیں، تو دوسرا بچہ بھی صرف اس لیے ہنس دیتا ہے تاکہ عجیب نہ لگے۔‘‘"
+          },
+          {
+            "startMs": 451665,
+            "endMs": 452649,
+            "text": "نادر نے سر ہلایا۔"
+          },
+          {
+            "startMs": 453264,
+            "endMs": 459229,
+            "text": "’’اور اسی طرح آہستہ آہستہ لوگ غلط چیز کو معمول سمجھنے لگتے ہیں۔‘‘"
+          },
+          {
+            "startMs": 459817,
+            "endMs": 461277,
+            "text": "قطب نما پر پیغام نمودار ہوا:"
+          },
+          {
+            "startMs": 461277,
+            "endMs": 467917,
+            "text": "صرف اس لیے کسی چیز میں شامل ہونا ضروری نہیں کہ باقی لوگوں نے اس پر سوال کرنا چھوڑ دیا ہے۔"
+          }
+        ]
+      },
+      {
+        "id": "lut_ur_02",
+        "title": "قسط 2 · اسے مت کھولو",
+        "audioKey": "ur/lut/02.ogg",
+        "durationMs": 675858,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "lut_ur_03",
+        "title": "قسط 3 · دروازے پر مہمان",
+        "audioKey": "ur/lut/03.ogg",
+        "durationMs": 762590,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "lut_ur_04",
+        "title": "قسط 4 · آپ اتنے مختلف کیوں ہیں؟",
+        "audioKey": "ur/lut/04.ogg",
+        "durationMs": 707349,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "lut_ur_05",
+        "title": "قسط 5 · جب مجھے واقعی کوئی چیز چاہیے ہو",
+        "audioKey": "ur/lut/05.ogg",
+        "durationMs": 801248,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "lut_ur_06",
+        "title": "قسط 6 · صبح ہونے سے پہلے نکل جاؤ",
+        "audioKey": "ur/lut/06.ogg",
+        "durationMs": 786128,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      }
+    ]
+  },
+  {
     "id": "fairness_ur",
     "title": "سنہری ترازو",
     "description": "انصاف پر 10 اقساط کی کہانی",
@@ -7747,490 +10852,6 @@ export const allSeries: Series[] = [
         "title": "قسط 10 · امن پور کا عہد",
         "audioKey": "ur/fairness/10.ogg",
         "durationMs": 445476,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      }
-    ]
-  },
-  {
-    "id": "gratitude_ur",
-    "title": "وہ چیزیں جن پر ہماری نظر نہیں جاتی",
-    "description": "شکرگزاری پر 10 اقساط کی کہانی",
-    "language": "urdu",
-    "category": "moral",
-    "cover": "gratitude",
-    "welcome": {
-      "id": "gratitude_ur_meet",
-      "title": "سلسلے کا تعارف · وہ چیزیں جن پر ہماری نظر نہیں جاتی",
-      "audioKey": "ur/gratitude/00_meet_the_series.ogg",
-      "durationMs": 62110,
-      "previewEndMs": null,
-      "captions": [],
-      "challenge": null
-    },
-    "episodes": [
-      {
-        "id": "gratitude_ur_01",
-        "title": "قسط 1 · وہ فہرست جو ختم ہونے کا نام نہ لیتی تھی",
-        "audioKey": "ur/gratitude/01.ogg",
-        "durationMs": 470613,
-        "previewEndMs": 237877,
-        "challenge": {
-          "title": "کسی کا بوجھ ہلکا کریں",
-          "mission": "ایسے شخص کو پہچانیے جس کے کام سے آپ روز فائدہ اٹھاتے ہیں مگر عموماً اس پر توجہ نہیں دیتے۔ آج اس کے کام کا ایک چھوٹا حصہ آسان کر دیں۔ اپنی چیز خود جگہ پر رکھیں، اپنے بعد صفائی کریں، کرسی واپس رکھیں یا کوئی ہلکی مدد کر دیں۔",
-          "levelUp": "کوئی ایسا اچھا کام کریں جس کے بارے میں بعد میں کسی کو بتانے کی ضرورت نہ ہو۔ بوجھ ہلکا ہو جانا ہی کافی ہے۔"
-        },
-        "captions": [
-          {
-            "startMs": 106,
-            "endMs": 522,
-            "text": "قسط اول"
-          },
-          {
-            "startMs": 522,
-            "endMs": 4689,
-            "text": "وہ فہرست جو ختم ہونے کا نام نہ لیتی تھی"
-          },
-          {
-            "startMs": 4689,
-            "endMs": 13689,
-            "text": "سبق: شکرگزاری وہاں سے شروع ہوتی ہے جہاں ہم معمول بن جانے والی نعمتوں کو دوبارہ محسوس کرنا شروع کرتے ہیں۔"
-          },
-          {
-            "startMs": 14301,
-            "endMs": 18689,
-            "text": "امن پور کے ایک گھر کی کھڑکیوں سے صبح کی نرم روشنی اندر آ رہی تھی۔"
-          },
-          {
-            "startMs": 19149,
-            "endMs": 21977,
-            "text": "فجر کی اذان کو کچھ وقت گزر چکا تھا۔"
-          },
-          {
-            "startMs": 21977,
-            "endMs": 30377,
-            "text": "باہر پرندوں کی آوازیں شروع ہو گئی تھیں، مگر گھر کے زیادہ تر افراد ابھی نیند کے آخری چند منٹوں سے لطف اٹھا رہے تھے۔"
-          },
-          {
-            "startMs": 30377,
-            "endMs": 31937,
-            "text": "زیادہ تر افراد۔"
-          },
-          {
-            "startMs": 31937,
-            "endMs": 34233,
-            "text": "امی کافی دیر پہلے جاگ چکی تھیں۔"
-          },
-          {
-            "startMs": 34577,
-            "endMs": 46625,
-            "text": "نماز کے بعد انہوں نے باورچی خانے میں دودھ دیکھا، آٹا گوندھا، ابو کا لنچ تیار کیا، ناشتا بنایا، پانی کی بوتلیں بھریں اور دادی کی دوا ان کے کپ کے پاس رکھ دی۔"
-          },
-          {
-            "startMs": 46625,
-            "endMs": 54325,
-            "text": "جب تازہ پراٹھوں کی خوشبو راہداری تک پہنچی تو امی باقی گھر والوں کے جاگنے سے پہلے ہی خاصا کام کر چکی تھیں۔"
-          },
-          {
-            "startMs": 54625,
-            "endMs": 58593,
-            "text": "پھر وہ آواز آئی جو گھر میں اکثر سنائی دیتی تھی۔"
-          },
-          {
-            "startMs": 58593,
-            "endMs": 60666,
-            "text": "’’امی! میری جرابیں نہیں مل رہیں!‘‘"
-          },
-          {
-            "startMs": 61393,
-            "endMs": 64313,
-            "text": "امی نے چولہے سے نظر ہٹائے بغیر جواب دیا:"
-          },
-          {
-            "startMs": 64513,
-            "endMs": 67673,
-            "text": "’’اخلاق، اپنے اسکول کے جوتوں کے اندر دیکھو۔‘‘"
-          },
-          {
-            "startMs": 68233,
-            "endMs": 69873,
-            "text": "چند لمحوں کی خاموشی۔"
-          },
-          {
-            "startMs": 70313,
-            "endMs": 72393,
-            "text": "پھر نسبتاً دھیمی آواز آئی:"
-          },
-          {
-            "startMs": 72753,
-            "endMs": 75073,
-            "text": "’’اوہ... وہ تو جوتوں کے اندر ہی ہیں۔‘‘"
-          },
-          {
-            "startMs": 75433,
-            "endMs": 76444,
-            "text": "میز پر بیٹھے ابو ہنس پڑے۔"
-          },
-          {
-            "startMs": 77873,
-            "endMs": 83881,
-            "text": "’’ایک دن تم اپنا سر بھی کہیں رکھ کر بھول جاؤ گے اور پھر امی سے پوچھو گے کہ انہوں نے کہاں رکھا ہے۔‘‘"
-          },
-          {
-            "startMs": 84321,
-            "endMs": 87336,
-            "text": "اسی دوران علی بھی ان کے ساتھ اسکول جانے کے لیے آ گیا۔"
-          },
-          {
-            "startMs": 88201,
-            "endMs": 90681,
-            "text": "جرابوں کا واقعہ سن کر اس نے اعلان کیا:"
-          },
-          {
-            "startMs": 91281,
-            "endMs": 94441,
-            "text": "’’ایمان اور اخلاق کو جاسوسی ایجنسی کھول لینی چاہیے۔"
-          },
-          {
-            "startMs": 95390,
-            "endMs": 98294,
-            "text": "البتہ اخلاق کے اپنے کمرے کے مقدمات شاید حل نہ ہوں۔‘‘"
-          },
-          {
-            "startMs": 98529,
-            "endMs": 99331,
-            "text": "سب ہنس پڑے۔"
-          },
-          {
-            "startMs": 99331,
-            "endMs": 100019,
-            "text": "امی بھی مسکرائیں۔"
-          },
-          {
-            "startMs": 101738,
-            "endMs": 110089,
-            "text": "ہنستے ہنستے انہوں نے اخلاق کی ٹائی درست کی، اس کی قمیص سے روٹی کا ایک ٹکڑا صاف کیا اور ایمان کی پانی کی بوتل دوبارہ چیک کی۔"
-          },
-          {
-            "startMs": 110089,
-            "endMs": 111861,
-            "text": "کسی نے شکریہ نہیں کہا۔"
-          },
-          {
-            "startMs": 111861,
-            "endMs": 116969,
-            "text": "حقیقت یہ تھی کہ کسی نے ان کاموں کو خاص طور پر محسوس بھی نہیں کیا۔"
-          },
-          {
-            "startMs": 116969,
-            "endMs": 119681,
-            "text": "ناشتے کے دوران بھی یہی ہوتا رہا۔"
-          },
-          {
-            "startMs": 119681,
-            "endMs": 121575,
-            "text": "کبھی چائے چاہیے تھی۔"
-          },
-          {
-            "startMs": 121575,
-            "endMs": 122048,
-            "text": "کبھی دودھ۔"
-          },
-          {
-            "startMs": 122403,
-            "endMs": 124297,
-            "text": "کبھی لنچ باکس رہ گیا۔"
-          },
-          {
-            "startMs": 124297,
-            "endMs": 125409,
-            "text": "دادی کی دوا۔"
-          },
-          {
-            "startMs": 125409,
-            "endMs": 126521,
-            "text": "ابو کی فائل۔"
-          },
-          {
-            "startMs": 126521,
-            "endMs": 128497,
-            "text": "پانی کا ایک اور گلاس۔"
-          },
-          {
-            "startMs": 128497,
-            "endMs": 133497,
-            "text": "امی آخر میں اس وقت بیٹھیں جب باقی سب تقریباً کھانا ختم کر چکے تھے۔"
-          },
-          {
-            "startMs": 133497,
-            "endMs": 136257,
-            "text": "ایمان چند لمحے انہیں دیکھتی رہی۔"
-          },
-          {
-            "startMs": 136257,
-            "endMs": 140265,
-            "text": "نہ جانے کیوں، آج یہ منظر اس کے ذہن میں ٹھہر گیا۔"
-          },
-          {
-            "startMs": 140620,
-            "endMs": 143545,
-            "text": "اسکول پہنچے تو اسمبلی میں پرنسپل نے اعلان کیا:"
-          },
-          {
-            "startMs": 143545,
-            "endMs": 146545,
-            "text": "’’اس ہفتے ہم ‘ہفتۂ شکرگزاری’ منائیں گے۔‘‘"
-          },
-          {
-            "startMs": 146545,
-            "endMs": 149265,
-            "text": "اخلاق نے علی کے کان میں سرگوشی کی:"
-          },
-          {
-            "startMs": 149265,
-            "endMs": 154300,
-            "text": "’’اگر شکرگزاری میں مفت برگر شامل ہوں تو میں مکمل تیار ہوں۔‘‘"
-          },
-          {
-            "startMs": 154545,
-            "endMs": 156865,
-            "text": "قریب کھڑی فاطمہ نے سن لیا۔"
-          },
-          {
-            "startMs": 156865,
-            "endMs": 162433,
-            "text": "’’تمہاری زیادہ تر سنجیدہ تعلیمی دلچسپی کھانے ہی سے شروع کیوں ہوتی ہے؟‘‘"
-          },
-          {
-            "startMs": 162433,
-            "endMs": 167033,
-            "text": "اخلاق جواب دینے ہی والا تھا کہ کھیلوں کے استاد نے ان کی طرف دیکھا۔"
-          },
-          {
-            "startMs": 167033,
-            "endMs": 169233,
-            "text": "تینوں فوراً سیدھے کھڑے ہو گئے۔"
-          },
-          {
-            "startMs": 169233,
-            "endMs": 172316,
-            "text": "بعد میں مس ثناء ایک چھوٹا سا سبز پودا کلاس میں لائیں۔"
-          },
-          {
-            "startMs": 172913,
-            "endMs": 174913,
-            "text": "انہوں نے اسے میز پر رکھا۔"
-          },
-          {
-            "startMs": 174913,
-            "endMs": 176913,
-            "text": "’’یہ زندہ کیسے رہتا ہے؟‘‘"
-          },
-          {
-            "startMs": 176913,
-            "endMs": 177588,
-            "text": "جوابات فوراً آنے لگے۔"
-          },
-          {
-            "startMs": 178401,
-            "endMs": 179215,
-            "text": "’’پانی!‘‘"
-          },
-          {
-            "startMs": 179215,
-            "endMs": 180029,
-            "text": "’’دھوپ!‘‘"
-          },
-          {
-            "startMs": 180029,
-            "endMs": 181453,
-            "text": "’’اچھی مٹی!‘‘"
-          },
-          {
-            "startMs": 181453,
-            "endMs": 183081,
-            "text": "’’دیکھ بھال!‘‘"
-          },
-          {
-            "startMs": 183753,
-            "endMs": 184961,
-            "text": "مس ثناء نے سر ہلایا۔"
-          },
-          {
-            "startMs": 184961,
-            "endMs": 185961,
-            "text": "پھر پوچھا:"
-          },
-          {
-            "startMs": 185961,
-            "endMs": 193961,
-            "text": "’’اور تمہاری زندگی میں کتنی چیزیں صرف اس لیے صحیح چلتی ہیں کہ کوئی شخص روز ان کی دیکھ بھال کرنا یاد رکھتا ہے؟‘‘"
-          },
-          {
-            "startMs": 193961,
-            "endMs": 195681,
-            "text": "کلاس خاموش ہو گئی۔"
-          },
-          {
-            "startMs": 195681,
-            "endMs": 196841,
-            "text": "انہوں نے کہا:"
-          },
-          {
-            "startMs": 196841,
-            "endMs": 200169,
-            "text": "’’شکر سب سے پہلے اللہ تعالیٰ کے لیے ہے۔"
-          },
-          {
-            "startMs": 200169,
-            "endMs": 203049,
-            "text": "ہم اس کی نعمتوں پر الحمدللہ کہتے ہیں۔"
-          },
-          {
-            "startMs": 203049,
-            "endMs": 205689,
-            "text": "لیکن شکر صرف زبان کا لفظ نہیں۔"
-          },
-          {
-            "startMs": 205689,
-            "endMs": 213689,
-            "text": "اگر ہم واقعی شکر گزار ہوں تو نعمتوں کو دیکھنے، استعمال کرنے اور ان کی حفاظت کرنے کا انداز بھی بدلتا ہے۔‘‘"
-          },
-          {
-            "startMs": 213689,
-            "endMs": 215769,
-            "text": "پھر انہوں نے گھر کا کام دیا۔"
-          },
-          {
-            "startMs": 215769,
-            "endMs": 224957,
-            "text": "’’آج گھر واپس جا کر سونے تک صرف مشاہدہ کرنا ہے کہ آپ کے والدین یا سرپرست گھر اور خاندان کے لیے کیا کیا کرتے ہیں۔‘‘"
-          },
-          {
-            "startMs": 225357,
-            "endMs": 226797,
-            "text": "اخلاق نے ہاتھ اٹھایا۔"
-          },
-          {
-            "startMs": 227097,
-            "endMs": 227897,
-            "text": "’’انٹرویو؟‘‘"
-          },
-          {
-            "startMs": 228197,
-            "endMs": 228697,
-            "text": "’’نہیں۔‘‘"
-          },
-          {
-            "startMs": 228697,
-            "endMs": 229937,
-            "text": "’’تقریر؟‘‘"
-          },
-          {
-            "startMs": 229937,
-            "endMs": 230437,
-            "text": "’’نہیں۔‘‘"
-          },
-          {
-            "startMs": 230717,
-            "endMs": 232097,
-            "text": "’’تو بہت آسان ہے۔‘‘"
-          },
-          {
-            "startMs": 232951,
-            "endMs": 233637,
-            "text": "مس ثناء مسکرائیں۔"
-          },
-          {
-            "startMs": 233997,
-            "endMs": 234837,
-            "text": "’’دیکھتے ہیں۔‘‘"
-          },
-          {
-            "startMs": 235037,
-            "endMs": 237877,
-            "text": "اسی دوپہر ایمان نے اپنی نوٹ بک کھولی۔"
-          }
-        ]
-      },
-      {
-        "id": "gratitude_ur_02",
-        "title": "قسط 2 · گیٹ پر موجود شخص",
-        "audioKey": "ur/gratitude/02.ogg",
-        "durationMs": 350900,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "gratitude_ur_03",
-        "title": "قسط 3 · تصویر میں موجود استانی",
-        "audioKey": "ur/gratitude/03.ogg",
-        "durationMs": 299258,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "gratitude_ur_04",
-        "title": "قسط 4 · گم شدہ صفحہ",
-        "audioKey": "ur/gratitude/04.ogg",
-        "durationMs": 226796,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "gratitude_ur_05",
-        "title": "قسط 5 · جب گھر خاموش ہو گیا",
-        "audioKey": "ur/gratitude/05.ogg",
-        "durationMs": 277026,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "gratitude_ur_06",
-        "title": "قسط 6 · وہ کام جو ہماری نظروں سے اوجھل رہا",
-        "audioKey": "ur/gratitude/06.ogg",
-        "durationMs": 280528,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "gratitude_ur_07",
-        "title": "قسط 7 · چاندی کی چابی",
-        "audioKey": "ur/gratitude/07.ogg",
-        "durationMs": 221946,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "gratitude_ur_08",
-        "title": "قسط 8 · وہ خاتون جو واپس آئیں",
-        "audioKey": "ur/gratitude/08.ogg",
-        "durationMs": 271755,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "gratitude_ur_09",
-        "title": "قسط 9 · جب تک وہ سن سکتے ہیں",
-        "audioKey": "ur/gratitude/09.ogg",
-        "durationMs": 228545,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "gratitude_ur_10",
-        "title": "قسط 10 · وہ بچے جو توجہ دیتے ہیں",
-        "audioKey": "ur/gratitude/10.ogg",
-        "durationMs": 460791,
         "previewEndMs": null,
         "challenge": null,
         "captions": []
@@ -8925,6 +11546,854 @@ export const allSeries: Series[] = [
         "title": "قسط 10 · وہ مہربانی جو لوٹ کر آئی",
         "audioKey": "ur/kindness/10.ogg",
         "durationMs": 456370,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      }
+    ]
+  },
+  {
+    "id": "respect_ur",
+    "title": "احترام",
+    "description": "احترام اور عزتِ نفس پر 10 اقساط کی کہانی",
+    "language": "urdu",
+    "category": "moral",
+    "cover": "respect",
+    "welcome": {
+      "id": "respect_ur_meet",
+      "title": "سلسلے کا تعارف · احترام",
+      "audioKey": "ur/respect/00_meet_the_series.ogg",
+      "durationMs": 59421,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
+    "episodes": [
+      {
+        "id": "respect_ur_01",
+        "title": "قسط 1 · رشید کا سلام",
+        "audioKey": "ur/respect/01.ogg",
+        "durationMs": 430447,
+        "previewEndMs": 217399,
+        "challenge": {
+          "title": "باادب سلام کی مہم",
+          "mission": "مشن: آج کم از کم تین لوگوں کو اچھے انداز سے سلام کریں: ایک ہم جماعت، اسکول کے کسی بڑے کو، اور ایک ایسے شخص کو جس سے آپ عام طور پر بات نہیں کرتے۔ اگر نام معلوم ہو تو نام لے کر سلام کریں۔ جواب جیسا بھی آئے، اپنا ادب قائم رکھیں۔",
+          "levelUp": "عمر 9 تا 12 سال: غور کریں، کیا آپ کسی کی عمر، کام یا مقبولیت دیکھ کر سلام کا انداز بدل دیتے ہیں؟ اگر ہاں، آج ایک ایسی عادت بدلنے کی کوشش کریں۔"
+        },
+        "captions": [
+          {
+            "startMs": 0,
+            "endMs": 1638,
+            "text": "ایمان و اخلاق"
+          },
+          {
+            "startMs": 1638,
+            "endMs": 2532,
+            "text": "احترام"
+          },
+          {
+            "startMs": 2532,
+            "endMs": 8340,
+            "text": "احترام اور عزتِ نفس پر دس بابوں کی ایک دلچسپ کہانی"
+          },
+          {
+            "startMs": 8340,
+            "endMs": 11580,
+            "text": "باب اول: رشید کا سلام"
+          },
+          {
+            "startMs": 11580,
+            "endMs": 17560,
+            "text": "ہر صبح رشید جس سے بھی ملتا، مسکرا کر ’’السلام علیکم!‘‘ کہتا۔"
+          },
+          {
+            "startMs": 17560,
+            "endMs": 28047,
+            "text": "گھر میں امی کو، اسکول کے دروازے پر کھڑے بزرگ چوکیدار کو، اور یہاں تک کہ اس سخت مزاج کلاس مانیٹر کو بھی جو بہت کم مسکراتا تھا۔"
+          },
+          {
+            "startMs": 28607,
+            "endMs": 32835,
+            "text": "ایک صبح حامد نے پوچھا، ’’تم ہر ایک کو سلام کیوں کرتے ہو؟"
+          },
+          {
+            "startMs": 32835,
+            "endMs": 35207,
+            "text": "کچھ لوگ تو جواب بھی نہیں دیتے۔‘‘"
+          },
+          {
+            "startMs": 35687,
+            "endMs": 36792,
+            "text": "رشید نے کندھے اچکائے۔"
+          },
+          {
+            "startMs": 37495,
+            "endMs": 39935,
+            "text": "’’سلام کرنا میری طرف سے اچھا برتاؤ ہے۔"
+          },
+          {
+            "startMs": 39935,
+            "endMs": 44935,
+            "text": "سامنے والا پہلے اچھا بنے، تب ہی میں اچھا بنوں—یہ ضروری تو نہیں۔‘‘"
+          },
+          {
+            "startMs": 44935,
+            "endMs": 49935,
+            "text": "حامد بہت خوش مزاج تھا اور پوری کلاس کو ہنسا سکتا تھا۔"
+          },
+          {
+            "startMs": 49935,
+            "endMs": 56409,
+            "text": "مسئلہ یہ تھا کہ کبھی کبھی اس کے لطیفوں میں کسی کی نقل اتاری جاتی اور وہ بچہ شرمندہ ہوجاتا۔"
+          },
+          {
+            "startMs": 57040,
+            "endMs": 64403,
+            "text": "رشید عموماً خاموش رہتا، مگر اب وہ سوچنے لگا تھا: کیا صرف خاموش رہنا کافی ہے؟"
+          },
+          {
+            "startMs": 64403,
+            "endMs": 69123,
+            "text": "اسی صبح مس نے بتایا کہ کلاس اپنا کیپٹن منتخب کرے گی۔"
+          },
+          {
+            "startMs": 69654,
+            "endMs": 78683,
+            "text": "کیپٹن کلاس کے کام ترتیب دینے، سب کی بات سننے، بہار کے میلے میں کلاس کی نمائندگی کرنے اور اچھی مثال بننے میں مدد کرے گا۔"
+          },
+          {
+            "startMs": 80155,
+            "endMs": 81671,
+            "text": "کمرہ پُرجوش سرگوشیوں سے بھر گیا۔"
+          },
+          {
+            "startMs": 82071,
+            "endMs": 86146,
+            "text": "حامد نے رشید سے مسکرا کر کہا، ’’میں جیتنے والا ہوں۔"
+          },
+          {
+            "startMs": 86146,
+            "endMs": 87151,
+            "text": "بہت آسان ہے۔‘‘"
+          },
+          {
+            "startMs": 87551,
+            "endMs": 92443,
+            "text": "رشید نے جواب دیا، ’’تمہیں ابھی یہ بھی معلوم نہیں کہ اس کام کے لیے کیا چاہیے۔‘‘"
+          },
+          {
+            "startMs": 93191,
+            "endMs": 99671,
+            "text": "حامد نے کہا، ’’لوگ اسے ووٹ دیتے ہیں جسے پسند کرتے ہیں، اور سب مجھے پسند کرتے ہیں۔‘‘"
+          },
+          {
+            "startMs": 99839,
+            "endMs": 106399,
+            "text": "سامنے بیٹھی ایمان نے مڑ کر کہا، ’’لوگ یہ بھی دیکھتے ہیں کہ وہ کس پر اعتماد کرتے ہیں۔"
+          },
+          {
+            "startMs": 106399,
+            "endMs": 112359,
+            "text": "کسی کو پسند کرنا اور کسی پر اعتماد کرنا ہمیشہ ایک جیسی بات نہیں ہوتی۔‘‘"
+          },
+          {
+            "startMs": 112359,
+            "endMs": 113490,
+            "text": "حامد نے کندھے اچکائے۔"
+          },
+          {
+            "startMs": 114210,
+            "endMs": 119559,
+            "text": "اخلاق، جو ایمان کا چھوٹا بھائی تھا، بس بھنویں اٹھا کر اسے دیکھنے لگا۔"
+          },
+          {
+            "startMs": 119807,
+            "endMs": 124035,
+            "text": "اگلے دن حامد نے فٹبال گراؤنڈ کے قریب انتخابی مہم شروع کردی۔"
+          },
+          {
+            "startMs": 124787,
+            "endMs": 129787,
+            "text": "اس نے اعلان کیا، ’’مجھے ووٹ دو اور جمعہ کو ہوم ورک نہیں ہوگا!‘‘"
+          },
+          {
+            "startMs": 130167,
+            "endMs": 133307,
+            "text": "رشید نے کہا، ’’تم یہ وعدہ نہیں کر سکتے۔"
+          },
+          {
+            "startMs": 134184,
+            "endMs": 136727,
+            "text": "ہوم ورک کا فیصلہ مس کرتی ہیں، کیپٹن نہیں۔‘‘"
+          },
+          {
+            "startMs": 137307,
+            "endMs": 143975,
+            "text": "حامد نے ہاتھ ہلا کر اسے ایک طرف کیا اور یوں بات جاری رکھی جیسے عہدہ پہلے ہی اس کا ہو۔"
+          },
+          {
+            "startMs": 143975,
+            "endMs": 149295,
+            "text": "قریب ہی ایک کم عمر لڑکا آیان باڑ کے پاس اکیلا بیٹھا تھا۔"
+          },
+          {
+            "startMs": 149295,
+            "endMs": 151895,
+            "text": "اس کے ہاتھ میں کرکٹ کی گیند تھی۔"
+          },
+          {
+            "startMs": 151895,
+            "endMs": 158375,
+            "text": "آیان ٹانگ پر بریس لگائے ہوئے تھا اور بڑے لڑکوں کے کھیل میں اسے شامل نہیں کیا گیا تھا۔"
+          },
+          {
+            "startMs": 158375,
+            "endMs": 165543,
+            "text": "رشید نے اسے پہلے دیکھا، لیکن اس کے کچھ کہنے سے پہلے اخلاق نے بھی اس کی نگاہ کا رخ دیکھ لیا۔"
+          },
+          {
+            "startMs": 165543,
+            "endMs": 171463,
+            "text": "اخلاق نے پکارا، ’’السلام علیکم، آیان! کیا تم ہمارے ساتھ کھیلنا چاہتے ہو؟‘‘"
+          },
+          {
+            "startMs": 171463,
+            "endMs": 173290,
+            "text": "آیان کا چہرہ روشن ہوگیا۔"
+          },
+          {
+            "startMs": 173290,
+            "endMs": 175543,
+            "text": "’’وعلیکم السلام۔"
+          },
+          {
+            "startMs": 175543,
+            "endMs": 176263,
+            "text": "جی ہاں۔‘‘"
+          },
+          {
+            "startMs": 176616,
+            "endMs": 178143,
+            "text": "حامد نے تیوری چڑھائی۔"
+          },
+          {
+            "startMs": 178143,
+            "endMs": 180524,
+            "text": "’’یہ شاید ہمیں سست کر دے۔‘‘"
+          },
+          {
+            "startMs": 181133,
+            "endMs": 183571,
+            "text": "ایمان نے سیدھا اس کی طرف دیکھا۔"
+          },
+          {
+            "startMs": 183571,
+            "endMs": 187431,
+            "text": "’’ہم نے ابھی یہ تو پوچھا ہی نہیں کہ وہ کیا کر سکتا ہے۔‘‘"
+          },
+          {
+            "startMs": 187431,
+            "endMs": 192031,
+            "text": "پھر اس نے آیان سے مخاطب ہو کر پوچھا، ’’تمہیں کون سی پوزیشن پسند ہے؟‘‘"
+          },
+          {
+            "startMs": 192564,
+            "endMs": 193951,
+            "text": "’’بالنگ،‘‘ آیان نے جواب دیا۔"
+          },
+          {
+            "startMs": 193951,
+            "endMs": 201139,
+            "text": "رشید نے اسے گیند دے دی، جبکہ اخلاق ایک طرف ہٹ گیا تاکہ آیان کو مناسب رَن اَپ مل سکے۔"
+          },
+          {
+            "startMs": 201639,
+            "endMs": 202679,
+            "text": "’’تو پھر بال کرو۔‘‘"
+          },
+          {
+            "startMs": 203239,
+            "endMs": 206039,
+            "text": "آیان کی پہلی گیند سیدھی وکٹ سے ٹکرا گئی۔"
+          },
+          {
+            "startMs": 206950,
+            "endMs": 208128,
+            "text": "حتیٰ کہ حامد بھی حیران ہوگیا۔"
+          },
+          {
+            "startMs": 209139,
+            "endMs": 210139,
+            "text": "ایمان مسکرائی۔"
+          },
+          {
+            "startMs": 210479,
+            "endMs": 217399,
+            "text": "آیان کو ترس کی نہیں، ایک برابر موقع کی ضرورت تھی—تاکہ وہ بھی سب کی طرح عزت کے ساتھ کھیل سکے۔"
+          }
+        ]
+      },
+      {
+        "id": "respect_ur_02",
+        "title": "قسط 2 · ووٹ اور وعدے",
+        "audioKey": "ur/respect/02.ogg",
+        "durationMs": 454646,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "respect_ur_03",
+        "title": "قسط 3 · پہلی شکست",
+        "audioKey": "ur/respect/03.ogg",
+        "durationMs": 460972,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "respect_ur_04",
+        "title": "قسط 4 · بولنے کی ہمت",
+        "audioKey": "ur/respect/04.ogg",
+        "durationMs": 230661,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "respect_ur_05",
+        "title": "قسط 5 · بیج کے پیچھے والا لڑکا",
+        "audioKey": "ur/respect/05.ogg",
+        "durationMs": 328736,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "respect_ur_06",
+        "title": "قسط 6 · کیپٹن کی خاص کرسی",
+        "audioKey": "ur/respect/06.ogg",
+        "durationMs": 450236,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "respect_ur_07",
+        "title": "قسط 7 · کیپٹن سننا سیکھتا ہے",
+        "audioKey": "ur/respect/07.ogg",
+        "durationMs": 285484,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "respect_ur_08",
+        "title": "قسط 8 · اصل احترام کا امتحان",
+        "audioKey": "ur/respect/08.ogg",
+        "durationMs": 260311,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "respect_ur_09",
+        "title": "قسط 9 · وہ انتخاب جس نے سب کچھ بدل دیا",
+        "audioKey": "ur/respect/09.ogg",
+        "durationMs": 482150,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "respect_ur_10",
+        "title": "قسط 10 · نوٹس کون لکھ رہا تھا؟",
+        "audioKey": "ur/respect/10.ogg",
+        "durationMs": 738243,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      }
+    ]
+  },
+  {
+    "id": "gratitude_ur",
+    "title": "وہ چیزیں جن پر ہماری نظر نہیں جاتی",
+    "description": "شکرگزاری پر 10 اقساط کی کہانی",
+    "language": "urdu",
+    "category": "moral",
+    "cover": "gratitude",
+    "welcome": {
+      "id": "gratitude_ur_meet",
+      "title": "سلسلے کا تعارف · وہ چیزیں جن پر ہماری نظر نہیں جاتی",
+      "audioKey": "ur/gratitude/00_meet_the_series.ogg",
+      "durationMs": 62110,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
+    "episodes": [
+      {
+        "id": "gratitude_ur_01",
+        "title": "قسط 1 · وہ فہرست جو ختم ہونے کا نام نہ لیتی تھی",
+        "audioKey": "ur/gratitude/01.ogg",
+        "durationMs": 470613,
+        "previewEndMs": 237877,
+        "challenge": {
+          "title": "کسی کا بوجھ ہلکا کریں",
+          "mission": "ایسے شخص کو پہچانیے جس کے کام سے آپ روز فائدہ اٹھاتے ہیں مگر عموماً اس پر توجہ نہیں دیتے۔ آج اس کے کام کا ایک چھوٹا حصہ آسان کر دیں۔ اپنی چیز خود جگہ پر رکھیں، اپنے بعد صفائی کریں، کرسی واپس رکھیں یا کوئی ہلکی مدد کر دیں۔",
+          "levelUp": "کوئی ایسا اچھا کام کریں جس کے بارے میں بعد میں کسی کو بتانے کی ضرورت نہ ہو۔ بوجھ ہلکا ہو جانا ہی کافی ہے۔"
+        },
+        "captions": [
+          {
+            "startMs": 106,
+            "endMs": 522,
+            "text": "قسط اول"
+          },
+          {
+            "startMs": 522,
+            "endMs": 4689,
+            "text": "وہ فہرست جو ختم ہونے کا نام نہ لیتی تھی"
+          },
+          {
+            "startMs": 4689,
+            "endMs": 13689,
+            "text": "سبق: شکرگزاری وہاں سے شروع ہوتی ہے جہاں ہم معمول بن جانے والی نعمتوں کو دوبارہ محسوس کرنا شروع کرتے ہیں۔"
+          },
+          {
+            "startMs": 14301,
+            "endMs": 18689,
+            "text": "امن پور کے ایک گھر کی کھڑکیوں سے صبح کی نرم روشنی اندر آ رہی تھی۔"
+          },
+          {
+            "startMs": 19149,
+            "endMs": 21977,
+            "text": "فجر کی اذان کو کچھ وقت گزر چکا تھا۔"
+          },
+          {
+            "startMs": 21977,
+            "endMs": 30377,
+            "text": "باہر پرندوں کی آوازیں شروع ہو گئی تھیں، مگر گھر کے زیادہ تر افراد ابھی نیند کے آخری چند منٹوں سے لطف اٹھا رہے تھے۔"
+          },
+          {
+            "startMs": 30377,
+            "endMs": 31937,
+            "text": "زیادہ تر افراد۔"
+          },
+          {
+            "startMs": 31937,
+            "endMs": 34233,
+            "text": "امی کافی دیر پہلے جاگ چکی تھیں۔"
+          },
+          {
+            "startMs": 34577,
+            "endMs": 46625,
+            "text": "نماز کے بعد انہوں نے باورچی خانے میں دودھ دیکھا، آٹا گوندھا، ابو کا لنچ تیار کیا، ناشتا بنایا، پانی کی بوتلیں بھریں اور دادی کی دوا ان کے کپ کے پاس رکھ دی۔"
+          },
+          {
+            "startMs": 46625,
+            "endMs": 54325,
+            "text": "جب تازہ پراٹھوں کی خوشبو راہداری تک پہنچی تو امی باقی گھر والوں کے جاگنے سے پہلے ہی خاصا کام کر چکی تھیں۔"
+          },
+          {
+            "startMs": 54625,
+            "endMs": 58593,
+            "text": "پھر وہ آواز آئی جو گھر میں اکثر سنائی دیتی تھی۔"
+          },
+          {
+            "startMs": 58593,
+            "endMs": 60666,
+            "text": "’’امی! میری جرابیں نہیں مل رہیں!‘‘"
+          },
+          {
+            "startMs": 61393,
+            "endMs": 64313,
+            "text": "امی نے چولہے سے نظر ہٹائے بغیر جواب دیا:"
+          },
+          {
+            "startMs": 64513,
+            "endMs": 67673,
+            "text": "’’اخلاق، اپنے اسکول کے جوتوں کے اندر دیکھو۔‘‘"
+          },
+          {
+            "startMs": 68233,
+            "endMs": 69873,
+            "text": "چند لمحوں کی خاموشی۔"
+          },
+          {
+            "startMs": 70313,
+            "endMs": 72393,
+            "text": "پھر نسبتاً دھیمی آواز آئی:"
+          },
+          {
+            "startMs": 72753,
+            "endMs": 75073,
+            "text": "’’اوہ... وہ تو جوتوں کے اندر ہی ہیں۔‘‘"
+          },
+          {
+            "startMs": 75433,
+            "endMs": 76444,
+            "text": "میز پر بیٹھے ابو ہنس پڑے۔"
+          },
+          {
+            "startMs": 77873,
+            "endMs": 83881,
+            "text": "’’ایک دن تم اپنا سر بھی کہیں رکھ کر بھول جاؤ گے اور پھر امی سے پوچھو گے کہ انہوں نے کہاں رکھا ہے۔‘‘"
+          },
+          {
+            "startMs": 84321,
+            "endMs": 87336,
+            "text": "اسی دوران علی بھی ان کے ساتھ اسکول جانے کے لیے آ گیا۔"
+          },
+          {
+            "startMs": 88201,
+            "endMs": 90681,
+            "text": "جرابوں کا واقعہ سن کر اس نے اعلان کیا:"
+          },
+          {
+            "startMs": 91281,
+            "endMs": 94441,
+            "text": "’’ایمان اور اخلاق کو جاسوسی ایجنسی کھول لینی چاہیے۔"
+          },
+          {
+            "startMs": 95390,
+            "endMs": 98294,
+            "text": "البتہ اخلاق کے اپنے کمرے کے مقدمات شاید حل نہ ہوں۔‘‘"
+          },
+          {
+            "startMs": 98529,
+            "endMs": 99331,
+            "text": "سب ہنس پڑے۔"
+          },
+          {
+            "startMs": 99331,
+            "endMs": 100019,
+            "text": "امی بھی مسکرائیں۔"
+          },
+          {
+            "startMs": 101738,
+            "endMs": 110089,
+            "text": "ہنستے ہنستے انہوں نے اخلاق کی ٹائی درست کی، اس کی قمیص سے روٹی کا ایک ٹکڑا صاف کیا اور ایمان کی پانی کی بوتل دوبارہ چیک کی۔"
+          },
+          {
+            "startMs": 110089,
+            "endMs": 111861,
+            "text": "کسی نے شکریہ نہیں کہا۔"
+          },
+          {
+            "startMs": 111861,
+            "endMs": 116969,
+            "text": "حقیقت یہ تھی کہ کسی نے ان کاموں کو خاص طور پر محسوس بھی نہیں کیا۔"
+          },
+          {
+            "startMs": 116969,
+            "endMs": 119681,
+            "text": "ناشتے کے دوران بھی یہی ہوتا رہا۔"
+          },
+          {
+            "startMs": 119681,
+            "endMs": 121575,
+            "text": "کبھی چائے چاہیے تھی۔"
+          },
+          {
+            "startMs": 121575,
+            "endMs": 122048,
+            "text": "کبھی دودھ۔"
+          },
+          {
+            "startMs": 122403,
+            "endMs": 124297,
+            "text": "کبھی لنچ باکس رہ گیا۔"
+          },
+          {
+            "startMs": 124297,
+            "endMs": 125409,
+            "text": "دادی کی دوا۔"
+          },
+          {
+            "startMs": 125409,
+            "endMs": 126521,
+            "text": "ابو کی فائل۔"
+          },
+          {
+            "startMs": 126521,
+            "endMs": 128497,
+            "text": "پانی کا ایک اور گلاس۔"
+          },
+          {
+            "startMs": 128497,
+            "endMs": 133497,
+            "text": "امی آخر میں اس وقت بیٹھیں جب باقی سب تقریباً کھانا ختم کر چکے تھے۔"
+          },
+          {
+            "startMs": 133497,
+            "endMs": 136257,
+            "text": "ایمان چند لمحے انہیں دیکھتی رہی۔"
+          },
+          {
+            "startMs": 136257,
+            "endMs": 140265,
+            "text": "نہ جانے کیوں، آج یہ منظر اس کے ذہن میں ٹھہر گیا۔"
+          },
+          {
+            "startMs": 140620,
+            "endMs": 143545,
+            "text": "اسکول پہنچے تو اسمبلی میں پرنسپل نے اعلان کیا:"
+          },
+          {
+            "startMs": 143545,
+            "endMs": 146545,
+            "text": "’’اس ہفتے ہم ‘ہفتۂ شکرگزاری’ منائیں گے۔‘‘"
+          },
+          {
+            "startMs": 146545,
+            "endMs": 149265,
+            "text": "اخلاق نے علی کے کان میں سرگوشی کی:"
+          },
+          {
+            "startMs": 149265,
+            "endMs": 154300,
+            "text": "’’اگر شکرگزاری میں مفت برگر شامل ہوں تو میں مکمل تیار ہوں۔‘‘"
+          },
+          {
+            "startMs": 154545,
+            "endMs": 156865,
+            "text": "قریب کھڑی فاطمہ نے سن لیا۔"
+          },
+          {
+            "startMs": 156865,
+            "endMs": 162433,
+            "text": "’’تمہاری زیادہ تر سنجیدہ تعلیمی دلچسپی کھانے ہی سے شروع کیوں ہوتی ہے؟‘‘"
+          },
+          {
+            "startMs": 162433,
+            "endMs": 167033,
+            "text": "اخلاق جواب دینے ہی والا تھا کہ کھیلوں کے استاد نے ان کی طرف دیکھا۔"
+          },
+          {
+            "startMs": 167033,
+            "endMs": 169233,
+            "text": "تینوں فوراً سیدھے کھڑے ہو گئے۔"
+          },
+          {
+            "startMs": 169233,
+            "endMs": 172316,
+            "text": "بعد میں مس ثناء ایک چھوٹا سا سبز پودا کلاس میں لائیں۔"
+          },
+          {
+            "startMs": 172913,
+            "endMs": 174913,
+            "text": "انہوں نے اسے میز پر رکھا۔"
+          },
+          {
+            "startMs": 174913,
+            "endMs": 176913,
+            "text": "’’یہ زندہ کیسے رہتا ہے؟‘‘"
+          },
+          {
+            "startMs": 176913,
+            "endMs": 177588,
+            "text": "جوابات فوراً آنے لگے۔"
+          },
+          {
+            "startMs": 178401,
+            "endMs": 179215,
+            "text": "’’پانی!‘‘"
+          },
+          {
+            "startMs": 179215,
+            "endMs": 180029,
+            "text": "’’دھوپ!‘‘"
+          },
+          {
+            "startMs": 180029,
+            "endMs": 181453,
+            "text": "’’اچھی مٹی!‘‘"
+          },
+          {
+            "startMs": 181453,
+            "endMs": 183081,
+            "text": "’’دیکھ بھال!‘‘"
+          },
+          {
+            "startMs": 183753,
+            "endMs": 184961,
+            "text": "مس ثناء نے سر ہلایا۔"
+          },
+          {
+            "startMs": 184961,
+            "endMs": 185961,
+            "text": "پھر پوچھا:"
+          },
+          {
+            "startMs": 185961,
+            "endMs": 193961,
+            "text": "’’اور تمہاری زندگی میں کتنی چیزیں صرف اس لیے صحیح چلتی ہیں کہ کوئی شخص روز ان کی دیکھ بھال کرنا یاد رکھتا ہے؟‘‘"
+          },
+          {
+            "startMs": 193961,
+            "endMs": 195681,
+            "text": "کلاس خاموش ہو گئی۔"
+          },
+          {
+            "startMs": 195681,
+            "endMs": 196841,
+            "text": "انہوں نے کہا:"
+          },
+          {
+            "startMs": 196841,
+            "endMs": 200169,
+            "text": "’’شکر سب سے پہلے اللہ تعالیٰ کے لیے ہے۔"
+          },
+          {
+            "startMs": 200169,
+            "endMs": 203049,
+            "text": "ہم اس کی نعمتوں پر الحمدللہ کہتے ہیں۔"
+          },
+          {
+            "startMs": 203049,
+            "endMs": 205689,
+            "text": "لیکن شکر صرف زبان کا لفظ نہیں۔"
+          },
+          {
+            "startMs": 205689,
+            "endMs": 213689,
+            "text": "اگر ہم واقعی شکر گزار ہوں تو نعمتوں کو دیکھنے، استعمال کرنے اور ان کی حفاظت کرنے کا انداز بھی بدلتا ہے۔‘‘"
+          },
+          {
+            "startMs": 213689,
+            "endMs": 215769,
+            "text": "پھر انہوں نے گھر کا کام دیا۔"
+          },
+          {
+            "startMs": 215769,
+            "endMs": 224957,
+            "text": "’’آج گھر واپس جا کر سونے تک صرف مشاہدہ کرنا ہے کہ آپ کے والدین یا سرپرست گھر اور خاندان کے لیے کیا کیا کرتے ہیں۔‘‘"
+          },
+          {
+            "startMs": 225357,
+            "endMs": 226797,
+            "text": "اخلاق نے ہاتھ اٹھایا۔"
+          },
+          {
+            "startMs": 227097,
+            "endMs": 227897,
+            "text": "’’انٹرویو؟‘‘"
+          },
+          {
+            "startMs": 228197,
+            "endMs": 228697,
+            "text": "’’نہیں۔‘‘"
+          },
+          {
+            "startMs": 228697,
+            "endMs": 229937,
+            "text": "’’تقریر؟‘‘"
+          },
+          {
+            "startMs": 229937,
+            "endMs": 230437,
+            "text": "’’نہیں۔‘‘"
+          },
+          {
+            "startMs": 230717,
+            "endMs": 232097,
+            "text": "’’تو بہت آسان ہے۔‘‘"
+          },
+          {
+            "startMs": 232951,
+            "endMs": 233637,
+            "text": "مس ثناء مسکرائیں۔"
+          },
+          {
+            "startMs": 233997,
+            "endMs": 234837,
+            "text": "’’دیکھتے ہیں۔‘‘"
+          },
+          {
+            "startMs": 235037,
+            "endMs": 237877,
+            "text": "اسی دوپہر ایمان نے اپنی نوٹ بک کھولی۔"
+          }
+        ]
+      },
+      {
+        "id": "gratitude_ur_02",
+        "title": "قسط 2 · گیٹ پر موجود شخص",
+        "audioKey": "ur/gratitude/02.ogg",
+        "durationMs": 350900,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "gratitude_ur_03",
+        "title": "قسط 3 · تصویر میں موجود استانی",
+        "audioKey": "ur/gratitude/03.ogg",
+        "durationMs": 299258,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "gratitude_ur_04",
+        "title": "قسط 4 · گم شدہ صفحہ",
+        "audioKey": "ur/gratitude/04.ogg",
+        "durationMs": 226796,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "gratitude_ur_05",
+        "title": "قسط 5 · جب گھر خاموش ہو گیا",
+        "audioKey": "ur/gratitude/05.ogg",
+        "durationMs": 277026,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "gratitude_ur_06",
+        "title": "قسط 6 · وہ کام جو ہماری نظروں سے اوجھل رہا",
+        "audioKey": "ur/gratitude/06.ogg",
+        "durationMs": 280528,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "gratitude_ur_07",
+        "title": "قسط 7 · چاندی کی چابی",
+        "audioKey": "ur/gratitude/07.ogg",
+        "durationMs": 221946,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "gratitude_ur_08",
+        "title": "قسط 8 · وہ خاتون جو واپس آئیں",
+        "audioKey": "ur/gratitude/08.ogg",
+        "durationMs": 271755,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "gratitude_ur_09",
+        "title": "قسط 9 · جب تک وہ سن سکتے ہیں",
+        "audioKey": "ur/gratitude/09.ogg",
+        "durationMs": 228545,
+        "previewEndMs": null,
+        "challenge": null,
+        "captions": []
+      },
+      {
+        "id": "gratitude_ur_10",
+        "title": "قسط 10 · وہ بچے جو توجہ دیتے ہیں",
+        "audioKey": "ur/gratitude/10.ogg",
+        "durationMs": 460791,
         "previewEndMs": null,
         "challenge": null,
         "captions": []
@@ -9749,370 +13218,6 @@ export const allSeries: Series[] = [
         "title": "قسط 10 · صحیح وقت",
         "audioKey": "ur/patience/10.ogg",
         "durationMs": 658334,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      }
-    ]
-  },
-  {
-    "id": "respect_ur",
-    "title": "احترام",
-    "description": "احترام اور عزتِ نفس پر 10 اقساط کی کہانی",
-    "language": "urdu",
-    "category": "moral",
-    "cover": "respect",
-    "welcome": {
-      "id": "respect_ur_meet",
-      "title": "سلسلے کا تعارف · احترام",
-      "audioKey": "ur/respect/00_meet_the_series.ogg",
-      "durationMs": 59421,
-      "previewEndMs": null,
-      "captions": [],
-      "challenge": null
-    },
-    "episodes": [
-      {
-        "id": "respect_ur_01",
-        "title": "قسط 1 · رشید کا سلام",
-        "audioKey": "ur/respect/01.ogg",
-        "durationMs": 430447,
-        "previewEndMs": 217399,
-        "challenge": {
-          "title": "باادب سلام کی مہم",
-          "mission": "مشن: آج کم از کم تین لوگوں کو اچھے انداز سے سلام کریں: ایک ہم جماعت، اسکول کے کسی بڑے کو، اور ایک ایسے شخص کو جس سے آپ عام طور پر بات نہیں کرتے۔ اگر نام معلوم ہو تو نام لے کر سلام کریں۔ جواب جیسا بھی آئے، اپنا ادب قائم رکھیں۔",
-          "levelUp": "عمر 9 تا 12 سال: غور کریں، کیا آپ کسی کی عمر، کام یا مقبولیت دیکھ کر سلام کا انداز بدل دیتے ہیں؟ اگر ہاں، آج ایک ایسی عادت بدلنے کی کوشش کریں۔"
-        },
-        "captions": [
-          {
-            "startMs": 0,
-            "endMs": 1638,
-            "text": "ایمان و اخلاق"
-          },
-          {
-            "startMs": 1638,
-            "endMs": 2532,
-            "text": "احترام"
-          },
-          {
-            "startMs": 2532,
-            "endMs": 8340,
-            "text": "احترام اور عزتِ نفس پر دس بابوں کی ایک دلچسپ کہانی"
-          },
-          {
-            "startMs": 8340,
-            "endMs": 11580,
-            "text": "باب اول: رشید کا سلام"
-          },
-          {
-            "startMs": 11580,
-            "endMs": 17560,
-            "text": "ہر صبح رشید جس سے بھی ملتا، مسکرا کر ’’السلام علیکم!‘‘ کہتا۔"
-          },
-          {
-            "startMs": 17560,
-            "endMs": 28047,
-            "text": "گھر میں امی کو، اسکول کے دروازے پر کھڑے بزرگ چوکیدار کو، اور یہاں تک کہ اس سخت مزاج کلاس مانیٹر کو بھی جو بہت کم مسکراتا تھا۔"
-          },
-          {
-            "startMs": 28607,
-            "endMs": 32835,
-            "text": "ایک صبح حامد نے پوچھا، ’’تم ہر ایک کو سلام کیوں کرتے ہو؟"
-          },
-          {
-            "startMs": 32835,
-            "endMs": 35207,
-            "text": "کچھ لوگ تو جواب بھی نہیں دیتے۔‘‘"
-          },
-          {
-            "startMs": 35687,
-            "endMs": 36792,
-            "text": "رشید نے کندھے اچکائے۔"
-          },
-          {
-            "startMs": 37495,
-            "endMs": 39935,
-            "text": "’’سلام کرنا میری طرف سے اچھا برتاؤ ہے۔"
-          },
-          {
-            "startMs": 39935,
-            "endMs": 44935,
-            "text": "سامنے والا پہلے اچھا بنے، تب ہی میں اچھا بنوں—یہ ضروری تو نہیں۔‘‘"
-          },
-          {
-            "startMs": 44935,
-            "endMs": 49935,
-            "text": "حامد بہت خوش مزاج تھا اور پوری کلاس کو ہنسا سکتا تھا۔"
-          },
-          {
-            "startMs": 49935,
-            "endMs": 56409,
-            "text": "مسئلہ یہ تھا کہ کبھی کبھی اس کے لطیفوں میں کسی کی نقل اتاری جاتی اور وہ بچہ شرمندہ ہوجاتا۔"
-          },
-          {
-            "startMs": 57040,
-            "endMs": 64403,
-            "text": "رشید عموماً خاموش رہتا، مگر اب وہ سوچنے لگا تھا: کیا صرف خاموش رہنا کافی ہے؟"
-          },
-          {
-            "startMs": 64403,
-            "endMs": 69123,
-            "text": "اسی صبح مس نے بتایا کہ کلاس اپنا کیپٹن منتخب کرے گی۔"
-          },
-          {
-            "startMs": 69654,
-            "endMs": 78683,
-            "text": "کیپٹن کلاس کے کام ترتیب دینے، سب کی بات سننے، بہار کے میلے میں کلاس کی نمائندگی کرنے اور اچھی مثال بننے میں مدد کرے گا۔"
-          },
-          {
-            "startMs": 80155,
-            "endMs": 81671,
-            "text": "کمرہ پُرجوش سرگوشیوں سے بھر گیا۔"
-          },
-          {
-            "startMs": 82071,
-            "endMs": 86146,
-            "text": "حامد نے رشید سے مسکرا کر کہا، ’’میں جیتنے والا ہوں۔"
-          },
-          {
-            "startMs": 86146,
-            "endMs": 87151,
-            "text": "بہت آسان ہے۔‘‘"
-          },
-          {
-            "startMs": 87551,
-            "endMs": 92443,
-            "text": "رشید نے جواب دیا، ’’تمہیں ابھی یہ بھی معلوم نہیں کہ اس کام کے لیے کیا چاہیے۔‘‘"
-          },
-          {
-            "startMs": 93191,
-            "endMs": 99671,
-            "text": "حامد نے کہا، ’’لوگ اسے ووٹ دیتے ہیں جسے پسند کرتے ہیں، اور سب مجھے پسند کرتے ہیں۔‘‘"
-          },
-          {
-            "startMs": 99839,
-            "endMs": 106399,
-            "text": "سامنے بیٹھی ایمان نے مڑ کر کہا، ’’لوگ یہ بھی دیکھتے ہیں کہ وہ کس پر اعتماد کرتے ہیں۔"
-          },
-          {
-            "startMs": 106399,
-            "endMs": 112359,
-            "text": "کسی کو پسند کرنا اور کسی پر اعتماد کرنا ہمیشہ ایک جیسی بات نہیں ہوتی۔‘‘"
-          },
-          {
-            "startMs": 112359,
-            "endMs": 113490,
-            "text": "حامد نے کندھے اچکائے۔"
-          },
-          {
-            "startMs": 114210,
-            "endMs": 119559,
-            "text": "اخلاق، جو ایمان کا چھوٹا بھائی تھا، بس بھنویں اٹھا کر اسے دیکھنے لگا۔"
-          },
-          {
-            "startMs": 119807,
-            "endMs": 124035,
-            "text": "اگلے دن حامد نے فٹبال گراؤنڈ کے قریب انتخابی مہم شروع کردی۔"
-          },
-          {
-            "startMs": 124787,
-            "endMs": 129787,
-            "text": "اس نے اعلان کیا، ’’مجھے ووٹ دو اور جمعہ کو ہوم ورک نہیں ہوگا!‘‘"
-          },
-          {
-            "startMs": 130167,
-            "endMs": 133307,
-            "text": "رشید نے کہا، ’’تم یہ وعدہ نہیں کر سکتے۔"
-          },
-          {
-            "startMs": 134184,
-            "endMs": 136727,
-            "text": "ہوم ورک کا فیصلہ مس کرتی ہیں، کیپٹن نہیں۔‘‘"
-          },
-          {
-            "startMs": 137307,
-            "endMs": 143975,
-            "text": "حامد نے ہاتھ ہلا کر اسے ایک طرف کیا اور یوں بات جاری رکھی جیسے عہدہ پہلے ہی اس کا ہو۔"
-          },
-          {
-            "startMs": 143975,
-            "endMs": 149295,
-            "text": "قریب ہی ایک کم عمر لڑکا آیان باڑ کے پاس اکیلا بیٹھا تھا۔"
-          },
-          {
-            "startMs": 149295,
-            "endMs": 151895,
-            "text": "اس کے ہاتھ میں کرکٹ کی گیند تھی۔"
-          },
-          {
-            "startMs": 151895,
-            "endMs": 158375,
-            "text": "آیان ٹانگ پر بریس لگائے ہوئے تھا اور بڑے لڑکوں کے کھیل میں اسے شامل نہیں کیا گیا تھا۔"
-          },
-          {
-            "startMs": 158375,
-            "endMs": 165543,
-            "text": "رشید نے اسے پہلے دیکھا، لیکن اس کے کچھ کہنے سے پہلے اخلاق نے بھی اس کی نگاہ کا رخ دیکھ لیا۔"
-          },
-          {
-            "startMs": 165543,
-            "endMs": 171463,
-            "text": "اخلاق نے پکارا، ’’السلام علیکم، آیان! کیا تم ہمارے ساتھ کھیلنا چاہتے ہو؟‘‘"
-          },
-          {
-            "startMs": 171463,
-            "endMs": 173290,
-            "text": "آیان کا چہرہ روشن ہوگیا۔"
-          },
-          {
-            "startMs": 173290,
-            "endMs": 175543,
-            "text": "’’وعلیکم السلام۔"
-          },
-          {
-            "startMs": 175543,
-            "endMs": 176263,
-            "text": "جی ہاں۔‘‘"
-          },
-          {
-            "startMs": 176616,
-            "endMs": 178143,
-            "text": "حامد نے تیوری چڑھائی۔"
-          },
-          {
-            "startMs": 178143,
-            "endMs": 180524,
-            "text": "’’یہ شاید ہمیں سست کر دے۔‘‘"
-          },
-          {
-            "startMs": 181133,
-            "endMs": 183571,
-            "text": "ایمان نے سیدھا اس کی طرف دیکھا۔"
-          },
-          {
-            "startMs": 183571,
-            "endMs": 187431,
-            "text": "’’ہم نے ابھی یہ تو پوچھا ہی نہیں کہ وہ کیا کر سکتا ہے۔‘‘"
-          },
-          {
-            "startMs": 187431,
-            "endMs": 192031,
-            "text": "پھر اس نے آیان سے مخاطب ہو کر پوچھا، ’’تمہیں کون سی پوزیشن پسند ہے؟‘‘"
-          },
-          {
-            "startMs": 192564,
-            "endMs": 193951,
-            "text": "’’بالنگ،‘‘ آیان نے جواب دیا۔"
-          },
-          {
-            "startMs": 193951,
-            "endMs": 201139,
-            "text": "رشید نے اسے گیند دے دی، جبکہ اخلاق ایک طرف ہٹ گیا تاکہ آیان کو مناسب رَن اَپ مل سکے۔"
-          },
-          {
-            "startMs": 201639,
-            "endMs": 202679,
-            "text": "’’تو پھر بال کرو۔‘‘"
-          },
-          {
-            "startMs": 203239,
-            "endMs": 206039,
-            "text": "آیان کی پہلی گیند سیدھی وکٹ سے ٹکرا گئی۔"
-          },
-          {
-            "startMs": 206950,
-            "endMs": 208128,
-            "text": "حتیٰ کہ حامد بھی حیران ہوگیا۔"
-          },
-          {
-            "startMs": 209139,
-            "endMs": 210139,
-            "text": "ایمان مسکرائی۔"
-          },
-          {
-            "startMs": 210479,
-            "endMs": 217399,
-            "text": "آیان کو ترس کی نہیں، ایک برابر موقع کی ضرورت تھی—تاکہ وہ بھی سب کی طرح عزت کے ساتھ کھیل سکے۔"
-          }
-        ]
-      },
-      {
-        "id": "respect_ur_02",
-        "title": "قسط 2 · ووٹ اور وعدے",
-        "audioKey": "ur/respect/02.ogg",
-        "durationMs": 454646,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "respect_ur_03",
-        "title": "قسط 3 · پہلی شکست",
-        "audioKey": "ur/respect/03.ogg",
-        "durationMs": 460972,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "respect_ur_04",
-        "title": "قسط 4 · بولنے کی ہمت",
-        "audioKey": "ur/respect/04.ogg",
-        "durationMs": 230661,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "respect_ur_05",
-        "title": "قسط 5 · بیج کے پیچھے والا لڑکا",
-        "audioKey": "ur/respect/05.ogg",
-        "durationMs": 328736,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "respect_ur_06",
-        "title": "قسط 6 · کیپٹن کی خاص کرسی",
-        "audioKey": "ur/respect/06.ogg",
-        "durationMs": 450236,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "respect_ur_07",
-        "title": "قسط 7 · کیپٹن سننا سیکھتا ہے",
-        "audioKey": "ur/respect/07.ogg",
-        "durationMs": 285484,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "respect_ur_08",
-        "title": "قسط 8 · اصل احترام کا امتحان",
-        "audioKey": "ur/respect/08.ogg",
-        "durationMs": 260311,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "respect_ur_09",
-        "title": "قسط 9 · وہ انتخاب جس نے سب کچھ بدل دیا",
-        "audioKey": "ur/respect/09.ogg",
-        "durationMs": 482150,
-        "previewEndMs": null,
-        "challenge": null,
-        "captions": []
-      },
-      {
-        "id": "respect_ur_10",
-        "title": "قسط 10 · نوٹس کون لکھ رہا تھا؟",
-        "audioKey": "ur/respect/10.ogg",
-        "durationMs": 738243,
         "previewEndMs": null,
         "challenge": null,
         "captions": []

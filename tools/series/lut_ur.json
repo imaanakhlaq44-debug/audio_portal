@@ -1,0 +1,18 @@
+{
+  "id": "lut_ur",
+  "series": "حضرت لوط علیہ السلام",
+  "language": "urdu",
+  "moral": "حضرت لوط علیہ السلام",
+  "category": "prophets",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/lut.webp",
+  "script": "Prophet_Stories_Audio/Hazrat_Lut_AS_Urdu/annotated_script.txt",
+  "skipLeadingLines": 1,
+  "splitSentences": true,
+  "episodeMarker": "^قسط (\\S+): (.+)$",
+  "master": "Prophet_Stories_Audio/Hazrat_Lut_AS_Urdu/Hazrat_Lut_AS_Urdu_Full_Audiobook.mp3",
+  "transcript": "Prophet_Stories_Audio/Hazrat_Lut_AS_Urdu/transcript.srt",
+  "audioDir": "assets/audio/ur/lut",
+  "output": "lib/models/series/lut_ur.dart",
+  "variable": "lutUrdu"
+}

@@ -6,7 +6,11 @@ import 'series/fairness_ur.dart';
 import 'series/gratitude_ur.dart';
 import 'series/honesty_ur.dart';
 import 'series/hud_ur.dart';
+import 'series/ibrahim_en.dart';
+import 'series/ibrahim_ur.dart';
 import 'series/idris_ur.dart';
+import 'series/lut_en.dart';
+import 'series/lut_ur.dart';
 import 'series/kindness_ur.dart';
 import 'series/nuh_ur.dart';
 import 'series/salih_ur.dart';
@@ -34,6 +38,8 @@ class StoryData {
     nuhEnglish,
     hudEnglish,
     salihEnglish,
+    ibrahimEnglish,
+    lutEnglish,
     fairnessEnglish,
     honestyEnglish,
     kindnessEnglish,
@@ -45,6 +51,8 @@ class StoryData {
     nuhUrdu,
     hudUrdu,
     salihUrdu,
+    ibrahimUrdu,
+    lutUrdu,
     fairnessUrdu,
     honestyUrdu,
     kindnessUrdu,

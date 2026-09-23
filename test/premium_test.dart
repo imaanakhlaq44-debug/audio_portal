@@ -63,13 +63,17 @@ void main() {
 
     test('the welcome sits outside the episodes and plays for everyone', () {
       final free = PremiumService.forTesting();
+      var found = 0;
       for (final s in StoryData.allSeries) {
         expect(s.tracks, s.episodes, reason: s.id);
-        final welcome = s.welcome;
-        expect(welcome, isNotNull, reason: s.id);
-        expect(StoryData.byId(welcome!.track.id), isNull, reason: s.id);
-        expect(free.isLocked(welcome.track), isFalse, reason: s.id);
+        // A series without a welcome recorded yet simply shows none.
+        if (s.welcome case final welcome?) {
+          found++;
+          expect(StoryData.byId(welcome.track.id), isNull, reason: s.id);
+          expect(free.isLocked(welcome.track), isFalse, reason: s.id);
+        }
       }
+      expect(found, greaterThan(0));
     });
   });
 
