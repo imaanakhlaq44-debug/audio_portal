@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { CtaSection } from '@/components/CtaSection';
 import { PageHeader } from '@/components/PageHeader';
 import { StoryBrowser } from '@/components/StoryBrowser';
-import { allSeries, listing } from '@/data/stories';
+import { allSeries, catalogue, listing } from '@/data/stories';
 
 export const metadata: Metadata = {
   title: 'Stories',
@@ -19,7 +19,7 @@ export default function StoriesPage() {
       <PageHeader
         eyebrow="Explore stories"
         title="Every story in one place"
-        lead="22 series, 164 episodes. Pick a language and start listening — the first episode of every series is free."
+        lead={`${catalogue.series} series, ${catalogue.episodes} episodes. Pick a language and start listening — the first episode of every series is free.`}
       />
       <section className="section pb-10">
         <StoryBrowser series={listing(allSeries)} />

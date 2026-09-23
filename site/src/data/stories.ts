@@ -20,6 +20,32 @@ export const seriesInLanguage = (language: Language) =>
 export const seriesInCategory = (category: Category, language: Language) =>
   allSeries.filter((s) => s.category === category && s.language === language);
 
+/**
+ * What the catalogue adds up to. Counted here rather than written into the
+ * copy, because a number typed into a sentence is a number that goes stale
+ * the next time a series is added.
+ */
+export const catalogue = {
+  series: allSeries.length,
+  episodes: allSeries.reduce((n, s) => n + s.episodes.length, 0),
+  languages: new Set(allSeries.map((s) => s.language)).size,
+  hours: Math.round(
+    allSeries.reduce(
+      (n, s) => n + s.episodes.reduce((m, e) => m + e.durationMs, 0),
+      0,
+    ) / 3_600_000,
+  ),
+};
+
+/** "Adam, Idris, Nuh, Hud, Salih, Ibrahim and Lut", from the catalogue. */
+export function prophetNames() {
+  const names = seriesInCategory('prophets', 'english').map((s) =>
+    s.title.replace(/^Hazrat\s+/, '').replace(/\s*\(A\.S\.\)\s*$/, ''),
+  );
+  if (names.length < 2) return names.join('');
+  return `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}`;
+}
+
 export const languageLabel: Record<Language, string> = {
   english: 'English',
   urdu: 'اردو',

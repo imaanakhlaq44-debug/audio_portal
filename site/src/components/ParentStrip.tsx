@@ -1,7 +1,9 @@
+import { catalogue } from '@/data/stories';
+
 const facts = [
-  ['22', 'Story series'],
-  ['164', 'Episodes'],
-  ['2', 'Languages'],
+  [`${catalogue.series}`, 'Story series'],
+  [`${catalogue.episodes}`, 'Episodes'],
+  [`${catalogue.languages}`, 'Languages'],
   ['0', 'Ads, ever'],
 ];
 

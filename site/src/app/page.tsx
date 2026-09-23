@@ -8,7 +8,14 @@ import { ParentSection } from '@/components/ParentSection';
 import { ParentStrip } from '@/components/ParentStrip';
 import { StoryRail } from '@/components/StoryRail';
 import { WhyQissora } from '@/components/WhyQissora';
-import { allSeries, seriesById, seriesInCategory, totalMinutes } from '@/data/stories';
+import {
+  allSeries,
+  catalogue,
+  prophetNames,
+  seriesById,
+  seriesInCategory,
+  totalMinutes,
+} from '@/data/stories';
 
 const featured = seriesById('kindness_en') ?? allSeries[0];
 
@@ -26,10 +33,16 @@ export default function HomePage() {
     <>
       <Hero featured={featured} />
 
+      {/* What this is and what to do here, before anything asks the reader
+          to browse: someone who has never heard of Qissora should not have
+          to work the page out from a shelf of covers. */}
+      <HowItWorks />
+      <WhyQissora />
+
       <div className="pt-10 sm:pt-14">
         <StoryRail
           title="Stories of the Prophets"
-          subtitle="Hazrat Adam, Idris, Nuh, Hud and Salih (A.S.)."
+          subtitle={`Hazrat ${prophetNames()} (A.S.).`}
           series={prophets}
           href="/categories"
         />
@@ -54,13 +67,11 @@ export default function HomePage() {
 
         <div className="section mt-6 text-center">
           <Link href="/stories" className="btn-primary">
-            Browse all 22 series
+            Browse all {catalogue.series} series
           </Link>
         </div>
       </div>
 
-      <WhyQissora />
-      <HowItWorks />
       <CharacterSection />
       <ParentStrip />
       <ParentSection />

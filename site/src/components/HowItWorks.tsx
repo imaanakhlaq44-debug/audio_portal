@@ -1,39 +1,50 @@
 import { Section } from '@/components/Section';
+import { catalogue } from '@/data/stories';
 
+/**
+ * What to do on this page, said before anything asks the reader to browse.
+ *
+ * It sits directly under the hero because a visitor who has never heard of
+ * Qissora needs to know two things at once: that a story plays here for
+ * free, and that nothing is asked of them first.
+ */
 const steps = [
   {
     n: '01',
-    title: 'Choose a story',
-    body: '22 series in English and Urdu: stories of the Prophets, and series about everyday values.',
+    title: 'Pick a story',
+    body: `${catalogue.series} series wait below — the Prophets, and stories about everyday values. Every one of them is narrated in both English and Urdu.`,
   },
   {
     n: '02',
-    title: 'Press play',
-    body: 'One tap and the story begins. It keeps playing with the screen off.',
+    title: 'Press play, right here',
+    body: 'The first episode of every series plays free on this website. No account, no download, nothing to sign up for. It keeps playing while you carry on looking around.',
   },
   {
     n: '03',
-    title: 'Listen, learn and enjoy',
-    body: 'Read-along captions while it plays, and a sleep timer for bedtime.',
+    title: 'Read along as it plays',
+    body: 'The words appear in time with the voice, so a child can follow them. Open them full screen, or skip back ten seconds if a line went past too quickly.',
   },
 ];
 
 export function HowItWorks() {
   return (
     <Section
-      eyebrow="How it works"
-      title="Three simple steps"
-      lead="No account, no ads — just the story."
-      className="bg-blush/60"
+      eyebrow="How this works"
+      title="Three taps, and a story is playing"
+      lead="Nothing to sign up for, and nothing to install. Start listening on this page and decide about the app afterwards."
     >
       <ol className="grid gap-6 md:grid-cols-3">
         {steps.map((s, i) => (
           <li key={s.n} className="relative">
             <div className="card h-full p-6">
-              <span className="font-display text-4xl font-bold text-pink-tint">
-                {s.n}
+              <span
+                aria-hidden="true"
+                className="flex size-9 items-center justify-center rounded-full
+                  bg-pink text-sm font-bold text-white"
+              >
+                {i + 1}
               </span>
-              <h3 className="mt-2 text-xl">{s.title}</h3>
+              <h3 className="mt-4 text-xl">{s.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">
                 {s.body}
               </p>
