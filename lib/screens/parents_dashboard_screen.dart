@@ -695,9 +695,10 @@ class _ChallengeCard extends StatelessWidget {
           Text(
             challenge.mission,
             textDirection: dir,
-            style: AppTheme.body(size: 14, color: c.onSurface).copyWith(
-              height: 1.5,
-            ),
+            style: AppTheme.body(
+              size: 14,
+              color: c.onSurface,
+            ).copyWith(height: 1.5),
           ),
           if (challenge.hasReflection) ...[
             const SizedBox(height: 12),
@@ -754,8 +755,10 @@ class _ChallengeAside extends StatelessWidget {
           Text(
             text,
             textDirection: textDirectionOf(text),
-            style: AppTheme.body(size: 13, color: c.onSurfaceVariant)
-                .copyWith(height: 1.45),
+            style: AppTheme.body(
+              size: 13,
+              color: c.onSurfaceVariant,
+            ).copyWith(height: 1.45),
           ),
         ],
       ),
@@ -789,8 +792,10 @@ class _NoChallengeYet extends StatelessWidget {
           Text(
             'Every story closes with something small to go and try. Play an '
             'episode together, and it will appear here.',
-            style: AppTheme.body(size: 13, color: c.onSurfaceVariant)
-                .copyWith(height: 1.45),
+            style: AppTheme.body(
+              size: 13,
+              color: c.onSurfaceVariant,
+            ).copyWith(height: 1.45),
           ),
         ],
       ),
