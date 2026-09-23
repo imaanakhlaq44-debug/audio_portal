@@ -8,6 +8,8 @@ import 'package:qissora/models/story_data.dart';
 import 'package:qissora/screens/home_screen.dart';
 import 'package:qissora/screens/series_screen.dart';
 import 'package:qissora/services/storage_service.dart';
+import 'package:qissora/widgets/child_avatar.dart';
+import 'package:qissora/widgets/language_toggle.dart';
 import 'package:qissora/widgets/story_tile.dart';
 
 import 'fake_player.dart';
@@ -36,20 +38,31 @@ void main() {
     await tester.pump();
   }
 
-  group('greeting', () {
-    testWidgets('greets the child by the name a parent set', (tester) async {
+  group('top bar', () {
+    testWidgets('names the child, without greeting them', (tester) async {
       await writeToStorage(tester, () => StorageService.setChildName('Zayd'));
       await open(tester);
 
-      expect(find.text('Salam, Zayd!'), findsOneWidget);
+      expect(find.text('Zayd'), findsOneWidget);
+      expect(find.textContaining('Salam'), findsNothing);
     });
 
-    testWidgets('falls back to the default name', (tester) async {
+    testWidgets('the picture is there to be tapped', (tester) async {
       await open(tester);
 
+      expect(find.byType(ChildAvatar), findsOneWidget);
+    });
+
+    testWidgets('language switches from here, above the featured card', (
+      tester,
+    ) async {
+      await open(tester);
+
+      final toggle = find.byType(LanguageToggle);
+      expect(toggle, findsOneWidget);
       expect(
-        find.text('Salam, ${StorageService.defaultChildName}!'),
-        findsOneWidget,
+        tester.getCenter(toggle).dy,
+        lessThan(tester.getCenter(find.text('FEATURED SERIES')).dy),
       );
     });
   });
