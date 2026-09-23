@@ -15,62 +15,6 @@ const Series nuhUrdu = Series(
   category: StoryCategory.prophets,
   coverAsset: 'assets/covers/nuh.webp',
   description: 'صبر اور ہمت پر 6 اقساط کی کہانی',
-  trailer: Story(
-    id: 'nuh_ur_00',
-    title: 'ٹریلر · حضرت نوح علیہ السلام',
-    narrator: 'Imaan & Akhlaq',
-    coverAsset: 'assets/covers/nuh.webp',
-    audioAsset: 'assets/audio/ur/nuh/00_trailer.ogg',
-    category: StoryCategory.prophets,
-    description: 'حضرت نوح علیہ السلام کا تعارف',
-    captions: [
-      CaptionLine(
-        start: Duration(milliseconds: 0),
-        end: Duration(milliseconds: 1577),
-        text: 'ایمان و اخلاق',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 1577),
-        end: Duration(milliseconds: 3640),
-        text: 'حضرت نوح علیہ السلام',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 4056),
-        end: Duration(milliseconds: 4611),
-        text: 'چھ باہم جڑی اقساط',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 5860),
-        end: Duration(milliseconds: 8080),
-        text: 'قسط 1: مقصد کیا تھا؟',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 8080),
-        end: Duration(milliseconds: 11640),
-        text: 'قسط 2: دوبارہ کوشش، نئے انداز سے',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 11640),
-        end: Duration(milliseconds: 14320),
-        text: 'قسط 3: جب لوگ ہنستے ہیں',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 14320),
-        end: Duration(milliseconds: 16760),
-        text: 'قسط 4: صرف چند لوگ',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 16760),
-        end: Duration(milliseconds: 19880),
-        text: 'قسط 5: لوگ سمجھیں، اس سے پہلے',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 20376),
-        end: Duration(milliseconds: 22967),
-        text: 'قسط 6: آخر کیا باقی رہ جاتا ہے؟',
-      ),
-    ],
-  ),
   episodes: [
     Story(
       id: 'nuh_ur_01',

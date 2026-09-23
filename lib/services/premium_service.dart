@@ -7,6 +7,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
 import 'package:in_app_purchase_android/in_app_purchase_android.dart';
 
+import '../models/series_meet.dart';
 import '../models/story.dart';
 import '../models/story_data.dart';
 import 'storage_service.dart';
@@ -124,8 +125,10 @@ class PremiumService extends ChangeNotifier {
         episodes.first.id == story.id;
   }
 
-  /// Whether [story] cannot be played at all without Premium.
-  bool isLocked(Story story) => !_isPremium && !isPreview(story);
+  /// Whether [story] cannot be played at all without Premium. A series
+  /// welcome is never locked: it is the thing that sells the series.
+  bool isLocked(Story story) =>
+      !_isPremium && !isPreview(story) && !welcomeTrackIds.contains(story.id);
 
   /// Where a free listener's preview of [story] stops, or null when there
   /// is no limit (Premium, or a story that is locked outright).

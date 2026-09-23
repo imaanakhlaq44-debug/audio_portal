@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../models/series.dart';
+import '../models/series_meet.dart';
 import '../models/story.dart';
 import '../models/story_category.dart';
 import '../services/audio_player_service.dart';
@@ -60,8 +61,8 @@ class SeriesScreen extends StatelessWidget {
             children: [
               _Header(series: series),
               const SizedBox(height: 24),
-              if (series.intro case final intro?) ...[
-                _IntroCard(text: intro),
+              if (series.welcome case final welcome?) ...[
+                _WelcomeCard(series: series, welcome: welcome),
                 const SizedBox(height: 20),
               ],
               if (!context.watch<PremiumService>().isPremium) ...[
@@ -157,50 +158,91 @@ class _Header extends StatelessWidget {
 }
 
 /// The series introduction, in place of the old spoken trailer.
-class _IntroCard extends StatelessWidget {
-  final String text;
-  const _IntroCard({required this.text});
+/// The spoken welcome at the top of a series: one tap, and it plays for
+/// everyone, Premium or not.
+class _WelcomeCard extends StatelessWidget {
+  final Series series;
+  final MeetTheSeries welcome;
+  const _WelcomeCard({required this.series, required this.welcome});
 
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    final direction = textDirectionOf(text);
-    return Container(
-      padding: const EdgeInsets.all(18),
-      decoration: BoxDecoration(
-        color: c.surfaceLowest,
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: c.outlineVariant.withValues(alpha: c.isDark ? 0.5 : 0.15),
-        ),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Icon(Icons.auto_stories_outlined, color: c.primaryDeep),
-              const SizedBox(width: 8),
-              Text(
-                'About this series',
-                style: AppTheme.headline(size: 17, color: c.headline),
+    final urdu = series.language == StoryLanguage.urdu;
+    final title = urdu ? 'سلسلے کا تعارف' : 'Meet the series';
+    final minutes = (welcome.length.inSeconds / 60).ceil();
+    final blurb = urdu
+        ? '$minutes منٹ میں جانیے اس سلسلے میں کیا ہے'
+        : 'What this series is about, in $minutes minute'
+              '${minutes == 1 ? '' : 's'}.';
+
+    return Consumer<AudioPlayerService>(
+      builder: (context, player, _) {
+        final isCurrent = player.currentStory?.id == welcome.track.id;
+        final showPause = isCurrent && player.isPlaying;
+
+        return Material(
+          color: Colors.transparent,
+          child: InkWell(
+            onTap: () => togglePlayFor(context, welcome.track),
+            borderRadius: BorderRadius.circular(20),
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: isCurrent ? c.surfaceHigh : c.surfaceLowest,
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  color: isCurrent
+                      ? c.secondary.withValues(alpha: 0.5)
+                      : c.outlineVariant.withValues(
+                          alpha: c.isDark ? 0.5 : 0.15,
+                        ),
+                ),
               ),
-            ],
-          ),
-          const SizedBox(height: 10),
-          SizedBox(
-            width: double.infinity,
-            child: Text(
-              text,
-              textDirection: direction,
-              style: AppTheme.body(
-                size: 14,
-                color: c.onSurfaceVariant,
-              ).copyWith(height: 1.6),
+              child: Row(
+                children: [
+                  Container(
+                    width: 48,
+                    height: 48,
+                    decoration: BoxDecoration(
+                      color: c.secondary,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(
+                      showPause ? Icons.pause : Icons.play_arrow,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(width: 14),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: urdu
+                          ? CrossAxisAlignment.end
+                          : CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          title,
+                          textDirection: textDirectionOf(title),
+                          style: AppTheme.headline(size: 17, color: c.headline),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          blurb,
+                          textDirection: textDirectionOf(blurb),
+                          style: AppTheme.body(
+                            size: 13,
+                            color: c.onSurfaceVariant,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

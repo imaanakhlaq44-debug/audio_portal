@@ -15,62 +15,6 @@ const Series nuhEnglish = Series(
   category: StoryCategory.prophets,
   coverAsset: 'assets/covers/nuh.webp',
   description: 'A 6-part story about patience and never giving up on good.',
-  trailer: Story(
-    id: 'nuh_en_00',
-    title: 'Trailer · Hazrat Nuh (A.S.)',
-    narrator: 'Imaan & Akhlaq',
-    coverAsset: 'assets/covers/nuh.webp',
-    audioAsset: 'assets/audio/en/nuh/00_trailer.ogg',
-    category: StoryCategory.prophets,
-    description: 'Meet the story: Hazrat Nuh (A.S.) in under a minute.',
-    captions: [
-      CaptionLine(
-        start: Duration(milliseconds: 0),
-        end: Duration(milliseconds: 3244),
-        text: 'IMAAN & AKHLAQ',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 3244),
-        end: Duration(milliseconds: 5840),
-        text: 'Hazrat Nuh (A.S.) Story Series',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 5840),
-        end: Duration(milliseconds: 8160),
-        text: 'Six Connected Episodes',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 8160),
-        end: Duration(milliseconds: 10383),
-        text: 'Episode 1: What Was the Point?',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 11000),
-        end: Duration(milliseconds: 14400),
-        text: 'Episode 2: Try Again, Differently',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 14400),
-        end: Duration(milliseconds: 17240),
-        text: 'Episode 3: When People Laugh',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 17240),
-        end: Duration(milliseconds: 19840),
-        text: 'Episode 4: Only a Few',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 19967),
-        end: Duration(milliseconds: 23567),
-        text: 'Episode 5: Build Before They Understand',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 23567),
-        end: Duration(milliseconds: 26367),
-        text: 'Episode 6: What Remains',
-      ),
-    ],
-  ),
   episodes: [
     Story(
       id: 'nuh_en_01',

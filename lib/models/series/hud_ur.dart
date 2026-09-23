@@ -15,57 +15,6 @@ const Series hudUrdu = Series(
   category: StoryCategory.prophets,
   coverAsset: 'assets/covers/hud.webp',
   description: 'تکبر، شکر اور عاجزی پر 5 اقساط کی کہانی',
-  trailer: Story(
-    id: 'hud_ur_00',
-    title: 'ٹریلر · حضرت ہود علیہ السلام',
-    narrator: 'Imaan & Akhlaq',
-    coverAsset: 'assets/covers/hud.webp',
-    audioAsset: 'assets/audio/ur/hud/00_trailer.ogg',
-    category: StoryCategory.prophets,
-    description: 'حضرت ہود علیہ السلام کا تعارف',
-    captions: [
-      CaptionLine(
-        start: Duration(milliseconds: 0),
-        end: Duration(milliseconds: 2000),
-        text: 'ایمان و اخلاق',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 2000),
-        end: Duration(milliseconds: 4860),
-        text: 'حضرت ہود علیہ السلام کی کہانی',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 4860),
-        end: Duration(milliseconds: 9500),
-        text: 'تکبر، غرور، شکر اور عاجزی پر پانچ مربوط اقساط',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 9500),
-        end: Duration(milliseconds: 9802),
-        text: 'قسط 1: کوئی مجھے ہرا نہیں سکتا!',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 9802),
-        end: Duration(milliseconds: 10146),
-        text: 'قسط 2: دیکھو! ہم نے کیا بنایا ہے',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 10146),
-        end: Duration(milliseconds: 10491),
-        text: 'قسط 3: یہ سب تمہیں کس نے دیا؟',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 10491),
-        end: Duration(milliseconds: 10835),
-        text: 'قسط 4: اتنے مضبوط کہ مہربان بن سکیں',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 10835),
-        end: Duration(milliseconds: 10836),
-        text: 'قسط 5: جب طاقت کافی نہ رہی',
-      ),
-    ],
-  ),
   episodes: [
     Story(
       id: 'hud_ur_01',

@@ -15,67 +15,6 @@ const Series adamEnglish = Series(
   category: StoryCategory.prophets,
   coverAsset: 'assets/covers/adam.webp',
   description: 'A 6-part story about the beginning of humanity.',
-  trailer: Story(
-    id: 'adam_en_00',
-    title: 'Trailer · Hazrat Adam (A.S.)',
-    narrator: 'Imaan & Akhlaq',
-    coverAsset: 'assets/covers/adam.webp',
-    audioAsset: 'assets/audio/en/adam/00_trailer.ogg',
-    category: StoryCategory.prophets,
-    description: 'Meet the story: Hazrat Adam (A.S.) in under a minute.',
-    captions: [
-      CaptionLine(
-        start: Duration(milliseconds: 0),
-        end: Duration(milliseconds: 2000),
-        text: 'The Beginning of Humanity',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 2000),
-        end: Duration(milliseconds: 6000),
-        text: 'Hazrat Adam (A.S.) Story Series',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 6000),
-        end: Duration(milliseconds: 9000),
-        text: 'Six connected narration-style stories',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 9000),
-        end: Duration(milliseconds: 11000),
-        text: 'Contents',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 11000),
-        end: Duration(milliseconds: 14000),
-        text: 'Episode 1 - Before the First Footstep',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 14000),
-        end: Duration(milliseconds: 18000),
-        text: 'Episode 2 - The Secret of Knowledge',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 18000),
-        end: Duration(milliseconds: 21647),
-        text: 'Episode 3 - I Am Better',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 21647),
-        end: Duration(milliseconds: 24847),
-        text: 'Episode 4 - The Forbidden Tree',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 24847),
-        end: Duration(milliseconds: 28527),
-        text: 'Episode 5 - The Door Was Still Open',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 28527),
-        end: Duration(milliseconds: 32189),
-        text: 'Episode 6 - The Fire Called Envy',
-      ),
-    ],
-  ),
   episodes: [
     Story(
       id: 'adam_en_01',

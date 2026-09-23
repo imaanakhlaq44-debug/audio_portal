@@ -47,6 +47,33 @@ function field(block, name) {
   return m ? unquote(m[1]) : null;
 }
 
+// The spoken welcome that opens a series, from lib/models/series_meet.dart.
+// It is shaped as an episode so the site's player takes it unchanged, with no
+// preview limit: a welcome plays in full for everyone.
+const welcomes = {};
+{
+  const src = readFileSync(
+    join(here, '..', '..', 'lib', 'models', 'series_meet.dart'),
+    'utf8',
+  );
+  const entry =
+    /'([a-z_]+)': MeetTheSeries\(\s*track: Story\(([\s\S]*?)\),\s*length: Duration\(milliseconds: (\d+)\)/g;
+  for (const [, seriesId, track, ms] of src.matchAll(entry)) {
+    welcomes[seriesId] = {
+      id: field(track, 'id'),
+      title: field(track, 'title'),
+      audioKey: (field(track, 'audioAsset') ?? '').replace(
+        /^assets\/audio\//,
+        '',
+      ),
+      durationMs: Number(ms),
+      previewEndMs: null,
+      captions: [],
+      challenge: null,
+    };
+  }
+}
+
 /** Splits the `episodes: [...]` list into one text block per Story(...). */
 function episodeBlocks(src) {
   const start = src.indexOf('episodes: [');
@@ -123,6 +150,7 @@ function parseSeries(file) {
       /^assets\/covers\/(.+)\.webp$/,
       '$1',
     ),
+    welcome: welcomes[field(header, 'id')] ?? null,
     episodes,
   };
 }

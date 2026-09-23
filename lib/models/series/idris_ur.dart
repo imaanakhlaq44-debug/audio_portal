@@ -15,42 +15,6 @@ const Series idrisUrdu = Series(
   category: StoryCategory.prophets,
   coverAsset: 'assets/covers/idris.webp',
   description: 'سچ پر قائم رہنے پر 3 اقساط کی کہانی',
-  trailer: Story(
-    id: 'idris_ur_00',
-    title: 'ٹریلر · حضرت ادریس علیہ السلام',
-    narrator: 'Imaan & Akhlaq',
-    coverAsset: 'assets/covers/idris.webp',
-    audioAsset: 'assets/audio/ur/idris/00_trailer.ogg',
-    category: StoryCategory.prophets,
-    description: 'حضرت ادریس علیہ السلام کا تعارف',
-    captions: [
-      CaptionLine(
-        start: Duration(milliseconds: 0),
-        end: Duration(milliseconds: 2548),
-        text: 'حضرت ادریس علیہ السلام',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 2682),
-        end: Duration(milliseconds: 3219),
-        text: 'تین باہم جڑی کہانیاں',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 4560),
-        end: Duration(milliseconds: 8220),
-        text: 'واقعہ 1: سچ پر قائم رہنے کی قیمت',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 8220),
-        end: Duration(milliseconds: 11700),
-        text: 'واقعہ 2: جب سچ بولنا مشکل ہو جائے',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 11700),
-        end: Duration(milliseconds: 14357),
-        text: 'واقعہ 3: بلند مقام',
-      ),
-    ],
-  ),
   episodes: [
     Story(
       id: 'idris_ur_01',

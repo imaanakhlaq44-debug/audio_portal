@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { AudioPlayer } from '@/components/AudioPlayer';
 import { ChallengeCard } from '@/components/ChallengeCard';
 import { CtaSection } from '@/components/CtaSection';
+import { MeetTheSeries } from '@/components/MeetTheSeries';
 import { StoryGrid } from '@/components/StoryGrid';
 import {
   allSeries,
@@ -127,7 +128,13 @@ export default async function StoryPage({
             {' · Narrated by Imaan & Akhlaq'}
           </p>
 
-          <div className="mt-8">
+          {series.welcome && (
+            <div className="mt-6">
+              <MeetTheSeries series={series} welcome={series.welcome} />
+            </div>
+          )}
+
+          <div className="mt-6">
             <AudioPlayer
               series={series}
               episode={series.episodes[0]}

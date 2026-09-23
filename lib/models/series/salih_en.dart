@@ -15,58 +15,6 @@ const Series salihEnglish = Series(
   category: StoryCategory.prophets,
   coverAsset: 'assets/covers/salih.webp',
   description: 'A 5-part story about boundaries, rights and responsibility.',
-  trailer: Story(
-    id: 'salih_en_00',
-    title: 'Trailer · Hazrat Salih (A.S.)',
-    narrator: 'Imaan & Akhlaq',
-    coverAsset: 'assets/covers/salih.webp',
-    audioAsset: 'assets/audio/en/salih/00_trailer.ogg',
-    category: StoryCategory.prophets,
-    description: 'Meet the story: Hazrat Salih (A.S.) in under a minute.',
-    captions: [
-      CaptionLine(
-        start: Duration(milliseconds: 0),
-        end: Duration(milliseconds: 4373),
-        text: 'IMAAN & AKHLAQ',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 4373),
-        end: Duration(milliseconds: 5840),
-        text: 'Hazrat Salih (A.S.) Story Series',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 6340),
-        end: Duration(milliseconds: 11440),
-        text:
-            'Five Connected Episodes on Boundaries, Rights and Responsibility',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 11940),
-        end: Duration(milliseconds: 15340),
-        text: 'Episode 1: Why Is Everything a Rule?',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 15840),
-        end: Duration(milliseconds: 18640),
-        text: 'Episode 2: But Tell Me Why',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 19140),
-        end: Duration(milliseconds: 22527),
-        text: 'Episode 3: That Was My Turn',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 22527),
-        end: Duration(milliseconds: 26447),
-        text: 'Episode 4: Ammi Will Never Know',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 26447),
-        end: Duration(milliseconds: 29716),
-        text: 'Episode 5: The Rule Was Not the Enemy',
-      ),
-    ],
-  ),
   episodes: [
     Story(
       id: 'salih_en_01',
