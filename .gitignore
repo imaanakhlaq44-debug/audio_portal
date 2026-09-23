@@ -67,6 +67,7 @@ key.properties
 /Story x URDU/
 /StoryxEnglish/
 /Series_Intros_Audio/
+/Prophet_Stories_Audio/
 *.plan.json
 
 # Cut episode audio (~170 MB). It is streamed from audio.qissora.app, where

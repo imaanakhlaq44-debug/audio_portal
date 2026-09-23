@@ -159,9 +159,11 @@ const _ordinals = {
   'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10,
   'اول': 1, 'دوم': 2, 'سوم': 3, 'چہارم': 4, 'پنجم': 5, //
   'ششم': 6, 'ہفتم': 7, 'ہشتم': 8, 'نہم': 9, 'دہم': 10,
+  'یازدہم': 11, 'دوازدہم': 12,
   // "قسط 1" is written as a digit but read aloud as "قسط ایک".
   'ایک': 1, 'دو': 2, 'تین': 3, 'چار': 4, 'پانچ': 5, //
   'چھ': 6, 'سات': 7, 'آٹھ': 8, 'نو': 9, 'دس': 10,
+  'گیارہ': 11, 'بارہ': 12,
 };
 
 /// Splits the script at each episode marker, returning the spoken intro that
@@ -215,6 +217,10 @@ const _ordinals = {
   }
   return (intro, episodes);
 }
+
+/// "An" before the counts that are read starting with a vowel: 8, 11, 18.
+String _article(int count) =>
+    RegExp(r'^(8|11|18)').hasMatch('$count') ? 'An' : 'A';
 
 /// "Amanpur's Promise" -> "amanpurs_promise".
 String _slug(String title) => title
@@ -513,7 +519,7 @@ String _dart(
     ..writeln('  category: StoryCategory.${cfg['category']},')
     ..writeln('  coverAsset: ${_str(cfg['cover'] as String)},')
     ..writeln(
-      '  description: ${_str(urdu ? '${cfg['moral']} پر $count اقساط کی کہانی' : 'A $count-part story about ${cfg['moral']}.')},',
+      '  description: ${_str(urdu ? '${cfg['moral']} پر $count اقساط کی کہانی' : '${_article(count)} $count-part story about ${cfg['moral']}.')},',
     );
 
   for (var e = 0; e < episodes.length; e++) {
