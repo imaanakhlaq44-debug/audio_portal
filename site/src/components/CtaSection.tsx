@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import { AppCta } from '@/components/AppCta';
+import { catalogue } from '@/data/stories';
 
 /** The download call to action, shared by the home and stories pages. */
 export function CtaSection() {
@@ -27,7 +28,8 @@ export function CtaSection() {
               Step into a world of stories with Qissora
             </h2>
             <p className="mt-3 text-base text-white/85 sm:text-lg">
-              22 series, 164 episodes, English and Urdu — all in one app.
+              {catalogue.series} series, {catalogue.episodes} episodes,
+              English and Urdu — all in one app.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <AppCta className="btn bg-white text-pink-deep hover:bg-cream">

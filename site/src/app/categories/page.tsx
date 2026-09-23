@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { CtaSection } from '@/components/CtaSection';
 import { PageHeader } from '@/components/PageHeader';
-import { allSeries, coverUrl, seriesById } from '@/data/stories';
+import { allSeries, coverUrl, prophetNames, seriesById } from '@/data/stories';
 
 export const metadata: Metadata = {
   title: 'Categories',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const themes = [
   {
     title: 'Prophet Stories',
-    body: 'Hazrat Adam, Idris, Nuh, Hud and Salih (A.S.).',
+    body: `Hazrat ${prophetNames()} (A.S.).`,
     series: 'adam_en',
     tint: 'bg-sky-tint',
   },
