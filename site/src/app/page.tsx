@@ -2,12 +2,10 @@ import Link from 'next/link';
 
 import { CharacterSection } from '@/components/CharacterSection';
 import { CtaSection } from '@/components/CtaSection';
-import { FeaturedPlayer } from '@/components/FeaturedPlayer';
 import { Hero } from '@/components/Hero';
 import { HowItWorks } from '@/components/HowItWorks';
 import { ParentSection } from '@/components/ParentSection';
 import { ParentStrip } from '@/components/ParentStrip';
-import { Section } from '@/components/Section';
 import { StoryRail } from '@/components/StoryRail';
 import { WhyQissora } from '@/components/WhyQissora';
 import { allSeries, seriesById, seriesInCategory, totalMinutes } from '@/data/stories';
@@ -28,20 +26,7 @@ export default function HomePage() {
     <>
       <Hero featured={featured} />
 
-      {/* Straight into a story: the player docks at the bottom of the page
-          and keeps playing while you browse the shelves below. */}
-      <Section
-        eyebrow="Listen free, right here"
-        title="Start with one story"
-        lead="The first episode of every series is free to sample. Press play and keep browsing — it follows you down the page."
-        className="bg-blush/60"
-      >
-        <div className="mx-auto max-w-3xl">
-          <FeaturedPlayer series={featured} />
-        </div>
-      </Section>
-
-      <div className="pt-6">
+      <div className="pt-10 sm:pt-14">
         <StoryRail
           title="Stories of the Prophets"
           subtitle="Hazrat Adam, Idris, Nuh, Hud and Salih (A.S.)."

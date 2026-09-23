@@ -32,7 +32,7 @@ export function FeaturedPlayer({ series }: { series: Series }) {
           width={220}
           height={220}
           className="relative size-40 rounded-[var(--radius-xl2)] object-cover
-            sm:size-52"
+            sm:size-44"
         />
       </div>
 
