@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:imaan_akhlaq/main.dart';
-import 'package:imaan_akhlaq/screens/splash_screen.dart';
+import 'package:qissora/main.dart';
+import 'package:qissora/screens/splash_screen.dart';
 
 import 'test_helpers.dart';
 

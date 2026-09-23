@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../models/story_category.dart';
 import '../models/story_data.dart';
+import '../services/storage_service.dart';
 import '../theme/app_theme.dart';
 import '../widgets/mini_player.dart';
-import '../widgets/story_tile.dart';
+import '../widgets/series_card.dart';
 
+/// Every series in one category, as a grid of covers.
 class CategoryStoriesScreen extends StatelessWidget {
   final StoryCategory category;
   const CategoryStoriesScreen({super.key, required this.category});
@@ -13,7 +15,10 @@ class CategoryStoriesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    final stories = StoryData.byCategory(category);
+    final series = StoryData.seriesIn(
+      category,
+      language: StorageService.getLanguage(),
+    );
     return Scaffold(
       backgroundColor: c.background,
       appBar: AppBar(
@@ -23,7 +28,7 @@ class CategoryStoriesScreen extends StatelessWidget {
             padding: const EdgeInsets.only(right: 16),
             child: Center(
               child: Text(
-                '${stories.length} ${stories.length == 1 ? 'story' : 'stories'}',
+                '${series.length} series',
                 style: AppTheme.body(size: 13, color: c.onSurfaceVariant),
               ),
             ),
@@ -35,7 +40,7 @@ class CategoryStoriesScreen extends StatelessWidget {
       bottomNavigationBar: const SafeArea(child: MiniPlayer()),
       body: SafeArea(
         bottom: false,
-        child: stories.isEmpty
+        child: series.isEmpty
             ? Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
@@ -49,17 +54,22 @@ class CategoryStoriesScreen extends StatelessWidget {
                   ],
                 ),
               )
-            : ListView(
-                padding: const EdgeInsets.all(20),
-                children: stories
-                    .map(
-                      (story) => StoryTile(
-                        story: story,
-                        onTap: () => openStory(context, story),
-                        onPlay: () => togglePlayFor(context, story),
-                      ),
-                    )
-                    .toList(),
+            : LayoutBuilder(
+                builder: (context, constraints) {
+                  const gap = 16.0;
+                  final width = (constraints.maxWidth - 40 - gap) / 2;
+                  return SingleChildScrollView(
+                    padding: const EdgeInsets.all(20),
+                    child: Wrap(
+                      spacing: gap,
+                      runSpacing: gap,
+                      children: [
+                        for (final s in series)
+                          SeriesCard(series: s, width: width),
+                      ],
+                    ),
+                  );
+                },
               ),
       ),
     );

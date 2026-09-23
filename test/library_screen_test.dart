@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:imaan_akhlaq/models/story_data.dart';
-import 'package:imaan_akhlaq/screens/library_screen.dart';
-import 'package:imaan_akhlaq/services/storage_service.dart';
+import 'package:qissora/models/story_data.dart';
+import 'package:qissora/screens/library_screen.dart';
+import 'package:qissora/services/storage_service.dart';
 
 import 'test_helpers.dart';
 

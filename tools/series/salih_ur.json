@@ -1,0 +1,18 @@
+{
+  "id": "salih_ur",
+  "series": "حضرت صالح علیہ السلام",
+  "language": "urdu",
+  "moral": "حدود، حقوق اور ذمہ داری",
+  "category": "prophets",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/salih.webp",
+  "script": "Story x URDU/Saleh AS Urdu/annotated_script.txt",
+  "skipLeadingLines": 0,
+  "splitSentences": true,
+  "episodeMarker": "^قسط (\\S+)$",
+  "master": "Story x URDU/Saleh AS Urdu/حضرت_صالح_علیہ_السلام_کی_کہانی_master.wav",
+  "transcript": "Story x URDU/Saleh AS Urdu/transcript.srt",
+  "audioDir": "assets/audio/ur/salih",
+  "output": "lib/models/series/salih_ur.dart",
+  "variable": "salihUrdu"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "patience_ur",
+  "series": "جو چیزیں وقت لیتی ہیں",
+  "language": "urdu",
+  "moral": "صبر",
+  "category": "moral",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/patience.webp",
+  "script": "Story x URDU/Patience Urdu/annotated_script.txt",
+  "skipLeadingLines": 1,
+  "splitSentences": true,
+  "episodeMarker": "^(?:واقعہ|قسط) :(\\d+)\\s*[\"‘’“”]*(.+?)[\"‘’“”]*$",
+  "master": "Story x URDU/Patience Urdu/PPatienceUrdu_master.wav",
+  "transcript": "Story x URDU/Patience Urdu/transcript.srt",
+  "audioDir": "assets/audio/ur/patience",
+  "trailer": "00_trailer.mp3",
+  "output": "lib/models/series/patience_ur.dart",
+  "variable": "patienceUrdu"
+}

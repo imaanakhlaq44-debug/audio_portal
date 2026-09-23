@@ -5,6 +5,6 @@
 /// would add platform code to display one string. `test/app_info_test.dart`
 /// parses the pubspec and fails if the two ever drift apart, which is the
 /// part that actually matters.
-const String appVersion = '1.2.0';
+const String appVersion = '1.3.0';
 
-const String appName = 'Imaan & Akhlaq';
+const String appName = 'Qissora';

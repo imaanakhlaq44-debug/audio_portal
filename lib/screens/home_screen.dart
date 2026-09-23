@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../models/series.dart';
 import '../models/story.dart';
 import '../models/story_category.dart';
 import '../models/story_data.dart';
 import '../services/audio_player_service.dart';
 import '../services/storage_service.dart';
 import '../theme/app_theme.dart';
+import '../widgets/child_avatar.dart';
+import '../widgets/language_toggle.dart';
 import '../widgets/mini_player.dart';
+import '../widgets/series_card.dart';
 import '../widgets/story_progress_bar.dart';
 import '../widgets/story_tile.dart';
 import '../widgets/theme_toggle_button.dart';
+import 'series_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,15 +25,15 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late final Story _storyOfTheDay = StoryData.storyOfTheDay;
-  late final List<Story> _bedtimeStories = [
-    ...StoryData.byCategory(StoryCategory.bedtime),
-    ...StoryData.byCategory(StoryCategory.nature),
-  ];
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) => ValueListenableBuilder(
+    valueListenable: StorageService.languageListenable(),
+    builder: (context, _, __) => _build(context, StorageService.getLanguage()),
+  );
+
+  Widget _build(BuildContext context, StoryLanguage language) {
     final c = context.colors;
+    final featured = StoryData.featuredOn(DateTime.now(), language: language);
     return SafeArea(
       bottom: false,
       child: Column(
@@ -40,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  _HeroCard(story: _storyOfTheDay),
+                  _HeroCard(series: featured),
                   const SizedBox(height: 28),
 
                   // ---- Continue Listening ----
@@ -91,36 +96,25 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
 
-                  // ---- Calm Bedtime Audio carousel ----
-                  const _SectionTitle('Calm Bedtime Audio'),
-                  const SizedBox(height: 14),
-                  SizedBox(
-                    height: 196,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: _bedtimeStories.length,
-                      itemBuilder: (context, index) {
-                        final story = _bedtimeStories[index];
-                        return Padding(
-                          padding: const EdgeInsets.only(right: 14),
-                          child: _CarouselCard(story: story),
-                        );
-                      },
-                    ),
-                  ),
-                  const SizedBox(height: 28),
-
-                  // ---- All stories quick list ----
-                  const _SectionTitle('All Stories'),
-                  const SizedBox(height: 14),
-                  for (final story in StoryData.allStories)
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 10),
-                      child: _QuickStoryRow(
-                        story: story,
-                        onPlay: () => togglePlayFor(context, story),
+                  // ---- One row of series per category ----
+                  for (final category in StoryCategory.values)
+                    if (StoryData.seriesIn(category, language: language)
+                        case final series when series.isNotEmpty) ...[
+                      _SectionTitle(category.label),
+                      const SizedBox(height: 14),
+                      SizedBox(
+                        height: 206,
+                        child: ListView.separated(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: series.length,
+                          separatorBuilder: (_, __) =>
+                              const SizedBox(width: 14),
+                          itemBuilder: (context, i) =>
+                              SeriesCard(series: series[i]),
+                        ),
                       ),
-                    ),
+                      const SizedBox(height: 28),
+                    ],
                 ],
               ),
             ),
@@ -171,42 +165,28 @@ class _TopBar extends StatelessWidget {
     final c = context.colors;
     return ValueListenableBuilder(
       valueListenable: StorageService.childNameListenable(),
-      builder: (context, _, __) {
-        final childName = StorageService.getChildName();
-        return Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-          color: c.surfaceLowest,
-          child: Row(
-            children: [
-              Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: c.primary, width: 2),
-                ),
-                child: ClipOval(
-                  child: Image.asset(
-                    'assets/images/child_avatar.webp',
-                    fit: BoxFit.cover,
-                  ),
-                ),
+      builder: (context, _, __) => Container(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+        color: c.surfaceLowest,
+        child: Row(
+          children: [
+            const ChildAvatar(),
+            const SizedBox(width: 10),
+            Expanded(
+              child: Text(
+                StorageService.getChildName(),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: AppTheme.headline(size: 20, color: c.primaryDeep),
               ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Text(
-                  'Salam, $childName!',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: AppTheme.headline(size: 20, color: c.primaryDeep),
-                ),
-              ),
-              const SizedBox(width: 8),
-              const ThemeToggleButton(),
-            ],
-          ),
-        );
-      },
+            ),
+            const SizedBox(width: 10),
+            const LanguageToggle(),
+            const SizedBox(width: 8),
+            const ThemeToggleButton(),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -234,19 +214,21 @@ class _SectionTitle extends StatelessWidget {
 }
 
 class _HeroCard extends StatelessWidget {
-  final Story story;
-  const _HeroCard({required this.story});
+  final Series series;
+  const _HeroCard({required this.series});
 
   @override
   Widget build(BuildContext context) {
     return Consumer<AudioPlayerService>(
       builder: (context, player, _) {
-        final isCurrent = player.currentStory?.id == story.id;
+        final current = player.currentStory;
+        final isCurrent =
+            current != null && series.tracks.any((t) => t.id == current.id);
         return Semantics(
           button: true,
-          label: 'Story of the day: ${story.title}',
+          label: 'Featured series: ${series.title}',
           child: GestureDetector(
-            onTap: () => openStory(context, story),
+            onTap: () => openSeries(context, series),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(24),
               child: AspectRatio(
@@ -254,7 +236,7 @@ class _HeroCard extends StatelessWidget {
                 child: Stack(
                   fit: StackFit.expand,
                   children: [
-                    Image.asset(story.coverAsset, fit: BoxFit.cover),
+                    Image.asset(series.coverAsset, fit: BoxFit.cover),
                     DecoratedBox(
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -287,7 +269,7 @@ class _HeroCard extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(100),
                                   ),
                                   child: const Text(
-                                    'STORY OF THE DAY',
+                                    'FEATURED SERIES',
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 11,
@@ -298,7 +280,7 @@ class _HeroCard extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 8),
                                 Text(
-                                  story.title,
+                                  series.title,
                                   style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 22,
@@ -307,7 +289,9 @@ class _HeroCard extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 4),
                                 Text(
-                                  story.description,
+                                  '${series.description} '
+                                  '${series.episodeCountLabel} • '
+                                  '${series.language.label}',
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
@@ -323,7 +307,9 @@ class _HeroCard extends StatelessWidget {
                             size: 52,
                             isPlaying: isCurrent && player.isPlaying,
                             isLoading: isCurrent && player.isLoading,
-                            onTap: () => togglePlayFor(context, story),
+                            onTap: () => isCurrent
+                                ? player.togglePlayPause()
+                                : player.playStory(resumeTrackOf(series)),
                           ),
                         ],
                       ),
@@ -335,67 +321,6 @@ class _HeroCard extends StatelessWidget {
           ),
         );
       },
-    );
-  }
-}
-
-class _CarouselCard extends StatelessWidget {
-  final Story story;
-  const _CarouselCard({required this.story});
-
-  @override
-  Widget build(BuildContext context) {
-    final c = context.colors;
-    return Semantics(
-      button: true,
-      label: story.title,
-      child: GestureDetector(
-        onTap: () => openStory(context, story),
-        child: SizedBox(
-          width: 140,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(24),
-                child: Stack(
-                  children: [
-                    Image.asset(
-                      story.coverAsset,
-                      width: 140,
-                      height: 140,
-                      fit: BoxFit.cover,
-                    ),
-                    Positioned(
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      child: StoryProgressBar(storyId: story.id, height: 5),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                story.title,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: AppTheme.body(
-                  size: 14,
-                  weight: FontWeight.w600,
-                  color: c.onSurface,
-                ),
-              ),
-              Text(
-                '${story.durationLabel} • ${story.category.label}',
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: AppTheme.body(size: 12, color: c.onSurfaceVariant),
-              ),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }

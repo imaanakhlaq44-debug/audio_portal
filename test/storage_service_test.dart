@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart' show ThemeMode;
 import 'package:flutter_test/flutter_test.dart';
-import 'package:imaan_akhlaq/services/storage_service.dart';
+import 'package:qissora/services/storage_service.dart';
 
 import 'test_helpers.dart';
 
@@ -115,10 +115,13 @@ void main() {
       );
     });
 
-    test('theme mode round trips', () async {
-      expect(StorageService.getThemeMode(), ThemeMode.system);
+    test('theme mode round trips, and defaults to light', () async {
+      expect(StorageService.getThemeMode(), ThemeMode.light);
       await StorageService.setThemeMode(ThemeMode.dark);
       expect(StorageService.getThemeMode(), ThemeMode.dark);
+      // "Follows phone setting" is still a choice a parent can make.
+      await StorageService.setThemeMode(ThemeMode.system);
+      expect(StorageService.getThemeMode(), ThemeMode.system);
     });
 
     test('saveProgress keeps a previously known duration', () async {

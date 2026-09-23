@@ -57,3 +57,25 @@ key.properties
 
 # Local tooling
 .vscode/launch.json
+# wrangler's local state, written wherever it is run from
+/.wrangler/
+
+# Raw narration masters. Several GB of mp3/wav per language, and the app only
+# ever ships the cut, re-encoded episodes under assets/audio/. The series
+# welcomes are recorded separately and follow the same rule: the 160 kbps
+# masters stay out, the 16 kbps Opus the app streams is built from them.
+/Story x URDU/
+/StoryxEnglish/
+/Series_Intros_Audio/
+/Prophet_Stories_Audio/
+*.plan.json
+
+# Cut episode audio (~170 MB). It is streamed from audio.qissora.app, where
+# tools/upload_audio.ps1 put it, and tools/gen_series.dart --cut rebuilds it
+# from the narration masters.
+/assets/audio/
+
+# Brand fonts for tools/make_feature_graphic.mjs. Hey Haters is licensed and
+# must not be committed; Plus Jakarta Sans is fetched per the note in that
+# script. Both are found through the fontconfig it writes.
+/tools/fonts/

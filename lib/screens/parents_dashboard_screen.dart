@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../app_info.dart';
+import '../models/challenges.dart';
 import '../models/story.dart';
 import '../models/story_data.dart';
+import '../services/premium_service.dart';
 import '../services/storage_service.dart';
 import '../services/theme_controller.dart';
 import '../theme/app_theme.dart';
+import '../theme/text_direction.dart';
+import '../widgets/paywall_sheet.dart';
+
+/// Google Play's page for managing this app's subscription.
+final Uri _manageSubscriptionUri = Uri.parse(
+  'https://play.google.com/store/account/subscriptions'
+  '?package=com.imaanakhlaq.qissora',
+);
 
 /// Simple parents dashboard shown after successful PIN entry:
 /// change PIN, edit child's name, and see app info.
@@ -223,6 +234,12 @@ class _ParentsDashboardScreenState extends State<ParentsDashboardScreen> {
     return ListView(
       padding: const EdgeInsets.all(20),
       children: [
+        const _AccountCard(),
+        const SizedBox(height: 20),
+
+        // ---- What to try with your child today ----
+        const _ChallengeCard(),
+
         // ---- Listening stats ----
         Row(
           children: [
@@ -393,6 +410,392 @@ class _ParentsDashboardScreenState extends State<ParentsDashboardScreen> {
               }
             },
             child: Text('Reset', style: TextStyle(color: c.error)),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// The family's plan and Google account: upgrade, restore a subscription
+/// bought before, or manage it in Google Play.
+class _AccountCard extends StatelessWidget {
+  const _AccountCard();
+
+  @override
+  Widget build(BuildContext context) {
+    final premium = context.watch<PremiumService>();
+    final isPremium = premium.isPremium;
+    return Container(
+      padding: const EdgeInsets.all(18),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: isPremium
+              ? [AppColors.light.secondary, AppColors.light.secondaryDeep]
+              : [AppColors.light.headline, AppColors.light.tertiary],
+        ),
+        borderRadius: BorderRadius.circular(24),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 46,
+                height: 46,
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.16),
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: Icon(
+                  isPremium ? Icons.workspace_premium : Icons.person_outline,
+                  color: Colors.white,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      isPremium ? 'Qissora Premium' : 'Free plan',
+                      style: AppTheme.headline(size: 18, color: Colors.white),
+                    ),
+                    Text(
+                      isPremium
+                          ? 'Every episode is unlocked'
+                          : 'Episode 1 of each series, as a preview',
+                      style: AppTheme.body(
+                        size: 13,
+                        color: Colors.white.withValues(alpha: 0.85),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          if (!isPremium)
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton.icon(
+                onPressed: () => showPaywall(context),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColors.light.secondary,
+                ),
+                icon: const Icon(Icons.lock_open_rounded, size: 20),
+                label: const Text('Get Premium'),
+              ),
+            ),
+          Wrap(
+            spacing: 4,
+            children: [
+              if (!isPremium)
+                _AccountAction(
+                  label: 'Restore purchase',
+                  onTap: () =>
+                      runPremiumAction(context, premium.restore, gate: false),
+                ),
+              _AccountAction(
+                label: 'Manage subscription',
+                onTap: () => launchUrl(
+                  _manageSubscriptionUri,
+                  mode: LaunchMode.externalApplication,
+                ),
+              ),
+            ],
+          ),
+          if (premium.accountEmail case final email?) ...[
+            const Divider(color: Colors.white24, height: 20),
+            Row(
+              children: [
+                const Icon(
+                  Icons.account_circle_outlined,
+                  color: Colors.white70,
+                  size: 20,
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    email,
+                    overflow: TextOverflow.ellipsis,
+                    style: AppTheme.body(
+                      size: 13,
+                      weight: FontWeight.w600,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Wrap(
+              spacing: 4,
+              children: [
+                _AccountAction(label: 'Sign out', onTap: premium.signOut),
+                _AccountAction(
+                  label: 'Delete account',
+                  onTap: () => _confirmDeleteAccount(context, premium),
+                ),
+              ],
+            ),
+          ] else ...[
+            const Divider(color: Colors.white24, height: 20),
+            SizedBox(
+              width: double.infinity,
+              child: OutlinedButton.icon(
+                // The Parents area is already behind the PIN, so no
+                // grown-up question here.
+                onPressed: () =>
+                    runPremiumAction(context, premium.signIn, gate: false),
+                style: OutlinedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  side: const BorderSide(color: Colors.white70),
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                ),
+                icon: const Icon(Icons.login_rounded, size: 20),
+                label: const Text('Sign in with Google'),
+              ),
+            ),
+            const SizedBox(height: 6),
+            Text(
+              'New phone? Sign in to get your Premium back.',
+              style: AppTheme.body(
+                size: 12,
+                color: Colors.white.withValues(alpha: 0.7),
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+/// Removes the Google account from Qissora, after saying plainly that the
+/// subscription itself is cancelled in Google Play.
+Future<void> _confirmDeleteAccount(
+  BuildContext context,
+  PremiumService premium,
+) async {
+  final c = context.colors;
+  final ok = await showDialog<bool>(
+    context: context,
+    builder: (ctx) => AlertDialog(
+      title: const Text('Delete account?'),
+      content: const Text(
+        'This signs your Google account out of Qissora and removes its '
+        'access. It does not cancel a subscription: to stop paying, use '
+        '"Manage subscription" in Google Play.',
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.pop(ctx, false),
+          child: const Text('Cancel'),
+        ),
+        TextButton(
+          onPressed: () => Navigator.pop(ctx, true),
+          child: Text('Delete', style: TextStyle(color: c.error)),
+        ),
+      ],
+    ),
+  );
+  if (ok != true) return;
+  await premium.deleteAccount();
+  if (context.mounted) {
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(const SnackBar(content: Text('Account removed')));
+  }
+}
+
+class _AccountAction extends StatelessWidget {
+  final String label;
+  final VoidCallback onTap;
+  const _AccountAction({required this.label, required this.onTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+      onPressed: onTap,
+      style: TextButton.styleFrom(
+        foregroundColor: Colors.white,
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+      ),
+      child: Text(
+        label,
+        style: const TextStyle(
+          fontWeight: FontWeight.w600,
+          decoration: TextDecoration.underline,
+          decorationColor: Colors.white,
+        ),
+      ),
+    );
+  }
+}
+
+/// Today's challenge: the small thing the last episode asked the child to
+/// go and do.
+///
+/// It follows what the child actually listened to rather than the calendar,
+/// because the challenge only makes sense next to its story. Nothing here
+/// is tracked — a parent reads it and decides for themselves.
+class _ChallengeCard extends StatelessWidget {
+  const _ChallengeCard();
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    final storyId = StorageService.getLastStoryId();
+    final story = storyId == null ? null : StoryData.byId(storyId);
+    final challenge = storyId == null ? null : challengesByStoryId[storyId];
+
+    if (story == null || challenge == null) return const _NoChallengeYet();
+
+    final dir = textDirectionOf(challenge.mission);
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(18),
+      margin: const EdgeInsets.only(bottom: 20),
+      decoration: BoxDecoration(
+        color: c.secondaryFixed,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: c.secondary.withValues(alpha: 0.35)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(Icons.wb_sunny_outlined, size: 18, color: c.secondaryDeep),
+              const SizedBox(width: 8),
+              Text(
+                'TODAY\'S CHALLENGE',
+                style: AppTheme.body(
+                  size: 11,
+                  weight: FontWeight.w700,
+                  color: c.secondaryDeep,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          Text(
+            challenge.title,
+            textDirection: textDirectionOf(challenge.title),
+            style: AppTheme.headline(size: 18, color: c.headline),
+          ),
+          const SizedBox(height: 8),
+          Text(
+            challenge.mission,
+            textDirection: dir,
+            style: AppTheme.body(
+              size: 14,
+              color: c.onSurface,
+            ).copyWith(height: 1.5),
+          ),
+          if (challenge.hasReflection) ...[
+            const SizedBox(height: 12),
+            _ChallengeAside(
+              label: 'Ask afterwards',
+              text: challenge.reflection,
+            ),
+          ],
+          if (challenge.hasLevelUp) ...[
+            const SizedBox(height: 12),
+            _ChallengeAside(label: 'Level up', text: challenge.levelUp),
+          ],
+          const SizedBox(height: 14),
+          Text(
+            'From ${story.title}',
+            textDirection: textDirectionOf(story.title),
+            style: AppTheme.body(size: 12, color: c.onSurfaceVariant),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// The "ask afterwards" and "level up" notes under a challenge.
+class _ChallengeAside extends StatelessWidget {
+  final String label;
+  final String text;
+
+  const _ChallengeAside({required this.label, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      decoration: BoxDecoration(
+        color: c.surfaceLowest.withValues(alpha: 0.7),
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            label.toUpperCase(),
+            style: AppTheme.body(
+              size: 10,
+              weight: FontWeight.w700,
+              color: c.secondaryDeep,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            text,
+            textDirection: textDirectionOf(text),
+            style: AppTheme.body(
+              size: 13,
+              color: c.onSurfaceVariant,
+            ).copyWith(height: 1.45),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// Shown until the child has listened to something.
+class _NoChallengeYet extends StatelessWidget {
+  const _NoChallengeYet();
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(18),
+      margin: const EdgeInsets.only(bottom: 20),
+      decoration: BoxDecoration(
+        color: c.surfaceLow,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Today\'s challenge',
+            style: AppTheme.headline(size: 17, color: c.headline),
+          ),
+          const SizedBox(height: 6),
+          Text(
+            'Every story closes with something small to go and try. Play an '
+            'episode together, and it will appear here.',
+            style: AppTheme.body(
+              size: 13,
+              color: c.onSurfaceVariant,
+            ).copyWith(height: 1.45),
           ),
         ],
       ),

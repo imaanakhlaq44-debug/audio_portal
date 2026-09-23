@@ -6,6 +6,8 @@ import 'package:flutter/foundation.dart';
 import 'package:just_audio/just_audio.dart';
 
 import '../models/story.dart';
+import '../models/story_data.dart';
+import 'premium_service.dart';
 import 'storage_service.dart';
 import 'story_audio_handler.dart';
 
@@ -17,6 +19,8 @@ import 'story_audio_handler.dart';
 ///   stop so "Continue Listening" survives app kills,
 /// - resumes a story from where the child left off,
 /// - sleep timer with live countdown and gentle volume fade-out,
+/// - keeps free listeners to their preview, asking for the paywall through
+///   [paywallRequests] when they reach its end or a locked episode,
 /// - exposes position/duration/caption helpers for the UI.
 class AudioPlayerService extends ChangeNotifier {
   AudioPlayerService._internal();
@@ -38,6 +42,20 @@ class AudioPlayerService extends ChangeNotifier {
 
   /// Sleep-timer fade-out length (capped to half the timer for short timers).
   static const Duration sleepFadeDuration = Duration(seconds: 30);
+
+  /// What to play once a story finishes, or null to stop there. Series play
+  /// straight on through every episode.
+  Story? Function(Story finished) nextStoryOf = StoryData.nextAfter;
+
+  /// Decides which stories are locked and where a free preview stops.
+  PremiumService premium = PremiumService.instance;
+
+  final StreamController<Story> _paywall = StreamController.broadcast();
+
+  /// Emits the story a listener was stopped at because it needs Premium:
+  /// either a locked episode they tried to start, or the end of a free
+  /// preview. The app answers by showing the paywall.
+  Stream<Story> get paywallRequests => _paywall.stream;
 
   late StoryAudioHandler _handler;
   bool _initialized = false;
@@ -77,6 +95,30 @@ class AudioPlayerService extends ChangeNotifier {
   bool get isSleepTimerActive => _sleepTimerTotal != null;
   Duration? get sleepTimerDuration => _sleepTimerTotal;
   Duration get sleepTimerRemaining => _sleepRemaining;
+
+  /// Where the current story's free preview stops, or null if it plays in
+  /// full.
+  Duration? get previewEnd {
+    final story = _currentStory;
+    return story == null
+        ? null
+        : premium.previewEnd(story, duration: _duration);
+  }
+
+  /// Whether playback is parked at the end of a free preview.
+  bool get isAtPreviewEnd {
+    final end = previewEnd;
+    return end != null && _position >= end;
+  }
+
+  /// Asks for the paywall if [story] needs Premium, returning true when it
+  /// does so callers can stop there.
+  bool requestPaywallIfLocked(Story story) {
+    if (!premium.isLocked(story)) return false;
+    _paywall.add(story);
+    return true;
+  }
+
   bool get isFadingOut =>
       isSleepTimerActive && _sleepRemaining <= _fadeLength && _volume < 1.0;
 
@@ -87,7 +129,7 @@ class AudioPlayerService extends ChangeNotifier {
       _handler = await AudioService.init<StoryAudioHandler>(
         builder: StoryAudioHandler.new,
         config: const AudioServiceConfig(
-          androidNotificationChannelId: 'com.imaanakhlaq.stories.audio',
+          androidNotificationChannelId: 'com.imaanakhlaq.qissora.audio',
           androidNotificationChannelName: 'Story playback',
           androidNotificationChannelDescription:
               'Controls for the story that is currently playing',
@@ -126,6 +168,7 @@ class AudioPlayerService extends ChangeNotifier {
             if (_duration > Duration.zero && _position > _duration) {
               _position = _duration;
             }
+            _enforcePreview();
             notifyListeners();
           }),
     );
@@ -191,6 +234,7 @@ class AudioPlayerService extends ChangeNotifier {
     bool fromStart = false,
   }) async {
     assert(_initialized, 'AudioPlayerService.init() must be called first');
+    if (requestPaywallIfLocked(story)) return;
     final isSameStory = _currentStory?.id == story.id;
 
     if (isSameStory) {
@@ -200,6 +244,10 @@ class AudioPlayerService extends ChangeNotifier {
         await seek(Duration.zero);
       } else if (startAt != null) {
         await seek(startAt);
+      }
+      if (isAtPreviewEnd) {
+        _paywall.add(story);
+        return;
       }
       await _handler.play();
       return;
@@ -231,7 +279,10 @@ class AudioPlayerService extends ChangeNotifier {
       await _handler.play();
     } catch (e, st) {
       if (kDebugMode) debugPrint('Failed to load ${story.id}: $e\n$st');
-      _errorMessage = 'Could not play this story. Please try again.';
+      // Usually no connection on a story that hasn't been cached yet.
+      _errorMessage =
+          'Could not play this story. Check your internet connection and '
+          'try again.';
     } finally {
       _isLoading = false;
       notifyListeners();
@@ -242,6 +293,8 @@ class AudioPlayerService extends ChangeNotifier {
     if (_currentStory == null) return;
     if (_isPlaying) {
       await _handler.pause();
+    } else if (isAtPreviewEnd) {
+      _paywall.add(_currentStory!);
     } else {
       await _handler.play();
     }
@@ -257,6 +310,8 @@ class AudioPlayerService extends ChangeNotifier {
     var pos = target;
     if (pos < Duration.zero) pos = Duration.zero;
     if (_duration > Duration.zero && pos > _duration) pos = _duration;
+    final end = previewEnd;
+    if (end != null && pos > end) pos = end;
 
     // Optimistic UI update.
     _position = pos;
@@ -304,6 +359,20 @@ class AudioPlayerService extends ChangeNotifier {
     }
   }
 
+  /// Stops a free preview at its end. Runs on every position tick, so it
+  /// also catches playback started from the notification or lock screen,
+  /// which reaches the handler without going through [playStory].
+  void _enforcePreview() {
+    final story = _currentStory;
+    final end = previewEnd;
+    if (story == null || end == null || _position < end || !_isPlaying) return;
+    _position = end;
+    _isPlaying = false;
+    _handler.pause().then((_) => _handler.seek(end));
+    _saveProgress(force: true);
+    _paywall.add(story);
+  }
+
   Future<void> _onCompleted() async {
     final story = _currentStory;
     if (story == null) return;
@@ -315,7 +384,13 @@ class AudioPlayerService extends ChangeNotifier {
     await StorageService.markCompleted(story.id);
     _lastSavedPosition = Duration.zero;
 
-    // A finished story shouldn't keep a pending sleep timer alive.
+    // The next episode plays on, and a running sleep timer keeps counting
+    // across it. Only the end of a series stops playback and the timer.
+    final next = nextStoryOf(story);
+    if (next != null && _currentStory?.id == story.id) {
+      await playStory(next, fromStart: true);
+      return;
+    }
     if (isSleepTimerActive) cancelSleepTimer(restoreVolume: true);
   }
 
@@ -445,6 +520,7 @@ class AudioPlayerService extends ChangeNotifier {
     }
     _stopProgressTimer();
     cancelSleepTimer(restoreVolume: false);
+    _paywall.close();
     super.dispose();
   }
 }

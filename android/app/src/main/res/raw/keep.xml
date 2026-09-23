@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The media notification icon is looked up by name from Dart
+  (AudioServiceConfig.androidNotificationIcon), so nothing in Java or XML
+  references it and resource shrinking strips it from release builds. Without
+  it the foreground playback notification is invalid and Android kills the app
+  the moment audio starts.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@drawable/ic_stat_notification" />

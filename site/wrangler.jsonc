@@ -1,0 +1,21 @@
+{
+  // The exported site, served by Cloudflare as static assets.
+  //
+  //   npm run build && npx wrangler deploy
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "qissora-site",
+  "compatibility_date": "2026-09-20",
+  // The live site. Cloudflare points both hostnames at this Worker and issues
+  // the certificate; the apex and www serve the same build.
+  "routes": [
+    { "pattern": "qissora.app", "custom_domain": true },
+    { "pattern": "www.qissora.app", "custom_domain": true }
+  ],
+  "assets": {
+    "directory": "./out",
+    // Static export writes /about/index.html; serve those without a redirect
+    // and fall back to the exported 404 page.
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}

@@ -1,9 +1,11 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' show ThemeMode;
 import 'package:hive_flutter/hive_flutter.dart';
 
+import '../models/series.dart';
 import 'pin_service.dart';
 
 /// Per-story playback progress persisted locally.
@@ -89,9 +91,13 @@ class StorageService {
   static const String _keyPinLockedUntil = 'pin_locked_until';
 
   static const String _keyChildName = 'child_name';
+  static const String _keyChildPhoto = 'child_photo_path';
   static const String _keyThemeMode = 'theme_mode';
+  static const String _keyLanguage = 'story_language';
   static const String _keyLastStoryId = 'last_story_id';
   static const String _keySleepTimerMinutes = 'sleep_timer_minutes';
+  static const String _keyPremiumCached = 'premium_cached';
+  static const String _keyAccountEmail = 'account_email';
 
   static const String defaultPin = '1234';
   static const String defaultChildName = 'Ali';
@@ -153,10 +159,13 @@ class StorageService {
       _s.listenable(keys: [_keyFavorites, _keySaved]);
 
   static ValueListenable<Box> childNameListenable() =>
-      _s.listenable(keys: [_keyChildName]);
+      _s.listenable(keys: [_keyChildName, _keyChildPhoto]);
 
   static ValueListenable<Box> themeListenable() =>
       _s.listenable(keys: [_keyThemeMode]);
+
+  static ValueListenable<Box> languageListenable() =>
+      _s.listenable(keys: [_keyLanguage]);
 
   /// Fires when any story's progress changes.
   static ValueListenable<Box> progressListenable() => _p.listenable();
@@ -338,6 +347,37 @@ class StorageService {
   static Future<void> setChildName(String name) =>
       _s.put(_keyChildName, name.trim());
 
+  /// The photo a child chose for themselves, copied into the app's own
+  /// folder. Null until one is picked, and null again if the file has since
+  /// gone — an absolute path saved on one install is not promised to a later
+  /// one, so it is checked rather than trusted.
+  static String? getChildPhotoPath() {
+    final v = _s.get(_keyChildPhoto);
+    if (v is! String || v.isEmpty) return null;
+    return File(v).existsSync() ? v : null;
+  }
+
+  static Future<void> setChildPhotoPath(String? path) =>
+      path == null ? _s.delete(_keyChildPhoto) : _s.put(_keyChildPhoto, path);
+
+  // ---------------- Premium ----------------
+  // The last entitlement Google Play reported, so a subscriber who opens the
+  // app offline is not locked out until Play can be asked again.
+  static bool getCachedPremium() => _s.get(_keyPremiumCached) == true;
+
+  static Future<void> setCachedPremium(bool value) =>
+      _s.put(_keyPremiumCached, value);
+
+  /// The Google account a parent signed in with, shown in the Parents area.
+  static String? getAccountEmail() {
+    final v = _s.get(_keyAccountEmail);
+    return v is String && v.isNotEmpty ? v : null;
+  }
+
+  static Future<void> setAccountEmail(String? email) => email == null
+      ? _s.delete(_keyAccountEmail)
+      : _s.put(_keyAccountEmail, email);
+
   // ---------------- Theme ----------------
   static ThemeMode getThemeMode() {
     switch (_s.get(_keyThemeMode)) {
@@ -345,13 +385,28 @@ class StorageService {
         return ThemeMode.dark;
       case 'light':
         return ThemeMode.light;
-      default:
+      case 'system':
         return ThemeMode.system;
+      default:
+        // Light by default rather than following the phone: the app is for
+        // children, and a parent's dark phone shouldn't hand them the dark
+        // theme before anyone has chosen it. The toggle still switches, and
+        // whatever is picked is remembered.
+        return ThemeMode.light;
     }
   }
 
   static Future<void> setThemeMode(ThemeMode mode) =>
       _s.put(_keyThemeMode, mode.name);
+
+  // ---------------- Story language ----------------
+  /// Which language's series the child browses. English until changed.
+  static StoryLanguage getLanguage() =>
+      StoryLanguage.values.asNameMap()[_s.get(_keyLanguage)] ??
+      StoryLanguage.english;
+
+  static Future<void> setLanguage(StoryLanguage language) =>
+      _s.put(_keyLanguage, language.name);
 
   // ---------------- Sleep timer preference ----------------
   static int? getLastSleepTimerMinutes() {

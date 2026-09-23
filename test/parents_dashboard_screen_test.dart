@@ -1,9 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:imaan_akhlaq/models/story_data.dart';
-import 'package:imaan_akhlaq/screens/parents_dashboard_screen.dart';
-import 'package:imaan_akhlaq/services/storage_service.dart';
+import 'package:qissora/models/challenges.dart';
+import 'package:qissora/models/story_data.dart';
+import 'package:qissora/screens/parents_dashboard_screen.dart';
+import 'package:qissora/services/storage_service.dart';
 
 import 'test_helpers.dart';
 
@@ -63,6 +64,7 @@ void main() {
         () => StorageService.toggleSaved(StoryData.allStories.first.id),
       );
       await open(tester);
+      await scrollTo(tester, find.text('1 story in the library'));
 
       expect(find.text('1 story in the library'), findsOneWidget);
       expect(find.text('0 stories saved'), findsOneWidget);
@@ -70,6 +72,7 @@ void main() {
 
     testWidgets('calls saved stories saved, never downloaded', (tester) async {
       await open(tester);
+      await scrollTo(tester, find.text('Saved Stories'));
 
       expect(find.text('Saved Stories'), findsOneWidget);
       expect(
@@ -80,6 +83,34 @@ void main() {
     });
   });
 
+  group("today's challenge", () {
+    testWidgets('shows the one from the last story played', (tester) async {
+      final story = StoryData.allStories.first;
+      await writeToStorage(
+        tester,
+        () => StorageService.saveProgress(
+          story.id,
+          position: const Duration(minutes: 1),
+          duration: const Duration(minutes: 5),
+        ),
+      );
+      await open(tester);
+
+      final challenge = challengesByStoryId[story.id]!;
+      expect(find.text(challenge.title), findsOneWidget);
+      expect(find.textContaining('TODAY'), findsOneWidget);
+    });
+
+    testWidgets('invites a listen before anything has been played', (
+      tester,
+    ) async {
+      await open(tester);
+
+      expect(find.text("Today's challenge"), findsOneWidget);
+      expect(find.textContaining('Play an episode together'), findsOneWidget);
+    });
+  });
+
   group('default PIN warning', () {
     testWidgets('is shown while the shipped PIN is still in use', (
       tester,
@@ -87,21 +118,22 @@ void main() {
       await open(tester);
 
       expect(StorageService.isUsingDefaultPin(), isTrue);
-      expect(
-        find.text('Still the default PIN - tap to change it'),
-        findsOneWidget,
-      );
+      final warning = find.text('Still the default PIN - tap to change it');
+      await scrollTo(tester, warning);
+      expect(warning, findsOneWidget);
     });
 
     testWidgets('goes away once the parent picks their own', (tester) async {
       await writeToStorage(tester, () => StorageService.setParentPin('8264'));
       await open(tester);
 
+      final subtitle = find.text('Update the 4-digit access code');
+      await scrollTo(tester, subtitle);
+      expect(subtitle, findsOneWidget);
       expect(
         find.text('Still the default PIN - tap to change it'),
         findsNothing,
       );
-      expect(find.text('Update the 4-digit access code'), findsOneWidget);
     });
 
     testWidgets('never prints the PIN itself', (tester) async {
@@ -118,6 +150,7 @@ void main() {
       final saved = StoryData.allStories[2];
       await writeToStorage(tester, () => StorageService.toggleSaved(saved.id));
       await open(tester);
+      await scrollTo(tester, find.text('Saved Stories'));
 
       await tester.tap(find.text('Saved Stories'));
       await tester.pumpAndSettle();
@@ -128,6 +161,7 @@ void main() {
 
     testWidgets('says so when there is nothing saved yet', (tester) async {
       await open(tester);
+      await scrollTo(tester, find.text('Saved Favorites'));
 
       await tester.tap(find.text('Saved Favorites'));
       await tester.pumpAndSettle();
