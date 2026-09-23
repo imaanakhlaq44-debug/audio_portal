@@ -1,0 +1,19 @@
+{
+  "id": "idris_ur",
+  "series": "حضرت ادریس علیہ السلام",
+  "language": "urdu",
+  "moral": "سچ پر قائم رہنے",
+  "category": "prophets",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/idris.webp",
+  "script": "Story x URDU/Idris AS Urdu/annotated_script.txt",
+  "skipLeadingLines": 0,
+  "splitSentences": true,
+  "episodeMarker": "^واقعہ (\\S+):\\s*(.+)$",
+  "master": "Story x URDU/Idris AS Urdu/حضرت_ادریس_علیہ_السلام_master.wav",
+  "transcript": "Story x URDU/Idris AS Urdu/transcript.srt",
+  "audioDir": "assets/audio/ur/idris",
+  "trailer": "00_trailer.mp3",
+  "output": "lib/models/series/idris_ur.dart",
+  "variable": "idrisUrdu"
+}

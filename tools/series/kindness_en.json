@@ -1,0 +1,18 @@
+{
+  "id": "kindness_en",
+  "series": "The Kindness That Came Back",
+  "language": "english",
+  "moral": "kindness",
+  "category": "moral",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/kindness.webp",
+  "script": "StoryxEnglish/Kindness_English/annotated_script.txt",
+  "skipLeadingLines": 1,
+  "episodeMarker": "^Chapter (\\w+):\\s*(.+)$",
+  "master": "StoryxEnglish/Kindness_English/Kindness_English_master.wav",
+  "transcript": "StoryxEnglish/Kindness_English/transcript.srt",
+  "audioDir": "assets/audio/en/kindness",
+  "trailer": "00_trailer.mp3",
+  "output": "lib/models/series/kindness_en.dart",
+  "variable": "kindnessEnglish"
+}

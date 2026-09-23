@@ -2,9 +2,15 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:imaan_akhlaq/models/story_data.dart';
-import 'package:imaan_akhlaq/screens/home_screen.dart';
-import 'package:imaan_akhlaq/services/storage_service.dart';
+import 'package:qissora/models/series.dart';
+import 'package:qissora/models/story_category.dart';
+import 'package:qissora/models/story_data.dart';
+import 'package:qissora/screens/home_screen.dart';
+import 'package:qissora/screens/series_screen.dart';
+import 'package:qissora/services/storage_service.dart';
+import 'package:qissora/widgets/child_avatar.dart';
+import 'package:qissora/widgets/language_toggle.dart';
+import 'package:qissora/widgets/story_tile.dart';
 
 import 'fake_player.dart';
 import 'test_helpers.dart';
@@ -32,30 +38,58 @@ void main() {
     await tester.pump();
   }
 
-  group('greeting', () {
-    testWidgets('greets the child by the name a parent set', (tester) async {
+  group('top bar', () {
+    testWidgets('names the child, without greeting them', (tester) async {
       await writeToStorage(tester, () => StorageService.setChildName('Zayd'));
       await open(tester);
 
-      expect(find.text('Salam, Zayd!'), findsOneWidget);
+      expect(find.text('Zayd'), findsOneWidget);
+      expect(find.textContaining('Salam'), findsNothing);
     });
 
-    testWidgets('falls back to the default name', (tester) async {
+    testWidgets('the picture is there to be tapped', (tester) async {
       await open(tester);
 
+      expect(find.byType(ChildAvatar), findsOneWidget);
+    });
+
+    testWidgets('language switches from here, above the featured card', (
+      tester,
+    ) async {
+      await open(tester);
+
+      final toggle = find.byType(LanguageToggle);
+      expect(toggle, findsOneWidget);
       expect(
-        find.text('Salam, ${StorageService.defaultChildName}!'),
-        findsOneWidget,
+        tester.getCenter(toggle).dy,
+        lessThan(tester.getCenter(find.text('FEATURED SERIES')).dy),
       );
     });
   });
 
-  group('story of the day', () {
-    testWidgets('features the story the catalogue marks', (tester) async {
+  group('featured series', () {
+    testWidgets('features a series from the catalogue', (tester) async {
       await open(tester);
 
-      expect(find.text('STORY OF THE DAY'), findsOneWidget);
-      expect(find.text(StoryData.storyOfTheDay.title), findsWidgets);
+      expect(find.text('FEATURED SERIES'), findsOneWidget);
+      expect(
+        find.text(
+          StoryData.featuredOn(
+            DateTime.now(),
+            language: StoryLanguage.english,
+          ).title,
+        ),
+        findsWidgets,
+      );
+    });
+
+    testWidgets('opens the series playlist when tapped', (tester) async {
+      await open(tester);
+
+      await tester.tap(find.text('FEATURED SERIES'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(SeriesScreen), findsOneWidget);
     });
   });
 
@@ -118,29 +152,60 @@ void main() {
     });
   });
 
+  group('language', () {
+    testWidgets('with Urdu chosen, shows only Urdu series', (tester) async {
+      // Written through runAsync like every other stored setting: a Hive
+      // write started from a tap inside the fake clock never completes.
+      await writeToStorage(
+        tester,
+        () => StorageService.setLanguage(StoryLanguage.urdu),
+      );
+      await open(tester);
+
+      final urdu = StoryData.featuredOn(
+        DateTime.now(),
+        language: StoryLanguage.urdu,
+      );
+      expect(find.text(urdu.title), findsWidgets);
+      for (final series in StoryData.seriesInLanguage(StoryLanguage.english)) {
+        expect(find.text(series.title), findsNothing, reason: series.title);
+      }
+    });
+  });
+
   group('sections', () {
-    testWidgets('offers the bedtime carousel and the full catalogue', (
+    testWidgets('shows a row only for categories that have series', (
       tester,
     ) async {
       await open(tester);
 
-      expect(find.text('Calm Bedtime Audio'), findsOneWidget);
-      expect(find.text('All Stories'), findsOneWidget);
+      for (final category in StoryCategory.values) {
+        expect(
+          find.text(category.label),
+          StoryData.seriesIn(category).isEmpty ? findsNothing : findsOneWidget,
+          reason: category.label,
+        );
+      }
     });
   });
 
   group('playback', () {
-    testWidgets('asks the player for the story of the day', (tester) async {
+    testWidgets('starts a fresh featured series at its trailer', (
+      tester,
+    ) async {
       await open(tester);
 
-      // The whole hero card is the target - it has no separate play button.
-      await tester.tap(find.text('STORY OF THE DAY'));
+      await tester.tap(find.byType(PlayCircleButton).first);
       await tester.pump();
-      await tester.pump(const Duration(milliseconds: 400));
 
       expect(
         player.calls.single,
-        contains(StoryData.storyOfTheDay.id),
+        contains(
+          StoryData.featuredOn(
+            DateTime.now(),
+            language: StoryLanguage.english,
+          ).tracks.first.id,
+        ),
         reason: 'the tap must reach the player from the widget tree',
       );
     });

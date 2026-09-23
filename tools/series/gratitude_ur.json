@@ -1,0 +1,19 @@
+{
+  "id": "gratitude_ur",
+  "series": "وہ چیزیں جن پر ہماری نظر نہیں جاتی",
+  "language": "urdu",
+  "moral": "شکرگزاری",
+  "category": "moral",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/gratitude.webp",
+  "script": "Story x URDU/Gratitude/annotated_script.txt",
+  "skipLeadingLines": 0,
+  "splitSentences": true,
+  "episodeMarker": "^قسط (\\S+)$",
+  "master": "Story x URDU/Gratitude/Gratitude Urdu Master.wav",
+  "transcript": "Story x URDU/Gratitude/transcript.srt",
+  "audioDir": "assets/audio/ur/gratitude",
+  "trailer": "00_trailer.mp3",
+  "output": "lib/models/series/gratitude_ur.dart",
+  "variable": "gratitudeUrdu"
+}

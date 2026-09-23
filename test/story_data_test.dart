@@ -1,9 +1,10 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:imaan_akhlaq/models/story.dart';
-import 'package:imaan_akhlaq/models/story_category.dart';
-import 'package:imaan_akhlaq/models/story_data.dart';
+import 'package:qissora/models/series.dart';
+import 'package:qissora/models/story.dart';
+import 'package:qissora/models/story_category.dart';
+import 'package:qissora/models/story_data.dart';
 
 void main() {
   final stories = StoryData.allStories;
@@ -15,20 +16,51 @@ void main() {
       expect(ids.toSet().length, ids.length, reason: 'duplicate story id');
     });
 
-    test('every audio and cover asset actually exists on disk', () {
-      // Catches the classic "renamed the mp3, forgot the reference" bug, which
-      // otherwise only shows up as a failed load on a child's device.
+    test('every cover actually exists on disk', () {
+      // Covers are bundled (see pubspec), so a missing one ships as a grey box.
       for (final s in stories) {
-        expect(
-          File(s.audioAsset).existsSync(),
-          isTrue,
-          reason: 'missing audio for ${s.id}: ${s.audioAsset}',
-        );
         expect(
           File(s.coverAsset).existsSync(),
           isTrue,
           reason: 'missing cover for ${s.id}: ${s.coverAsset}',
         );
+      }
+    });
+
+    test(
+      'every audio file exists in the local masters',
+      () {
+        // The cut episodes are ~170 MB and git-ignored: they are uploaded to
+        // audio.qissora.app rather than bundled, so a clone — CI included — does
+        // not have them, and the app does not read them from disk either. This
+        // still catches the "renamed the mp3, forgot the reference" bug on a
+        // machine that holds the masters, which is where a rename happens.
+        // What ships is covered by the URL test below, which always runs.
+        for (final s in stories) {
+          expect(
+            File(s.audioAsset).existsSync(),
+            isTrue,
+            reason: 'missing audio for ${s.id}: ${s.audioAsset}',
+          );
+        }
+      },
+      skip: Directory('assets/audio').existsSync()
+          ? null
+          : 'assets/audio/ is not in this checkout; run tools/gen_series.dart '
+                '--cut to rebuild it from the narration masters',
+    );
+
+    test('audio streams from the server under the same path', () {
+      // The upload script uses the path under assets/audio/ as the object
+      // key, so the URL must be exactly that path on the audio domain.
+      for (final s in stories) {
+        expect(s.audioAsset, startsWith('assets/audio/'), reason: s.id);
+        expect(
+          s.audioUrl.toString(),
+          'https://audio.qissora.app/${s.audioAsset.substring('assets/audio/'.length)}',
+          reason: s.id,
+        );
+        expect(s.audioKey, isNot(contains(' ')), reason: s.id);
       }
     });
 
@@ -40,15 +72,51 @@ void main() {
       }
     });
 
-    test('exactly one story of the day', () {
-      expect(stories.where((s) => s.isStoryOfTheDay).length, 1);
-      expect(StoryData.storyOfTheDay.isStoryOfTheDay, isTrue);
+    test('every series has episodes, and its ids share the series id', () {
+      for (final series in StoryData.allSeries) {
+        expect(series.episodes, isNotEmpty, reason: series.id);
+        expect(File(series.coverAsset).existsSync(), isTrue, reason: series.id);
+        for (final track in series.tracks) {
+          expect(track.id, startsWith('${series.id}_'));
+          expect(StoryData.seriesOf(track), same(series));
+        }
+      }
     });
 
-    test('every category the UI lists has at least one story', () {
-      for (final c in StoryCategory.values) {
-        expect(StoryData.byCategory(c), isNotEmpty, reason: c.label);
+    test('a series plays straight through and stops at its end', () {
+      for (final series in StoryData.allSeries) {
+        final tracks = series.tracks;
+        for (var i = 0; i + 1 < tracks.length; i++) {
+          expect(StoryData.nextAfter(tracks[i]), same(tracks[i + 1]));
+        }
+        expect(StoryData.nextAfter(tracks.last), isNull);
       }
+    });
+
+    test('each language lists only its own series, and both are covered', () {
+      final english = StoryData.seriesInLanguage(StoryLanguage.english);
+      final urdu = StoryData.seriesInLanguage(StoryLanguage.urdu);
+      expect(english.every((s) => s.language == StoryLanguage.english), isTrue);
+      expect(urdu.every((s) => s.language == StoryLanguage.urdu), isTrue);
+      expect(english.length + urdu.length, StoryData.allSeries.length);
+      for (final language in StoryLanguage.values) {
+        expect(
+          StoryData.featuredOn(
+            DateTime(2026, 5, 1),
+            language: language,
+          ).language,
+          language,
+          reason: language.name,
+        );
+      }
+    });
+
+    test('the featured series rotates through the whole catalogue', () {
+      final seen = {
+        for (var d = 0; d < StoryData.allSeries.length; d++)
+          StoryData.featuredOn(DateTime(2026, 1, 1 + d)).id,
+      };
+      expect(seen.length, StoryData.allSeries.length);
     });
   });
 
@@ -83,7 +151,7 @@ void main() {
         narrator: 'N',
         coverAsset: 'c.png',
         audioAsset: 'a.mp3',
-        category: StoryCategory.bedtime,
+        category: StoryCategory.moral,
         description: 'd',
         captions: [
           CaptionLine(
@@ -101,7 +169,7 @@ void main() {
         narrator: 'N',
         coverAsset: 'c.png',
         audioAsset: 'a.mp3',
-        category: StoryCategory.bedtime,
+        category: StoryCategory.moral,
         description: 'd',
       );
       expect(noCaptions.durationLabel, '');
@@ -120,12 +188,16 @@ void main() {
       expect(StoryData.byId('no_such_story'), isNull);
     });
 
-    test('search is case-insensitive and matches title or category', () {
+    test('search is case-insensitive and matches episode or series title', () {
       final byTitle = StoryData.search(stories.first.title.toUpperCase());
       expect(byTitle.map((s) => s.id), contains(stories.first.id));
 
-      final bedtime = StoryData.search('bedtime');
-      expect(bedtime, isNotEmpty);
+      final series = StoryData.allSeries.first;
+      final bySeries = StoryData.search(series.title.toLowerCase());
+      expect(
+        bySeries.map((s) => s.id),
+        containsAll(series.tracks.map((t) => t.id)),
+      );
     });
 
     test('an empty query returns nothing rather than everything', () {

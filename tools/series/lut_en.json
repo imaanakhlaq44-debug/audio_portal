@@ -1,0 +1,17 @@
+{
+  "id": "lut_en",
+  "series": "Hazrat Lut (A.S.)",
+  "language": "english",
+  "moral": "haya, self-control and staying clean when wrong feels normal",
+  "category": "prophets",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/lut.webp",
+  "script": "Prophet_Stories_Audio/Hazrat_Lut_AS_English/annotated_script.txt",
+  "skipLeadingLines": 1,
+  "episodeMarker": "^Episode (\\d+): (.+)$",
+  "master": "Prophet_Stories_Audio/Hazrat_Lut_AS_English/Hazrat_Lut_AS_English_Full_Audiobook.mp3",
+  "transcript": "Prophet_Stories_Audio/Hazrat_Lut_AS_English/transcript.srt",
+  "audioDir": "assets/audio/en/lut",
+  "output": "lib/models/series/lut_en.dart",
+  "variable": "lutEnglish"
+}

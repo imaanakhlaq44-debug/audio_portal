@@ -1,0 +1,17 @@
+{
+  "id": "ibrahim_en",
+  "series": "Hazrat Ibrahim (A.S.)",
+  "language": "english",
+  "moral": "searching for the truth and trusting Allah with everything",
+  "category": "prophets",
+  "narrator": "Imaan & Akhlaq",
+  "cover": "assets/covers/ibrahim.webp",
+  "script": "Prophet_Stories_Audio/Hazrat_Ibrahim_AS_English/annotated_script.txt",
+  "skipLeadingLines": 1,
+  "episodeMarker": "^Episode (\\d+): (.+)$",
+  "master": "Prophet_Stories_Audio/Hazrat_Ibrahim_AS_English/Hazrat_Ibrahim_AS_English_Full_Audiobook.mp3",
+  "transcript": "Prophet_Stories_Audio/Hazrat_Ibrahim_AS_English/transcript.srt",
+  "audioDir": "assets/audio/en/ibrahim",
+  "output": "lib/models/series/ibrahim_en.dart",
+  "variable": "ibrahimEnglish"
+}
