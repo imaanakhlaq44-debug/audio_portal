@@ -61,12 +61,14 @@ void main() {
       }
     });
 
-    test('trailers are no longer part of any series', () {
+    test('the welcome sits outside the episodes and plays for everyone', () {
+      final free = PremiumService.forTesting();
       for (final s in StoryData.allSeries) {
         expect(s.tracks, s.episodes, reason: s.id);
-        if (s.trailer case final Story t?) {
-          expect(StoryData.byId(t.id), isNull, reason: t.id);
-        }
+        final welcome = s.welcome;
+        expect(welcome, isNotNull, reason: s.id);
+        expect(StoryData.byId(welcome!.track.id), isNull, reason: s.id);
+        expect(free.isLocked(welcome.track), isFalse, reason: s.id);
       }
     });
   });

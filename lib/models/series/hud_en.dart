@@ -15,57 +15,6 @@ const Series hudEnglish = Series(
   category: StoryCategory.prophets,
   coverAsset: 'assets/covers/hud.webp',
   description: 'A 5-part story about pride, strength and humility.',
-  trailer: Story(
-    id: 'hud_en_00',
-    title: 'Trailer · Hazrat Hud (A.S.)',
-    narrator: 'Imaan & Akhlaq',
-    coverAsset: 'assets/covers/hud.webp',
-    audioAsset: 'assets/audio/en/hud/00_trailer.ogg',
-    category: StoryCategory.prophets,
-    description: 'Meet the story: Hazrat Hud (A.S.) in under a minute.',
-    captions: [
-      CaptionLine(
-        start: Duration(milliseconds: 1077),
-        end: Duration(milliseconds: 2000),
-        text: 'IMAAN & AKHLAQ',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 2000),
-        end: Duration(milliseconds: 5000),
-        text: 'Hazrat Hud (A.S.) Story Series',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 5111),
-        end: Duration(milliseconds: 10000),
-        text: 'Five Connected Episodes on Pride, Arrogance and Humility',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 10000),
-        end: Duration(milliseconds: 13000),
-        text: 'Episode 1: Nobody Can Beat Us',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 13000),
-        end: Duration(milliseconds: 16000),
-        text: 'Episode 2: Look What We Built',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 16000),
-        end: Duration(milliseconds: 19000),
-        text: 'Episode 3: Who Gave You All This?',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 19967),
-        end: Duration(milliseconds: 22687),
-        text: 'Episode 4: Strong Enough to Be Kind',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 22687),
-        end: Duration(milliseconds: 26128),
-        text: 'Episode 5: When Strength Was Not Enough',
-      ),
-    ],
-  ),
   episodes: [
     Story(
       id: 'hud_en_01',

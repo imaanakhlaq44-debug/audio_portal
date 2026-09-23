@@ -517,25 +517,28 @@ String _dart(
     );
 
   for (var e = 0; e < episodes.length; e++) {
+    // The spoken intro cut from the recording is not shipped. A series opens
+    // on the separately recorded welcome in lib/models/series_meet.dart, so
+    // this track is still split off the master but never written out.
+    if (hasTrailer && e == 0) continue;
+
     final ep = episodes[e];
     final (epStart, epEnd) = bounds[e];
-    final isTrailer = hasTrailer && e == 0;
     final n = hasTrailer ? e : e + 1;
 
-    if (isTrailer) out.write('  trailer: ');
     if (e == (hasTrailer ? 1 : 0)) out.writeln('  episodes: [');
     out
       ..writeln('  Story(')
       ..writeln("    id: '${cfg['id']}_${n.toString().padLeft(2, '0')}',")
       ..writeln(
-        '    title: ${_str(isTrailer ? '${urdu ? 'ٹریلر' : 'Trailer'} · $series' : '${urdu ? 'قسط' : 'Ep'} $n · ${ep.title}')},',
+        '    title: ${_str('${urdu ? 'قسط' : 'Ep'} $n · ${ep.title}')},',
       )
       ..writeln('    narrator: ${_str(cfg['narrator'] as String)},')
       ..writeln('    coverAsset: ${_str(cfg['cover'] as String)},')
       ..writeln('    audioAsset: ${_str('${cfg['audioDir']}/${files[e]}')},')
       ..writeln('    category: StoryCategory.${cfg['category']},')
       ..writeln(
-        '    description: ${_str(isTrailer ? (urdu ? '$series کا تعارف' : 'Meet the story: $series in under a minute.') : (urdu ? '$series — قسط $n از $count' : '$series — episode $n of $count.'))},',
+        '    description: ${_str(urdu ? '$series — قسط $n از $count' : '$series — episode $n of $count.')},',
       )
       ..writeln('    captions: [');
 

@@ -15,47 +15,6 @@ const Series idrisEnglish = Series(
   category: StoryCategory.prophets,
   coverAsset: 'assets/covers/idris.webp',
   description: 'A 3-part story about standing up for the truth.',
-  trailer: Story(
-    id: 'idris_en_00',
-    title: 'Trailer · Hazrat Idris (A.S.)',
-    narrator: 'Imaan & Akhlaq',
-    coverAsset: 'assets/covers/idris.webp',
-    audioAsset: 'assets/audio/en/idris/00_trailer.ogg',
-    category: StoryCategory.prophets,
-    description: 'Meet the story: Hazrat Idris (A.S.) in under a minute.',
-    captions: [
-      CaptionLine(
-        start: Duration(milliseconds: 0),
-        end: Duration(milliseconds: 2910),
-        text: 'IMAAN & AKHLAQ',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 2910),
-        end: Duration(milliseconds: 5640),
-        text: 'Hazrat Idris (A.S.) Story Series',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 5640),
-        end: Duration(milliseconds: 8000),
-        text: 'Three Connected Episodes',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 8000),
-        end: Duration(milliseconds: 12080),
-        text: 'Episode 1: The Price of Standing for the Truth',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 12080),
-        end: Duration(milliseconds: 15680),
-        text: 'Episode 2: When Truth Becomes Heavy',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 15680),
-        end: Duration(milliseconds: 19388),
-        text: 'Episode 3: The High Station',
-      ),
-    ],
-  ),
   episodes: [
     Story(
       id: 'idris_en_01',

@@ -15,62 +15,6 @@ const Series adamUrdu = Series(
   category: StoryCategory.prophets,
   coverAsset: 'assets/covers/adam.webp',
   description: 'حضرت آدم علیہ السلام پر 6 اقساط کی کہانی',
-  trailer: Story(
-    id: 'adam_ur_00',
-    title: 'ٹریلر · حضرت آدم علیہ السلام',
-    narrator: 'Imaan & Akhlaq',
-    coverAsset: 'assets/covers/adam.webp',
-    audioAsset: 'assets/audio/ur/adam/00_trailer.ogg',
-    category: StoryCategory.prophets,
-    description: 'حضرت آدم علیہ السلام کا تعارف',
-    captions: [
-      CaptionLine(
-        start: Duration(milliseconds: 0),
-        end: Duration(milliseconds: 1286),
-        text: 'حضرت آدم علیہ السلام',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 2000),
-        end: Duration(milliseconds: 6443),
-        text: 'حضرت آدم علیہ السلام - بچوں کے لیے چھ مربوط کہانیاں',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 6443),
-        end: Duration(milliseconds: 10220),
-        text: 'فہرستِ مضامین',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 10220),
-        end: Duration(milliseconds: 11900),
-        text: 'قسط 1 - پہلے قدم سے پہلے',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 13100),
-        end: Duration(milliseconds: 14500),
-        text: 'قسط 2 - علم کا راز',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 15640),
-        end: Duration(milliseconds: 16940),
-        text: 'قسط 3 - میں بہتر ہوں',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 18680),
-        end: Duration(milliseconds: 19300),
-        text: 'قسط 4 - ممنوع درخت',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 19967),
-        end: Duration(milliseconds: 22327),
-        text: 'قسط 5 - دروازہ ابھی کھلا تھا',
-      ),
-      CaptionLine(
-        start: Duration(milliseconds: 23773),
-        end: Duration(milliseconds: 24415),
-        text: 'قسط 6 - حسد کی آگ',
-      ),
-    ],
-  ),
   episodes: [
     Story(
       id: 'adam_ur_01',

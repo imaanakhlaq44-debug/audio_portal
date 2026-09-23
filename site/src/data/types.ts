@@ -49,5 +49,11 @@ export interface Series {
   category: Category;
   /** Cover file name without extension, e.g. `respect`. */
   cover: string;
+  /**
+   * The spoken welcome that opens the series: what it is about and who it is
+   * for. Shaped as an episode so the player takes it unchanged, and with no
+   * `previewEndMs`, because it plays in full for everyone.
+   */
+  welcome: Episode | null;
   episodes: Episode[];
 }

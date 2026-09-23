@@ -11,6 +11,15 @@ export const allSeries: Series[] = [
     "language": "english",
     "category": "prophets",
     "cover": "adam",
+    "welcome": {
+      "id": "adam_en_meet",
+      "title": "Meet the series · Hazrat Adam (A.S.)",
+      "audioKey": "en/adam/00_meet_the_series.ogg",
+      "durationMs": 68701,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "adam_en_01",
@@ -360,6 +369,15 @@ export const allSeries: Series[] = [
     "language": "english",
     "category": "prophets",
     "cover": "hud",
+    "welcome": {
+      "id": "hud_en_meet",
+      "title": "Meet the series · Hazrat Hud (A.S.)",
+      "audioKey": "en/hud/00_meet_the_series.ogg",
+      "durationMs": 62830,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "hud_en_01",
@@ -860,6 +878,15 @@ export const allSeries: Series[] = [
     "language": "english",
     "category": "prophets",
     "cover": "idris",
+    "welcome": {
+      "id": "idris_en_meet",
+      "title": "Meet the series · Hazrat Idris (A.S.)",
+      "audioKey": "en/idris/00_meet_the_series.ogg",
+      "durationMs": 62101,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "idris_en_01",
@@ -1602,6 +1629,15 @@ export const allSeries: Series[] = [
     "language": "english",
     "category": "prophets",
     "cover": "nuh",
+    "welcome": {
+      "id": "nuh_en_meet",
+      "title": "Meet the series · Hazrat Nuh (A.S.)",
+      "audioKey": "en/nuh/00_meet_the_series.ogg",
+      "durationMs": 66501,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "nuh_en_01",
@@ -1971,6 +2007,15 @@ export const allSeries: Series[] = [
     "language": "english",
     "category": "prophets",
     "cover": "salih",
+    "welcome": {
+      "id": "salih_en_meet",
+      "title": "Meet the series · Hazrat Salih (A.S.)",
+      "audioKey": "en/salih/00_meet_the_series.ogg",
+      "durationMs": 67821,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "salih_en_01",
@@ -2106,6 +2151,15 @@ export const allSeries: Series[] = [
     "language": "english",
     "category": "moral",
     "cover": "fairness",
+    "welcome": {
+      "id": "fairness_en_meet",
+      "title": "Meet the series · The Golden Balance",
+      "audioKey": "en/fairness/00_meet_the_series.ogg",
+      "durationMs": 60150,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "fairness_en_01",
@@ -2446,6 +2500,15 @@ export const allSeries: Series[] = [
     "language": "english",
     "category": "moral",
     "cover": "gratitude",
+    "welcome": {
+      "id": "gratitude_en_meet",
+      "title": "Meet the series · The Things We Never Notice",
+      "audioKey": "en/gratitude/00_meet_the_series.ogg",
+      "durationMs": 62870,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "gratitude_en_01",
@@ -2781,6 +2844,15 @@ export const allSeries: Series[] = [
     "language": "english",
     "category": "moral",
     "cover": "honesty",
+    "welcome": {
+      "id": "honesty_en_meet",
+      "title": "Meet the series · The Book of Trust",
+      "audioKey": "en/honesty/00_meet_the_series.ogg",
+      "durationMs": 63781,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "honesty_en_01",
@@ -3091,6 +3163,15 @@ export const allSeries: Series[] = [
     "language": "english",
     "category": "moral",
     "cover": "kindness",
+    "welcome": {
+      "id": "kindness_en_meet",
+      "title": "Meet the series · The Kindness That Came Back",
+      "audioKey": "en/kindness/00_meet_the_series.ogg",
+      "durationMs": 55270,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "kindness_en_01",
@@ -3487,6 +3568,15 @@ export const allSeries: Series[] = [
     "language": "english",
     "category": "moral",
     "cover": "patience",
+    "welcome": {
+      "id": "patience_en_meet",
+      "title": "Meet the series · The Things That Take Time",
+      "audioKey": "en/patience/00_meet_the_series.ogg",
+      "durationMs": 69221,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "patience_en_01",
@@ -4507,6 +4597,15 @@ export const allSeries: Series[] = [
     "language": "english",
     "category": "moral",
     "cover": "respect",
+    "welcome": {
+      "id": "respect_en_meet",
+      "title": "Meet the series · Respect",
+      "audioKey": "en/respect/00_meet_the_series.ogg",
+      "durationMs": 61741,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "respect_en_01",
@@ -4657,6 +4756,15 @@ export const allSeries: Series[] = [
     "language": "urdu",
     "category": "prophets",
     "cover": "adam",
+    "welcome": {
+      "id": "adam_ur_meet",
+      "title": "سلسلے کا تعارف · حضرت آدم علیہ السلام",
+      "audioKey": "ur/adam/00_meet_the_series.ogg",
+      "durationMs": 58861,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "adam_ur_01",
@@ -5021,6 +5129,15 @@ export const allSeries: Series[] = [
     "language": "urdu",
     "category": "prophets",
     "cover": "hud",
+    "welcome": {
+      "id": "hud_ur_meet",
+      "title": "سلسلے کا تعارف · حضرت ہود علیہ السلام",
+      "audioKey": "ur/hud/00_meet_the_series.ogg",
+      "durationMs": 64550,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "hud_ur_01",
@@ -5561,6 +5678,15 @@ export const allSeries: Series[] = [
     "language": "urdu",
     "category": "prophets",
     "cover": "idris",
+    "welcome": {
+      "id": "idris_ur_meet",
+      "title": "سلسلے کا تعارف · حضرت ادریس علیہ السلام",
+      "audioKey": "ur/idris/00_meet_the_series.ogg",
+      "durationMs": 68461,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "idris_ur_01",
@@ -6373,6 +6499,15 @@ export const allSeries: Series[] = [
     "language": "urdu",
     "category": "prophets",
     "cover": "nuh",
+    "welcome": {
+      "id": "nuh_ur_meet",
+      "title": "سلسلے کا تعارف · حضرت نوح علیہ السلام",
+      "audioKey": "ur/nuh/00_meet_the_series.ogg",
+      "durationMs": 65501,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "nuh_ur_01",
@@ -6697,6 +6832,15 @@ export const allSeries: Series[] = [
     "language": "urdu",
     "category": "prophets",
     "cover": "salih",
+    "welcome": {
+      "id": "salih_ur_meet",
+      "title": "سلسلے کا تعارف · حضرت صالح علیہ السلام",
+      "audioKey": "ur/salih/00_meet_the_series.ogg",
+      "durationMs": 54981,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "salih_ur_01",
@@ -7262,6 +7406,15 @@ export const allSeries: Series[] = [
     "language": "urdu",
     "category": "moral",
     "cover": "fairness",
+    "welcome": {
+      "id": "fairness_ur_meet",
+      "title": "سلسلے کا تعارف · سنہری ترازو",
+      "audioKey": "ur/fairness/00_meet_the_series.ogg",
+      "durationMs": 66950,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "fairness_ur_01",
@@ -7607,6 +7760,15 @@ export const allSeries: Series[] = [
     "language": "urdu",
     "category": "moral",
     "cover": "gratitude",
+    "welcome": {
+      "id": "gratitude_ur_meet",
+      "title": "سلسلے کا تعارف · وہ چیزیں جن پر ہماری نظر نہیں جاتی",
+      "audioKey": "ur/gratitude/00_meet_the_series.ogg",
+      "durationMs": 62110,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "gratitude_ur_01",
@@ -8082,6 +8244,15 @@ export const allSeries: Series[] = [
     "language": "urdu",
     "category": "moral",
     "cover": "honesty",
+    "welcome": {
+      "id": "honesty_ur_meet",
+      "title": "سلسلے کا تعارف · کتابِ امانت",
+      "audioKey": "ur/honesty/00_meet_the_series.ogg",
+      "durationMs": 56781,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "honesty_ur_01",
@@ -8393,6 +8564,15 @@ export const allSeries: Series[] = [
     "language": "urdu",
     "category": "moral",
     "cover": "kindness",
+    "welcome": {
+      "id": "kindness_ur_meet",
+      "title": "سلسلے کا تعارف · وہ مہربانی جو لوٹ کر آئی",
+      "audioKey": "ur/kindness/00_meet_the_series.ogg",
+      "durationMs": 60470,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "kindness_ur_01",
@@ -8758,6 +8938,15 @@ export const allSeries: Series[] = [
     "language": "urdu",
     "category": "moral",
     "cover": "patience",
+    "welcome": {
+      "id": "patience_ur_meet",
+      "title": "سلسلے کا تعارف · جو چیزیں وقت لیتی ہیں",
+      "audioKey": "ur/patience/00_meet_the_series.ogg",
+      "durationMs": 58821,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "patience_ur_01",
@@ -9573,6 +9762,15 @@ export const allSeries: Series[] = [
     "language": "urdu",
     "category": "moral",
     "cover": "respect",
+    "welcome": {
+      "id": "respect_ur_meet",
+      "title": "سلسلے کا تعارف · احترام",
+      "audioKey": "ur/respect/00_meet_the_series.ogg",
+      "durationMs": 59421,
+      "previewEndMs": null,
+      "captions": [],
+      "challenge": null
+    },
     "episodes": [
       {
         "id": "respect_ur_01",
