@@ -107,10 +107,7 @@ void main() {
       await open(tester);
 
       expect(find.text("Today's challenge"), findsOneWidget);
-      expect(
-        find.textContaining('Play an episode together'),
-        findsOneWidget,
-      );
+      expect(find.textContaining('Play an episode together'), findsOneWidget);
     });
   });
 
