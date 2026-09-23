@@ -1,5 +1,49 @@
 # Changelog
 
+## 1.3.1
+
+Two more Prophets, a spoken welcome on every series, and a home screen that
+gives the child back the top of it.
+
+### Added
+
+- **Hazrat Ibrahim (A.S.) and Hazrat Lut (A.S.)** — 17 episodes in each
+  language, taking the catalogue to 26 series and 198 episodes. They are one
+  story told twice over: Lut opens where Ibrahim's journey ends, so it is
+  listed after it, which is also the order the Prophets came in.
+- **"Meet the series"** — a spoken welcome at the top of every series page
+  saying what it is about and who it is for. It plays in full for everyone,
+  Premium or not, because it is what a parent decides on. This replaces the
+  written introduction that was never filled in and the spoken trailer that
+  was generated but never played.
+- **A child can put their own picture on the home screen** by tapping the
+  one that is there. It is copied into the app's own folder and never leaves
+  the phone.
+
+### Changed
+
+- **The language switch moved into the top bar**, giving its old row back to
+  the artwork, Continue Listening and the first shelf. The greeting went with
+  it; the name stayed.
+- **The website opens by saying what it is.** Two sections now sit directly
+  under the hero: what to do here, and what is in the catalogue. Its counts
+  are read from the catalogue rather than typed into the copy, which had left
+  four pages offering "22 series, 164 episodes".
+- **The website follows the app's running order.** It sorted series by
+  filename, which would have scattered the two new ones and put Lut before
+  Ibrahim.
+
+### Fixed
+
+- Urdu ordinals stopped at ten, so an eleventh episode could not be built.
+- Eleven parts read as "A 11-part story".
+- A challenge whose name sits on the line below its heading arrived in the
+  Parents area with no title.
+
+### Release
+
+- Version 1.3.1 (build 5). 137 tests passing.
+
 ## 1.3.0
 
 The release that turned a demo into a product: a new name, real content in two
