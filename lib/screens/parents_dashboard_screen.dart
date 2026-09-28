@@ -635,9 +635,11 @@ Future<void> _confirmDeleteAccount(
     builder: (ctx) => AlertDialog(
       title: const Text('Delete account?'),
       content: const Text(
-        'This signs your Google account out of Qissora and removes its '
-        'access. It does not cancel a subscription: to stop paying, use '
-        '"Manage subscription" in Google Play.',
+        'This signs your Google account out of Qissora, removes its access, '
+        'and deletes any VIP or school code record we hold for it. Google '
+        'will ask you to confirm the account first. It does not cancel a '
+        'subscription: to stop paying, use "Manage subscription" in Google '
+        'Play.',
       ),
       actions: [
         TextButton(
@@ -652,11 +654,19 @@ Future<void> _confirmDeleteAccount(
     ),
   );
   if (ok != true) return;
-  await premium.deleteAccount();
+  final forgotten = await premium.deleteAccount();
   if (context.mounted) {
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(const SnackBar(content: Text('Account removed')));
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          forgotten
+              ? 'Account removed'
+              : 'Account removed from this phone, but your code record '
+                    "couldn't be deleted. Sign in again and retry when "
+                    "you're online, or write to us.",
+        ),
+      ),
+    );
   }
 }
 

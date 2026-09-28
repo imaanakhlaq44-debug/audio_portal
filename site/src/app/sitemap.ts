@@ -13,6 +13,7 @@ const pages = [
   '/contact',
   '/privacy',
   '/app-privacy',
+  '/delete-data',
   '/terms',
 ];
 

@@ -259,6 +259,46 @@ describe('restore', () => {
   });
 });
 
+describe('forget', () => {
+  test('deletes every code this account redeemed, and only those', async () => {
+    await addCode('QV-ABCD-2345');
+    await addSchool('QS-ABCD-2345');
+    const vip = await redeem('QV-ABCD-2345', 'amina');
+    await redeem('QS-ABCD-2345', 'amina');
+    const bilal = await redeem('QS-ABCD-2345', 'bilal');
+
+    const res = await call('/codes/forget', { idToken: 'token-amina' });
+    assert.equal(res.status, 200);
+    assert.equal(res.body.deleted, 2);
+
+    assert.deepEqual((await call('/codes/check', { ticket: vip.body.ticket })).body, {
+      active: false,
+    });
+    assert.equal((await call('/codes/restore', { idToken: 'token-amina' })).status, 404);
+    assert.equal(
+      (await call('/codes/check', { ticket: bilal.body.ticket })).body.active,
+      true,
+    );
+    const rows = db.sqlite
+      .prepare('SELECT COUNT(*) AS n FROM redemptions')
+      .get().n;
+    assert.equal(rows, 1);
+  });
+
+  test('clears the wrong-code count too', async () => {
+    for (let i = 0; i < 3; i++) await redeem('QV-WRNG-CDEF', 'eve');
+    await call('/codes/forget', { idToken: 'token-eve' });
+    const left = db.sqlite
+      .prepare('SELECT COUNT(*) AS n FROM redeem_failures')
+      .get().n;
+    assert.equal(left, 0);
+  });
+
+  test('needs a real Google token', async () => {
+    assert.equal((await call('/codes/forget', { idToken: 'forged' })).status, 401);
+  });
+});
+
 describe('check', () => {
   test('reports a live code, then a revoked one as inactive', async () => {
     await addCode('QV-ABCD-2345');

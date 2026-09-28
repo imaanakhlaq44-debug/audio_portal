@@ -173,9 +173,11 @@ export default function AppPrivacyPage() {
           no way for us to restore it.
         </p>
         <p>
-          The only thing we hold is the code record described above. To
-          have it deleted, write to the contact address below; the code stops
-          working when we do.
+          The only thing we hold is the code record described above.
+          &ldquo;Delete account&rdquo; in the Parents area deletes it from our
+          server straight away; the{' '}
+          <Link href="/delete-data">delete your data</Link> page has the steps,
+          and how to ask by email instead.
         </p>
         <p>
           To cancel Premium or delete what Google holds about your purchase, use

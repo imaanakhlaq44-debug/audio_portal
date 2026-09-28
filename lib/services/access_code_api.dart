@@ -67,6 +67,9 @@ abstract class AccessCodeApi {
   /// or been revoked. Throws [AccessCodeException] when the server can't be
   /// asked, which is not the same as a no.
   Future<CodeGrant?> check(String ticket);
+
+  /// Deletes every code record this Google account has on the server.
+  Future<void> forget(String idToken);
 }
 
 class HttpAccessCodeApi implements AccessCodeApi {
@@ -113,6 +116,12 @@ class HttpAccessCodeApi implements AccessCodeApi {
     if (body['active'] != true) return null;
     return _grant(body, ticket) ??
         (throw const AccessCodeException(CodeError.failed));
+  }
+
+  @override
+  Future<void> forget(String idToken) async {
+    final (status, _) = await _post('/codes/forget', {'idToken': idToken});
+    if (status != 200) throw const AccessCodeException(CodeError.failed);
   }
 
   static CodeGrant? _grant(Map<String, dynamic> body, Object? ticket) {

@@ -14,6 +14,9 @@
 //                                                      (api/codes-export.csv)
 //   node tools/codes.mjs label <code> <name>           note who a code went to
 //   node tools/codes.mjs revoke <code>                 switch a code off
+//   node tools/codes.mjs forget <VIP code>             delete the family's
+//                                                      record for a VIP code,
+//                                                      on a deletion request
 //
 // Add --local to any of them to work on `wrangler dev`'s database instead of
 // the live one. Needs `npm install` in api/ first.
@@ -71,6 +74,9 @@ switch (command) {
     break;
   case 'revoke':
     await revoke(rest[0]);
+    break;
+  case 'forget':
+    await forget(rest[0]);
     break;
   default:
     console.log(readFileSync(fileURLToPath(import.meta.url), 'utf8').split('\n\n')[0]);
@@ -209,6 +215,18 @@ async function revoke(code) {
   const hash = await hashOf(code);
   runFile(`UPDATE codes SET revoked_at = ${Date.now()} WHERE code_hash = '${hash}' AND revoked_at IS NULL;`);
   console.log(`${code} revoked. Phones using it lose it the next time they go online.`);
+}
+
+// A school code is shared by many families and nothing here tells them
+// apart, so its records can only be deleted from the app ("Delete account").
+async function forget(code) {
+  if (!code) fail('usage: forget <VIP code>');
+  if (!normalizeCode(code).startsWith('QV')) {
+    fail('Only a VIP code can be forgotten from here. A family deletes its school-code record in the app: Parents area, Delete account.');
+  }
+  const hash = await hashOf(code);
+  runFile(`DELETE FROM redemptions WHERE code_hash = '${hash}';`);
+  console.log(`${code}: the family's record is deleted. The code itself stays, unused, and can be given again.`);
 }
 
 async function hashOf(code) {

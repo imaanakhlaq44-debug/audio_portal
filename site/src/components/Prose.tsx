@@ -10,7 +10,8 @@ export function Prose({ children }: { children: ReactNode }) {
         [&_h3]:mt-6 [&_h3]:text-lg
         [&_li]:mt-1
         [&_p]:mt-4 [&_p]:leading-relaxed
-        [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-6"
+        [&_ul]:mt-4 [&_ul]:list-disc [&_ul]:pl-6
+        [&_ol]:mt-4 [&_ol]:list-decimal [&_ol]:pl-6"
     >
       {children}
     </div>

@@ -150,6 +150,27 @@ void main() {
     });
   });
 
+  group('deleting the account', () {
+    test('deletes the code record on the server and on the phone', () async {
+      final premium = family();
+      await premium.redeemCode('QV-ABCD-2345');
+
+      expect(await premium.deleteAccount(), isTrue);
+      expect(premium.hasCode, isFalse);
+      expect(StorageService.getAccessCode(), isNull);
+      expect(await server.restore('token-amina'), isNull);
+    });
+
+    test('says so when the server could not be reached', () async {
+      final premium = family();
+      await premium.redeemCode('QV-ABCD-2345');
+      server.offline = true;
+
+      expect(await premium.deleteAccount(), isFalse);
+      expect(premium.hasCode, isFalse, reason: 'the phone is cleared anyway');
+    });
+  });
+
   group('in the Parents area', () {
     Future<void> open(WidgetTester tester, PremiumService premium) async {
       await tester.pumpWidget(

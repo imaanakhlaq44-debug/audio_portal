@@ -85,6 +85,13 @@ class FakeAccessCodeApi implements AccessCodeApi {
   }
 
   @override
+  Future<void> forget(String idToken) async {
+    calls++;
+    if (offline) throw const AccessCodeException(CodeError.offline);
+    _redeemed.removeWhere((key, _) => key.$2 == idToken);
+  }
+
+  @override
   Future<CodeGrant?> check(String ticket) async {
     calls++;
     if (offline) throw const AccessCodeException(CodeError.offline);

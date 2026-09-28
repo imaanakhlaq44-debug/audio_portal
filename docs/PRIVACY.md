@@ -85,9 +85,9 @@ stories and listening history individually, and signing out removes the stored
 email address. None of this has a copy on any server of ours, so there is
 nothing for us to delete on request — and no way for us to restore it.
 
-The only thing we hold is the code record described above. To have it
-deleted, write to the contact address below; the code stops working when we
-do.
+The only thing we hold is the code record described above. "Delete account"
+in the Parents area deletes it from our server straight away. The steps, and
+how to ask by email instead, are at https://qissora.app/delete-data.
 
 To cancel Premium or delete what Google holds about your purchase, use your
 Google account and Google Play; that data is theirs, not ours.

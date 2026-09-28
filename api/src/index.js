@@ -3,6 +3,7 @@
 //   POST /codes/redeem   { code, idToken }  -> { kind, expiresAt, ticket }
 //   POST /codes/restore  { idToken }        -> { kind, expiresAt, ticket }
 //   POST /codes/check    { ticket }         -> { active, kind, expiresAt }
+//   POST /codes/forget   { idToken }        -> { deleted }
 //
 // A VIP code is for one family, for a year. A school code is one code for a
 // whole school; each family that enters it gets a month, and a family gets a
@@ -53,6 +54,8 @@ export async function handle(
       return restore(body, ctx);
     case '/codes/check':
       return check(body, ctx);
+    case '/codes/forget':
+      return forget(body, ctx);
     default:
       return json({ error: 'not_found' }, 404);
   }
@@ -163,6 +166,27 @@ async function check({ ticket }, ctx) {
     kind: row.kind,
     expiresAt: row.expires_at,
   });
+}
+
+/**
+ * Deletes everything held about this Google account: its redemptions and
+ * its wrong-code count. Its codes stop working on every phone, and a family
+ * that had a school trial could have another.
+ */
+async function forget({ idToken }, ctx) {
+  if (typeof idToken !== 'string') return json({ error: 'bad_request' }, 400);
+  const account = await accountFor(idToken, ctx);
+  if (!account) return json({ error: 'bad_token' }, 401);
+
+  const result = await ctx.db
+    .prepare('DELETE FROM redemptions WHERE account_hash = ?')
+    .bind(account)
+    .run();
+  await ctx.db
+    .prepare('DELETE FROM redeem_failures WHERE account_hash = ?')
+    .bind(account)
+    .run();
+  return json({ deleted: result.meta.changes });
 }
 
 function redemptionOf(codeHash, account, ctx) {

@@ -481,7 +481,26 @@ class PremiumService extends ChangeNotifier {
 
   /// Removes the Google account from the app and revokes its access. The
   /// subscription itself is cancelled in Google Play, not here.
-  Future<void> deleteAccount() async {
+  ///
+  /// It also deletes any VIP or school code record our server holds for the
+  /// account, which needs a fresh Google sign-in to prove whose it is. Returns
+  /// false when that record could not be deleted: offline, or the parent
+  /// backed out of the sign-in. The phone is cleared either way.
+  Future<bool> deleteAccount() async {
+    var forgotten = true;
+    if (isSignedIn || _code != null) {
+      try {
+        final idToken = await _codeIdToken();
+        if (idToken == null) {
+          forgotten = false;
+        } else {
+          await codeApi.forget(idToken);
+        }
+      } catch (e) {
+        if (kDebugMode) debugPrint('Code forget failed: $e');
+        forgotten = false;
+      }
+    }
     if (_live) {
       try {
         if (!_signInReady) {
@@ -493,10 +512,9 @@ class PremiumService extends ChangeNotifier {
         await GoogleSignIn.instance.disconnect();
       } catch (_) {}
     }
-    // The code stays with the account on the server; signing in again
-    // brings it back.
     await _clearCode();
     await signOut();
+    return forgotten;
   }
 
   // ------------------------------------------------------------------
