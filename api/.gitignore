@@ -1,0 +1,8 @@
+node_modules/
+.wrangler/
+# VIP_PEPPER for local runs and tools/codes.mjs
+.dev.vars
+# The codes themselves. Never commit this.
+codes.local.csv
+# The same, as exported for keeping.
+codes-export.csv

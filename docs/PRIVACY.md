@@ -4,16 +4,18 @@
 **Publisher:** Imaan and Akhlaq Talks (Private) Limited, Islamabad, Pakistan
 **Contact:** imaanakhlaq44@gmail.com
 **Published at:** https://qissora.app/app-privacy
-**Effective date:** 20 September 2026
+**Effective date:** 28 September 2026
 
 ## The short version
 
 Qissora has no ads, no analytics, no crash reporting and no third-party
-tracking, and we run no server that stores anything about you.
+tracking. The only thing our own server stores is which VIP and school codes
+have been redeemed, and then only if a parent redeems one.
 
-The app does use the internet for three things: it streams the stories from
-our own audio host, it lets a parent sign in with Google, and it sells the
-Premium subscription through Google Play. Those are described below.
+The app does use the internet for four things: it streams the stories from
+our own audio host, it lets a parent sign in with Google, it sells the
+Premium subscription through Google Play, and it checks VIP and school codes
+with our own server. Those are described below.
 
 Everything the app remembers about your family — the child's name, favourites,
 listening progress, the parents PIN — stays on the device.
@@ -25,6 +27,7 @@ listening progress, the parents PIN — stays on the device.
 | A request for a story's audio file | `audio.qissora.app`, our own host on Cloudflare R2 | The stories are not bundled in the app; they are fetched when played |
 | A Google sign-in, if a parent chooses to sign in | Google | To find a Premium subscription that belongs to that Google account |
 | A subscription purchase or restore | Google Play | To sell and check Qissora Premium |
+| A VIP or school code and a Google sign-in token, if a parent redeems a code | `api.qissora.app`, our own server on Cloudflare | To check the code and tie it to that Google account |
 
 **About the audio requests.** Like any request to any website, a request for a
 story carries the device's IP address and reaches our host's standard server
@@ -34,12 +37,24 @@ the child with them. A story is cached on the device the first time it plays,
 so it is not re-fetched on later listens and it plays offline afterwards.
 
 **About signing in.** Signing in with Google is optional and is only needed to
-buy or restore Premium. It asks Google for the account's email address, which
-the app shows in the Parents area and keeps on the device so a subscriber is
-recognised on the next launch. **We do not send that email anywhere** — there
-is no Qissora account and no Qissora server to send it to. Signing out in the
+buy or restore Premium or to redeem a VIP or school code. It asks Google for the
+account's email address, which the app shows in the Parents area and keeps on
+the device so a subscriber is recognised on the next launch. **We do not store
+that email anywhere** — there is no Qissora account. Signing out in the
 Parents area removes it from the device. What Google does with a sign-in is
 covered by [Google's Privacy Policy](https://policies.google.com/privacy).
+
+**About VIP and school codes.** A VIP code is a free year of Premium that we
+give by hand; a school code is a free month that a school hands to its
+families. When a parent redeems one, the app sends our server the code and the sign-in
+token Google issued for that parent's account, so that the redemption belongs
+to that one family. Our server asks Google whether the token is genuine and then
+keeps only: a one-way hash of the Google account's ID (not the email, name or
+token), which code it redeemed, and when it ends. That lets the
+same family get it back on a new phone, lets a school code give each family
+only one trial, and lets the app check now and
+then that the code still stands. A parent who never redeems a code never
+sends our server anything.
 
 **About payments.** Google Play handles the entire purchase. The app never
 sees or stores a card number, billing address or any other payment detail; it
@@ -61,13 +76,18 @@ us, and we never see it:
 | Count of incorrect PIN entries and any lockout deadline | To rate-limit wrong entries |
 | The signed-in parent's email address, if a parent signed in | To show which account holds Premium |
 | Whether Premium is active, as last reported by Google Play | So a subscriber keeps Premium while offline |
+| When a redeemed VIP or school code ends, and a random number our server knows it by | So it works offline, ends on time, and can be checked without signing in again |
 | Theme choice, story language, and last sleep-timer length | To keep your preferences between sessions |
 
 **Deleting it.** Clearing the app's data or uninstalling the app removes all of
 it permanently. Inside the app, the parents area can clear favourites, saved
 stories and listening history individually, and signing out removes the stored
-email address. There is no copy on any server of ours, so there is nothing for
-us to delete on request — and no way for us to restore it.
+email address. None of this has a copy on any server of ours, so there is
+nothing for us to delete on request — and no way for us to restore it.
+
+The only thing we hold is the code record described above. To have it
+deleted, write to the contact address below; the code stops working when we
+do.
 
 To cancel Premium or delete what Google holds about your purchase, use your
 Google account and Google Play; that data is theirs, not ours.
@@ -79,7 +99,8 @@ Google or Apple under their own privacy policies, not by us.
 
 ## What the app does not do
 
-- No Qissora account, and no server of ours that stores your data.
+- No Qissora account. Our server holds nothing about you beyond a redeemed
+  code's record.
 - No advertising, and no advertising identifiers.
 - No analytics, crash reporting or usage telemetry.
 - No location, contacts, camera, microphone or photo access.
@@ -107,9 +128,9 @@ features.
 
 The parts that do use the internet are the parents' parts: streaming the
 stories, and — only if a parent chooses — signing in with Google to buy or
-restore the Premium subscription. Those are intended for the adult, and a
-parent who never signs in never sends us or Google anything but a request for a
-story file.
+restore the Premium subscription or to redeem a VIP or school code. Those are intended
+for the adult, and a parent who never signs in never sends us or Google
+anything but a request for a story file.
 
 We believe this meets the US Children's Online Privacy Protection Act (COPPA)
 and the EU GDPR's provisions on children's data. We do not knowingly collect

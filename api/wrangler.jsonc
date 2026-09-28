@@ -1,0 +1,26 @@
+{
+  // The app's API: the VIP and school codes that open Premium for free.
+  //
+  //   npx wrangler d1 migrations apply qissora-codes --remote
+  //   npx wrangler deploy
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "qissora-api",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-20",
+  "routes": [{ "pattern": "api.qissora.app", "custom_domain": true }],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "qissora-codes",
+      // Printed by `npx wrangler d1 create qissora-codes`.
+      "database_id": "b22fc936-b1ba-4314-90d4-8e6eeda451a7",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    // The OAuth web client the app signs in against (PremiumService). ID
+    // tokens are issued to it, so it is what a token's audience must be.
+    "GOOGLE_CLIENT_ID": "142720400050-m3tgskacv3te4ledpb5nrml02cnk2va8.apps.googleusercontent.com"
+  }
+  // VIP_PEPPER is a secret: `npx wrangler secret put VIP_PEPPER`.
+}

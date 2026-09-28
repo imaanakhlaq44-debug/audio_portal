@@ -65,3 +65,16 @@ jobs:
       # the release pipeline (R8, shrinking, proguard rules) still builds.
       - name: Build release APK
         run: flutter build apk --release
+
+  api:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # node:sqlite, which the tests run the Worker's SQL against, needs 22.5+.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Test the codes Worker
+        run: node --test api/test/codes.test.js
