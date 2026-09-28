@@ -80,6 +80,7 @@ assets/
   covers/ images/ icon/          bundled artwork
   google_fonts/                  bundled Plus Jakarta Sans + Bricolage
                                  Grotesque (see "Fonts" below)
+api/                         VIP and school code server (Worker + D1)
 site/                        the qissora.app website (Next.js)
 tools/                       series generator, cover and upload scripts
 ```
@@ -205,6 +206,60 @@ Keep new artwork to the same recipe. Two things to watch for:
   the Play Console and App Store listings. A reachable privacy policy is
   mandatory for a child-directed app.
 
+## VIP and school codes
+
+Codes open Premium for free, from the day each family redeems one:
+
+- **VIP** (`QV-XXXX-XXXX`) — one family, for a year. For people we choose.
+- **School** (`QS-XXXX-XXXX`) — one code a school hands to all its
+  families, a month each, up to a limit set when it is made (500 by
+  default). A family gets a school trial only once, whichever school's code
+  it enters.
+
+Codes are given, never sold: selling access outside Google Play Billing
+breaks Play's payments policy.
+
+A parent enters one in the Parents area ("Have a code?"). The app signs them
+in with Google and sends the code with the Google ID token to
+[`api/`](api/), a Cloudflare Worker at `api.qissora.app` backed by a D1
+database. The redemption then belongs to that Google account: signing in on
+another phone brings it back. The app keeps the end date, so a code works
+offline and ends on time, and checks back on start so a revoked code stops
+working. During a school trial the Parents area still offers Premium, and
+says so again in the trial's last week.
+
+The database holds only peppered hashes of the codes and of the Google
+account ID. Two files exist only on the machine that runs the setup, are
+git-ignored, and must be kept somewhere safe:
+
+- `api/.dev.vars` — the pepper. Lose it and every code stops matching.
+- `api/codes.local.csv` — the readable codes.
+
+First-time setup:
+
+```bash
+cd api && npm install
+npx wrangler d1 create qissora-codes      # put the id in wrangler.jsonc
+npx wrangler d1 migrations apply qissora-codes --remote
+node ../tools/codes.mjs setup             # makes the pepper, prints it
+npx wrangler secret put VIP_PEPPER        # paste the same pepper
+npx wrangler deploy
+```
+
+Then, from the repo root:
+
+```bash
+node tools/codes.mjs vip 50
+node tools/codes.mjs school "School name" --uses 300
+node tools/codes.mjs schools 50 --uses 500    # to hand out later
+node tools/codes.mjs label QV-XXXX-XXXX "Who it went to"
+node tools/codes.mjs list
+node tools/codes.mjs export                   # api/codes-export.csv
+node tools/codes.mjs revoke QS-XXXX-XXXX
+```
+
+The Worker's tests run without Cloudflare: `cd api && npm test`.
+
 ## Releasing
 
 `pubspec.yaml` holds the version the build uses; `lib/app_info.dart` holds
@@ -244,5 +299,4 @@ Tracked, not yet done:
 - Progress and favourites are device-local; there is no backup or sync.
 - No crash reporting / analytics. (Adding any would change the store
   data-safety answers.)
-- `shared_preferences` and `intl` are declared in `pubspec.yaml` but never
-  imported.
+- `shared_preferences` is declared in `pubspec.yaml` but never imported.

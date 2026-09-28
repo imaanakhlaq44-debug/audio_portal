@@ -6,6 +6,7 @@ import 'package:flutter/material.dart' show ThemeMode;
 import 'package:hive_flutter/hive_flutter.dart';
 
 import '../models/series.dart';
+import 'access_code_api.dart';
 import 'pin_service.dart';
 
 /// Per-story playback progress persisted locally.
@@ -98,6 +99,9 @@ class StorageService {
   static const String _keySleepTimerMinutes = 'sleep_timer_minutes';
   static const String _keyPremiumCached = 'premium_cached';
   static const String _keyAccountEmail = 'account_email';
+  static const String _keyCodeKind = 'access_code_kind';
+  static const String _keyCodeUntil = 'access_code_until';
+  static const String _keyCodeTicket = 'access_code_ticket';
 
   static const String defaultPin = '1234';
   static const String defaultChildName = 'Ali';
@@ -367,6 +371,35 @@ class StorageService {
 
   static Future<void> setCachedPremium(bool value) =>
       _s.put(_keyPremiumCached, value);
+
+  /// A redeemed VIP or school code: what it was, when it ends, and the
+  /// ticket the server knows it by. Kept so it works offline and ends on
+  /// time without the server.
+  static CodeGrant? getAccessCode() {
+    final kind = CodeKind.values.asNameMap()[_s.get(_keyCodeKind)];
+    final until = _s.get(_keyCodeUntil);
+    final ticket = _s.get(_keyCodeTicket);
+    if (kind == null || until is! int || ticket is! String || ticket.isEmpty) {
+      return null;
+    }
+    return CodeGrant(
+      kind: kind,
+      expiresAt: DateTime.fromMillisecondsSinceEpoch(until),
+      ticket: ticket,
+    );
+  }
+
+  static Future<void> setAccessCode(CodeGrant grant) async {
+    await _s.put(_keyCodeKind, grant.kind.name);
+    await _s.put(_keyCodeUntil, grant.expiresAt.millisecondsSinceEpoch);
+    await _s.put(_keyCodeTicket, grant.ticket);
+  }
+
+  static Future<void> clearAccessCode() async {
+    await _s.delete(_keyCodeKind);
+    await _s.delete(_keyCodeUntil);
+    await _s.delete(_keyCodeTicket);
+  }
 
   /// The Google account a parent signed in with, shown in the Parents area.
   static String? getAccountEmail() {

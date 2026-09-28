@@ -11,6 +11,23 @@ import '../models/series_meet.dart';
 import '../models/story.dart';
 import '../models/story_data.dart';
 import 'storage_service.dart';
+import 'access_code_api.dart';
+
+/// How redeeming a VIP or school code ended.
+enum CodeOutcome {
+  unlocked,
+
+  /// The parent backed out of signing in.
+  cancelled,
+  invalid,
+  used,
+  full,
+  trialUsed,
+  expired,
+  tooManyTries,
+  offline,
+  failed,
+}
 
 /// How a purchase or restore ended.
 enum PremiumOutcome {
@@ -62,6 +79,11 @@ class PremiumPlan {
 /// Premium is the `qissora` subscription in Google Play, bought after the
 /// parent signs in with Google. What Play reports is cached, so a subscriber
 /// who opens the app offline keeps Premium until Play can be asked again.
+///
+/// A code opens Premium too: a VIP code for a year, a school code for a
+/// month, from the day it is redeemed. Codes are checked by our own server
+/// (api/) and kept apart from what Play reports, so that Play finding no
+/// subscription does not switch them off.
 class PremiumService extends ChangeNotifier {
   PremiumService._() : _live = true;
 
@@ -88,8 +110,38 @@ class PremiumService extends ChangeNotifier {
   bool _sawActiveSubscription = false;
   bool _signInReady = false;
 
-  bool _isPremium = false;
-  bool get isPremium => _isPremium;
+  /// What Google Play last reported.
+  bool _subscribed = false;
+  bool get isSubscribed => _subscribed;
+
+  /// Premium through a Google Play subscription or a live code.
+  bool get isPremium => _subscribed || hasCode;
+
+  /// The server codes are redeemed against.
+  AccessCodeApi codeApi = HttpAccessCodeApi();
+
+  /// What "now" is when deciding whether a code has ended.
+  @visibleForTesting
+  DateTime Function() clock = DateTime.now;
+
+  /// Stands in for Google sign-in when redeeming a code in tests, returning
+  /// an ID token or null for a parent who backed out.
+  @visibleForTesting
+  Future<String?> Function()? codeSignInForTesting;
+
+  CodeGrant? _code;
+
+  /// A code redeemed on this phone that has not ended yet.
+  bool get hasCode => _code != null && clock().isBefore(_code!.expiresAt);
+
+  /// What this phone's live code is: VIP or a school trial.
+  CodeKind? get codeKind => hasCode ? _code!.kind : null;
+
+  /// When this phone's code ends, or null without a live one.
+  DateTime? get codeUntil => hasCode ? _code!.expiresAt : null;
+
+  /// Whole days until this phone's code ends, or null without a live one.
+  int? get codeDaysLeft => codeUntil?.difference(clock()).inDays;
 
   String? _accountEmail;
 
@@ -128,7 +180,7 @@ class PremiumService extends ChangeNotifier {
   /// Whether [story] cannot be played at all without Premium. A series
   /// welcome is never locked: it is the thing that sells the series.
   bool isLocked(Story story) =>
-      !_isPremium && !isPreview(story) && !welcomeTrackIds.contains(story.id);
+      !isPremium && !isPreview(story) && !welcomeTrackIds.contains(story.id);
 
   /// Where a free listener's preview of [story] stops, or null when there
   /// is no limit (Premium, or a story that is locked outright).
@@ -138,7 +190,7 @@ class PremiumService extends ChangeNotifier {
   /// [duration] is the player's measured length, used when the story has no
   /// captions to go by.
   Duration? previewEnd(Story story, {Duration duration = Duration.zero}) {
-    if (_isPremium || !isPreview(story)) return null;
+    if (isPremium || !isPreview(story)) return null;
     final captions = story.captions;
     if (captions.isEmpty) {
       return duration > Duration.zero ? duration ~/ 2 : null;
@@ -158,10 +210,12 @@ class PremiumService extends ChangeNotifier {
   /// subscription this Play account already has. Call once at startup; it
   /// never throws and never shows UI.
   Future<void> init() async {
-    _isPremium = StorageService.getCachedPremium();
+    _subscribed = StorageService.getCachedPremium();
     _accountEmail = StorageService.getAccountEmail();
+    _code = StorageService.getAccessCode();
     if (!_live) return;
     notifyListeners();
+    unawaited(refreshCode());
 
     try {
       if (!await _connect()) return;
@@ -226,7 +280,7 @@ class PremiumService extends ChangeNotifier {
     await InAppPurchase.instance.restorePurchases();
     // The results arrive on the purchase stream just after the call returns.
     await Future<void>.delayed(const Duration(seconds: 2));
-    if (!_sawActiveSubscription && _isPremium) {
+    if (!_sawActiveSubscription && _subscribed) {
       _setPremium(false);
     }
     return _sawActiveSubscription;
@@ -268,8 +322,101 @@ class PremiumService extends ChangeNotifier {
 
   void _setPremium(bool value, {bool persist = true}) {
     if (persist && _live) StorageService.setCachedPremium(value);
-    if (value == _isPremium) return;
-    _isPremium = value;
+    if (value == _subscribed) return;
+    _subscribed = value;
+    notifyListeners();
+  }
+
+  // ------------------------------------------------------------------
+  // VIP and school codes
+  // ------------------------------------------------------------------
+
+  /// Redeems a VIP or school code for the Google account the parent signs
+  /// in with. The redemption then belongs to that account, on any phone it
+  /// signs in on.
+  Future<CodeOutcome> redeemCode(String code) async {
+    final String? idToken;
+    try {
+      idToken = await _codeIdToken();
+    } catch (_) {
+      return CodeOutcome.failed;
+    }
+    if (idToken == null) return CodeOutcome.cancelled;
+    try {
+      final grant = await codeApi.redeem(code.trim(), idToken);
+      // A school trial entered by a VIP family must not cut its year short.
+      final current = codeUntil;
+      if (current == null || grant.expiresAt.isAfter(current)) {
+        await _keepCode(grant);
+      }
+      return CodeOutcome.unlocked;
+    } on AccessCodeException catch (e) {
+      return switch (e.kind) {
+        CodeError.invalid => CodeOutcome.invalid,
+        CodeError.used => CodeOutcome.used,
+        CodeError.full => CodeOutcome.full,
+        CodeError.trialUsed => CodeOutcome.trialUsed,
+        CodeError.expired => CodeOutcome.expired,
+        CodeError.tooManyTries => CodeOutcome.tooManyTries,
+        CodeError.offline => CodeOutcome.offline,
+        CodeError.failed => CodeOutcome.failed,
+      };
+    } catch (_) {
+      return CodeOutcome.failed;
+    }
+  }
+
+  /// Asks the server whether this phone's code still stands, so a revoked
+  /// code stops working. Keeps it as it is when the server can't be asked.
+  Future<void> refreshCode() async {
+    final ticket = _code?.ticket;
+    if (ticket == null) return;
+    try {
+      final grant = await codeApi.check(ticket);
+      if (grant == null) {
+        await _clearCode();
+      } else {
+        await _keepCode(grant);
+      }
+    } catch (e) {
+      if (kDebugMode) debugPrint('Code check failed: $e');
+    }
+  }
+
+  /// Brings back a code this Google account redeemed on another phone.
+  Future<bool> _restoreCode(GoogleSignInAccount account) async {
+    final idToken = account.authentication.idToken;
+    if (idToken == null) return false;
+    try {
+      final grant = await codeApi.restore(idToken);
+      if (grant == null) return false;
+      await _keepCode(grant);
+      return true;
+    } catch (e) {
+      if (kDebugMode) debugPrint('Code restore failed: $e');
+      return false;
+    }
+  }
+
+  Future<String?> _codeIdToken() async {
+    if (codeSignInForTesting case final signIn?) return signIn();
+    if (!_live) return null;
+    final account = await _signIn();
+    if (account == null) return null;
+    return account.authentication.idToken ??
+        (throw StateError('Google gave no ID token'));
+  }
+
+  Future<void> _keepCode(CodeGrant grant) async {
+    _code = grant;
+    await StorageService.setAccessCode(grant);
+    notifyListeners();
+  }
+
+  Future<void> _clearCode() async {
+    if (_code == null) return;
+    _code = null;
+    await StorageService.clearAccessCode();
     notifyListeners();
   }
 
@@ -302,12 +449,18 @@ class PremiumService extends ChangeNotifier {
   /// in one step.
   Future<PremiumOutcome> signIn() async {
     if (!_live) return PremiumOutcome.unavailable;
+    final GoogleSignInAccount? account;
     try {
-      if (await _signIn() == null) return PremiumOutcome.cancelled;
+      account = await _signIn();
     } catch (_) {
       return PremiumOutcome.failed;
     }
+    if (account == null) return PremiumOutcome.cancelled;
+    final codeBack = await _restoreCode(account);
     final outcome = await restore();
+    if (codeBack && outcome != PremiumOutcome.unlocked) {
+      return PremiumOutcome.unlocked;
+    }
     return outcome == PremiumOutcome.nothingToRestore
         ? PremiumOutcome.signedIn
         : outcome;
@@ -340,6 +493,9 @@ class PremiumService extends ChangeNotifier {
         await GoogleSignIn.instance.disconnect();
       } catch (_) {}
     }
+    // The code stays with the account on the server; signing in again
+    // brings it back.
+    await _clearCode();
     await signOut();
   }
 

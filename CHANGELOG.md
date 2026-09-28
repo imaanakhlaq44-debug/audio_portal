@@ -1,5 +1,24 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- **VIP codes** — a free year of Premium for people we choose. A parent
+  enters the code in the Parents area and signs in with Google; the code then
+  belongs to that account on any phone, and nobody else can use it. The year
+  starts on the day it is redeemed, the Parents area says when it ends and
+  offers a new code in its last month.
+- **School codes** — one code a school gives all its families, opening a
+  month of Premium for each from the day they enter it, up to a set number of
+  families. A family gets one school trial, whichever school's code it
+  enters, and the Parents area keeps offering Premium through the trial.
+- Both are checked by a new Worker at `api.qissora.app` (`api/`), and a code
+  we revoke stops working the next time the phone is online.
+  `tools/codes.mjs` makes, labels, lists and revokes them.
+- The privacy policy says what that server keeps: a hash of the Google
+  account ID, the code, and when it ends.
+
 ## 1.3.1
 
 Two more Prophets, a spoken welcome on every series, and a home screen that

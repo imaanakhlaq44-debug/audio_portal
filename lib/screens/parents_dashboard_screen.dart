@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -6,12 +7,14 @@ import '../app_info.dart';
 import '../models/challenges.dart';
 import '../models/story.dart';
 import '../models/story_data.dart';
+import '../services/access_code_api.dart';
 import '../services/premium_service.dart';
 import '../services/storage_service.dart';
 import '../services/theme_controller.dart';
 import '../theme/app_theme.dart';
 import '../theme/text_direction.dart';
 import '../widgets/paywall_sheet.dart';
+import '../widgets/access_code_dialog.dart';
 
 /// Google Play's page for managing this app's subscription.
 final Uri _manageSubscriptionUri = Uri.parse(
@@ -426,6 +429,16 @@ class _AccountCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final premium = context.watch<PremiumService>();
     final isPremium = premium.isPremium;
+    final code = premium.isSubscribed ? null : premium.codeKind;
+    final codeUntil = code == null ? null : premium.codeUntil;
+    final codeDaysLeft = code == null ? null : premium.codeDaysLeft;
+    // A school trial is a taste, so the way to keep listening stays in view.
+    final canBuy = !isPremium || code == CodeKind.school;
+    // A code can be entered by a family without one, by one on a school
+    // trial, or by a VIP one whose year is nearly up.
+    final offerCode =
+        !premium.isSubscribed &&
+        (code != CodeKind.vip || (codeDaysLeft ?? 0) < 30);
     return Container(
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
@@ -465,9 +478,7 @@ class _AccountCard extends StatelessWidget {
                       style: AppTheme.headline(size: 18, color: Colors.white),
                     ),
                     Text(
-                      isPremium
-                          ? 'Every episode is unlocked'
-                          : 'Episode 1 of each series, as a preview',
+                      _planLine(isPremium, code, codeUntil, codeDaysLeft),
                       style: AppTheme.body(
                         size: 13,
                         color: Colors.white.withValues(alpha: 0.85),
@@ -479,7 +490,7 @@ class _AccountCard extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 16),
-          if (!isPremium)
+          if (canBuy)
             SizedBox(
               width: double.infinity,
               child: ElevatedButton.icon(
@@ -494,11 +505,16 @@ class _AccountCard extends StatelessWidget {
           Wrap(
             spacing: 4,
             children: [
-              if (!isPremium)
+              if (canBuy)
                 _AccountAction(
                   label: 'Restore purchase',
                   onTap: () =>
                       runPremiumAction(context, premium.restore, gate: false),
+                ),
+              if (offerCode)
+                _AccountAction(
+                  label: 'Have a code?',
+                  onTap: () => showAccessCodeDialog(context),
                 ),
               _AccountAction(
                 label: 'Manage subscription',
@@ -576,6 +592,35 @@ class _AccountCard extends StatelessWidget {
       ),
     );
   }
+}
+
+/// What the family's plan gives them, under its name on the account card.
+String _planLine(
+  bool isPremium,
+  CodeKind? code,
+  DateTime? until,
+  int? daysLeft,
+) {
+  if (code != null && until != null && daysLeft != null) {
+    final date = DateFormat.yMMMd().format(until);
+    final left = switch (daysLeft) {
+      < 1 => 'in less than a day',
+      1 => 'in 1 day',
+      _ => 'in $daysLeft days',
+    };
+    return switch (code) {
+      CodeKind.vip when daysLeft >= 30 =>
+        'VIP: every episode is unlocked until $date',
+      CodeKind.vip => 'VIP ends $left, on $date. Ask us for a new code.',
+      CodeKind.school when daysLeft >= 7 =>
+        'School trial: every episode is unlocked until $date',
+      CodeKind.school =>
+        'School trial ends $left, on $date. Get Premium to keep listening.',
+    };
+  }
+  return isPremium
+      ? 'Every episode is unlocked'
+      : 'Episode 1 of each series, as a preview';
 }
 
 /// Removes the Google account from Qissora, after saying plainly that the

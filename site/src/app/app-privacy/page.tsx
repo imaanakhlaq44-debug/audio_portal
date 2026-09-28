@@ -9,7 +9,8 @@ export const metadata: Metadata = {
   title: 'App Privacy Policy',
   description:
     'The Qissora app privacy policy: nothing about your child leaves the ' +
-    'phone, and no server of ours stores anything about your family.',
+    'phone, and our server stores nothing about your family beyond a ' +
+    'redeemed VIP or school code.',
   alternates: { canonical: '/app-privacy' },
 };
 
@@ -28,20 +29,20 @@ export default function AppPrivacyPage() {
           <strong>Publisher:</strong> Imaan and Akhlaq Talks (Private) Limited,
           Islamabad, Pakistan
           <br />
-          <strong>Effective date:</strong> 20 September 2026
+          <strong>Effective date:</strong> 28 September 2026
         </p>
 
         <h2>The short version</h2>
         <p>
           Qissora has no ads, no analytics, no crash reporting and no
-          third-party tracking, and we run no server that stores anything about
-          you.
+          third-party tracking. The only thing our own server stores is which
+          VIP and school codes have been redeemed, and then only if a parent redeems one.
         </p>
         <p>
-          The app uses the internet for three things: it streams the stories
-          from our own audio host, it lets a parent sign in with Google, and it
-          sells the Premium subscription through Google Play. Each is described
-          below.
+          The app uses the internet for four things: it streams the stories
+          from our own audio host, it lets a parent sign in with Google, it
+          sells the Premium subscription through Google Play, and it checks VIP
+          and school codes with our own server. Each is described below.
         </p>
         <p>
           Everything the app remembers about your family — the child&rsquo;s
@@ -65,6 +66,12 @@ export default function AppPrivacyPage() {
             <strong>A subscription purchase or restore,</strong> to Google Play,
             to sell and check Qissora Premium.
           </li>
+          <li>
+            <strong>A VIP or school code and a Google sign-in token,</strong> to{' '}
+            <code>api.qissora.app</code>, our own server, if a parent redeems a
+            code. It is used to check the code and tie it to that Google
+            account.
+          </li>
         </ul>
 
         <h3>About the audio requests</h3>
@@ -81,17 +88,32 @@ export default function AppPrivacyPage() {
         <h3>About signing in</h3>
         <p>
           Signing in with Google is optional, and is only needed to buy or
-          restore Premium. It asks Google for the account&rsquo;s email address,
-          which the app shows in the Parents area and keeps on the phone so a
-          subscriber is recognised on the next launch.{' '}
-          <strong>We do not send that email anywhere</strong> — there is no
-          Qissora account and no Qissora server to send it to. Signing out in
-          the Parents area removes it from the phone. What Google does with a
-          sign-in is covered by{' '}
+          restore Premium or to redeem a VIP or school code. It asks Google for the
+          account&rsquo;s email address, which the app shows in the Parents area
+          and keeps on the phone so a subscriber is recognised on the next
+          launch. <strong>We do not store that email anywhere</strong> — there
+          is no Qissora account. Signing out in the Parents area removes it from
+          the phone. What Google does with a sign-in is covered by{' '}
           <a href="https://policies.google.com/privacy">
             Google&rsquo;s Privacy Policy
           </a>
           .
+        </p>
+
+        <h3>About VIP and school codes</h3>
+        <p>
+          A VIP code is a free year of Premium that we give by hand; a school
+          code is a free month that a school hands to its families. When a
+          parent redeems one, the app sends our server the code and the sign-in
+          token Google issued for that parent&rsquo;s account, so that the
+          redemption belongs to that one family. Our server asks Google whether the token
+          is genuine and then keeps only: a one-way hash of the Google
+          account&rsquo;s ID (not the email, name or token), which code it
+          redeemed, and when it ends. That lets the same
+          family get it back on a new phone, lets a school code give each
+          family only one trial, and lets the app check now
+          and then that the code still stands. A parent who never redeems a
+          code never sends our server anything.
         </p>
 
         <h3>About payments</h3>
@@ -133,6 +155,10 @@ export default function AppPrivacyPage() {
             subscriber keeps Premium while offline.
           </li>
           <li>
+            When a redeemed VIP or school code ends, and a random number our
+            server knows it by, so it works offline and ends on time.
+          </li>
+          <li>
             Theme choice, story language and the last sleep-timer length.
           </li>
         </ul>
@@ -142,9 +168,14 @@ export default function AppPrivacyPage() {
           Clearing the app&rsquo;s data or uninstalling the app removes all of
           it permanently. Inside the app, the Parents area can clear favourites,
           saved stories and listening history individually, and signing out
-          removes the stored email address. There is no copy on any server of
-          ours, so there is nothing for us to delete on request — and no way for
-          us to restore it.
+          removes the stored email address. None of this has a copy on any
+          server of ours, so there is nothing for us to delete on request — and
+          no way for us to restore it.
+        </p>
+        <p>
+          The only thing we hold is the code record described above. To
+          have it deleted, write to the contact address below; the code stops
+          working when we do.
         </p>
         <p>
           To cancel Premium or delete what Google holds about your purchase, use
@@ -162,7 +193,10 @@ export default function AppPrivacyPage() {
 
         <h2>What the app does not do</h2>
         <ul>
-          <li>No Qissora account, and no server of ours that stores your data.</li>
+          <li>
+            No Qissora account. Our server holds nothing about you beyond a
+            redeemed code&rsquo;s record.
+          </li>
           <li>No advertising, and no advertising identifiers.</li>
           <li>No analytics, crash reporting or usage telemetry.</li>
           <li>No location, contacts, camera, microphone or photo access.</li>
@@ -210,7 +244,8 @@ export default function AppPrivacyPage() {
         <p>
           The parts that do use the internet are the parents&rsquo; parts:
           streaming the stories, and — only if a parent chooses — signing in
-          with Google to buy or restore Premium. A parent who never signs in
+          with Google to buy or restore Premium or to redeem a VIP or school code. A
+          parent who never signs in
           never sends us or Google anything but a request for a story file.
         </p>
         <p>
