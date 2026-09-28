@@ -1,6 +1,9 @@
 # Changelog
 
-## Unreleased
+## 1.3.2
+
+Codes that open Premium for free: VIP codes for people we choose, and school
+codes a school hands to all its families.
 
 ### Added
 
@@ -18,6 +21,12 @@
   `tools/codes.mjs` makes, labels, lists and revokes them.
 - The privacy policy says what that server keeps: a hash of the Google
   account ID, the code, and when it ends.
+
+### Changed
+
+- **Delete account** in the Parents area also deletes the family's code
+  records from the server, after Google confirms the account. The steps are
+  at qissora.app/delete-data, which is the Play Store's deletion link.
 
 ## 1.3.1
 
