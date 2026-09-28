@@ -79,3 +79,21 @@ key.properties
 # must not be committed; Plus Jakarta Sans is fetched per the note in that
 # script. Both are found through the fontconfig it writes.
 /tools/fonts/
+
+# Working files kept out of the repo: design sources, cover masters, store
+# assets and notes.
+/About Us.txt
+/FAQs.txt
+/*.pdf
+/Qissora logo.png
+/covers/
+/docs/store/
+/docs/store-listing.md
+/docs/play-data-safety.md
+/docs/challenges.md
+/docs/COVER-PROMPTS.md
+/site/public/file.svg
+/site/public/globe.svg
+/site/public/next.svg
+/site/public/vercel.svg
+/site/public/window.svg

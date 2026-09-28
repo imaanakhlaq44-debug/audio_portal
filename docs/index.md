@@ -9,7 +9,5 @@ Premium; that is the only part of the app that involves an account, and it is
 optional.
 
 - [Privacy Policy](PRIVACY.md)
-- [Play Store data-safety answers](play-data-safety.md)
-- [Play Store listing draft](store-listing.md)
 
 Contact: imaanakhlaq44@gmail.com

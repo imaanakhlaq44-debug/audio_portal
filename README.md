@@ -204,9 +204,6 @@ Keep new artwork to the same recipe. Two things to watch for:
   `[[...]]` placeholders, publish it at a public URL, and link that URL from
   the Play Console and App Store listings. A reachable privacy policy is
   mandatory for a child-directed app.
-- [`docs/play-data-safety.md`](docs/play-data-safety.md) — the Data safety and
-  Families answers, each with the reason behind it, plus the list of changes
-  that would invalidate them.
 
 ## Releasing
 
@@ -232,8 +229,8 @@ Tracked, not yet done:
   the Data safety answers redone (an ads SDK collects device identifiers, which
   turns several of them), and the "no ads" claim rewritten in the thirteen
   places it appears: `faq_screen.dart`, `paywall_sheet.dart`, `docs/PRIVACY.md`
-  and the site's copy of it, `docs/store-listing.md`,
-  `docs/play-data-safety.md`, `docs/index.md`, four website components, and the
+  and the site's copy of it, the store listing, the Data safety answers,
+  `docs/index.md`, four website components, and the
   feature graphic. Two things to design rather than bolt on: the end-of-episode
   interstitial cuts across series auto-continuing into the next episode, which
   is a headline feature and a listing claim; and full-screen ads shown to
@@ -246,6 +243,6 @@ Tracked, not yet done:
   though its audio is served remotely.
 - Progress and favourites are device-local; there is no backup or sync.
 - No crash reporting / analytics. (Adding any would change the store
-  data-safety answers — see `docs/play-data-safety.md`.)
+  data-safety answers.)
 - `shared_preferences` and `intl` are declared in `pubspec.yaml` but never
   imported.
